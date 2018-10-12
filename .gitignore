@@ -1,5 +1,8 @@
 ---------------------------------------java.ignore
+*.class
 
 -------------------------------------------idea.ignore
 
-/out
+out/
+.idea/workspace.xml
+.idea/caches
