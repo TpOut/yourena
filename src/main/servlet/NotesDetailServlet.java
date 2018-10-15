@@ -30,7 +30,6 @@ public class NotesDetailServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         resp.setCharacterEncoding("UTF-8");
-        resp.setContentType("text/plain; UTF-8");
 
 //        resp.setContentType("application/octet-stream");
 
@@ -44,6 +43,11 @@ public class NotesDetailServlet extends HttpServlet {
             suffix = requestURL.toString();
         }else {
             suffix = requestURL.substring(i + WEB_SITE.length(), requestURL.length());
+        }
+        if(suffix.toLowerCase().endsWith(".html")){
+            resp.setContentType("text/html; UTF-8");
+        }else{
+            resp.setContentType("text/plain; UTF-8");
         }
         LogUtil.saveToFile(suffix);
 

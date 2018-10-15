@@ -1,6 +1,7 @@
 package main.util;
 
 import java.io.File;
+import java.util.regex.Pattern;
 
 import main.config.ConfigConstant;
 
@@ -68,14 +69,14 @@ public class FileUtil {
         if (null == path || path.length() == 0) {
             return "invalid path";
         }
-        String[] split = path.split(File.separator);
+        String[] split = path.split(Pattern.quote(File.separator));
         int length = split.length;
         StringBuilder result = new StringBuilder();
         for (int i = length - 1; i >= 0 && !split[i].equals(ConfigConstant.NOTES_NAME); i--) {
-            result.insert(0, File.separator);
+            result.insert(0, "/");
             result.insert(0, split[i]);
         }
-        return result.insert(0, File.separator).insert(0, ConfigConstant.NOTES_NAME).substring(0, result.length() - 1);
+        return result.insert(0, "/").insert(0, ConfigConstant.NOTES_NAME).substring(0, result.length() - 1);
     }
 
 }
