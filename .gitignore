@@ -4,5 +4,7 @@
 -------------------------------------------idea.ignore
 
 out/
+!out/notes/
+
 .idea/workspace.xml
 .idea/caches
