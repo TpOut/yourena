@@ -2,6 +2,8 @@ package main.util;
 
 import java.io.File;
 
+import main.config.ConfigConstant;
+
 /**
  * Created by shengjieli on 18-10-10.<br>
  * Email address: 416756910@qq.com<br>
@@ -31,7 +33,7 @@ public class FileUtil {
 
         StringBuilder sb = new StringBuilder();
         sb.append("{").append("\"name\":\"").append(topDirectory.getName()).append("\"")
-                .append(",\"url\":\"").append(topDirectory.getAbsolutePath()).append("\"")
+                .append(",\"url\":\"").append(pathClip(topDirectory.getAbsolutePath())).append("\"")
                 .append(",\"type\":\"").append("directory").append("\"");
         if (topDirectory.isDirectory()) {
             sb.append(",\"sub\":[");
@@ -49,7 +51,7 @@ public class FileUtil {
                 sb.append(getAllFileName(f));
             } else {
                 sb.append("{").append("\"name\":\"").append(f.getName()).append("\"")
-                        .append(",\"url\":\"").append(f.getAbsolutePath()).append("\"")
+                        .append(",\"url\":\"").append(pathClip(f.getAbsolutePath())).append("\"")
                         .append(",\"type\":\"").append("normal").append("\"}");
             }
         }
@@ -60,6 +62,20 @@ public class FileUtil {
 
         sb.append("}");
         return sb.toString();
+    }
+
+    public static String pathClip(String path) {
+        if (null == path || path.length() == 0) {
+            return "invalid path";
+        }
+        String[] split = path.split(File.separator);
+        int length = split.length;
+        StringBuilder result = new StringBuilder();
+        for (int i = length - 1; i >= 0 && !split[i].equals(ConfigConstant.NOTES_NAME); i--) {
+            result.insert(0, File.separator);
+            result.insert(0, split[i]);
+        }
+        return result.insert(0, File.separator).insert(0, ConfigConstant.NOTES_NAME).substring(0, result.length() - 1);
     }
 
 }

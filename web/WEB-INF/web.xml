@@ -4,14 +4,26 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+    <!--所有文件详情-->
     <servlet-mapping>
-        <servlet-name>MainListServlet</servlet-name>
-        <url-pattern>/MainList</url-pattern>
+        <servlet-name>NotesDetailServlet</servlet-name>
+        <url-pattern>/notes/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>MainListServlet</servlet-name>
-        <servlet-class>main.servlet.MainListServlet</servlet-class>
+        <servlet-name>NotesDetailServlet</servlet-name>
+        <servlet-class>main.servlet.NotesDetailServlet</servlet-class>
+    </servlet>
+
+    <!--遍历文件列表-->
+    <servlet-mapping>
+        <servlet-name>NotesListServlet</servlet-name>
+        <url-pattern>/NotesList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>NotesListServlet</servlet-name>
+        <servlet-class>main.servlet.NotesListServlet</servlet-class>
     </servlet>
 
 </web-app>

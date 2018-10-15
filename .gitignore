@@ -3,8 +3,9 @@
 
 -------------------------------------------idea.ignore
 
-out/
+out/*
 !out/notes/
 
+.idea/uiDesigner.xml
 .idea/workspace.xml
 .idea/caches

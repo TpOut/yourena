@@ -1,9 +1,9 @@
 var mainElement = document.querySelector('main')
 
-Ajax.get('http://localhost:8080/MainList', function (res) {
+Ajax.get('http://localhost:8080/NotesList', function (res) {
   try {
     res = JSON.parse(res)
-    findAllName(res, 0)
+    addAllName(res, 0)
   } catch(err) {
     res = {}
   }
@@ -16,7 +16,7 @@ Ajax.get('http://localhost:8080/MainList', function (res) {
  * 目前的0级目录表示根目录，1级目录表示分类，2级目录表示具体文件
  */
 
-function findAllName (res, namePriority) {
+function addAllName (res, namePriority) {
   if (namePriority === 0) {
   }else if (namePriority === 1) {
     var namePara = document.createElement('nav')
@@ -51,7 +51,7 @@ function findAllName (res, namePriority) {
       namePriority += 1
     }
     for (var i = 0;i < length; i++) {
-      findAllName(sub[i], namePriority)
+      addAllName(sub[i], namePriority)
     }
   } catch (error) {}
 }
