@@ -31,7 +31,7 @@ function addAllName (res, namePriority) {
     if(res['type'] === "normal"){
       var nameLink = document.createElement('a')
       nameLink.textContent = res['name']
-      nameLink.href = res['url']
+      nameLink.href = "./detail-container.html?path=" + res['url']
       namePara.appendChild(nameLink)
     }else{
       namePara.textContent = res['name']
