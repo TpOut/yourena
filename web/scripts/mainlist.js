@@ -1,6 +1,6 @@
 var mainElement = document.querySelector('main')
 
-Ajax.get('http://localhost:8080/NotesList', function (res) {
+Ajax.get(baseUrl + 'NotesList', function (res) {
   try {
     res = JSON.parse(res)
     addAllName(res, 0)
