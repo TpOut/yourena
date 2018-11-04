@@ -5,30 +5,25 @@ html, body {
     width: 100%;
     margin: 0;
     padding: 0;
-}
-
-h1 {
-    position: absolute;
-    top: 0;
-    z-index: 2;
+    font-size: 10px
 }
 
 p {
     margin: 0;
 }
 
-nav {
-    width: 50%;
+li {
+    margin-left: 2em;
 }
 
 header {
-    margin: 0;
+    margin: 3em;
     position: relative;
-    height: 12em;
 }
 
 main {
     display: flex;
+    clear: both;
 }
 
 footer {
@@ -41,16 +36,44 @@ footer {
 
 /*header*/
 
-#header_bg {
-    position: absolute;
-    top: 0;
-    z-index: 1;
+#top_description h1 {
+    font-size: 3em;
+}
+
+#top_description nav {
+    float: bottom;
+}
+
+#top_description nav ul li {
+    float: left;
+    font-size: 2em;
+    margin-left: 2em;
+}
+
+#top_description nav ul li:last-child {
+    margin-right: 2em;
+}
+
+#top_content h1 {
+    float: bottom;
+}
+
+#top_bg {
+    float: right;
+}
+
+#top_content, #top_avatar, #top_description {
+    float: left;
 }
 
 /*main*/
 
+main nav {
+    flex: 1;
+}
+
 .section1 {
-    padding: 20px 20px;
+    padding: 2em 2em;
     background: white;
     color: #212121;
     font-size: 1.5em;
@@ -60,18 +83,18 @@ footer {
     padding: 10px 10px;
     background: #bdbdbd;
     color: #212121;
-    font-size: 1em;
+    font-size: 1.5em;
 }
 
 .section3 {
     padding: 8px 8px;
     background: white;
     color: black;
-    font-size: 0.8em;
+    font-size: 1.2em;
 }
 
 /*other*/
-
+/* 实现footer一直保留在底部的方法，5em取自footer的总高度 */
 #exclude_footer {
     min-height: calc(100% - 5em);
 }

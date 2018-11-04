@@ -7,40 +7,57 @@
 
     <title>TpOut's site</title>
 
-    <link rel="stylesheet" href="styles/index-main.css">
+    <link rel="stylesheet" href="styles/index.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-    <div id="exclude_footer">
-        <header>
-            <canvas id="top_bg"></canvas>
-            <h1>TpOut的博客</h1>
-        </header>
+<div id="exclude_footer">
+    <header>
+        <div id="top_content">
+            <picture id="top_avatar">
+                <source media="(max-width: 799px)" srcset="">
+                <source media="(min-width: 800px)" srcset="">
+                <img src="/imgs/author_avatar.png" alt="Author's avatar">
+            </picture>
+            <div id="top_description">
+                <h1>TpOut的博客</h1>
 
-        <main>
+                <nav>
+                    <ul>
+                        <li><a href="#"></a>主线</li>
+                        <li><a href="#"></a>图册</li>
+                        <li><a href="#"></a>博客</li>
+                        <li><a href="#"></a>随笔</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <canvas id="top_bg"></canvas>
+    </header>
+
+    <main>
 
 
-        </main>
+    </main>
 
-        <aside>
+    <aside>
 
-        </aside>
-    </div>
+    </aside>
+</div>
 
-    <footer>
-        <p>
-            如有建议，敬请联系：416756910@qq.com<br>
-            由于能力有限，本网站只经过个人使用的chrome测试，并且短期内不准备处理兼容问题
-        </p>
-    </footer>
+<footer>
+    <p>
+        如有建议，敬请联系：416756910@qq.com<br>
+        由于能力有限，本网站只经过个人使用的chrome测试，并且短期内不准备处理兼容问题
+    </p>
+</footer>
 
-    <script src="./scripts/native-ajax.js"></script>
-    <script src="scripts/detail-content.js"></script>
+<script src="scripts/index/ball.js"></script>
 
-    <script src="./scripts/ball.js"></script>.
-    <script src="./scripts/config.js"></script>
-    <script src="./scripts/mainlist.js"></script>
+<script src="scripts/net/native-ajax.js"></script>
+<script src="./scripts/config.js"></script>
+<script src="scripts/index/mainlist.js"></script>
 
 </body>
 
