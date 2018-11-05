@@ -1,4 +1,4 @@
-package main.servlet;
+package main.notes.servlet;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import main.notes.util.NotesServletUtil;
 import main.util.LogUtil;
 
 import static main.config.ConfigConstant.PROJECT_NAME;
@@ -29,7 +30,7 @@ public class NotesDetailServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        resp.setCharacterEncoding("UTF-8");
+        NotesServletUtil.setCharset(resp);
 
 //        resp.setContentType("application/octet-stream");
 

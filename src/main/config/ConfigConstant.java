@@ -13,5 +13,7 @@ public class ConfigConstant {
 
     public static final String PROJECT_NAME = "yourena";
     public static final String NOTES_NAME = "notes";
+    public static final String ARTICLE_NAME = "article";
+    public static final String ESSAY_NAME = "essay";
 
 }

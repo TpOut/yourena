@@ -37,8 +37,26 @@
     </header>
 
     <main>
+        <div id="main_left">
+            <picture id="main_album">
+                <source media="(max-width: 799px)" srcset="">
+                <source media="(min-width: 800px)" srcset="">
+                <img src="/imgs/album/back.jpg" width="320" height="320" alt="Author's paint album">
+            </picture>
+            <div id="main_data">
+                <p>访问数量：<span id="index_access_num">0</span></p>
+            </div>
+            <!--目前计划做成动态或者评论-->
+            <div id="main_holder">
 
+            </div>
+        </div>
+        <ul id="article_list">
 
+        </ul>
+        <ul id="essay_list">
+
+        </ul>
     </main>
 
     <aside>
@@ -53,11 +71,14 @@
     </p>
 </footer>
 
-<script src="scripts/index/ball.js"></script>
+<script src="./scripts/index/ball.js"></script>
 
-<script src="scripts/net/native-ajax.js"></script>
+<script src="./scripts/net/native-ajax.js"></script>
 <script src="./scripts/config.js"></script>
-<script src="scripts/index/mainlist.js"></script>
+<!--这里还不知道怎么合适的处理命名冲突问题，所以先抽一个js 出来-->
+<script src="./scripts/index/list-logic.js"></script>
+<script src="./scripts/index/article-list.js"></script>
+<script src="./scripts/index/essay-list.js"></script>
 
 </body>
 

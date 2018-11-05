@@ -12,18 +12,40 @@
 
     <servlet>
         <servlet-name>NotesDetailServlet</servlet-name>
-        <servlet-class>main.servlet.NotesDetailServlet</servlet-class>
+        <servlet-class>main.notes.servlet.NotesDetailServlet</servlet-class>
+    </servlet>
+
+    <!--文章列表-->
+    <servlet-mapping>
+        <servlet-name>ArticleListServlet</servlet-name>
+        <url-pattern>/ArticleList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ArticleListServlet</servlet-name>
+        <servlet-class>main.notes.servlet.ArticleListServlet</servlet-class>
+    </servlet>
+
+    <!--随笔列表-->
+    <servlet-mapping>
+        <servlet-name>EssayListServlet</servlet-name>
+        <url-pattern>/EssayList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EssayListServlet</servlet-name>
+        <servlet-class>main.notes.servlet.EssayListServlet</servlet-class>
     </servlet>
 
     <!--遍历文件列表-->
     <servlet-mapping>
-        <servlet-name>NotesListServlet</servlet-name>
-        <url-pattern>/NotesList</url-pattern>
+        <servlet-name>NoteListServlet</servlet-name>
+        <url-pattern>/NoteList</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>NotesListServlet</servlet-name>
-        <servlet-class>main.servlet.NotesListServlet</servlet-class>
+        <servlet-name>NoteListServlet</servlet-name>
+        <servlet-class>main.notes.servlet.NoteListServlet</servlet-class>
     </servlet>
 
 </web-app>
