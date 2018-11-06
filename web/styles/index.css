@@ -13,7 +13,17 @@ p {
 }
 
 li {
-    margin-left: 2em;
+    list-style-type: none;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0 0 0 2em;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
 }
 
 header {
@@ -75,44 +85,102 @@ footer {
     border: 2em dimgray;
 }
 
+#main_album {
+    box-shadow: 0 0.5em 1em 0 rgba(0, 0, 0, 0.2), 0 0.8em 2em 0 rgba(0, 0, 0, 0.19);
+}
+
+#main_data {
+    margin-top: 2em;
+}
+
+/*主列表项*/
+
+.section1 {
+    background: #2196f3;
+    color: #212121;
+    padding: 0.5em;
+    box-shadow: 0 0.5em 1em 0 rgba(0, 0, 0, 0.2), 0 0.8em 2em 0 rgba(0, 0, 0, 0.19);
+}
+
+.section2 {
+    background: white;
+    color: #757575;
+    padding: 0.3em;
+    margin: 0 0 1em 0;
+    box-shadow: 0 0.5em 1em 0 rgba(0, 0, 0, 0.2), 0 0.8em 2em 0 rgba(0, 0, 0, 0.19);
+}
+
+.section1 p {
+    font-size: 3em;
+}
+
+.section2 p:first-child {
+    font-size: 2em;
+}
+
+.section2 time {
+    font-size: 1.5em;
+}
+
+.section2 p:last-child {
+    font-size: 1.5em;
+}
+
 #article_list {
     flex: 3;
+    border-radius: 2em;
+    box-shadow: 0 0.5em 1em 0 rgba(0, 0, 0, 0.2), 0 0.8em 2em 0 rgba(0, 0, 0, 0.19);
 }
 
-#article_list ul li {
-    margin: 0;
-    padding: 0;
+#article_list > .section2 {
+    margin: 1em 0;
+    padding: 0.5em 1em;
+    background: white;
 }
 
-#article_list ul li p {
-    margin: 0;
-    padding: 0;
-    font-size: 1.5em;
+#article_list > .section2 p:first-child {
+    font-size: 2.5em;
+    padding-bottom: 0.5em;
+}
+
+#article_list > .section2 time {
+    width: 100%;
+}
+
+#article_list > .section2 p:last-child {
+    float: left;
+    margin-right: 0.5em;
 }
 
 #essay_list {
     flex: 2;
+    margin: 2em;
+    box-shadow: 0 0.5em 1em 0 rgba(0, 0, 0, 0.2), 0 0.8em 2em 0 rgba(0, 0, 0, 0.19);
 }
 
-.section1 {
-    padding: 2em 2em;
-    background: white;
-    color: #212121;
-    font-size: 1.5em;
+#essay_list > .section1 {
+    clear: both;
 }
 
-.section2 {
-    padding: 10px 10px;
-    background: #bdbdbd;
-    color: #212121;
-    font-size: 1.5em;
+#essay_list > .section2 {
+    float: left;
+    margin: 0.5em;
 }
 
-.section3 {
-    padding: 8px 8px;
-    background: white;
-    color: black;
-    font-size: 1.2em;
+#essay_list > .section2 p:first-child {
+    float: left;
+    padding: 0 0.5em;
+}
+
+#essay_list > .section2 time {
+    padding: 0.5em;
+    text-align: center;
+    float: right;
+    background: #DDBEFB;
+}
+
+#essay_list > .section2 p:last-child {
+    float: bottom;
 }
 
 /*other*/

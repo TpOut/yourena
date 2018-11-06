@@ -4,47 +4,57 @@
  * 目前的0级目录表示根目录，1级目录表示分类，2级目录表示具体文件
  */
 
-function addAllName(res, mainElement, namePriority) {
-    console.log("start" + namePriority + " : " + mainElement.toLocaleString())
-    var item;
+function addAllName(res, mainElement, namePriority, timeChangeLine) {
+
     var title;
     var time;
     var tag;
+    var realItem;
 
     if (namePriority == 0) {
+    } else {
+        realItem = document.createElement('li')
+        realItem.className = "section" + namePriority;
 
-    }
-    if (namePriority === 1) {
-        item = document.createElement('li')
-        title = document.createElement("p")
+        if (namePriority === 1) {
 
-        title.className = "section" + namePriority
-        title.innerText = res['name']
+            title = document.createElement("p")
+            title.innerText = res['name']
 
-        item.appendChild(title)
-        mainElement.appendChild(item)
-    }
-    if (namePriority === 2) {
-        item = document.createElement('li')
-        title = document.createElement("p")
-        time = document.createElement("time")
-        // tag = document.createElement("")
-
-        time.dateTime = "1977.01.01"
-        title.className = "section" + namePriority
-        title.innerText = res['name']
-
-        item.appendChild(title)
-        item.appendChild(time)
-
-        if (res['type'] === "normal") {
-            var link = document.createElement('a')
-            link.href = "./detail-container.html?path=" + res['url']
-            link.appendChild(item)
-            mainElement.appendChild(link)
-        } else {
-            mainElement.appendChild(item)
+            realItem.appendChild(title)
         }
+        if (namePriority === 2) {
+
+            title = document.createElement("p")
+            title.innerText = res['name']
+
+            time = document.createElement("time")
+            time.dateTime = "1977.01.01"
+            if (timeChangeLine) {
+                time.innerHTML = "1977<br>01-01"
+            } else {
+                time.textContent = "1977.01.01"
+            }
+
+            tag = document.createElement("p")
+            tag.textContent = "原创"
+
+            if (res['type'] === "normal") {
+                var virtualItem = document.createElement('a')
+                virtualItem.href = "./detail-container.html?path=" + res['url']
+                virtualItem.appendChild(title)
+                virtualItem.appendChild(time)
+                virtualItem.appendChild(tag)
+
+                realItem.appendChild(virtualItem)
+            } else {
+                realItem.appendChild(title)
+                realItem.appendChild(time)
+                realItem.appendChild(tag)
+            }
+        }
+
+        mainElement.appendChild(realItem)
     }
 
     try {
@@ -55,7 +65,7 @@ function addAllName(res, mainElement, namePriority) {
             namePriority += 1
         }
         for (var i = 0; i < length; i++) {
-            addAllName(sub[i], mainElement, namePriority)
+            addAllName(sub[i], mainElement, namePriority, timeChangeLine)
         }
     } catch (error) {
     }
