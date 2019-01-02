@@ -1,0 +1,960 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>多APK · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="build-optimize.html" />
+    
+    
+    <link rel="prev" href="build-dependency.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Summary</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Android</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../android/aar.html">
+            
+                <a href="../android/aar.html">
+            
+                    
+                    AAR
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../android/app-bundles.html">
+            
+                <a href="../android/app-bundles.html">
+            
+                    
+                    app bundles
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../android/gc-log.html">
+            
+                <a href="../android/gc-log.html">
+            
+                    
+                    log中gc的信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../android/java8.html">
+            
+                <a href="../android/java8.html">
+            
+                    
+                    Java8的支持
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../android/sign-apk.html">
+            
+                <a href="../android/sign-apk.html">
+            
+                    
+                    APK签名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../proguard/note.html">
+            
+                <a href="../proguard/note.html">
+            
+                    
+                    混淆说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="../test/overview.html">
+            
+                <a href="../test/overview.html">
+            
+                    
+                    测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="../android/note.html">
+            
+                <a href="../android/note.html">
+            
+                    
+                    其他
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="../android/link.html">
+            
+                <a href="../android/link.html">
+            
+                    
+                    链接
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Android Studio</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../android-studio/window-and-keyboard.html">
+            
+                <a href="../android-studio/window-and-keyboard.html">
+            
+                    
+                    界面和快捷键
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" >
+            
+                <span>
+            
+                    
+                    功能
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../android-studio/feature/apk-analyzer.html">
+            
+                <a href="../android-studio/feature/apk-analyzer.html">
+            
+                    
+                    APK解析器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../android-studio/feature/app-profiler.html">
+            
+                <a href="../android-studio/feature/app-profiler.html">
+            
+                    
+                    APK分析器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../android-studio/feature/debug-run.html">
+            
+                <a href="../android-studio/feature/debug-run.html">
+            
+                    
+                    调试和运行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.4" data-path="../android-studio/feature/image.html">
+            
+                <a href="../android-studio/feature/image.html">
+            
+                    
+                    图像相关
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.5" data-path="../android-studio/feature/instant-run.html">
+            
+                <a href="../android-studio/feature/instant-run.html">
+            
+                    
+                    InstantRun
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.6" data-path="../android-studio/feature/lint.html">
+            
+                <a href="../android-studio/feature/lint.html">
+            
+                    
+                    Lint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.7" data-path="../android-studio/feature/res-editor.html">
+            
+                <a href="../android-studio/feature/res-editor.html">
+            
+                    
+                    翻译、布局、主题编辑器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.8" data-path="../android-studio/feature/template.html">
+            
+                <a href="../android-studio/feature/template.html">
+            
+                    
+                    模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.9" data-path="../android-studio/feature/note.html">
+            
+                <a href="../android-studio/feature/note.html">
+            
+                    
+                    其他
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../android-studio/link.html">
+            
+                <a href="../android-studio/link.html">
+            
+                    
+                    链接
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Gradle（Plugins）</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="build-cache.html">
+            
+                <a href="build-cache.html">
+            
+                    
+                    缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="build-dependency.html">
+            
+                <a href="build-dependency.html">
+            
+                    
+                    依赖
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.3" data-path="build-multiple-apk.html">
+            
+                <a href="build-multiple-apk.html">
+            
+                    
+                    多APK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="build-optimize.html">
+            
+                <a href="build-optimize.html">
+            
+                    
+                    优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="CI.html">
+            
+                <a href="CI.html">
+            
+                    
+                    持续集成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="command.html">
+            
+                <a href="command.html">
+            
+                    
+                    命令行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="g-build-variants.html">
+            
+                <a href="g-build-variants.html">
+            
+                    
+                    变体
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="g-enable-multidex.html">
+            
+                <a href="g-enable-multidex.html">
+            
+                    
+                    Multidex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.9" data-path="g-merge-manifest.html">
+            
+                <a href="g-merge-manifest.html">
+            
+                    
+                    Manifest合并
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10" data-path="g-README.html">
+            
+                <a href="g-README.html">
+            
+                    
+                    其他2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.11" data-path="g-shrink-code-resource.html">
+            
+                <a href="g-shrink-code-resource.html">
+            
+                    
+                    资源缩减
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.12" data-path="g-tips-recipes.html">
+            
+                <a href="g-tips-recipes.html">
+            
+                    
+                    其他1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.13" data-path="note.html">
+            
+                <a href="note.html">
+            
+                    
+                    其他
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">命令行工具</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../commandline-tool/adb.html">
+            
+                <a href="../commandline-tool/adb.html">
+            
+                    
+                    adb
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../commandline-tool/note.html">
+            
+                <a href="../commandline-tool/note.html">
+            
+                    
+                    其他
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">模拟器</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../emulator/intro.html">
+            
+                <a href="../emulator/intro.html">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../emulator/struct-directory.html">
+            
+                <a href="../emulator/struct-directory.html">
+            
+                    
+                    文件结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="../emulator/console.html">
+            
+                <a href="../emulator/console.html">
+            
+                    
+                    控制台
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="../emulator/commandline.html">
+            
+                <a href="../emulator/commandline.html">
+            
+                    
+                    命令行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.5" data-path="../emulator/note.html">
+            
+                <a href="../emulator/note.html">
+            
+                    
+                    其他
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">GooglePlay</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../google-play/link.html">
+            
+                <a href="../google-play/link.html">
+            
+                    
+                    相关链接
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">混淆</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../proguard/note.html">
+            
+                <a href="../proguard/note.html">
+            
+                    
+                    其他
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">测试</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../test/link.html">
+            
+                <a href="../test/link.html">
+            
+                    
+                    链接
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2" data-path="../test/overview.html">
+            
+                <a href="../test/overview.html">
+            
+                    
+                    概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">REFERENCE</li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../link.html">
+            
+                <a href="../link.html">
+            
+                    
+                    未分类索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >多APK</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>&#x53D8;&#x4F53;&#x867D;&#x7136;&#x53EF;&#x4EE5;&#x628A;&#x591A;&#x79CD;&#x60C5;&#x51B5;&#x5199;&#x5728;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#xFF0C;&#x4F46;&#x662F;&#x7F3A;&#x70B9;&#x5F88;&#x660E;&#x663E;&#xFF0C;&#x592A;&#x5927;&#x4E86;&#x3002;&#x3002;<br>&#x6240;&#x4EE5;&#x591A;apk&#x4E5F;&#x662F;&#x6709;&#x5E94;&#x7528;&#x573A;&#x666F;&#x7684;&#xFF0C;&#x9002;&#x7528;&#x9002;&#x5F53;&#x7684;&#x5C4F;&#x5E55;&#x5206;&#x8FA8;&#x7387;&#x3001;ABI  </p>
+<h2 id="&#x914D;&#x7F6E;">&#x914D;&#x7F6E;</h2>
+<p>&#x5728;builde.gradle&#x4E2D;&#xFF0C;&#x6DFB;&#x52A0;</p>
+<pre><code>splits {
+    density {
+        enable = true //&#x6253;&#x5305;&#x591A;&#x4E2A;apk
+
+        exclude &quot;&quot;,&quot;&quot; //&#x4ECE;&#x6253;&#x5305;&#x5217;&#x8868;&#x4E2D;&#x53BB;&#x9664;
+
+        reset() //&#x5C06;&#x9ED8;&#x8BA4;&#x5217;&#x8868;&#x6E05;&#x7A7A;
+        include &quot;ldpi&quot;, &quot;xxhdpi&quot;  //&#x52A0;&#x5165;&#x6253;&#x5305;&#x5217;&#x8868;
+
+        compatibleScreens &quot;&quot;,&quot;&quot;  //&#x5728;manifest&#x4E2D;&#x63D2;&#x5165;&#x3002;&#x6BD4;&#x5728;build.gradle&#x4E2D;&#x7BA1;&#x7406;&#x65B9;&#x4FBF;&#x4E00;&#x4E9B;
+    }
+    abi {
+       enable;exclue;reset();include //&#x7C7B;&#x4F3C;  
+
+       universalApk = true //&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x9002;&#x7528;&#x6240;&#x6709;abi&#x7684;apk
+    }
+    //&#x76EE;&#x524D;&#x53EA;&#x652F;&#x6301;Android Instant App
+    language {
+
+    }
+}
+</code></pre><p>density&#x4E2D;&#x6CA1;&#x6709;universalApk&#x662F;&#x56E0;&#x4E3A;&#x9ED8;&#x8BA4;&#x4F1A;&#x521B;&#x5EFA;&#x9002;&#x7528;&#x6240;&#x6709;screen&#x7684;apk  </p>
+<p>gradle&#x63D2;&#x4EF6;3.1.0&#x4EE5;&#x4E0A;&#xFF0C;&#x4E0D;&#x5305;&#x542B;mips,mips64,armeabi&#xFF1B;&#x56E0;&#x4E3A;NDK r17&#x4E0D;&#x518D;&#x652F;&#x6301;  </p>
+<p>&#x751F;&#x6210;&#x7684;&#x540D;&#x5B57;&#x683C;&#x5F0F;:modulename-screendensityABI-buildvariant.apk</p>
+<h3 id="&#x7248;&#x672C;&#x95EE;&#x9898;">&#x7248;&#x672C;&#x95EE;&#x9898;</h3>
+<p>&#x540C;&#x4E00;&#x4E2A;apk&#x5728;google play&#x4E2D;&#x4E0D;&#x80FD;&#x7528;&#x540C;&#x4E00;&#x4E2A;versionCode,&#x6240;&#x4EE5;&#x8981;&#x6539;&#x4E00;&#x4E0B;<br>universalApk&#x7684;&#x7248;&#x672C;&#x8981;&#x4F4E;&#x4E8E;&#x5176;&#x4ED6;&#x786E;&#x5207;&#x7684;apk</p>
+<pre><code>android {
+  ...
+  defaultConfig {
+    versionCode 4
+  }
+  splits {
+  }
+}
+
+ext.abiCodes = [&apos;armeabi-v7a&apos;:1, x86:2, x86_64:3]
+// ext.densityCodes = [&apos;mdpi&apos;: 1, &apos;hdpi&apos;: 2, &apos;xhdpi&apos;: 3]
+
+import com.android.build.OutputFile
+
+android.applicationVariants.all { variant -&gt;
+
+  variant.outputs.each { output -&gt;
+
+    def baseAbiVersionCode =
+            project.ext.abiCodes.get(output.getFilter(OutputFile.ABI))
+
+    if (baseAbiVersionCode != null) {
+      // for only the output APK, not for the variant itself. Skipping this step simply
+      // causes Gradle to use the value of variant.versionCode for the APK.
+      output.versionCodeOverride =
+              baseAbiVersionCode * 1000 + variant.versionCode
+    }
+  }
+}
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="build-dependency.html" class="navigation navigation-prev " aria-label="Previous page: 依赖">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="build-optimize.html" class="navigation navigation-next " aria-label="Next page: 优化">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"多APK","level":"4.3","depth":1,"next":{"title":"优化","level":"4.4","depth":1,"path":"build-gradle/build-optimize.md","ref":"build-gradle/build-optimize.md","articles":[]},"previous":{"title":"依赖","level":"4.2","depth":1,"path":"build-gradle/build-dependency.md","ref":"build-gradle/build-dependency.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"build-gradle/build-multiple-apk.md","mtime":"2018-12-29T08:32:36.311Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-02T08:01:15.285Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

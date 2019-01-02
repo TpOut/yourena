@@ -1,0 +1,945 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>log中gc的信息 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="java8.html" />
+    
+    
+    <link rel="prev" href="app-bundles.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Summary</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Android</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="aar.html">
+            
+                <a href="aar.html">
+            
+                    
+                    AAR
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="app-bundles.html">
+            
+                <a href="app-bundles.html">
+            
+                    
+                    app bundles
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.3" data-path="gc-log.html">
+            
+                <a href="gc-log.html">
+            
+                    
+                    log中gc的信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="java8.html">
+            
+                <a href="java8.html">
+            
+                    
+                    Java8的支持
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="sign-apk.html">
+            
+                <a href="sign-apk.html">
+            
+                    
+                    APK签名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../proguard/note.html">
+            
+                <a href="../proguard/note.html">
+            
+                    
+                    混淆说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="../test/overview.html">
+            
+                <a href="../test/overview.html">
+            
+                    
+                    测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="note.html">
+            
+                <a href="note.html">
+            
+                    
+                    其他
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="link.html">
+            
+                <a href="link.html">
+            
+                    
+                    链接
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Android Studio</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../android-studio/window-and-keyboard.html">
+            
+                <a href="../android-studio/window-and-keyboard.html">
+            
+                    
+                    界面和快捷键
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" >
+            
+                <span>
+            
+                    
+                    功能
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../android-studio/feature/apk-analyzer.html">
+            
+                <a href="../android-studio/feature/apk-analyzer.html">
+            
+                    
+                    APK解析器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../android-studio/feature/app-profiler.html">
+            
+                <a href="../android-studio/feature/app-profiler.html">
+            
+                    
+                    APK分析器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../android-studio/feature/debug-run.html">
+            
+                <a href="../android-studio/feature/debug-run.html">
+            
+                    
+                    调试和运行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.4" data-path="../android-studio/feature/image.html">
+            
+                <a href="../android-studio/feature/image.html">
+            
+                    
+                    图像相关
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.5" data-path="../android-studio/feature/instant-run.html">
+            
+                <a href="../android-studio/feature/instant-run.html">
+            
+                    
+                    InstantRun
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.6" data-path="../android-studio/feature/lint.html">
+            
+                <a href="../android-studio/feature/lint.html">
+            
+                    
+                    Lint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.7" data-path="../android-studio/feature/res-editor.html">
+            
+                <a href="../android-studio/feature/res-editor.html">
+            
+                    
+                    翻译、布局、主题编辑器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.8" data-path="../android-studio/feature/template.html">
+            
+                <a href="../android-studio/feature/template.html">
+            
+                    
+                    模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.9" data-path="../android-studio/feature/note.html">
+            
+                <a href="../android-studio/feature/note.html">
+            
+                    
+                    其他
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../android-studio/link.html">
+            
+                <a href="../android-studio/link.html">
+            
+                    
+                    链接
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Gradle（Plugins）</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../build-gradle/build-cache.html">
+            
+                <a href="../build-gradle/build-cache.html">
+            
+                    
+                    缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../build-gradle/build-dependency.html">
+            
+                <a href="../build-gradle/build-dependency.html">
+            
+                    
+                    依赖
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../build-gradle/build-multiple-apk.html">
+            
+                <a href="../build-gradle/build-multiple-apk.html">
+            
+                    
+                    多APK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../build-gradle/build-optimize.html">
+            
+                <a href="../build-gradle/build-optimize.html">
+            
+                    
+                    优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../build-gradle/CI.html">
+            
+                <a href="../build-gradle/CI.html">
+            
+                    
+                    持续集成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../build-gradle/command.html">
+            
+                <a href="../build-gradle/command.html">
+            
+                    
+                    命令行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="../build-gradle/g-build-variants.html">
+            
+                <a href="../build-gradle/g-build-variants.html">
+            
+                    
+                    变体
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="../build-gradle/g-enable-multidex.html">
+            
+                <a href="../build-gradle/g-enable-multidex.html">
+            
+                    
+                    Multidex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.9" data-path="../build-gradle/g-merge-manifest.html">
+            
+                <a href="../build-gradle/g-merge-manifest.html">
+            
+                    
+                    Manifest合并
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10" data-path="../build-gradle/g-README.html">
+            
+                <a href="../build-gradle/g-README.html">
+            
+                    
+                    其他2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.11" data-path="../build-gradle/g-shrink-code-resource.html">
+            
+                <a href="../build-gradle/g-shrink-code-resource.html">
+            
+                    
+                    资源缩减
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.12" data-path="../build-gradle/g-tips-recipes.html">
+            
+                <a href="../build-gradle/g-tips-recipes.html">
+            
+                    
+                    其他1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.13" data-path="../build-gradle/note.html">
+            
+                <a href="../build-gradle/note.html">
+            
+                    
+                    其他
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">命令行工具</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../commandline-tool/adb.html">
+            
+                <a href="../commandline-tool/adb.html">
+            
+                    
+                    adb
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../commandline-tool/note.html">
+            
+                <a href="../commandline-tool/note.html">
+            
+                    
+                    其他
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">模拟器</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../emulator/intro.html">
+            
+                <a href="../emulator/intro.html">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../emulator/struct-directory.html">
+            
+                <a href="../emulator/struct-directory.html">
+            
+                    
+                    文件结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="../emulator/console.html">
+            
+                <a href="../emulator/console.html">
+            
+                    
+                    控制台
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="../emulator/commandline.html">
+            
+                <a href="../emulator/commandline.html">
+            
+                    
+                    命令行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.5" data-path="../emulator/note.html">
+            
+                <a href="../emulator/note.html">
+            
+                    
+                    其他
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">GooglePlay</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../google-play/link.html">
+            
+                <a href="../google-play/link.html">
+            
+                    
+                    相关链接
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">混淆</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../proguard/note.html">
+            
+                <a href="../proguard/note.html">
+            
+                    
+                    其他
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">测试</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../test/link.html">
+            
+                <a href="../test/link.html">
+            
+                    
+                    链接
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2" data-path="../test/overview.html">
+            
+                <a href="../test/overview.html">
+            
+                    
+                    概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">REFERENCE</li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../link.html">
+            
+                <a href="../link.html">
+            
+                    
+                    未分类索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >log中gc的信息</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x5783;&#x573E;&#x56DE;&#x6536;&#x7684;&#x4FE1;&#x606F;">&#x5783;&#x573E;&#x56DE;&#x6536;&#x7684;&#x4FE1;&#x606F;</h2>
+<p>&#x8FD9;&#x4E00;&#x7AE0;&#x6709;&#x70B9;&#x8D85;&#x51FA;&#x80FD;&#x529B;&#x8303;&#x56F4;&#xFF0C;&#x6BD4;&#x5982;art&#x4E2D;CollectorTransition&#x7684;&#x590D;&#x5236;&#x987A;&#x5E8F;&#xFF0C;&#x662F;&#x731C;&#x7684;&#xFF0C;&#x4E5F;&#x4E0D;&#x77E5;&#x9053;&#x5BF9;&#x4E0D;&#x5BF9;&#x3002;  </p>
+<h3 id="&#x5728;dalvik&#x4E2D;">&#x5728;dalvik&#x4E2D;</h3>
+<pre><code>//&#x683C;&#x5F0F;
+D/dalvikvm(PID): GC_Reason Amount_freed, Heap_stats, External_memory_stats, Pause_time  
+//&#x793A;&#x4F8B;
+D/dalvikvm( 9050): GC_CONCURRENT freed 2049K, 65% free 3571K/9991K, external 4703K/5261K, paused 2ms+2ms
+</code></pre><p>GC&#x7684;&#x539F;&#x56E0;&#xFF1A;</p>
+<ul>
+<li>GC_CONCURRENT: &#x5728;Heap&#x5C06;&#x6EE1;&#xFF08;begins to fill up&#xFF09;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53D1;&#x751F;&#x5E76;&#x53D1;GC&#x4EE5;&#x91CA;&#x653E;&#x5185;&#x5B58;  </li>
+<li>GC_FOR_MALLOC: &#x5728;heap&#x5DF2;&#x7ECF;&#x6EE1;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53D1;&#x751F;GC&#x4EE5;&#x91CD;&#x65B0;&#x5206;&#x914D;&#x5185;&#x5B58;&#xFF08;app&#x4F1A;&#x6682;&#x505C;&#xFF09;</li>
+<li>GC_HPROF_DUMP_HEAP&#xFF1A; &#x521B;&#x5EFA;Hprof&#x6587;&#x4EF6;&#x7528;&#x4F5C;&#x5206;&#x6790;heap&#x7684;&#x65F6;&#x5019;</li>
+<li>GC_EXPLICIT&#xFF1A; &#x660E;&#x786E;&#x7684;GC,&#x6BD4;&#x5982;&#x8C03;&#x7528;gc()&#x65B9;&#x6CD5;&#x7684;&#x65F6;&#x5019;--&#x5E94;&#x8BE5;&#x907F;&#x514D;&#x4F7F;&#x7528;gc()</li>
+<li>GC_EXTERNAL_ALLOC&#xFF1A; &lt;=10&#x624D;&#x4F1A;&#x53D1;&#x751F;&#x3002;&#x90A3;&#x65F6;&#x628A;&#x4E00;&#x4E9B;&#x6570;&#x636E;&#xFF0C;&#x6BD4;&#x5982;&#x50CF;&#x7D20;&#x4FE1;&#x606F;&#x5B58;&#x5728;native&#x5185;&#x5B58;&#x6216;NIO&#x4E8C;&#x8FDB;&#x5236;&#x7F13;&#x51B2;&#x4E2D;&#x3002;</li>
+</ul>
+<h3 id="art&#x7684;&#x65E5;&#x5FD7;&#x4FE1;&#x606F;">art&#x7684;&#x65E5;&#x5FD7;&#x4FE1;&#x606F;</h3>
+<p>&#x660E;&#x786E;&#x7684;GC&#x6C38;&#x8FDC;&#x4F1A;&#x5728;&#x8FD9;&#x91CC;&#x6253;&#x5370;&#x3002;<br>&#x800C;&#x5176;&#x4ED6;&#x7684;&#x4E0D;&#x660E;&#x786E;&#x7684;GC&#xFF0C;&#x53EA;&#x6709;GC&#x8FC7;&#x7A0B;&#x7F13;&#x6162;&#xFF08;&#x6682;&#x505C;&#x8D85;&#x8FC7;5ms&#x6216;&#x8005;&#x65F6;&#x957F;&#x8D85;&#x8FC7;100ms&#xFF09;&#x7684;&#x624D;&#x4F1A;&#x88AB;&#x6253;&#x5370;<br>&#x800C;&#x5982;&#x679C;app&#x5728;&#x540E;&#x53F0;&#x65F6;&#xFF0C;gc&#x8FDB;&#x884C;&#x4E86;&#x6682;&#x505C;&#xFF0C;&#x7531;&#x4E8E;&#x7528;&#x6237;&#x65E0;&#x6CD5;&#x5BDF;&#x89C9;&#x5230;&#xFF0C;&#x6240;&#x4EE5;&#x4E5F;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x800C;&#x4E0D;&#x8FDB;&#x884C;&#x6253;&#x5370;  </p>
+<pre><code>//&#x683C;&#x5F0F;  
+//
+I/art: GC_Reason GC_Name Objects_freed(Size_freed) AllocSpace Objects,
+    Large_objects_freed(Large_object_size_freed) Heap_stats LOS objects, Pause_time(s)
+//&#x793A;&#x4F8B;  
+I/art : Explicit concurrent mark sweep GC freed 104710(7MB) AllocSpace objects,
+    21(416KB) LOS objects, 33% free, 25MB/38MB, paused 1.230ms total 67.216ms
+</code></pre><p>GC&#x7684;&#x539F;&#x56E0;&#xFF1A;  </p>
+<ul>
+<li>Concurrent: &#x8FD9;&#x79CD;GC&#x4E0D;&#x4F1A;&#x6682;&#x505C;app&#x7EBF;&#x7A0B;&#xFF0C;&#x5728;&#x540E;&#x53F0;&#x8FD0;&#x884C;&#x4E14;&#x4E0D;&#x4F1A;&#x963B;&#x6B62;&#xFF08;&#x5185;&#x5B58;&#xFF09;&#x5206;&#x914D;</li>
+<li>Alloc: &#x5728;heap&#x5DF2;&#x7ECF;&#x6EE1;&#x4E86;&#x53C8;&#x9700;&#x8981;&#x5206;&#x914D;&#x5185;&#x5B58;&#x7684;&#x65F6;&#x5019;&#x53D1;&#x751F;&#xFF0C;&#x5728;allocating&#x7EBF;&#x7A0B;&#x8FDB;&#x884C;&#x56DE;&#x6536;&#xFF08;gc was initiated&#xFF09;</li>
+<li>Explicit: app&#x975E;&#x5E38;&#x660E;&#x786E;&#x7684;&#x8C03;&#x7528;&#xFF0C;&#x5982; Runtime.getRuntime().gc()/System.gc(). &#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x4F1A;&#x963B;&#x585E;allocating&#x7EBF;&#x7A0B;&#x4E14;&#x6D6A;&#x8D39;cpu&#x5468;&#x671F;&#xFF1B;&#x5982;&#x679C;&#x62A2;&#x65AD;&#x4E86;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#xFF0C;&#x8FD8;&#x4F1A;&#x5BFC;&#x81F4;jank (stuttering, juddering, or halting in the app)</li>
+<li>NativeAlloc: native&#x5185;&#x5B58;&#x4EA7;&#x751F;&#x538B;&#x529B;&#x65F6;&#xFF0C;&#x5982;Bitmap;RenderScript  </li>
+<li>CollectorTransition&#xFF1A; heap&#x8F6C;&#x6362;&#x65F6;&#x53D1;&#x751F;&#x3002;8.0&#x4E4B;&#x524D;&#x7684;&#x4F4E;RAM&#x8BBE;&#x5907;&#xFF0C;&#x4ECE;&#x7528;&#x6237;&#x65E0;&#x6CD5;&#x5BDF;&#x89C9;&#x6682;&#x505C;&#x7684;&#x72B6;&#x6001;&#x5207;&#x6362;&#x5230;&#x53EF;&#x4EE5;&#x5BDF;&#x89C9;&#x7684;&#x72B6;&#x6001;&#x65F6;&#xFF0C;&#x4F1A;&#x628A;&#x6240;&#x6709;&#x7684;&#x5BF9;&#x8C61;&#x4ECE;fress-list backed space&#x590D;&#x5236;&#x5230;bump pointer space&#xFF08;&#x53CD;&#x4E4B;&#x4EA6;&#x7136;&#xFF09;  </li>
+<li>HomogeneousSpaceCompact&#xFF1A; &#x4E00;&#x822C;&#x53D1;&#x751F;&#x5728;app&#x8FDB;&#x5165;&#x4E0D;&#x53EF;&#x5BDF;&#x89C9;&#x6682;&#x505C;&#x65F6;&#xFF0C;&#x5BF9;free-list&#x8FDB;&#x884C;&#x538B;&#x7F29;&#x3001;&#x788E;&#x7247;&#x6574;&#x7406;heap&#xFF0C;&#x4EE5;&#x8FBE;&#x5230;&#x51CF;&#x5C11;RAM&#x4F7F;&#x7528;&#x7684;&#x6548;&#x679C;</li>
+<li>DisableMovingGc&#xFF1A; &#x8FD9;&#x4E0D;&#x7B97;&#x4E00;&#x4E2A;&#x539F;&#x56E0;&#xFF0C;&#x4E3B;&#x8981;&#x7528;&#x6765;&#x8868;&#x793A; &#x4F7F;&#x7528;GetPrimitiveArrayCritical&#x9020;&#x6210;&#x7684;&#x963B;&#x585E;&#x3002;</li>
+<li>HeapTrim&#xFF1A; &#x8FD9;&#x4E0D;&#x7B97;&#x4E00;&#x4E2A;&#x539F;&#x56E0;&#xFF0C;&#x8868;&#x793A;heap trim&#x7ED3;&#x675F;&#x540E;&#x8FD8;&#x662F;&#x963B;&#x585E;&#x72B6;&#x6001;&#x3002;</li>
+</ul>
+<p>GC NAME:  </p>
+<ul>
+<li>Concurrent mark sweep (CMS): &#x5BF9;&#x9664;&#x4E86;image&#x7A7A;&#x95F4;&#x7684;&#x6240;&#x6709;&#x7A7A;&#x95F4;&#x8FDB;&#x884C;&#x6574;&#x4F53;&#x7684;heap&#x56DE;&#x6536;  </li>
+<li>Concurrent partial mark sweep&#xFF1A; &#x9664;&#x53BB;image&#x548C;zygote&#x7684;&#x57FA;&#x672C;&#x6240;&#x6709;&#x7A7A;&#x95F4;&#xFF0C;&#x8FDB;&#x884C;&#x6574;&#x4F53;&#x7684;heap&#x56DE;&#x6536;  </li>
+<li>Concurrent sticky mark sweep&#xFF1A; &#x91CA;&#x653E;&#x6700;&#x8FD1;&#x4E00;&#x6B21;GC&#x4EE5;&#x6765;&#x5206;&#x914D;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x51FA;&#x73B0;&#x6B21;&#x6570;&#x66F4;&#x591A;  </li>
+<li>Marksweep + semispace&#xFF1A; &#x975E;&#x5E76;&#x53D1;&#xFF0C;&#x590D;&#x5236;&#x6027;&#x8D28;&#x7684;GC&#xFF0C;&#x7C7B;&#x4F3C;HomogeneousSpaceCompact&#x7684;&#x4F5C;&#x7528;  </li>
+</ul>
+<p>objects freed/size freed&#x90FD;&#x662F;&#x9488;&#x5BF9;non large object space<br>ART CMS GCs &#x53EA;&#x4F1A;&#x5728;GC&#x5FEB;&#x7ED3;&#x675F;&#x7684;&#x65F6;&#x5019;&#x4EA7;&#x751F;&#x4E00;&#x6B21;&#x6682;&#x505C;&#x3002;  </p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="app-bundles.html" class="navigation navigation-prev " aria-label="Previous page: app bundles">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="java8.html" class="navigation navigation-next " aria-label="Next page: Java8的支持">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"log中gc的信息","level":"2.3","depth":1,"next":{"title":"Java8的支持","level":"2.4","depth":1,"path":"android/java8.md","ref":"android/java8.md","articles":[]},"previous":{"title":"app bundles","level":"2.2","depth":1,"path":"android/app-bundles.md","ref":"android/app-bundles.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"android/gc-log.md","mtime":"2018-12-29T08:54:00.903Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-02T08:01:15.285Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
