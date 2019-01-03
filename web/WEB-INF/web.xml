@@ -4,6 +4,17 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+    <!--访问统计-->
+    <servlet-mapping>
+        <servlet-name>AccessServlet</servlet-name>
+        <url-pattern>/Access</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AccessServlet</servlet-name>
+        <servlet-class>main.notes.servlet.AccessServlet</servlet-class>
+    </servlet>
+
     <!--所有文件详情-->
     <servlet-mapping>
         <servlet-name>NotesDetailServlet</servlet-name>

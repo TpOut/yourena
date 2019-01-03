@@ -17,6 +17,9 @@ import static main.config.ConfigConstant.PROJECT_NAME;
  */
 public class BaseListServlet extends HttpServlet {
 
+    /**
+     * 统一行为：设置格式
+     */
     protected static void printJsonFromFile(HttpServletRequest req, HttpServletResponse resp, String listPath) throws IOException {
         NotesServletUtil.setCharset(resp);
         NotesServletUtil.formatJson(resp);
