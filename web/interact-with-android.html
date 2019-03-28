@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #btn_group {
+            padding: 2em 2em 2em 1em;
+        }
+
+        button {
+            padding: 1em;
+            font-size: 2em;
+            margin-left: 1em;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>使用JsBridge测试</title>
+</head>
+<body background="/imgs/temp/timg.jpeg">
+<div id="btn_group">
+    <!--无参数-->
+    <button id="btn_1">登录</button>
+    <!--有参数-->
+    <button id="btn_2">预览图片</button>
+    <!--有返回-->
+    <button id="btn_3">请求头</button>
+</div>
+
+<script src="https://unpkg.com/dsbridge@3.1.4/dist/dsbridge.js"></script>
+<script>
+    var btn1 = document.getElementById('btn_1');
+    btn1.addEventListener('click', function (ev) {
+        console.log("点击了btn1");
+         bridge.call('common.gotoLogin','')
+    }, false);
+
+    var btn2 = document.getElementById('btn_2');
+    btn2.addEventListener('click', function (ev) {
+        console.log("点击了btn2");
+        // bridge.call('common.previewImages',"{'curIndex':'0','data':['https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553753624473&di=c380432ec4283dde075ed93f98ba552f&imgtype=0&src=http%3A%2F%2Fpic.downcc.com%2Fupload%2F2015-1%2F201512094354.jpg']}")
+        // bridge.call('common.shareToSocialPlatform', "{'platformType':'1','url':'http://www.baidu.com','title':'nihao','image':'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553753624473&di=c380432ec4283dde075ed93f98ba552f&imgtype=0&src=http%3A%2F%2Fpic.downcc.com%2Fupload%2F2015-1%2F201512094354.jpg','description':'这是描述'}");
+        bridge.call('common.gotoContentDetail', "{}");
+    }, false);
+
+    var btn3 = document.getElementById('btn_3');
+    btn3.addEventListener('click', function (ev) {
+        var result = bridge.call('common.getRequestHeaderInfo','');
+        alert(result);
+    }, false);
+    <!--加载完成调用-->
+</script>
+</body>
+</html>
