@@ -23,6 +23,8 @@
     <button id="btn_2">预览图片</button>
     <!--有返回-->
     <button id="btn_3">请求头</button>
+    <!--异步-->
+    <button id="btn_4">异步调用</button>
 </div>
 
 <script src="https://unpkg.com/dsbridge@3.1.4/dist/dsbridge.js"></script>
@@ -45,6 +47,13 @@
     btn3.addEventListener('click', function (ev) {
         var result = bridge.call('common.getRequestHeaderInfo','');
         alert(result);
+    }, false);
+
+    var btn4 = document.getElementById('btn_4');
+    btn4.addEventListener('click', function (ev) {
+        bridge.call('common.shareToSocialPlatform',"{'platformType':'1','url':'http://172.16.0.90:8080/interact-with-android.html', 'title':'什么呢', 'description':'单独'}", function (v) {
+            alert("成功回调");
+        });
     }, false);
     <!--加载完成调用-->
 </script>
