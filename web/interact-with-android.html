@@ -25,6 +25,10 @@
     <button id="btn_3">请求头</button>
     <!--异步-->
     <button id="btn_4">异步调用</button>
+    <!--输入法action 事件-->
+    <label>
+        <input type="text">
+    </label>
 </div>
 
 <script src="https://unpkg.com/dsbridge@3.1.4/dist/dsbridge.js"></script>
@@ -55,6 +59,14 @@
             alert("成功回调");
         });
     }, false);
+
+    document.onkeydown = function (ev) {
+        var e = event || window.event || arguments.callee.caller.arguments[0];
+        if(e && e.keyCode === 13){
+            alert("点击了事件")
+        }
+    }
+
     <!--加载完成调用-->
 </script>
 </body>
