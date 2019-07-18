@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import main.config.ConfigConstant;
 import main.notes.util.NotesServletUtil;
 
 import static main.config.ConfigConstant.DATABASE_URL;
@@ -37,6 +38,8 @@ public class AccessServlet extends HttpServlet {
      * @return currentAccessNum after update
      */
     private int queryAndUpdateAccess(HttpServletRequest req) {
+        if(!ConfigConstant.isDeployed)
+            return 0;
         int num = 0;
 
         String JDBC_DRIVER = "com.mysql.jdbc.Driver";

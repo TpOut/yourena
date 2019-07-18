@@ -7,7 +7,7 @@ package main.config;
 public class ConfigConstant {
 
     //本机调试 : 服务器部署
-    private static final boolean isDeployed = false;
+    public static final boolean isDeployed = false;
 
     public static final String WEB_SITE = isDeployed ? "127.0.0.1:8080" : "localhost:8080";
     public static final String DATABASE_URL = isDeployed ? "127.0.0.1" : "120.55.171.184";
