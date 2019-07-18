@@ -12,51 +12,48 @@
 </head>
 
 <body>
-    <header>
-        <div id="top_content">
-            <img id="top_avatar" src="/imgs/author_avatar.png" alt="Author's avatar">TpOut</img>
-            <nav>
-                <ul>
-                    <li><a href="#"></a>首页</li>
-                    <li><a href="#"></a>主线</li>
-                    <li><a href="#"></a>图册</li>
-                    <li><a href="./android_book/index.html">博客</a></li>
-                    <li><a href="./interact-with-android.html">随笔</a></li>
-                </ul>
-            </nav>
-        </div>
-        <canvas id="top_bg"></canvas>
-    </header>
+<header>
+    <div id="top_content">
+        <img id="top_avatar" src="/imgs/author_avatar.png" alt="Author's avatar">
+        <p id="top_name">TpOut</p>
+        <nav id="top_nav">
+            <ul>
+                <li><a href="#"></a>首页</li>
+                <li><a href="./android_book/index.html"></a>主线</li>
+                <li><a href="#"></a>图册</li>
+                <li><a href="">博客</a></li>
+                <a href="./interact-with-android.html">
+                    <li>随笔</li>
+                </a>
+            </ul>
+        </nav>
+    </div>
+    <canvas id="top_bg"></canvas>
+</header>
 
-    <main>
-        <div id="main_left">
-            <picture id="main_album">
-                <source media="(max-width: 799px)" srcset="">
-                <source media="(min-width: 800px)" srcset="">
-                <img src="/imgs/album/back.jpg" width="320" height="320" alt="Author's paint album">
-            </picture>
-            <div id="main_data">
-                <p>访问数量：<span id="index_access_num">0</span></p>
+<main>
+    <div id="title">
+        <p id="title_bg">PERSONAL SITE</p>
+        <p id="title_fg">Welcome</p>
+    </div>
+
+    <div id="main_data">
+        <!--考虑以后用js填充，目前就先写死吧-->
+        <section>
+            <div>
+                <img class="section_img" src="/imgs">
+                <p class="section_title">Android</p>
             </div>
-            <!--目前计划做成动态或者评论-->
-            <div id="main_holder">
+            <ul>
+                <li>
+                    <p class="article_title">启动</p>
+                    <time class="article_time">1997.07.07</time>
+                </li>
+            </ul>
+        </section>
+    </div>
 
-            </div>
-        </div>
-        <ul id="article_list">
-
-        </ul>
-        <ul id="essay_list">
-
-        </ul>
-    </main>
-
-<footer>
-    <p>
-        如有建议，敬请联系：416756910@qq.com<br>
-        由于能力有限，本网站只经过个人使用的chrome测试，并且短期内不准备处理兼容问题
-    </p>
-</footer>
+</main>
 
 <script src="./scripts/net/native-ajax.js"></script>
 <script src="./scripts/config.js"></script>

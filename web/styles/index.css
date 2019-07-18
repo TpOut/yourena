@@ -1,211 +1,154 @@
-/*general*/
+/*
+维护了一次，基本改版。
+感觉还是每一个标签做一个单独的样式吧，不要混合使用了。
+太乱了
+*/
+@font-face {
+    font-family: 'DinPro';
+    src: url("/fonts/DINPro-Black.otf");
+}
 
-html {
-    height: 100%;
-    width: 100%;
+* {
     margin: 0;
     padding: 0;
-    font-size: 10px
 }
 
 body {
     background: #F5F6FB;
+    font-size: 0.1vw; /*认为是4px*/
+}
+
+header {
+    background: white;
+    height: 100px;
 }
 
 #top_content {
     display: flex;
-    width: 100%;
-    height: 10em;
-    background: white;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
     align-items: center;
+    font-size: 5em;
 }
 
 #top_avatar {
-    margin-top: 14px;
     height: 72px;
     width: 72px;
+    float: left;
+}
+
+#top_name {
+    margin-left: 1em;
     font-size: 2em;
+    float: left;
 }
 
-p {
-    margin: 0;
+#top_nav {
+    float: left;
+    height: 100px;
 }
 
-li {
+#top_nav > ul {
+    float: left;
+    height: 100px;
     list-style-type: none;
 }
 
-ul {
-    list-style-type: none;
-    margin: 0 0 0 2em;
-    padding: 0;
-}
+#top_nav li {
+    float: left;
+    height: 100px;
+    line-height: 100px; /*配合height实现高度居中*/
+    margin: 0 0 0 4em;
+    padding: 0 1em 0 1em;
+    font-size: 2em;
 
-a {
-    text-decoration: none;
-}
-
-header {
-    margin: 3em;
-    position: relative;
+    border-bottom: 4px #444DFF;
 }
 
 main {
-    display: flex;
-    clear: both;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
-footer {
-    width: 100%;
-    height: 3em;
-    font-size: 1.2em;
-    background: aliceblue;
-    text-align: center;
-    padding: 1em 0;
+#title {
+    margin-top: 10%;
+    position: relative;
+    font-family: 'DinPro';
 }
 
-/*header*/
-
-#top_description h1 {
-    font-size: 3em;
+#title_bg {
+    position: absolute;
+    bottom: 0;
+    font-size: 30em;
+    color: #e6e7ee;
 }
 
-#top_description nav {
-    float: bottom;
-}
-
-#top_description nav ul li {
-    float: left;
-    font-size: 2em;
-    margin-left: 2em;
-}
-
-#top_description nav ul li:last-child {
-    margin-right: 2em;
-}
-
-#top_content h1 {
-    float: bottom;
-}
-
-#top_bg {
-    float: right;
-}
-
-#top_content, #top_avatar, #top_description {
-    float: left;
-}
-
-/*main*/
-
-#main_left {
-    flex: 1;
-    margin-left: 2em;
-    border: 2em dimgray;
-}
-
-#main_album {
-    box-shadow: 0 0.5em 1em 0 rgba(0, 0, 0, 0.2), 0 0.8em 2em 0 rgba(0, 0, 0, 0.19);
+#title_fg {
+    position: absolute;
+    bottom: 0;
+    font-size: 20em;
+    color: #333333;
+    z-index: 1;
 }
 
 #main_data {
-    margin-top: 2em;
+    margin-top: 10%;
+    display: flex;
 }
 
-/*主列表项*/
-
-.section1 {
-    background: #2196f3;
-    color: #212121;
-    padding: 0.5em;
-    box-shadow: 0 0.5em 1em 0 rgba(0, 0, 0, 0.2), 0 0.8em 2em 0 rgba(0, 0, 0, 0.19);
-}
-
-.section2 {
-    background: white;
-    color: #757575;
-    padding: 0.3em;
-    margin: 0 0 1em 0;
-    box-shadow: 0 0.5em 1em 0 rgba(0, 0, 0, 0.2), 0 0.8em 2em 0 rgba(0, 0, 0, 0.19);
-}
-
-.section1 p {
-    font-size: 3em;
-}
-
-.section2 p:first-child {
-    font-size: 2em;
-}
-
-.section2 time {
-    font-size: 1.5em;
-}
-
-.section2 p:last-child {
-    font-size: 1.5em;
-}
-
-#article_list {
-    flex: 3;
-    border-radius: 2em;
-    box-shadow: 0 0.5em 1em 0 rgba(0, 0, 0, 0.2), 0 0.8em 2em 0 rgba(0, 0, 0, 0.19);
-}
-
-#article_list > .section2 {
-    margin: 1em 0;
-    padding: 0.5em 1em;
-    background: white;
-}
-
-#article_list > .section2 p:first-child {
-    font-size: 2.5em;
-    padding-bottom: 0.5em;
-}
-
-#article_list > .section2 time {
-    width: 100%;
-}
-
-#article_list > .section2 p:last-child {
+#main_data :nth-child(odd) {
     float: left;
-    margin-right: 0.5em;
-}
-
-#essay_list {
-    flex: 2;
-    margin: 2em;
-    box-shadow: 0 0.5em 1em 0 rgba(0, 0, 0, 0.2), 0 0.8em 2em 0 rgba(0, 0, 0, 0.19);
-}
-
-#essay_list > .section1 {
     clear: both;
 }
 
-#essay_list > .section2 {
-    float: left;
-    margin: 0.5em;
-}
-
-#essay_list > .section2 p:first-child {
-    float: left;
-    padding: 0 0.5em;
-}
-
-#essay_list > .section2 time {
-    padding: 0.5em;
-    text-align: center;
+#main_data :nth-child(even) {
     float: right;
-    background: #DDBEFB;
+    margin-left: 2%;
+    clear: both;
 }
 
-#essay_list > .section2 p:last-child {
-    float: bottom;
+section {
+    width: 49%;
+    background: white;
+    max-height: 247px;
+    padding: 1%;
 }
 
-/*other*/
-/* 实现footer一直保留在底部的方法，5em取自footer的总高度 */
-#exclude_footer {
-    min-height: calc(100% - 5em);
+section div {
+    display: flex;
+    align-items: center;
 }
+
+.section_img {
+    float: left;
+    width: 48px;
+    height: 48px;
+}
+
+.section_title {
+    float: left;
+    color: #111111;
+    font-size: 8em;
+    clear: both;
+}
+
+section ul {
+
+}
+
+.article_title {
+
+    color: #111111;
+    font-size: 5em;
+}
+
+.article_time {
+
+    color: #999999;
+    font-size: 4.5em;
+}
+
+
 
 
