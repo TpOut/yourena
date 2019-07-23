@@ -15,7 +15,7 @@
 
 body {
     background: #F5F6FB;
-    font-size: 0.1vw; /*认为是4px*/
+    font-size: 20px;
 }
 
 header {
@@ -24,129 +24,143 @@ header {
 }
 
 #top_content {
+    display: -webkit-flex;
     display: flex;
-    width: 70%;
-    margin-left: 15%;
-    margin-right: 15%;
-    align-items: center;
-    font-size: 5em;
+    flex-direction: row;
+    width: 1200px;
+    height: 100px; /*用父容器header     align-content: center 无效*/
+    margin: auto;
 }
 
 #top_avatar {
     height: 72px;
     width: 72px;
-    float: left;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 #top_name {
-    margin-left: 1em;
-    font-size: 2em;
-    float: left;
+    margin-left: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 #top_nav {
-    float: left;
-    height: 100px;
+    margin-left: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+    align-content: center;
 }
 
 #top_nav > ul {
-    float: left;
-    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
     list-style-type: none;
 }
 
 #top_nav li {
-    float: left;
-    height: 100px;
-    line-height: 100px; /*配合height实现高度居中*/
-    margin: 0 0 0 4em;
-    padding: 0 1em 0 1em;
-    font-size: 2em;
-
+    margin: 0 0 0 40px;
+    padding: 0 10px 0 10px;
     border-bottom: 4px #444DFF;
 }
 
 main {
-    margin-left: 15%;
-    margin-right: 15%;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #title {
-    margin-top: 10%;
-    position: relative;
     font-family: 'DinPro';
+    position: relative;
+    height: 130px;
+    margin-top: 120px;
 }
 
 #title_bg {
     position: absolute;
     bottom: 0;
-    font-size: 30em;
+    font-size: 130px;
     color: #e6e7ee;
 }
 
 #title_fg {
     position: absolute;
     bottom: 0;
-    font-size: 20em;
+    font-size: 80px;
     color: #333333;
     z-index: 1;
 }
 
 #main_data {
-    margin-top: 10%;
+    display: -webkit-flex;
     display: flex;
-}
-
-#main_data :nth-child(odd) {
-    float: left;
-    clear: both;
-}
-
-#main_data :nth-child(even) {
-    float: right;
-    margin-left: 2%;
-    clear: both;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 80px;
 }
 
 section {
-    width: 49%;
+    margin-top: 20px;
+    width: 534px;
     background: white;
     max-height: 247px;
-    padding: 1%;
+    padding: 28px 28px 32px 28px;
 }
 
-section div {
+section > div {
     display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: flex-start;
 }
 
 .section_img {
-    float: left;
     width: 48px;
     height: 48px;
 }
 
 .section_title {
-    float: left;
+    margin-left: 12px;
     color: #111111;
-    font-size: 8em;
-    clear: both;
+    font-size: 32px;
 }
 
 section ul {
+    margin-top: 18px;
+}
 
+section ul li {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .article_title {
-
     color: #111111;
-    font-size: 5em;
+    text-align: center;
 }
 
 .article_time {
-
+    font-size: 18px;
     color: #999999;
-    font-size: 4.5em;
+}
+
+#img {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 28px;
+}
+
+.img_img {
+    width: 260px;
+    height: auto;
 }
 
 
