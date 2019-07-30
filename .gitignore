@@ -8,4 +8,5 @@ out/*
 
 .idea/uiDesigner.xml
 .idea/workspace.xml
+.idea/misc.xml
 .idea/caches
