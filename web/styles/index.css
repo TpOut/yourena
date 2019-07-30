@@ -13,6 +13,10 @@
     padding: 0;
 }
 
+a {
+    text-decoration: none;
+}
+
 body {
     background: #F5F6FB;
     font-size: 20px;
@@ -110,6 +114,10 @@ section {
     padding: 28px 28px 32px 28px;
 }
 
+#main_data :last-child{
+    max-height: none;
+}
+
 section > div {
     display: flex;
     flex-direction: row;
@@ -132,7 +140,7 @@ section ul {
     margin-top: 18px;
 }
 
-section ul li {
+section ul  li {
     margin-top: 12px;
     display: flex;
     flex-direction: row;
@@ -141,6 +149,11 @@ section ul li {
 }
 
 .article_title {
+    color: #999999;
+    text-align: center;
+}
+
+a .article_title {
     color: #111111;
     text-align: center;
 }
