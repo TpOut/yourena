@@ -8,10 +8,11 @@
 function addListToSection(res, rootSectionId) {
 
     var linkA;
-    var titleP;
-    var timeTime;
-    var tagP; //原创，翻译
     var itemLi;
+    var titleP;
+    var tagSp; //原创，翻译
+    var nameSp;
+    var timeTime;
 
     var listElement = document.getElementById(rootSectionId).getElementsByTagName("ul")[0];
 
@@ -29,20 +30,27 @@ function addListToSection(res, rootSectionId) {
 
             titleP = document.createElement('p');
             titleP.className = "article_title";
-            titleP.innerText = itemRes['name'];
 
-            tagP = document.createElement("span");
-            tagP.textContent = itemRes['tag'];
+            tagSp = document.createElement("span");
+            tagSp.textContent = itemRes['tag'];
+            if (tagSp.textContent === "原") {
+                tagSp.className = "origin";
+            } else if (tagSp.textContent === "转") {
+                tagSp.className = "index";
+            } else if (tagSp.textContent === "译") {
+                tagSp.className = "trans";
+            }
+            titleP.appendChild(tagSp);
+
+            nameSp = document.createElement("span");
+            nameSp.textContent = itemRes['name'];
+            titleP.appendChild(nameSp);
+            itemLi.appendChild(titleP);
 
             timeTime = document.createElement('time');
             timeTime.className = "article_time";
             timeTime.textContent = itemRes['time'];
-
-            titleP.appendChild(tagP);
-
-            itemLi.appendChild(titleP);
             itemLi.appendChild(timeTime);
-            itemLi.appendChild(tagP);
 
             linkA.appendChild(itemLi);
             listElement.appendChild(linkA);
