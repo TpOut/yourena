@@ -15,5 +15,7 @@ public class ConfigConstant {
     public static final String PROJECT_NAME  = "yourena";
     public static final String DOCS_NAME     = "docs";
     public static final String DOC_FOOD_NAME = "food_book";
+    public static final String DOC_FEEL_NAME = "feel_book";
+    public static final String DOC_STORY_NAME = "story_book";
 
 }

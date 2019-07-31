@@ -17,16 +17,16 @@
 
     <!--所有文件详情-->
     <servlet-mapping>
-        <servlet-name>NotesDetailServlet</servlet-name>
-        <url-pattern>/notes/*</url-pattern>
+        <servlet-name>DocDetailServlet</servlet-name>
+        <url-pattern>/docs/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>NotesDetailServlet</servlet-name>
-        <servlet-class>main.notes.servlet.NotesDetailServlet</servlet-class>
+        <servlet-name>DocDetailServlet</servlet-name>
+        <servlet-class>main.notes.servlet.DocDetailServlet</servlet-class>
     </servlet>
 
-    <!--食锦记列表-->
+    <!--食锦记 列表-->
     <servlet-mapping>
         <servlet-name>FoodListServlet</servlet-name>
         <url-pattern>/FoodList</url-pattern>
@@ -37,4 +37,25 @@
         <servlet-class>main.notes.servlet.FoodListServlet</servlet-class>
     </servlet>
 
+    <!--心晴 列表-->
+    <servlet-mapping>
+        <servlet-name>FeelListServlet</servlet-name>
+        <url-pattern>/FeelList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FeelListServlet</servlet-name>
+        <servlet-class>main.notes.servlet.FeelListServlet</servlet-class>
+    </servlet>
+
+    <!--轶事 列表-->
+    <servlet-mapping>
+        <servlet-name>StoryListServlet</servlet-name>
+        <url-pattern>/StoryList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>StoryListServlet</servlet-name>
+        <servlet-class>main.notes.servlet.StoryListServlet</servlet-class>
+    </servlet>
 </web-app>

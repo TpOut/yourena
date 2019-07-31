@@ -17,7 +17,7 @@ function addListToSection(res, rootSectionId) {
     var listElement = document.getElementById(rootSectionId).getElementsByTagName("ul")[0];
 
     var listRes = res['sub'];
-    var length = listRes.length;
+    var length = listRes.length > 4 ? 5 : listRes.length;
     for (var i = 0; i < length; i++) {
         var itemRes = listRes[i];
         //表示文件
@@ -39,6 +39,9 @@ function addListToSection(res, rootSectionId) {
                 tagSp.className = "index";
             } else if (tagSp.textContent === "译") {
                 tagSp.className = "trans";
+            } else {
+                tagSp.textContent = "原";
+                tagSp.className = "origin";
             }
             titleP.appendChild(tagSp);
 

@@ -25,7 +25,7 @@ import static main.config.ConfigConstant.WEB_SITE;
  * Created by shengjieli on 18-10-15.<br>
  * Email address: 416756910@qq.com<br>
  */
-public class NotesDetailServlet extends HttpServlet {
+public class DocDetailServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -52,7 +52,7 @@ public class NotesDetailServlet extends HttpServlet {
         }
         LogUtil.saveToFile(suffix);
 
-        File file = new File(projactPath + URLDecoder.decode(suffix, StandardCharsets.UTF_8));
+        File file = new File(projactPath + URLDecoder.decode(suffix, "UTF-8"));
         OutputStream output = resp.getOutputStream();// 得到输出流
 
         InputStream is = new FileInputStream(file);
