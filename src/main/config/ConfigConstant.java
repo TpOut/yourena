@@ -12,9 +12,8 @@ public class ConfigConstant {
     public static final String WEB_SITE = isDeployed ? "127.0.0.1:8080" : "localhost:8080";
     public static final String DATABASE_URL = isDeployed ? "127.0.0.1" : "120.55.171.184";
 
-    public static final String PROJECT_NAME = "yourena";
-    public static final String NOTES_NAME = "notes";
-    public static final String ARTICLE_NAME = "article";
-    public static final String ESSAY_NAME = "essay";
+    public static final String PROJECT_NAME  = "yourena";
+    public static final String DOCS_NAME     = "docs";
+    public static final String DOC_FOOD_NAME = "food_book";
 
 }

@@ -26,37 +26,15 @@
         <servlet-class>main.notes.servlet.NotesDetailServlet</servlet-class>
     </servlet>
 
-    <!--文章列表-->
+    <!--食锦记列表-->
     <servlet-mapping>
-        <servlet-name>ArticleListServlet</servlet-name>
-        <url-pattern>/ArticleList</url-pattern>
+        <servlet-name>FoodListServlet</servlet-name>
+        <url-pattern>/FoodList</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>ArticleListServlet</servlet-name>
-        <servlet-class>main.notes.servlet.ArticleListServlet</servlet-class>
-    </servlet>
-
-    <!--随笔列表-->
-    <servlet-mapping>
-        <servlet-name>EssayListServlet</servlet-name>
-        <url-pattern>/EssayList</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>EssayListServlet</servlet-name>
-        <servlet-class>main.notes.servlet.EssayListServlet</servlet-class>
-    </servlet>
-
-    <!--遍历文件列表-->
-    <servlet-mapping>
-        <servlet-name>NoteListServlet</servlet-name>
-        <url-pattern>/NoteList</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>NoteListServlet</servlet-name>
-        <servlet-class>main.notes.servlet.NoteListServlet</servlet-class>
+        <servlet-name>FoodListServlet</servlet-name>
+        <servlet-class>main.notes.servlet.FoodListServlet</servlet-class>
     </servlet>
 
 </web-app>

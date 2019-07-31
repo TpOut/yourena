@@ -1,72 +1,52 @@
 /**
- * 第一次获得的最高，为0；后续递增
- * 为了处理标题样式
- * 目前的0级目录表示根目录，1级目录表示分类，2级目录表示具体文件
+ *
+ * @param res 返回的json字符串
+ * @param rootSectionId 要添加在哪个标签下面
+ *
  */
 
-function addAllName(res, mainElement, namePriority, timeChangeLine) {
+function addListToSection(res, rootSectionId) {
 
-    var title;
-    var time;
-    var tag;
-    var realItem;
+    var linkA;
+    var titleP;
+    var timeTime;
+    var tagP; //原创，翻译
+    var itemLi;
 
-    if (namePriority == 0) {
-    } else {
-        realItem = document.createElement('li')
-        realItem.className = "section" + namePriority;
+    var listElement = document.getElementById(rootSectionId).getElementsByTagName("ul")[0];
 
-        if (namePriority === 1) {
+    var listRes = res['sub'];
+    var length = listRes.length;
+    for (var i = 0; i < length; i++) {
+        var itemRes = listRes[i];
+        //表示文件
+        if (itemRes['type'] === "normal") {
 
-            title = document.createElement("p")
-            title.innerText = res['name']
+            linkA = document.createElement('a');
+            linkA.href = "./detail-container.html?path=" + itemRes['url'];
 
-            realItem.appendChild(title)
+            itemLi = document.createElement('li');
+
+            titleP = document.createElement('p');
+            titleP.className = "article_title";
+            titleP.innerText = itemRes['name'];
+
+            tagP = document.createElement("span");
+            tagP.textContent = itemRes['tag'];
+
+            timeTime = document.createElement('time');
+            timeTime.className = "article_time";
+            timeTime.textContent = itemRes['time'];
+
+            titleP.appendChild(tagP);
+
+            itemLi.appendChild(titleP);
+            itemLi.appendChild(timeTime);
+            itemLi.appendChild(tagP);
+
+            linkA.appendChild(itemLi);
+            listElement.appendChild(linkA);
         }
-        if (namePriority === 2) {
-
-            title = document.createElement("p")
-            title.innerText = res['name']
-
-            time = document.createElement("time")
-            time.dateTime = "1977.01.01"
-            if (timeChangeLine) {
-                time.innerHTML = "1977<br>01-01"
-            } else {
-                time.textContent = "1977.01.01"
-            }
-
-            tag = document.createElement("p")
-            tag.textContent = "原创"
-
-            if (res['type'] === "normal") {
-                var virtualItem = document.createElement('a')
-                virtualItem.href = "./detail-container.html?path=" + res['url']
-                virtualItem.appendChild(title)
-                virtualItem.appendChild(time)
-                virtualItem.appendChild(tag)
-
-                realItem.appendChild(virtualItem)
-            } else {
-                realItem.appendChild(title)
-                realItem.appendChild(time)
-                realItem.appendChild(tag)
-            }
-        }
-
-        mainElement.appendChild(realItem)
     }
 
-    try {
-        var sub = res['sub']
-
-        var length = sub.length
-        if (length > 0) {
-            namePriority += 1
-        }
-        for (var i = 0; i < length; i++) {
-            addAllName(sub[i], mainElement, namePriority, timeChangeLine)
-        }
-    } catch (error) {
-    }
 }

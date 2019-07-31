@@ -26,11 +26,11 @@ public class BaseListServlet extends HttpServlet {
 
         //yourena_war_exploded
         String webPath = req.getSession().getServletContext().getRealPath("");
-        String notesPath = webPath.substring(0, webPath.indexOf(PROJECT_NAME) + PROJECT_NAME.length() + 1) + listPath;
+        String docsPath = webPath.substring(0, webPath.indexOf(PROJECT_NAME) + PROJECT_NAME.length() + 1) + listPath;
 
         //项目生成到out后，存到服务器的/java-web/yourena目录
-        // 软引用到webapps目录下，文章在/java-web/yourena的同级目录my-article
-        resp.getWriter().println(FileUtil.getAllFileName(notesPath));
+        //软引用到webapps目录下，文章在/java-web/yourena的同级目录my-article
+        resp.getWriter().println(FileUtil.getAllFileName(docsPath));
     }
 
 }

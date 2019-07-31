@@ -1,6 +1,8 @@
 package main.util;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.regex.Pattern;
 
 import main.config.ConfigConstant;
@@ -22,7 +24,7 @@ public class FileUtil {
      * @param topDirectory 遍历起始文件夹
      * @return 起始文件夹下面的所有文件（包括文件夹）的名字和链接
      */
-    public static String getAllFileName(File topDirectory) {
+    private static String getAllFileName(File topDirectory) {
         if (null == topDirectory) {
             return "";
         }
@@ -51,9 +53,24 @@ public class FileUtil {
             if (f.isDirectory()) {
                 sb.append(getAllFileName(f));
             } else {
-                sb.append("{").append("\"name\":\"").append(f.getName()).append("\"")
-                        .append(",\"url\":\"").append(pathClip(f.getAbsolutePath())).append("\"")
-                        .append(",\"type\":\"").append("normal").append("\"}");
+                String name = f.getName();
+                int indexTag = name.indexOf("_"); //原创，翻译等
+                int indexSuffix = name.indexOf("."); //后缀
+
+                sb.append("{");
+                if (-1 != indexTag) {
+                    sb.append("\"tag\":\"").append(name, 0, indexTag).append("\"")
+                            .append(",");
+                }
+                sb
+                        .append("\"name\":\"").append(name, indexTag + 1, indexSuffix).append("\"")
+                        .append(",")
+                        .append("\"url\":\"").append(pathClip(f.getAbsolutePath())).append("\"")
+                        .append(",")
+//                        .append("\"time\":\"").append(name, indexTime + 1, indexSuffix).append("\"")
+                        .append("\"time\":\"").append(getModifyTime(f)).append("\"")
+                        .append(",")
+                        .append("\"type\":\"").append("normal").append("\"}");
             }
         }
 
@@ -65,18 +82,26 @@ public class FileUtil {
         return sb.toString();
     }
 
-    public static String pathClip(String path) {
+    private static String pathClip(String path) {
         if (null == path || path.length() == 0) {
             return "invalid path";
         }
         String[] split = path.split(Pattern.quote(File.separator));
         int length = split.length;
         StringBuilder result = new StringBuilder();
-        for (int i = length - 1; i >= 0 && !split[i].equals(ConfigConstant.NOTES_NAME); i--) {
+        for (int i = length - 1; i >= 0 && !split[i].equals(ConfigConstant.DOCS_NAME); i--) {
             result.insert(0, "/");
             result.insert(0, split[i]);
         }
-        return result.insert(0, "/").insert(0, ConfigConstant.NOTES_NAME).substring(0, result.length() - 1);
+        return result.insert(0, "/").insert(0, ConfigConstant.DOCS_NAME).substring(0, result.length() - 1);
+    }
+
+    private static String getModifyTime(File f) {
+        Calendar cal = Calendar.getInstance();
+        long time = f.lastModified();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        cal.setTimeInMillis(time);
+        return formatter.format(cal.getTime());
     }
 
 }

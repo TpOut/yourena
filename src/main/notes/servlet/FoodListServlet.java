@@ -9,19 +9,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import main.notes.base.BaseListServlet;
 
-import static main.config.ConfigConstant.ESSAY_NAME;
-import static main.config.ConfigConstant.NOTES_NAME;
+import static main.config.ConfigConstant.DOCS_NAME;
+import static main.config.ConfigConstant.DOC_FOOD_NAME;
 
 /**
- * Created by shengjieli on 2018/11/5.<br>
+ * Created by shengjieli on 7/31/19.<br>
  * Email address: 416756910@qq.com<br>
  */
-public class EssayListServlet extends BaseListServlet {
+public class FoodListServlet extends BaseListServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String listPath = NOTES_NAME + File.separator + ESSAY_NAME;
+        String listPath = DOCS_NAME + File.separator + DOC_FOOD_NAME;
         printJsonFromFile(req, resp, listPath);
 
     }
