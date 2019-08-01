@@ -1,0 +1,72 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background: #F5F6FB;
+    font-size: 20px;
+}
+
+header {
+    background: white;
+    height: 100px;
+}
+
+#top_content {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    width: 1200px;
+    height: 100px; /*用父容器header     align-content: center 无效*/
+    margin: auto;
+}
+
+#top_avatar {
+    height: 72px;
+    width: 72px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#top_name {
+    margin-left: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#top_nav {
+    margin-left: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+    align-content: center;
+}
+
+#top_nav > ul {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    list-style-type: none;
+}
+
+#top_nav li {
+    color: #999999;
+    margin: 0 0 0 40px;
+    padding: 0 10px 0 10px;
+    border-bottom: 4px #444DFF;
+}
+
+#top_nav a {
+    color: #111111
+}
+
+main {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}

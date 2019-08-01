@@ -1,0 +1,49 @@
+main {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+main > div {
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    margin-top: 58px;
+    margin-bottom: 20px;
+}
+
+.header_title {
+    height: auto;
+    color: #333333;
+    font-size: 56px;
+}
+
+section {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    width: 350px;
+    background: #ffffff;
+    height: 172px;
+    padding: 24px 20px 24px 20px;
+    margin-top: 20px;
+}
+
+.section_title {
+    color: #111111;
+    font-size: 20px;
+}
+
+.section_describe {
+    color: #555555;
+    font-size: 14px;
+    flex-grow: 1
+}
+
+.section_time {
+    color: #999999;
+    font-size: 14px;
+}
+
+

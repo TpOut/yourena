@@ -8,73 +8,6 @@
     src: url("/fonts/DINPro-Black.otf");
 }
 
-* {
-    margin: 0;
-    padding: 0;
-}
-
-a {
-    text-decoration: none;
-}
-
-body {
-    background: #F5F6FB;
-    font-size: 20px;
-}
-
-header {
-    background: white;
-    height: 100px;
-}
-
-#top_content {
-    display: -webkit-flex;
-    display: flex;
-    flex-direction: row;
-    width: 1200px;
-    height: 100px; /*用父容器header     align-content: center 无效*/
-    margin: auto;
-}
-
-#top_avatar {
-    height: 72px;
-    width: 72px;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-#top_name {
-    margin-left: 10px;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-#top_nav {
-    margin-left: 10px;
-    margin-top: auto;
-    margin-bottom: auto;
-    align-content: center;
-}
-
-#top_nav > ul {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    list-style-type: none;
-}
-
-#top_nav li {
-    margin: 0 0 0 40px;
-    padding: 0 10px 0 10px;
-    border-bottom: 4px #444DFF;
-}
-
-main {
-    width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 #title {
     font-family: 'DinPro';
     position: relative;
@@ -114,7 +47,7 @@ section {
     padding: 28px 28px 32px 28px;
 }
 
-#main_data :last-child{
+#main_data :last-child {
     max-height: none;
 }
 
@@ -140,7 +73,7 @@ section ul {
     margin-top: 18px;
 }
 
-section ul  li {
+section ul li {
     margin-top: 12px;
     display: flex;
     flex-direction: row;
