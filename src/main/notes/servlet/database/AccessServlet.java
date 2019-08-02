@@ -1,4 +1,4 @@
-package main.notes.servlet;
+package main.notes.servlet.database;
 
 
 import java.io.IOException;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import main.config.ConfigConstant;
-import main.notes.util.NotesServletUtil;
+import main.notes.util.ServletUtil;
 
 import static main.config.ConfigConstant.DATABASE_URL;
 
@@ -29,8 +29,8 @@ public class AccessServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        NotesServletUtil.setCharset(resp);
-        NotesServletUtil.formatJson(resp);
+        ServletUtil.setCharset(resp);
+        ServletUtil.formatJson(resp);
         resp.getWriter().println("{\"num\":\"" + String.valueOf(queryAndUpdateAccess(req)) + "\"}");
     }
 

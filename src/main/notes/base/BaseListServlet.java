@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import main.notes.util.NotesServletUtil;
+import main.notes.util.ServletUtil;
 import main.util.FileUtil;
 
 import static main.config.ConfigConstant.PROJECT_NAME;
@@ -21,8 +21,8 @@ public class BaseListServlet extends HttpServlet {
      * 统一行为：设置格式
      */
     protected static void printJsonFromFile(HttpServletRequest req, HttpServletResponse resp, String listPath) throws IOException {
-        NotesServletUtil.setCharset(resp);
-        NotesServletUtil.formatJson(resp);
+        ServletUtil.setCharset(resp);
+        ServletUtil.formatJson(resp);
 
         //yourena_war_exploded
         String webPath = req.getSession().getServletContext().getRealPath("");

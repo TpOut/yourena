@@ -9,12 +9,12 @@ main > div {
     width: 100%;
     display: flex;
     flex-flow: row;
+    align-items: center;
     margin-top: 58px;
     margin-bottom: 20px;
 }
 
-.header_title {
-    height: auto;
+#header_title {
     color: #333333;
     font-size: 56px;
 }
@@ -33,6 +33,7 @@ section {
 .section_title {
     color: #111111;
     font-size: 20px;
+
 }
 
 .section_describe {

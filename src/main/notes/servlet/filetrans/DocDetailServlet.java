@@ -1,4 +1,4 @@
-package main.notes.servlet;
+package main.notes.servlet.filetrans;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -8,14 +8,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import main.notes.util.NotesServletUtil;
+import main.notes.util.ServletUtil;
 import main.util.LogUtil;
 
 import static main.config.ConfigConstant.PROJECT_NAME;
@@ -30,7 +29,7 @@ public class DocDetailServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        NotesServletUtil.setCharset(resp);
+        ServletUtil.setCharset(resp);
 
 //        resp.setContentType("application/octet-stream");
 

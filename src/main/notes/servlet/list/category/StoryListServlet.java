@@ -1,4 +1,4 @@
-package main.notes.servlet;
+package main.notes.servlet.list.category;
 
 import main.notes.base.BaseListServlet;
 
