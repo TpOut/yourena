@@ -1,8 +1,15 @@
 package main.util;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import main.config.ConfigConstant;
@@ -54,22 +61,55 @@ public class FileUtil {
                 sb.append(getAllFileName(f));
             } else {
                 String name = f.getName();
-                int indexTag = name.indexOf("_"); //原创，翻译等
                 int indexSuffix = name.indexOf("."); //后缀
+                String[] splits = name.substring(0, indexSuffix).split("_");
+
+                String tag = null;
+                String time = null;
+                String pureName = null;
+                switch (splits.length) {
+                    case 3:
+                        time = splits[2];
+                    case 2:
+                        pureName = splits[1];
+                        tag = splits[0];
+                        break;
+                    case 1:
+                        pureName = splits[0];
+                        break;
+                }
+
+                List<String> summary = null;
+                try {
+                    summary = readSeveralLines(f.toPath());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
                 sb.append("{");
-                if (-1 != indexTag) {
-                    sb.append("\"tag\":\"").append(name, 0, indexTag).append("\"")
+
+                if (null != tag) {
+                    sb.append("\"tag\":\"").append(tag).append("\"")
                             .append(",");
                 }
-                sb
-                        .append("\"name\":\"").append(name, indexTag + 1, indexSuffix).append("\"")
+                sb.append("\"name\":\"").append(pureName).append("\"")
                         .append(",")
                         .append("\"url\":\"").append(pathClip(f.getAbsolutePath())).append("\"")
                         .append(",")
-//                        .append("\"time\":\"").append(name, indexTime + 1, indexSuffix).append("\"")
-                        .append("\"time\":\"").append(getModifyTime(f)).append("\"")
-                        .append(",")
+                        .append("\"time\":\"").append(time == null ? getModifyTime(f) : time).append("\"");
+
+                if (null != summary) {
+                    sb.append(",")
+                            .append("\"summary\":\"");
+                    for (String sum : summary) {
+                        sb.append(sum)
+                                .append("\\\\n")
+                        ;
+                    }
+                    sb.append("\"");
+                }
+
+                sb.append(",")
                         .append("\"type\":\"").append("normal").append("\"}");
             }
         }
@@ -80,6 +120,25 @@ public class FileUtil {
 
         sb.append("}");
         return sb.toString();
+    }
+
+    /**
+     * 参考Files.readLines
+     *
+     * @throws IOException
+     */
+    private static List<String> readSeveralLines(Path filePath) throws IOException {
+        try (BufferedReader reader = Files.newBufferedReader(filePath, StandardCharsets.UTF_8)) {
+            List<String> result = new ArrayList<>();
+            int lines = 5;
+            for (int i = 0; i < lines; i++) {
+                String line = reader.readLine();
+                if (line == null)
+                    break;
+                result.add(line);
+            }
+            return result;
+        }
     }
 
     private static String pathClip(String path) {

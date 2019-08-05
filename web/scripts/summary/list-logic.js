@@ -11,18 +11,20 @@
  *
  */
 
-function addListToSection(res) {
+function addList(res) {
 
     var linkA;
     var tagSp; //原创，翻译
+    var nameSp;
     var titleP;
-    var describeP;
+    var summaryP;
     var timeTime;
+    var itemSection;
 
-    var mainItem = document.getElementById("main");
+    var mainItem = document.getElementsByTagName("main")[0];
 
     var listRes = res['sub'];
-    var length = listRes.length > 4 ? 5 : listRes.length;
+    var length = listRes.length;
     for (var i = 0; i < length; i++) {
         var itemRes = listRes[i];
         //表示文件
@@ -30,8 +32,6 @@ function addListToSection(res) {
 
             linkA = document.createElement('a');
             linkA.href = "./detail-container.html?path=" + itemRes['url'];
-
-            itemLi = document.createElement('li');
 
             titleP = document.createElement('p');
             titleP.className = "article_title";
@@ -53,15 +53,23 @@ function addListToSection(res) {
             nameSp = document.createElement("span");
             nameSp.textContent = itemRes['name'];
             titleP.appendChild(nameSp);
-            itemLi.appendChild(titleP);
+
+            summaryP = document.createElement("p");
+            summaryP.className = "article_summary";
+            var item = itemRes['summary'];
+            item.replace("/\\n\g","<br>");
+            summaryP.innerHTML = itemRes['summary'];
 
             timeTime = document.createElement('time');
             timeTime.className = "article_time";
             timeTime.textContent = itemRes['time'];
-            itemLi.appendChild(timeTime);
 
-            linkA.appendChild(itemLi);
-            listElement.appendChild(linkA);
+            itemSection = document.createElement('section');
+            itemSection.appendChild(titleP);
+            itemSection.appendChild(summaryP);
+            itemSection.appendChild(timeTime);
+
+            mainItem.appendChild(itemSection);
         }
     }
 

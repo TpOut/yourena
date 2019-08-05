@@ -1,4 +1,4 @@
-package main.notes.servlet.filetrans;
+package main.notes.servlet.file;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

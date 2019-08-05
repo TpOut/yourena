@@ -23,7 +23,7 @@
 
     <servlet>
         <servlet-name>DocDetailServlet</servlet-name>
-        <servlet-class>main.notes.servlet.filetrans.DocDetailServlet</servlet-class>
+        <servlet-class>main.notes.servlet.file.DocDetailServlet</servlet-class>
     </servlet>
 
     <!--食锦记 列表-->
@@ -34,7 +34,7 @@
 
     <servlet>
         <servlet-name>FoodListServlet</servlet-name>
-        <servlet-class>main.notes.servlet.list.category.FoodListServlet</servlet-class>
+        <servlet-class>main.notes.servlet.list.index.FoodListServlet</servlet-class>
     </servlet>
 
     <!--心晴 列表-->
@@ -45,7 +45,7 @@
 
     <servlet>
         <servlet-name>FeelListServlet</servlet-name>
-        <servlet-class>main.notes.servlet.list.category.FeelListServlet</servlet-class>
+        <servlet-class>main.notes.servlet.list.index.FeelListServlet</servlet-class>
     </servlet>
 
     <!--轶事 列表-->
@@ -56,6 +56,17 @@
 
     <servlet>
         <servlet-name>StoryListServlet</servlet-name>
-        <servlet-class>main.notes.servlet.list.category.StoryListServlet</servlet-class>
+        <servlet-class>main.notes.servlet.list.index.StoryListServlet</servlet-class>
+    </servlet>
+
+    <!--博客 列表-->
+    <servlet-mapping>
+        <servlet-name>BlogListServlet</servlet-name>
+        <url-pattern>/BlogList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BlogListServlet</servlet-name>
+        <servlet-class>main.notes.servlet.list.category.BlogListServlet</servlet-class>
     </servlet>
 </web-app>
