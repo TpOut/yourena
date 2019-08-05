@@ -24,7 +24,12 @@ function addListToSection(res, rootSectionId) {
         if (itemRes['type'] === "normal") {
 
             linkA = document.createElement('a');
-            linkA.href = "./detail-container.html?path=" + itemRes['url'];
+
+            if (itemRes['url'].split('.')[1] === "html") {
+                linkA.href = "./" + itemRes['url'];
+            } else {
+                linkA.href = "./detail-container.html?path=" + itemRes['url'];
+            }
 
             itemLi = document.createElement('li');
 

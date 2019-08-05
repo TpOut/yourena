@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vagrant_20181025</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<p>地址置顶：<br />
+https://www.vagrantup.com/intro/getting-started </p>
+<p>更新:（3.0_20190717 ）</p>
+<h2>索引</h2>
+<p>官网总体上比较简单，主要是:<br />
+1、简单文档：https://www.vagrantup.com/<br />
+2、指引文档：https://www.vagrantup.com/intro/getting-started/index.html<br />
+3、详细文档：https://www.vagrantup.com/docs  </p>
+<h2>快速介绍</h2>
+<p>Vagrant是一个以相同工作流 构建和管理虚拟机环境 的工具<br />
+好处主要是可以通过vagrant 统一管理多个机子的环境（不管是统一操作还是统一环境）<br />
+可以用作团队内环境的复用、快速的新建、以及备用。  </p>
+<p>当然人们可以自己根据各个虚拟机编写脚本，但是 Vagrant集成在内部<br />
+并且提供了多种方式(共享文件夹 ,provisioner)和快捷处理(ssh.http). 
+在兼容上也更加省心（基于各种虚拟软件，如VirtualBox、VMware），它让用户忽略了底层的CLI。  </p>
+<h3>竞品比较</h3>
+<p>Vagrant不是独有的用来管理虚拟机和开发环境的工具   </p>
+<ul>
+<li>Docker
+  Vagrant专注于,跨操作系统,提供统一的开发环境工作流,
+  Docker是容器管理工具,能够让容器在containerization的系统上运行一致(macOS,Linux,Windows都可以实现containerization,BSD等不行),
+  对于微服务,显然Docker更好,当然Vagrant使用Docker作为Provider也能实现.
+  很多时候纯Docker的工作流也会比Vagrant统一化的更适合.</li>
+</ul>
+<blockquote>
+<p>vagrant和docker的比较一直不明白，留待使用后再说。<br />
+感觉前者是跨平台为主，后者是快速部署为主<br />
+只是后者也在主流系统上有了兼容，所以能在某种程度上实现跨平台<br />
+而前者启动之后，也能支持后者的部署<br />
+- Terraform
+都是HashiCorp的项目，Terraform是一个构建基础架构的工具，他们会有重叠，比如都可以配置虚拟机的生命周期。
+但是V目的在于开发环境可用性，而T在于span multiple cloud provider的基础架构--主要为了管理远程资源 <br />
+（既然不是类似的东西，比啥比。。。感觉是自家广告）</p>
+</blockquote>
+<h2>安装</h2>
+<p>安装自带配置环境变量，安装好了使用vagrant命令即可   <br />
+https://www.vagrantup.com/docs/installation/  </p>
+<blockquote>
+<p>1.0兼容略过。 <br />
+不建议用系统的包管理工具，经常过时。<br />
+启动虚拟机时，如果hypervisor正在被使用，windows应该会蓝屏。文末给出了不同系统环境的确认方法。</p>
+</blockquote>
+<h2>操作和概念:</h2>
+<p>首先我们想要启动vagrant 虚拟机，而虚拟机的启动建立在一个配置文件之上，这个配置文件是VagrantFile:
+- 一个Vagrant项目 对应一个VagrantFile，可配置项包括：根目录、机器、资源相关的配置
+- Vagrant项目，按我目前的理解，就是启动过虚拟机后，当前目录包含的东西。</p>
+<p>有了配置文件，就可以启动了。</p>
+<blockquote>
+<p>系统会将VagrantFile 所在的目录和虚拟机的<code>/vagrant</code>共享,慎用rm -rf  <br />
+刚进入主机时，是处在/home/vagrant目录，不要搞混了 </p>
+</blockquote>
+<p>根据VagrantFile 的配置 是从头开始初始化虚拟机，可能耗费的时间很长。
+还有一种保存虚拟机状态的方式，即Box（需要先通过命令添加，同时在Vagrant 中指定）：
+- 一个Vagrant实例，可以被制作成一个box，或者从一个box生成。可以理解成基础镜像 </p>
+<blockquote>
+<p>box自然是可以分享的
+boxs search official: https://app.vagrantup.com/boxes/search<br />
+boxs search community: http://www.vagrantbox.es/  
+</p>
+</blockquote>
+<p>而上述两种仅仅是静态的启动虚拟机，相应的还可以动态的添加一些额外的准备，
+即Provision（通过在VagrantFile中配置 <code>bootstrap.sh</code> 文件）:</p>
+<blockquote>
+<p>如果bootstrap.sh比较复杂,显然更好的方式是把所有安装好之后,打包一个Vagrant Box　　 
+- 实例启动后，需要一系列的自动化准备，这个过程叫做Provision。
+provision tools包括: shell scripts, chef, puppet...</p>
+</blockquote>
+<ul>
+<li>教程中虚拟机基于Virtual Box.. 而有时候需要别的虚拟机支持，就可以设置对应的Provider.  </li>
+</ul>
+<blockquote>
+<p>支持provision的provider有:  VirtualBox, VMware, AWS  
+</p>
+</blockquote>
+<h3>启动流程</h3>
+<p>有了一个整体的理解，我们再回过头来细说vagrant 解读 VagrantFile的过程。</p>
+<p>VagrantFile会在多处出现，
+首先会被打包进 box中
+然后是vagrant的默认home目录（一般是~/.vagrant.d）
+再者就是项目启动目录
+。。。（待续）</p>
+<h2>命令</h2>
+<p><code>ruby
+vagrant --help</code>
+<a href="https://www.vagrantup.com/docs/cli/">命令文档</a></p>
+<h2>遇到的问题</h2>
+<p>Q:
+vagrant 创建虚拟机的时候。如果直接用命令行在官方地址下载，基本卡死，最好先下载box到本地。<br />
+A: <br />
+方法：可以在命令行输出中看到下载地址，然后把地址放到chorme中，可以在下载信息中看到另一个实际地址，两个的速度也都很慢（后来不知怎么，匿名模式下重下突然快了）。 <br />
+或者清华源：https://mirrors.tuna.tsinghua.edu.cn/ubuntu-cloud-images/  </p>
+<hr />
+<p>Q:
+提示版本不一致：
+<code>ruby
+ The guest additions on this VM do not match the installed version of
+    default: VirtualBox! In most cases this is fine, but in rare cases it can
+    default: prevent things such as shared folders from working properly. If you see
+    default: shared folder errors, please make sure the guest additions within the
+    default: virtual machine match the version of VirtualBox you have installed on
+    default: your host and reload your VM.
+    default:
+    default: Guest Additions Version: 4.3.40
+    default: VirtualBox Version: 5.2</code>
+A：
+手动更新版本或者安装插件<code>vagrant plugin install vagrant-vbguest</code> </p>
+<h2>示例</h2>
+<p>VagrantFile<br />
+<code>ruby
+Vagrant.configure(&quot;2&quot;) do |config|
+  config.vm.box = &quot;hashicorp/precise64&quot;
+  config.vm.box_version = &quot;1.1.0&quot;
+  config.vm.box_url = &quot;https://vagrantcloud.com/hashicorp/precise64&quot;  
+  config.vm.provision :shell, path: &quot;bootstrap.sh&quot;  #相对路径
+  config.vm.network :forwarded_port, guest: 80, host: 4567
+end</code>
+<code>bootstrap.sh</code></p>
+<blockquote>
+<p>在这个bootstrap.sh脚本中,安装好 Apache之后， /var/www/文件夹指向的是启动的目录。 
+<code>shell
+apt-get update
+apt-get install -y apache2
+if ! [ -L /var/www ]; then
+rm -rf /var/www
+ln -fs /vagrant /var/www
+fi</code></p>
+</blockquote>
+<h2>特别的地方</h2>
+<p>可以直接通过命令将本地部署的服务分享给其他人访问，并且是热更新的。
+但是实际使用也不是那么方便，通过第三方的ngrok 实现（即需要先下载），再安装一个插件来屏蔽第三方的使用。</p>
+<p>比如vagrant share 并没有生成地址，反而是直接用了ngrok 的命令</p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

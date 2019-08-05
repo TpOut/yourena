@@ -31,7 +31,13 @@ function addList(res) {
         if (itemRes['type'] === "normal") {
 
             linkA = document.createElement('a');
-            linkA.href = "./detail-container.html?path=" + itemRes['url'];
+            // linkA.href = "./detail-container.html?path=" + itemRes['url'];
+            console.log(itemRes['url'])
+            if (itemRes['url'].split('.')[1] === "html") {
+                linkA.href = "./" + itemRes['url'];
+            } else {
+                linkA.href = "./detail-container.html?path=" + itemRes['url'];
+            }
 
             titleP = document.createElement('p');
             titleP.className = "article_title";
@@ -57,7 +63,7 @@ function addList(res) {
             summaryP = document.createElement("p");
             summaryP.className = "article_summary";
             var item = itemRes['summary'];
-            item =  item.replace(/\\n/g, '<br>');
+            item = item.replace(/\\n/g, '<br>');
             summaryP.innerHTML = item;
 
             timeTime = document.createElement('time');
@@ -69,7 +75,8 @@ function addList(res) {
             itemSection.appendChild(summaryP);
             itemSection.appendChild(timeTime);
 
-            mainItem.appendChild(itemSection);
+            linkA.appendChild(itemSection);
+            mainItem.appendChild(linkA);
         }
     }
 
