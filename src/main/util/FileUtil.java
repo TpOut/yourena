@@ -71,8 +71,13 @@ public class FileUtil {
                     case 3:
                         time = splits[2];
                     case 2:
-                        pureName = splits[1];
-                        tag = splits[0];
+                        if (TimeUtil.isDate(splits[1], "yyyyMMdd")) {
+                            pureName = splits[0];
+                            time = splits[1];
+                        } else {
+                            pureName = splits[1];
+                            tag = splits[0];
+                        }
                         break;
                     case 1:
                         pureName = splits[0];

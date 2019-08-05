@@ -57,8 +57,8 @@ function addList(res) {
             summaryP = document.createElement("p");
             summaryP.className = "article_summary";
             var item = itemRes['summary'];
-            item.replace("/\\n\g","<br>");
-            summaryP.innerHTML = itemRes['summary'];
+            item =  item.replace(/\\n/g, '<br>');
+            summaryP.innerHTML = item;
 
             timeTime = document.createElement('time');
             timeTime.className = "article_time";

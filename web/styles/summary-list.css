@@ -39,6 +39,8 @@ section {
     color: #555555;
     font-size: 14px;
     flex-grow: 1;
+    margin-top: 8px;
+    margin-bottom: 12px;
 }
 
 .article_time {
