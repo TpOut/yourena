@@ -1,7 +1,5 @@
 package main.util;
 
-import main.config.ConfigConstant;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -13,6 +11,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.regex.Pattern;
+
+import main.config.ConfigConstant;
 
 /**
  * Created by shengjieli on 18-10-10.<br>
@@ -51,18 +51,15 @@ public class FileUtil {
 
         int length = files.length;
         int othersFileLength = 0;//输出Json拼接。如果不是md文件，不要影响json
-        boolean needChangeName = false;//前一个文件是html，后一个文件就是同名的md,需要在链接上改成html的
+
         for (int i = 0; i < length; i++) {
             File f = files[i];
 
             String name = f.getName();
-            if(!name.endsWith(".md")){
+            if (!name.endsWith(".md")) {
                 //其他文件
                 othersFileLength++;
-                if (name.endsWith(".html")) {
-                    needChangeName = true;
-                    continue;
-                }
+                continue;
             }
 
             if (i - othersFileLength != 0) {
@@ -108,9 +105,24 @@ public class FileUtil {
                     sb.append("\"tag\":\"").append(tag).append("\"")
                             .append(",");
                 }
-                sb.append("\"name\":\"").append(pureName).append("\"")
-                        .append(",")
-                        .append("\"url\":\"").append(needChangeName ? pathClip(files[i - 1].getAbsolutePath()) : pathClip(f.getAbsolutePath())).append("\"")
+                sb.append("\"name\":\"").append(pureName).append("\"");
+
+                boolean needChange = false;
+                int filesLength = files.length;
+                for (int index = 0; index < filesLength; index++) {
+                    if (files[index].getAbsolutePath().endsWith(".html") &&
+                            files[index].getName().substring(0, files[index].getName().indexOf(".")).equals(f.getName().substring(0, f.getName().indexOf(".")))) {
+                        needChange = true;
+                        break;
+                    }
+                }
+                String url = pathClip(f.getAbsolutePath());
+                if (needChange) {
+                    url = url.replace(".md", ".html");
+                }
+
+                sb.append(",")
+                        .append("\"url\":\"").append(url).append("\"")
                         .append(",")
                         .append("\"time\":\"").append(time == null ? getModifyTime(f) : time).append("\"");
 
@@ -128,7 +140,6 @@ public class FileUtil {
                 sb.append(",")
                         .append("\"type\":\"").append("normal").append("\"}");
             }
-            needChangeName = false;
         }
 
         if (topDirectory.isDirectory()) {
