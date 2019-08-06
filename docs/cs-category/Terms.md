@@ -1,12 +1,8 @@
-## 通用
-TBD: to be determined
-AR: augmented reality
-FIFO: first in first out
-
-## 计算机
 
 ### 术语
-on the fly: [相对比较常见的含义是“不经过某种额外步骤而直接进行某项活动”](https://www.zhihu.com/question/21136587)  
+on the fly  
+ >[相对比较常见的含义是“不经过某种额外步骤而直接进行某项活动”](https://www.zhihu.com/question/21136587)  
+
 i18n and L10n: internationalization and localization
 
 intel HAXM: Hardware Accelerated Execution Manager
@@ -20,6 +16,7 @@ SAM: Single Abstract Method
 AST: Abstract Syntax Tree
 ABI: Application Binary Interface  
 PIC: Position Independent Code  
+
 ### 缩写
 LXC: Linux Container
 

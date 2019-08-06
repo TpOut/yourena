@@ -1,0 +1,1 @@
+电路图符号：https://learn.sparkfun.com/tutorials/how-to-read-a-schematic/all  

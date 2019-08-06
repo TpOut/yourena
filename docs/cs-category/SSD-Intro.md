@@ -1,0 +1,1 @@
+https://www.backblaze.com/blog/how-reliable-are-ssds/
