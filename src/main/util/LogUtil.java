@@ -14,12 +14,13 @@ public class LogUtil {
         System.out.println(info);
     }
 
-    public static void saveToFile(String info) {
-        File file = new File("temp.log");
+    public static void saveToFile(String pathPrefix, String info) {
+        File file = new File(pathPrefix + File.separator + "temp.log");
         FileWriter fwriter = null;
         try {
-            fwriter = new FileWriter(file);
+            fwriter = new FileWriter(file,true);
             fwriter.write(info);
+            fwriter.write(System.getProperty("line.separator"));
         } catch (IOException ex) {
             ex.printStackTrace();
         } finally {
