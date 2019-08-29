@@ -1,0 +1,31 @@
+Find sample code
+Android Studio provides a selection of code samples and templates for you to use to accelerate your app development. Browse sample code to learn how to build different components for your applications. Use templates to create new app modules, individual activities, or other specific Android project components.
+
+This page describes how to access and use the high-quality, Google-provided Android code samples. For information about templates, see Add Code from a Template.
+
+In the Browse Samples dialog
+You can use the samples browser to select, preview, and import one or more sample apps as projects. You can also browse the source code through GitHub.
+
+Select File > New > Import Sample.
+Use the search box or the scroll bar to browse the samples.
+When you find a sample that interests you, highlight it and take a look at the preview.
+If you want to import it as a project, click Next and then Finish.
+
+Figure 1. Browse Samples dialog with sample highlighted in the left column and previewed in the right column.
+
+Inline from the editor
+The Code Sample Browser in Android Studio helps you find Android code samples based on the currently highlighted symbol in your project.
+
+In your code, highlight a variable, type, or method.
+Right-click to display the context menu.
+From the context menu, select Find Sample Code.
+The results of your search appear in a tool window as shown in figure 2.
+
+In the left pane of the tool window, select a sample.
+Then, scroll through the right pane to find highlighted code lines that are used in the selected sample.
+
+Figure 2. The Code Sample Browser.
+
+Content and code samples on this page are subject to the licenses described in the Content License. Java is a registered trademark of Oracle and/or its affiliates.
+
+Last updated June 5, 2018

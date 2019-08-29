@@ -1,0 +1,206 @@
+Build and run your app
+Android Studio sets up new projects to deploy to the Android Emulator or a connected device with just a few clicks. Once your app is installed, Instant Run allows you to push code changes without building a new APK.
+
+To build and run your app, select Run > Run in the menu bar (or click Run  in the toolbar). If it's the first time running the app, Android Studio asks you to select a deployment target as shown in figure 1. Select a device to install and run your app.
+
+
+
+Figure 1. The Select Deployment Target dialog shows available devices
+
+If the dialog says, "No USB devices or running emulators detected," then you need to set up and connect your device or launch an emulator by clicking a device listed under Available Virtual Devices. If there are no virtual devices listed, click Create New Virtual Device and follow the Virtual Device Configuration wizard (see Create and Manage Virtual Devices).
+
+To display the Select Deployment Target dialog, either deselect Use same device for future launches or stop the app with Run > Stop app or Stop , and then start it again.
+
+Note: You can also deploy your app in debug mode by clicking Debug . Running your app in debug mode allows you to set breakpoints in your code, examine variables and evaluate expressions at run time, and run debugging tools. To learn more, see Debug Your App.
+
+Change the run/debug configuration
+When you run your app for the first time, Android Studio uses a default run configuration. The run configuration specifies whether to deploy your app from an APK or an Android App Bundle, the module to run, package to deploy, activity to start, target device, emulator settings, logcat options, and more.
+
+The default run/debug configuration builds an APK, launches the default project activity, and uses the Select Deployment Target dialog for target device selection. If the default settings don't suit your project or module, you can customize the run/debug configuration, or even create a new one, at the project, default, and module levels. To edit a run/debug configuration, select Run > Edit Configurations. For more information, see Create and Edit Run/Debug Configurations.
+
+Change the build variant
+By default, Android Studio builds the debug version of your app, which is intended only for use during development, when you click Run.
+
+To change the build variant Android Studio uses, select Build > Select Build Variant in the menu bar (or click Build Variants  in the tool windows bar), and then select a build variant from the drop-down menu. By default, new projects are set up with two build variants: a debug and release variant. You need to build the release variant to prepare your app for public release.
+
+To build other variations of your app, each with different features or device requirements, you can define additional build variants.
+
+Build your project
+The Run  button builds and deploys your app to a device. However, to build your app to share or upload to Google Play, you'll need to use one of the options in the Build menu to compile parts or all of your project. Before you select any of the build options listed in table 1, make sure you first select the build variant you want to use.
+
+Note: Android Studio requires AAPT2 to build app bundles, which is enabled for new projects by default. However, to make sure it is enabled on existing projects, include android.enableAapt2=true in your gradle.properties file and restart the Gradle daemon by running ./gradlew --stop from the command line.
+Table 1. Build options in the Build menu.
+
+Menu Item	Description
+Make Module	Compiles all source files in the selected module that have been modified since the last build, and all modules the selected module depends on recursively. The compilation includes dependent source files and any associated build tasks. You can select the module to build by selecting either the module name or one of its files in the Project window. This command does not generate an APK.
+Make Project	Makes all modules.
+Clean Project	Deletes all intermediate/cached build files.
+Rebuild Project	Runs Clean Project for the selected build variant and produces an APK.
+Build Bundle(s) / APK(s) > Build APK(s)	
+Builds an APK of all modules in the current project for their selected variant. When the build completes, a confirmation notification appears, providing a link to the APK file and a link to analyze it in the APK Analyzer.
+
+If the build variant you've selected is a debug build type, then the APK is signed with a debug key and it's ready to install. If you've selected a release variant, then, by default, the APK is unsigned and you must manually sign the APK. Alternatively, you can select Build > Generate Signed Bundle / APK from the menu bar.
+
+Android Studio saves the APKs you build in project-name/module-name/build/outputs/apk/.
+
+Build Bundle(s) / APK(s) > Build Bundle(s)	
+Builds an Android App Bundle of all modules in the current project for their selected variant. When the build completes, a confirmation notification appears, providing a link to the app bundle and a link to analyze it in the APK Analyzer.
+
+If the build variant you've selected is a debug build type, then the app bundle is signed with a debug key, and you can use bundletool to deploy your app from the app bundle to a connected device. If you've selected a release variant, then the app bundle is unsigned by default and you must manually sign it using jarsigner. Alternatively, you can select Build > Generate Signed Bundle / APK from the menu bar.
+
+Android Studio saves the APKs you build in project-name/module-name/build/outputs/bundle/.
+
+Generate Signed Bundle / APK	Brings up a dialog with a wizard to set up a new signing configuration, and build either a signed app bundle or APK. You need to sign your app with a release key before you can upload it to the Play Console. For more information about app signing, see Sign your app.
+Note: The Run  button builds an APK with testOnly="true", which means the APK can only be installed via adb (which Android Studio uses). If you want a debuggable APK that people can install without adb, select your debug variant and click Build Bundle(s) / APK(s) > Build APK(s).
+
+For details about the tasks that Gradle executes for each command, open the Build window as described in the next section. For more information about Gradle and the build process, see Configure Your Build.
+
+Monitor the build process
+You can view details about the build process by clicking View > Tool Windows > Build (or by clicking Build   in the tool window bar). The window displays the tasks that Gradle executes in order to build your app, as shown in figure 2.
+
+
+
+Figure 2. The Build output window in Android Studio
+
+Build tab: Displays the tasks Gradle executes as a tree, where each node represents either a build phase or a group of task dependencies. If you receive build-time or compile-time errors, inspect the tree and select an element to read the error output, as shown in figure 3 below. 
+Figure 3. Inspect the Build output window for error messages
+
+Sync tab: Displays tasks that Gradle executes to sync with your project files. Similar to the Build tab, if you encounter a sync error, select elements in the tree to find more information about the error.
+Restart: Performs the same action as selecting Build > Make Project by generating intermediate build files for all modules in your project.
+Toggle view: Toggles between displaying task execution as a graphical tree and displaying more detailed text output from Gradle—this is the same output you see in the Gradle Console   window on Android Studio 3.0 and earlier.
+If your build variants use product flavors, Gradle also invokes tasks to build those product flavors. To view the list of all available build tasks, click View > Tool Windows > Gradle (or click Gradle   in the tool window bar).
+
+If an error occurs during the build process, Gradle may recommend some command-line options to help you resolve the issue, such as --stacktrace or --debug. To use command-line options with your build process:
+
+Open the Settings or Preferences dialog:
+On Windows or Linux, select File > Settings from the menu bar.
+On Mac OSX, select Android Studio > Preferences from the menu bar.
+Navigate to Build, Execution, Deployment > Compiler.
+In the text field next to Command-line Options, enter your command-line options.
+Click OK to save and exit.
+Gradle applies these command-line options the next time you try building your app.
+
+About Instant Run
+In Android Studio 2.3 and higher, Instant Run significantly reduces the time it takes to update your APK with code and resource changes. After deploying your app to a target device running Android 5.0 (API level 21) or higher, you can click Apply Changes  to push certain code and resource changes to your running app without building a new APK—and, in some cases, without even restarting the current activity. The Run  and Debug  buttons are always available to you when you want to push your changes and force an app restart. However, you may find that using the Apply Changes button provides a faster workflow for most incremental changes to your app.
+
+Tip: You can also press Control + F10 (or Control + Command + R on Mac) to apply changes with Instant Run.
+
+The Apply Changes  action is available only when you meet the following conditions:
+
+Build an APK of your app using a debug build variant. Instant Run is not yet supported when deploying from an app bundle.
+Use Android plugin for Gradle version 2.3.0 or higher.
+Set minSdkVersion to 15 or higher in your app's module-level build.gradle file.
+Deploy your app to a target device running Android 5.0 (API level 21) and higher.
+For more information about enabling Instant Run, go to the section about configuring your project.
+
+Instant Run pushes your changes by performing a hot swap, warm swap, or cold swap—the type of swap it performs depends on the type of change you made. When you click Apply Changes  after making a code or resource change to your running app, Instant Run automatically determines the best way to push your change to the target device, as described in the following table.
+
+Clicking Run  (or Debug ) forces a cold swap and an app restart. If you make a change to the app manifest or a resource referenced by the manifest, Android Studio always pushes your changes with a full APK reinstall.
+
+Code Change	Apply Changes  Behavior
+Change implementation code of an existing method
+Performs a hot swap: This is the fastest type of swap and makes changes visible much more quickly. Your application keeps running and a stub method with the new implementation is used the next time the method is called.
+
+Hot swaps do not re-initialize objects in your running app. Before you see certain updates, you may need to either restart the current activity, by selecting Run > Restart Activity, or restart your app, by clicking Run  (or Debug ). By default, Android Studio automatically restarts the current activity after performing a hot swap. If you do not want this behavior, you can disable automatic activity restarts.
+
+Change or remove an existing resource
+Performs a warm swap: This swap is still very fast, but Instant Run must restart the current activity when it pushes the changed resources to your app. Your app keeps running, but a small flicker may appear on the screen as the activity restarts—this is normal.
+Structural code changes, such as:
+Add, remove, or change:
+an annotation
+an instance field
+a static field
+a static method signature
+an instance method signature
+Change which parent class the current class inherits from
+Change the list of implemented interfaces
+Change a class's static initializer
+Reorder layout elements that use dynamic resource IDs
+Performs a cold swap: This swap is a bit slower because, although a new APK is not required, Instant Run must restart the whole app when it pushes structural code changes.
+
+Change the app manifest
+Change resources referenced by the app manifest
+Change an Android system UI element, such as a widget or notification
+When making changes to the app's manifest or resources referenced by the manifest, clicking Apply Changes  redeploys a full build of your app with those changes. This is because certain information about the app, such as its name, app icon resources, and intent filters, are determined from the manifest when the APK is installed on the device.
+
+If your build process automatically updates any part of the app manifest, such as automatically iterating versionCode or versionName, you will not be able to benefit from the full performance of Instant Run. When using Instant Run, you should disable automatic updates to any part in the app manifest in your debug build variants.
+
+When updating an Android system UI element, such as a widget or notification, you need to click Run  (or Debug ).
+
+Note: If you need to restart your app after a crash, do not launch it from your target device. Restarting your app from your target device does not apply any of your code changes since the last cold swap or incremental build. To launch your app with all your recent changes, click Run  (or Debug  ) from Android Studio.
+
+Disable automatic activity restart
+When performing a hot swap, your app keeps running but Android Studio automatically restarts the current activity. To disable this default setting:
+
+Open the Settings or Preferences dialog:
+On Windows or Linux, select File > Settings from the menu bar.
+On Mac OSX, select Android Studio > Preferences from the menu bar.
+Navigate to Build, Execution, Deployment > Instant Run.
+Uncheck the box next to Restart activity on code changes.
+If automatic activity restart is disabled, you can manually restart the current activity from the menu bar by selecting Run > Restart Activity.
+
+Configure your project for Instant Run
+Android Studio enables Instant Run by default for projects built using Android plugin for Gradle 2.3.0 and higher.
+
+To update an existing project with the latest version of the plugin:
+
+Open the Settings or Preferences dialog.
+Navigate to Build, Execution, Deployment > Instant Run and click Update Project, as shown in figure 4.
+
+If the option to update the project does not appear, it’s already up-to-date with the latest Android plugin for Gradle. But make sure the box next to Enable Instant Run is checked.
+
+
+Figure 4. Updating the Android plugin for Gradle for an existing project
+
+To start using Instant Run, you also need to change the build variant to a debug version of your app and deploy it to a target device running Android 5.0 (API level 21) or higher. To learn about more techniques that speed up your build, read Optimize Your Build Speed
+
+Exclude your project from Windows Defender
+On Windows systems, Windows Defender may cause slowdowns while using Instant Run. If you are using Windows Defender, you should exclude your Android Studio project folder from Windows Defender malware scans.
+
+Improve build times when using Crashlytics
+If your version of the Fabric Gradle plugin is lower than 1.21.6, Crashlytics may cause slower build times. To improve build performance while developing your app, you can either update the plugin to the latest version or disable Crashlytics for your debug build variant.
+
+Limitations of Instant Run
+Instant Run is designed to speed up the build and deploy process in most situations. However, there are some aspects to using Instant Run that might affect its behavior and compatibility with your app. If you experience any other issues while using Instant Run, please enable extra logging and report a bug.
+
+Apps don't launch on some physical devices
+Some device manufacturers block apps from automatically launching after being installed on the device. When deploying your app to a physical device using Android Studio 2.3, this restriction breaks the intended behavior of Instant Run and causes the following error output: Error: Not found; no service started. To fix this issue, update Android Studio to 2.3.1 or higher.
+
+Debug mode always uses cold swaps
+On Android Studio 2.3, if you deploy your app by clicking Debug , pushing subsequent code changes by clicking Apply Changes  always results in a cold swap. To learn more, go to issue #234401.
+
+Deploying to multiple devices
+Instant Run uses different techniques to perform hot, warm, and cold swaps that are specific to the API level of the target device. For this reason, while deploying an app to multiple devices at once, Android Studio temporarily turns off Instant Run.
+
+Multidexing your app
+If minSdkVersion is set to 21 or higher, Instant Run automatically configures your app for multidex. Because Instant Run only works with the debug version of your app, you may need to configure your app for multidex when deploying your release build variant.
+
+Running instrumented tests and performance profilers
+Instrumented tests load both the debug APK and a test APK into the same process on a test device, allowing control methods to override the normal lifecycle of the app and perform tests. While running or debugging instrumented tests, Android Studio does not inject the additional methods required for Instant Run and turns the feature off.
+
+While profiling an app, you should disable Instant Run. There is a small performance impact when using Instant Run and a slightly larger impact when overriding methods with a hot swap. This performance impact could interfere with information provided by performance profiling tools. Additionally, the stub methods generated with each hot swap can complicate stack traces.
+
+Using third-party plugins
+Android Studio temporarily disables the Java Code Coverage Library (JaCoCo) and ProGuard while using Instant Run. Because Instant Run only works with debug builds, this does not affect your release build.
+
+Certain third-party plugins that perform bytecode enhancement may cause issues with how Instant Run instruments your app. If you experience these issues, but want to continue using Instant Run, you should disable those plugins for your debug build variant. You can also help improve compatibility with third-party plugins by filing a bug.
+
+Pushing changes to multi-process apps
+Instant Run only instruments your app's main process in order to perform hot swaps and warm swaps. When pushing code changes to other app processes, such as changes to a method implementation or an existing resource, Instant Run performs a cold swap.
+
+Launching your app in a work profile
+If you run your app with Instant Run and open your app using a work profile (or other secondary profile), your app will crash because the instrumented DEX files used by Instant Run are accessible only from the primary profile's user space.
+
+If you want to continue using Instant Run, just avoid opening your app with the work profile and be sure your run configuration does not use the --user user_id flag.
+
+If you need to use your app with the work profile, we recommend you create a new run configuration that includes the --user user_id flag, specifying the work profile user ID. You can find the user ID by executing adb shell pm list users from command line. When you use the --user flag, Android Studio disables Instant Run for only that deployment; Instant Run will work again when you switch to a configuration without the --user flag.
+
+Disable Instant Run
+To disable Instant Run:
+
+Open the Settings or Preferences dialog.
+Navigate to Build, Execution, Deployment > Instant Run.
+Uncheck the box next to Enable Instant Run.
+Content and code samples on this page are subject to the licenses described in the Content License. Java is a registered trademark of Oracle and/or its affiliates.
+
+Last updated November 26, 2018

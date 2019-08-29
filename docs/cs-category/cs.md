@@ -3,6 +3,7 @@
 如何阅读rfc : https://web.archive.org/web/20180916071340/https://www.mnot.net/blog/2018/07/31/read_rfc
 >有翻到中文译文：https://www.freebuf.com/column/184598.html
 
+编译器原理：https://github.com/jamiebuilds/the-super-tiny-compiler  
 
 如何编写一个硬盘启动程序（无操作系统）：https://stackoverflow.com/questions/22054578/how-to-run-a-program-without-an-operating-system/32483545#32483545　
 

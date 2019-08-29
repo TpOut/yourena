@@ -1,3 +1,5 @@
+使用 https://www.abbreviations.com/ 可以查询，github 有个 wtf-cli 的命令行工具基于此  
+
 
 ### 术语
 on the fly  

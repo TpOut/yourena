@@ -9,18 +9,22 @@ linux服务：https://medium.com/@benmorel/creating-a-linux-service-with-systemd
 apt-aptget的区别：https://itsfoss.com/apt-vs-apt-get-difference/  
 
   [unix实现ide的功能选项](https://conanblog.me/Unix-as-IDE--Chinese-/index.html)         
-  
+
   幂等bash脚本：https://arslan.io/2019/07/03/how-to-write-idempotent-bash-scripts/  
   bash alias:https://medium.com/@raimibinkarim/9-bash-aliases-to-make-your-life-easier-3e5855aa95fa  
-  
+
   命令行查看图片工具：https://github.com/hackerb9/lsix   
-  
+
   fzf\ripgrep:https://medium.com/@sidneyliebrand/how-fzf-and-ripgrep-improved-my-workflow-61c7ca212861  
-  
+
 unix操作文件命令：https://www.ibm.com/developerworks/aix/library/au-unixtext/index.html   
 linux命令搜索：https://wangchujiang.com/linux-command/  
 
 命令行工具增强：https://remysharp.com/2018/08/23/cli-improved    
+
+linux内核源代码搜索：https://elixir.bootlin.com/linux/latest/source　　
+
+syslog日志指南：https://devconnected.com/syslog-the-complete-system-administrator-guide/  
 
 ## fsearch
  github.
@@ -34,6 +38,7 @@ linux命令搜索：https://wangchujiang.com/linux-command/
 
 ## lsd
 lsd : https://github.com/Peltoche/lsd  
+exa : https://the.exa.website/  
 
 ## 内核  
 linux内核揭秘：https://xinqiu.gitbooks.io/linux-insides-cn/content/index.html      

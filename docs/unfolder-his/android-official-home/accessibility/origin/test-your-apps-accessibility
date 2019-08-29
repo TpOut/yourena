@@ -1,0 +1,218 @@
+Test your app's accessibility
+Testing for accessibility lets you experience your app from the perspective of your users and find usability issues that you might otherwise miss. Accessibility testing can reveal opportunities to make your app more powerful and versatile for all your users, including those with disabilities.
+
+For the best results, use all of the approaches described in this doc:
+
+Manual testing: Interact with your app using Android accessibility services.
+Testing with analysis tools: Use tools to discover opportunities to improve your app's accessibility.
+Automated testing: Turn on accessibility testing in Espresso and Robolectric.
+User testing: Get feedback from real people who interact with your app.
+Manual testing
+Manual testing puts you in the shoes of your user. Android AccessibilityService objects change the way your app's content is presented to the user and how the user interacts with the content. By interacting with your app using accessibility services, you can experience your app as your users would.
+
+TalkBack
+TalkBack is Android's built-in screen reader. When TalkBack is on, users can interact with their Android device without seeing the screen. Users with visual impairments may rely on TalkBack to use your app.
+
+Turn on TalkBack
+Open your device's Settings app.
+Navigate to Accessibility and select TalkBack.
+At the top of the TalkBack screen, press On/Off to turn on TalkBack.
+In the confirmation dialog, select OK to confirm permissions.
+Note: The first time you enable TalkBack, a tutorial launches. To open the tutorial again in the future, navigate to Settings > Accessibility > TalkBack > Settings > Launch TalkBack tutorial.
+
+Explore your app with TalkBack
+After TalkBack is on, there are two common ways to navigate:
+
+Linear navigation: Quickly swipe right or left to navigate through screen elements in sequence. Double-tap anywhere to select.
+Explore by touch: Drag your finger over the screen to hear what's under your finger. Double-tap anywhere to select.
+To explore your app with TalkBack, complete these steps:
+
+Open your app.
+Swipe through each element in sequence.
+As you navigate, look for the following issues:
+Does the spoken feedback for each element convey its content or purpose appropriately? (Learn how to write meaningful labels.)
+Are announcements succinct, or are they needlessly verbose?
+Are you able to complete the main workflows easily?
+Are you able to reach every element by swiping?
+If alerts or other temporary messages appear, are they read aloud?
+For more information and tips, refer to TalkBack user documentation.
+
+Optional: TalkBack developer settings
+TalkBack developer settings can make it easier for you to test your app with TalkBack.
+
+To view or change developer settings, complete these steps:
+
+Open your device's Settings app.
+Navigate to Accessibility and select TalkBack.
+Select Settings > Developer settings:
+Log output level: Select VERBOSE.
+Display speech output: Turn on this setting to view TalkBack speech output on the screen.
+Enable node tree debugging: Turn on this setting to expose the content of your screen's content to your device's logs. Learn more about node tree debugging.
+Optional: If you turned on Display speech output, you can rely only on the text output by turning off spoken feedback:
+In TalkBack Settings, select Speech volume > Match media volume.
+In your device Settings, select Sound, then set the media volume to zero.
+Switch Access
+Switch Access lets users interact with Android devices using a switch instead of the touch screen. There are several kinds of switches: assistive technology devices such as those sold by AbleNet, Enabling Devices, RJ Cooper, or Tecla*; external keyboard keys; or buttons. This service can be helpful for users with motor impairments.
+
+*Google does not endorse these companies or their products.
+
+Turn on Switch Access
+A simple way to configure Switch Access is with two switches. One switch is designated as the "Next" switch and moves focus around the screen, and a second "Select" switch selects the focused element. To use this two-switch method, you can use any pair of hardware keys.
+
+Note: Your experience with Switch Access may vary, depending on the tools and software that you're using:
+
+If you use an external switch, such as a keyboard, there are additional setup steps. For example, you need to re-enable the soft keyboard. For more information, refer to the Switch Access user documentation.
+If you're using TalkBack 5.1 or later, a setup wizard is available to configure Switch Access. To use this wizard instead of the steps below, go to Settings > Accessibility > Switch Access > Settings > Open Switch Access setup.
+To set up Switch Access using the volume down key as the "Next" switch and the volume up key as the "Select" switch, complete the following steps:
+
+Ensure that TalkBack is turned off.
+Open your device's Settings app.
+Navigate to Accessibility and select Switch Access, then select Settings.
+On the Switch Access Preferences screen, make sure that Auto-scan is off.
+Use the volume down key as your "Next" switch:
+Touch Assign Keys for Scanning > Next.
+When the dialog opens, press the volume down key. The dialog shows KEYCODE_VOLUME_DOWN.
+Touch OK to confirm and exit the dialog.
+Use the volume up key as your "Select" switch:
+Touch Select.
+When the dialog opens, press the volume up key. The dialog shows KEYCODE_VOLUME_UP.
+Touch OK to confirm and exit the dialog.
+To return to Switch Access Preferences, press the back button.
+Optional: If you're using TalkBack 5.1 or later, you can select Spoken feedback to turn on spoken feedback.
+To return to the main Switch Access screen, press the back button.
+At the top of the Switch Access screen, press On/Off to turn on Switch Access.
+In the confirmation dialog, select OK to confirm permissions.
+Explore your app using Switch Access
+To explore your app with Switch Access, complete these steps:
+
+Open your app.
+To start scanning, press your "Next" switch (volume down).
+Continue pressing "Next" until you reach the item you want to select.
+To select the highlighted item, press your "Select" switch (volume up).
+As you navigate, look for the following issues:
+Are you able to complete the main workflows easily?
+If you have text or other inputs, can you add and edit content easily?
+Are items highlighted only if you can perform an action with them?
+Is each item highlighted only once?
+Is all functionality that's available through touch screen gestures also available as selectable controls or custom actions within Switch Access?
+If you're using TalkBack 5.1 or later and you've turned on spoken feedback, does the spoken feedback for each element convey its content or purpose appropriately? (Learn how to write meaningful labels.)
+Optional: Use group selection to see all scannable items
+Group selection is a Switch Access navigation method that lets you see all scannable items at once. This option lets you perform a quick check to see whether the correct elements on the screen are highlighted.
+
+To turn on group selection, complete these steps:
+
+Open your device's Settings app.
+Navigate to Accessibility and select Switch Access, then select Settings.
+On the Switch Access Preferences screen, make sure that Auto-scan is off.
+Select Scanning method > Group selection.
+Touch Assign switches for scanning.
+Make sure that the text under Group selection switch 1 and Group selection switch 2 shows that a switch is assigned to each. (If you already followed the steps under "Turn on Switch Access" above, the volume buttons should already be assigned.)
+To explore your app with Switch Access using group selection, complete these steps:
+
+Press the "Select" key (volume up) to highlight all actionable items on the current screen. Look for the following issues:
+Are only actionable items highlighted?
+Are all actionable items highlighted?
+Does the density of highlighted items make sense?
+Navigate to a different screen to clear the highlight.
+To learn more about how users can navigate with group selection, see Tips for using Switch Access.
+
+Other services
+BrailleBack
+BrailleBack is an application that lets users connect a refreshable braille display to an Android device over Bluetooth. BrailleBack works with TalkBack to provide a combined speech and braille experience.
+
+To test your app with a braille display, learn how to install and turn on BrailleBack.
+
+To see the braille (and ASCII translation) that BrailleBack would render, without connecting a braille display, you can use the overlay option in BrailleBack settings:
+
+Open your device's Settings app.
+Navigate to Accessibility and select BrailleBack.
+Select Settings > Developer options > Show Braille output on screen.
+Voice Access (beta)
+Voice Access lets users control an Android device with spoken commands. Voice Access is available in a limited English-only beta on devices running Android 5.0 (API level 21) and higher. To test your app with Voice Access, learn how to install and turn on Voice Access.
+
+Analysis tools
+Testing with analysis tools can uncover opportunities to improve accessibility that you might miss with manual testing.
+
+Accessibility Scanner
+The Accessibility Scanner app scans your screen and provides suggestions to improve the accessibility of your app. Accessibility Scanner uses the Accessibility Testing Framework and provides specific suggestions after looking at content labels, clickable items, contrast, and more.
+
+Learn more:
+
+Get started with Accessibility Scanner
+How to read Accessibility Scanner results
+Node tree debugging
+Accessibility services use a separate representation of your app's UI to operate. As you debug, you might find it useful to view the hierarchy and attributes of UI elements in the same way accessibility services view them. To accomplish this task, you can use node tree debugging. This tool, available in TalkBack, provides information about how an AccessibilityService, such as TalkBack, views UI elements within your app.
+
+To learn more about how to use this tool, see Using Node Tree Debugging.
+UI Automator Viewer
+The uiautomatorviewer tool provides a convenient GUI to scan and analyze the UI components currently displayed on an Android device. You can use UI Automator to inspect the layout hierarchy and view the properties of UI components that are visible on the foreground of the device. This information lets you create more fine-grained tests, for example by creating a UI selector that matches a specific visible property. The tool is located in the <android-sdk>/tools/ directory.
+
+In accessibility testing, this tool is useful for debugging issues found using other testing methods. For example, if manual testing results in a view that does not have speakable text and should or a view that receives focus and should not, you can use the tool to help locate the source of the bug.
+
+To learn more about UI Automator Viewer, see Testing UI for Multiple Apps.
+
+Lint
+Android Studio shows lint warnings for various accessibility issues and provides links to the places in the source code containing these issues. In the following example, an image is missing a contentDescription attribute. The missing content description results in the following message:
+
+[Accessibility] Missing 'contentDescription' attribute on image
+Figure 1 shows an example of how this message appears in Android Studio:
+
+
+Figure 1. Message in Android Studio showing missing contentDescription attribute
+If users of accessibility services, such as screen readers, encountered this image within the app itself, they wouldn't be able to understand the image's meaning.
+
+Automated testing
+The Android platform supports several testing frameworks, including Espresso and Robolectric, which allow you to create and run automated tests that evaluate the accessibility of your app.
+
+To see a video overview of accessibility testing with Espresso and Robolectric, watch the following video from minute 31:54 to 34:19: Inclusive design and testing: Making your app more accessible - Google I/O 2016
+
+Espresso
+Espresso is an Android testing library designed to make UI testing fast and easy. It allows you to interact with UI components under test in your app and assert that certain behaviors occur or specific conditions are met.
+
+Enable checks
+You can enable and configure accessibility testing through the AccessibilityChecks class:
+
+KOTLINJAVA
+AccessibilityChecks.enable();
+By default, the checks run when you perform any view action defined in ViewActions. The check includes the view on which the action is performed as well as all descendent views. You can check the entire view hierarchy of a screen using the following code:
+
+KOTLINJAVA
+AccessibilityChecks.enable().setRunChecksFromRootView(true);
+For more code samples, see these demonstrative tests.
+
+Suppress known issues
+When first enabling checks, you may encounter a number of issues you may not be able to deal with immediately. You can suppress test failures resulting from these issues by setting a matcher for the results that you would like to suppress. To do so, obtain an AccessibilityValidator object by calling the enable() method of the AccessibilityChecks class, then use the returned AccessibilityValidator's setSuppressingResultMatcher() method to configure a suppressing matcher.
+
+In the following example, all issues related to touch target size on View objects with a resource ID of "overflow" are suppressed:
+
+KOTLINJAVA
+AccessibilityValidator validator = AccessibilityChecks.enable();
+Matcher<AccessibilityViewCheckResult> myMatcher =
+        allOf(
+                matchesCheckNames(is("TouchTargetSizeViewCheck")),
+                matchesViews(withId(R.id.my_overflow)));
+validator.setSuppressingResultMatcher(myMatcher);
+Robolectric
+Robolectric is an open-source Android testing library that lets you test real Android code on a JVM, without needing to start an emulator. Learn how to get started with Robolectric.
+
+Note: UI testing with Robolectric has some shortcomings, so you should use other forms of testing in addition to this tool. For example, Robolectric cannot give reliable results for touch target size and duplicate clickable items. To detect these issues, consider using Accessibility Scanner.
+
+Suppress known issues
+When first enabling checks for Robolectric, you may encounter a number of issues you may not be able to deal with immediately. You can suppress these errors by setting a matcher for the results that you would like to suppress. For more information, see the documentation for the setSuppressingResultMatcher() method of the AccessibilityUtil class that is available in Robolectric.
+
+User testing
+Along with the other testing methods in this guide, user testing can provide specific and valuable insights about the usability of your app.
+
+To find users who can test your app, use methods such as the following:
+
+Reach out to local organizations, colleges, or universities that provide training for people with disabilities.
+Ask your social circle. There might be people with disabilities who are willing to help.
+Ask a user testing service (such as usertesting.com) if they can test your app and include users with disabilities.
+Join an accessibility forum, such as Accessibility or Eyes-free, and ask for volunteers to try your app.
+For more tips, watch the user testing section of this video, from minute 31:10 to 44:51: Behind the scenes: What's new in Android accessibility - Google I/O 2016
+
+上一页
+arrow_back Build accessibility service
+Content and code samples on this page are subject to the licenses described in the Content License. Java is a registered trademark of Oracle and/or its affiliates.
+
+上次更新日期：八月 9, 2018

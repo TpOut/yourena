@@ -1,0 +1,257 @@
+
+AAPT2
+AAPT2 (Android Asset Packaging Tool) is a build tool that Android Studio and Android Gradle Plugin use to compile and package your app’s resources. AAPT2 parses, indexes, and compiles the resources into a binary format that is optimized for the Android platform.
+
+Android Gradle Plugin 3.0.0 and higher enable AAPT2 by default, and you typically won't need to invoke aapt2 yourself. However, if you prefer to use your terminal and your own build system over Android Studio, you can use AAPT2 from the command line. You can also debug build errors related to AAPT2 from the command line. To do so, you can find AAPT2 as a standalone tool in Android SDK Build Tools 26.0.2 and higher.
+
+To download Android SDK Build Tools from the command line, use sdkmanager and run the command:
+
+sdkmanager "build-tools;built-tools-version"
+Once you have downoaded the SDK Build Tools, you can find AAPT2 located in android_sdk/build-tools/version/. Because a newer revision of the Android SDK Build Tools is not released very often, the version of AAPT2 included in your SDK Build Tools might not be the latest. To get the latest version of AAPT2, read Download AAPT2 from Google Maven.
+
+To use AAPT2 from the command line on Linux or Mac, run the aapt2 command. On Windows, run the aapt2.exe command. AAPT2 supports faster compilation of resources by enabling incremental compilation. This is accomplished by breaking resource processing into two steps:
+
+Compile: compiles resource files into binary formats.
+Link: merges all compiled files and packages them to a single package.
+This division helps improve performance for incremental builds. For example, if there are changes in a single file, you need to recompile only that file.
+
+Download AAPT2 from Google Maven
+To get the newest version of AAPT2 that's not bundled in the build-tools, you can download AAPT2 from Google's Maven repository as follows:
+
+Navigate to com.android.tools.build > aapt2 in the repository index.
+Copy the name of the latest version of AAPT2.
+Insert the version name you copied into the following URL and specify your target operating system: https://dl.google.com/dl/android/maven2/com/android/tools/build/aapt2/aapt2-version/aapt2-aapt2-version-[windows | linux | osx].jar
+
+For example, to download version 3.2.0-alpha18-4804415 for Windows, you would use: https://dl.google.com/dl/android/maven2/com/android/tools/build/aapt2/3.2.0-alpha18-4804415/aapt2-3.2.0-alpha18-4804415-windows.jar
+
+Navigate to the URL in a browser—AAPT2 should begin downloading shortly.
+
+Unpackage the JAR file you just downloaded. The JAR file should contain anaapt2 executable and some libraries that the executable depends on.
+
+Compile
+AAPT2 supports compilation of all Android resource types, such as drawables and XML files. When you invoke AAPT2 for compilation, you should pass a single resource file as an input per invocation. AAPT2 then parses the file and generates an intermediate binary file with a .flat extension.
+
+Although you can pass resource directories containing more than one resource files to AAPT2 using the --dir flag, you do not gain the benefits of incremental resource compilation when doing so. That is, when passing whole directories, AAPT2 recompiles all files in the directory even when only one resource has changed.
+
+The output file types can differ based on the input you provide for compilation. This is explained in the table below:
+
+Input	Output
+XML resource files, such as String and Style, which are located in the res/values/ directory.	Resource table with *.asrc.flat as its extension.
+All other resource files.	All files other than the files under res/values/ directory are converted to binary XML files with *.flat extensions. Additionally all PNG files are crunched by default and adopt *.png.flat extensions. If you choose not to compress PNGs, you can use the --no-crunch option during compilation.
+The files AAPT2 outputs are not executables and you must later include these binary files as input in the link phase to generate an APK. However, the generated APK file is not an executable that you can deploy on an Android device right away, as it does not contain DEX files (compiled bytecode) and is not signed.
+
+Compile syntax
+The general syntax for using compile is as follows:
+
+aapt2 compile path-to-input-files [options] -o output-directory/
+Note: For resource files, the path to input files must match the following structure: path/resource-type[-config]/file
+In the following example, AAPT2 compiles resource files named values.xml and myImage.png individually:
+
+aapt2 compile project_root/module_root/src/main/res/values-en/
+strings.xml -o compiled/
+aapt2 compile project_root/module_root/src/main/res/drawable
+/myImage.png -o compiled/
+As shown in the table above, the name of the output file depends on the input file name and the name of its parent directory (the resource type and configuration). For the example above with strings.xml as input, aapt2 automatically names the output file as values-en_strings.arsc.flat. On the other hand, the file name for the compiled drawable file stored in the drawable directory will be drawable_img.png.flat.
+
+Compile options
+There are several options that you can use with the compile command, as shown in the table below:
+
+Option	Description
+-o path	Specifies the output path for the compiled resource(s).
+This is a required flag because you must specify a path to a directory where AAPT2 can output and store the compiled resources.
+
+--dir directory	Specifies the directory to scan for resources.
+Although you can use this flag to compile multiple resource files with one command, it disables the benefits of incremental compilation and thus, should not be used for large projects.
+
+--pseudo-localize	Generates pseudo-localized versions of default strings, such as en-XA and en-XB.
+--no-crunch	Disables PNG processing.
+Use this option if you have already processed the PNG files, or if you are creating debug builds that do not require file size reduction. Enabling this option results in a faster execution, but increases the output file size.
+
+--legacy	Treats errors that are permissible when using earlier versions of AAPT as warnings.
+This flag should be used for unexpected compile time errors. To resolve known behavior changes that you might get while using AAPT2, read Behavior changes in AAPT2.
+
+-v	Enable verbose logging.
+Link
+In the link phase, AAPT2 merges all the intermediate files generated from the compilation phase such as resource tables, binary XML files, and processed PNG files and packages them into a single APK. Additionally, other auxiliary files like R.java and ProGuard rules files can be generated during this phase. However, the generated APK does not contain DEX bytecode and is unsigned. That is, you can't deploy this APK to a device. If you're not using the Android Gradle Plugin to build your app from the command line, you can use other command line tools, such as d8 to compile Java bytecode into DEX bytecode and apksigner to sign your APK.
+
+Link syntax
+The general syntax for using link is as follows:
+
+aapt2 link path-to-input-files [options] -o
+outputdirectory/outputfilename.apk --manifest AndroidManifest.xml
+In the following example, AAPT2 merges the two intermediate files - drawable_Image.flat and values_values.arsc.flat, and the AndroidManifest.xml file. AAPT2 links the result against android.jar file which holds the resources defined in the android package:
+
+ aapt2 link -o output.apk
+ -I android_sdk/platforms/android_version/android.jar
+    compiled/res/values_values.arsc.flat
+    compiled/res/drawable_Image.flat --manifest /path/to/AndroidManifest.xml -v
+Link options
+You can use the following options with the link command:
+
+Option	Description
+-o path	Specifies the output path for the linked resource APK.
+This is a required flag because you must specify the path for the output APK that can hold the linked resources.
+
+--manifest file	Specifies the path to the Android manifest file to build.
+This is a required flag because the manifest file encloses essential information about your app like package name and application ID.
+
+-I	Provides the path to the platform's android.jar or other APKs like framework-res.apk which might be useful while building features.
+This flag is required if you are using attributes with android namespace (for example, android:id) in your resource files.
+-A directory	Specifies an assets directory to be included in the APK.
+You can use this directory to store original unprocessed files. To learn more, read Accessing original files.
+
+-R file	Pass individual .flat file to link, using overlay semantics without using the <add-resource> tag. flag.
+When you a provide a resource file that overlays (extends or modifies) an existing file, the last conflicting resource given is used.
+
+--package-id package-id	Specifies the package ID to use for your app.
+The package ID that you specify must be greater than or equal to 0x7f unless used in combination with --allow-reserved-package-id.
+
+--allow-reserved-package-id	Allows the use of a reserved package ID.
+Reserved package IDs are IDs that are normally assigned to shared libraries and are in the range from 0x02 to 0x7e inclusive. By using --allow-reserved-package-id, you can assign IDs that fall in the range of reserved package IDs.
+
+This should only be used for packages with a min-sdk version of 26 or lower.
+
+--java directory	Specifies the directory in which to generate R.java.
+--proguard proguard_options	Generates output file for ProGuard rules.
+--proguard-conditional-keep-rules	Generates output file for ProGuard rules for the main dex.
+--no-auto-version	Disables automatic style and layout SDK versioning.
+--no-version-vectors	Disables automatic versioning of vector drawables. Use this only when building your APK with the Vector Drawable Library.
+--no-version-transitions	Disables automatic versioning of transition resources. Use this only when building your APK with Transition Support library.
+--no-resource-deduping	Disables automatic de-duplication of resources with identical values across compatible configurations.
+--enable-sparse-encoding	Enables encoding of sparse entries using a binary search tree. This is useful for optimization of APK size, but at the cost of resource retrieval performance.
+-z	Requires localization of strings marked 'suggested'.
+-c config	Provides a list of configurations separated by commas.
+For example, if you have dependencies on the support library (which contains translations for multiple languages), you can filter resources just for the given language configuration, like English or Spanish.
+
+You must define the language configuration by a two-letter ISO 639-1 language code, optionally followed by a two letter ISO 3166-1-alpha-2 region code preceded by lowercase 'r' (for example, en-rUS).
+
+--preferred-density density	Allows AAPT2 to select the closest matching density and strip out all others.
+There are several pixel density qualifiers available to use in your app, such as ldpi, hdpi, and xhdpi. When you specify a preferred density, AAPT2 selects and stores the closest matching density in the resource table and removes all others.
+
+--output-to-dir	Outputs the APK contents to a directory specified by -o.
+If you get any errors using this flag, you can resolve them by upgrading to Android SDK Build Tools 28.0.0 or higher.
+
+--min-sdk-version min-sdk-version	Sets the default minimum SDK version to use for AndroidManifest.xml.
+--target-sdk-version target-sdk-version	Sets the default target SDK version to use for AndroidManifest.xml.
+--version-code version-code	Specifies the version code (integer) to inject into the AndroidManifest.xml if none is present.
+--compile-sdk-version-name compile-sdk-version-name	Specifies the version name to inject into the AndroidManifest.xml if none is present.
+--proto-format	Generates compiled resources in Protobuf format.
+Suitable as input to the bundle tool for generating an Android App Bundle.
+
+--non-final-ids	Generates R.java with non-final resource IDs (references to the IDs from app’s code will not get inlined during kotlinc/javac compilation).
+--emit-ids path	Emits a file at the given path with a list of names of resource types and their ID mappings. It is suitable to use with --stable-ids.
+--stable-ids outputfilename.ext	Consumes the file generated with --emit-ids containing the list of names of resource types and their assigned IDs.
+This option allows assigned IDs to remain stable even when you delete or add new resources while linking.
+
+--custom-package package_name	Specifies custom Java package under which to generate R.java.
+--extra-packages package_name	Generates the same R.java file but with different package names.
+--add-javadoc-annotation annotation	Adds a JavaDoc annotation to all generated Java classes.
+--output-text-symbols path	Generates a text file containing the resource symbols of the R class in the specified file.
+You must specify the path to the output file.
+
+--auto-add-overlay	Allows the addition of new resources in overlays without using the <add-resource> tag. tags.
+--rename-manifest-package manifest-package	Renames the package in AndroidManifest.xml.
+--rename-instrumentation-target-package instrumentation- target-package	Changes the name of the target package for instrumentation.
+It should be used in conjunction with --rename-manifest-package.
+
+-0 extension	
+Specifies the extensions of files that you do not want to compress.
+
+--split path:config[,config[..]]	Splits resources based on a set of configurations to generate a different version of the APK.
+You must specify the path to the output APK along with the set of configurations.
+
+-v	Enables increased verbosity of the output.
+Dump
+dump is used for printing resource and manifest information about the APK generated from the link command. You can print the information to your console using dumpas shown below:
+
+aapt2 dump output.apk
+Dump syntax
+The general syntax for using dump is as follows:
+
+aapt2 dump filename.apk [options]
+Dump options
+You can use the following options with dump:
+
+Option	Description
+--no-values	Suppresses the output of values when displaying resource.
+--file file	Specifies a file as an argument to be dumped from the APK.
+-v	Increases verbosity of the output.
+Behavior changes when using AAPT2
+Prior to AAPT2, AAPT was the default version of Android Asset Packaging Tool and it has now been deprecated. Although AAPT2 should immediately work with older projects, this section describes some behavior changes that you should be aware of.
+
+Element hierarchies in the Android manifest
+In previous versions of AAPT, elements nested in incorrect nodes in the Android manifest were either ignored or resulted in a warning. For example, consider the following sample:
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+   package="com.example.myname.myapplication">
+   <application
+       ...
+       <activity android:name=".MainActivity">
+           <intent-filter>
+               <action android:name="android.intent.action.MAIN" />
+               <category android:name="android.intent.category.LAUNCHER" />
+           </intent-filter>
+           <action android:name="android.intent.action.CUSTOM" />
+       </activity>
+   </application>
+</manifest>
+Previous versions of AAPT would simply ignore the misplaced <action> tag. However, with AAPT2, you get the following error:
+
+AndroidManifest.xml:15: error: unknown element <action> found.
+To resolve the issue, make sure your manifest elements are nested correctly. For more information, read Manifest file structure.
+
+Declaration of resources
+You can no longer indicate the type of a resource from the name attribute. For example, the following sample incorrectly declares an attr resource item:
+
+<style name="foo" parent="bar">
+    <item name="attr/my_attr">@color/pink</item>
+</style>
+Declaring a resource type this way results in the following build error:
+
+Error: style attribute 'attr/attr/my_attr (aka my.package:attr/attr/my_attr)'
+not found.
+To resolve this error, explicitly declare the type using type="attr":
+
+<style name="foo" parent="bar">
+  <item type="attr" name="my_attr">@color/pink</item>
+</style>
+Additionally, when declaring a <style> element, its parent must also be style resource type. Otherwise, you get an error similar to the following:
+
+Error: (...) invalid resource type 'attr' for parent of style
+Android namespace with ForegroundLinearLayout
+ForegroundLinearLayout includes three attributes: foregroundInsidePadding, android:foreground, and android:foregroundGravity. Note that foregroundInsidePadding is not included in the android namespace, unlike the other two attributes.
+
+In previous versions of AAPT, the compiler would silently ignore foregroundInsidePadding attributes when you define it with the android namespace. When using AAPT2, the compiler catches this early and throws the following build error:
+
+Error: (...) resource android:attr/foregroundInsidePadding is private
+To resolve this issue, simply replace android:foregroundInsidePadding with foregroundInsidePadding.
+
+Incorrect use of @ resource reference symbols
+AAPT2 throws build errors when you omit or incorrectly place resource reference symbols (@). For example, consider if you omit the symbol when specifying a style attribute, as shown below:
+
+<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+  ...
+  <!-- Note the missing '@' symbol when specifying the resource type. -->
+  <item name="colorPrimary">color/colorPrimary</item>
+</style>
+When building the module, AAPT2 throws the following build error:
+
+ERROR: expected color but got (raw string) color/colorPrimary
+Additionally, consider if you incorrectly include the symbol when accessing a resource from the android namespace, as shown below:
+
+...
+<!-- When referencing resources from the 'android' namespace, omit the '@' symbol. -->
+<item name="@android:windowEnterAnimation"/>
+When building the module, AAPT2 throws the following build error:
+
+Error: style attribute '@android:attr/windowEnterAnimation' not found
+Incorrect configuration of libraries
+If your app has a dependency on a third party library that was built using older versions of the Android SDK Build Tools, your app might crash at runtime without displaying any errors or warnings. This crash might occur because, during the library's creation, the R.java fields are declared final and, as a result, all of the resource IDs are inlined in the library's classes.
+
+AAPT2 relies on being able to re-assign IDs to library resources when building your app. If the library assumes the IDs to be final and has them inlined in the library dex, there will be a runtime mismatch.
+
+To resolve this error, contact the library author to rebuild the library using the latest version of the Android SDK Build Tools and republish the library.
+
+Content and code samples on this page are subject to the licenses described in the Content License. Java is a registered trademark of Oracle and/or its affiliates.
+
+Last updated September 24, 2018

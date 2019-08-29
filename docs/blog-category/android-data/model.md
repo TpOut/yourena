@@ -1,0 +1,45 @@
+来源，小米文档：https://dev.mi.com/console/doc/detail?pId=1278#_10_1  
+
+品牌	model
+小米	xiaomi
+三星	samsung
+华为	huawei
+中兴	zte
+中兴努比亚	nubia
+酷派	coolpad
+联想	lenovo
+魅族	meizu
+HTC	htc
+OPPO	oppo
+VIVO	vivo
+摩托罗拉	motorola
+索尼	sony
+LG	lg
+金立	jinli
+天语	tianyu
+诺基亚	nokia
+美图秀秀	meitu
+谷歌	google
+TCL	tcl
+锤子手机	chuizi
+一加手机	1+
+中国移动	china mobile
+昂达	angda
+邦华	banghua
+波导	bird
+长虹	changhong
+大可乐	dakele
+朵唯	doov
+海尔	haier
+海信	hisense
+康佳	konka
+酷比魔方	kubimofang
+米歌	mige
+欧博信	ouboxin
+欧新	ouxin
+飞利浦	philip
+维图	voto
+小辣椒	xiaolajiao
+夏新	xiaxin
+亿通	yitong
+语信	yuxin

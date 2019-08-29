@@ -10,3 +10,5 @@ facebook静态建站工具：https://github.com/facebook/Docusaurus
 Publii  （github）  
 Jekyll,  
 
+AWS S3静态托管，Cloudflare建立CDN:https://medium.com/better-programming/how-to-host-your-personal-website-for-free-3101c4ab2e49  
+（开源）架设服务让别人连接本地：https://github.com/schollz/hostyoself　　

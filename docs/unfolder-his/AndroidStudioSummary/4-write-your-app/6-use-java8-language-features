@@ -1,0 +1,112 @@
+Use Java 8 language features
+Android Studio 3.0 and later supports all Java 7 language features and a subset of Java 8 language features that vary by platform version. This page describes the Java 8 language features you can use, how to properly configure your project to use them, and any known issues you may encounter. Also see the following video for an overview.
+
+This resource may not be available in your region.
+Note: When developing apps for Android, using Java 8 language features is optional. You can keep your project's source and target compatibility values set to Java 7, but you still need to compile using JDK 8.
+
+Android Studio provides built-in support for using certain Java 8 language features and third-party libraries that use them. As shown in figure 1, the default toolchain implements the new language features by performing bytecode transformations, called desugar, on the output of the javac compiler. Jack is no longer supported, and you should first disable Jack to use the Java 8 support built into the default toolchain.
+
+
+
+Figure 1. Java 8 language feature support using desugar bytecode transformations.
+
+To start using supported Java 8 language features, update the Android plugin to 3.0.0 (or higher). After that, for each module that uses Java 8 language features (either in its source code or through dependencies), update the Source Compatibility and Target Compatibility to 1.8 in the Project Structure dialog as shown in figure 2 (click File > Project Structure).
+
+
+
+Figure 2. Java 8 language feature support using desugar bytecode transformations.
+
+You can also configure it directly in the corresponding build.gradle file:
+
+android {
+  ...
+  // Configure only for each module that uses Java 8
+  // language features (either in its source code or
+  // through dependencies).
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+}
+Note: If Android Studio detects that your project is using Jack, Retrolambda, or DexGuard, the IDE uses Java 8 support provided by those tools instead. However, consider migrating to the default toolchain.
+
+Supported Java 8 language features and APIs
+Android Studio does not support all Java 8 language features, but more are being added in future releases of the IDE. Depending on which minSdkVersion you’re using, certain features and APIs are available now, as described in the table below.
+
+Java 8 language feature	Compatible minSdkVersion
+Lambda expressions	Any. Note that Android does not support the serialization of lambda expressions.
+Method references	Any.
+Type annotations	Any. However, type annotation information is available at compile time, but not at runtime. Also, the platform supports TYPE in API level 24 and below, but not ElementType.TYPE_USE or ElementType.TYPE_PARAMETER.
+Default and static interface methods	Any.
+Repeating annotations	Any.
+Java 8 Language API	Compatible minSdkVersion
+java.lang.annotation.Repeatable	API level 24 or higher.
+AnnotatedElement.getAnnotationsByType(Class)	API level 24 or higher.
+java.util.stream	API level 24 or higher.
+java.lang.FunctionalInterface	API level 24 or higher.
+java.lang.reflect.Method.isDefault()	API level 24 or higher.
+java.util.function	API level 24 or higher.
+In addition to the Java 8 language features and APIs above, Android Studio 3.0 and later extends support for try-with-resources to all Android API levels.
+
+Desugar currently doesn't support MethodHandle.invoke or MethodHandle.invokeExact. If your source code or one of your module dependencies use one of these methods you need to specify minSdkVersion 26 or higher. Otherwise, you get the following error:
+
+Dex: Error converting bytecode to dex:
+Cause: signature-polymorphic method called without --min-sdk-version >= 26
+In some cases, your module may not be using the invoke or invokeExact methods even when they're included in a library dependency. So, to keep using that library with minSdkVersion 25 or lower, enable code shrinking to remove unused methods. If that doesn't work, consider using an alternative library that doesn't use the unsupported methods.
+
+Migrate to the default toolchain
+If Android Studio detects that your project is using Jack, Retrolambda, or DexGuard, the IDE uses Java 8 support provided by those tools instead. However, compared to the default toolchain, those tools lack some functionality and support. So follow the instructions in this section to migrate to Android Studio's default toolchain.
+
+Migrate from Jack
+The Jack toolchain is deprecated, as per this announcement. If your project depends on Jack, you should migrate to using Java 8 support built into Android Studio’s default toolchain. Using the default toolchain also includes support for third-party libraries that use Java 8 language features, Instant Run, and tools that depend on intermediate .class files.
+
+To disable Jack and switch to the default toolchain, simply remove the jackOptions block from your module’s build.gradle file:
+
+android {
+    ...
+    defaultConfig {
+        ...
+        // Remove this block.
+        jackOptions {
+            enabled true
+            ...
+        }
+    }
+
+    // Keep the following configuration in order to target Java 8.
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+Migrate from Retrolambda
+Compared to Android Studio's default toolchain, Retrolambda lacks support for third-party libraries that use Java 8 language features. To migrate to the default toolchain, remove the Retrolambda dependency from your project-level build.gradle file:
+
+buildscript {
+  ...
+   dependencies {
+      // Remove the following dependency.
+      classpath 'me.tatarka:gradle-retrolambda:<version_number>'
+   }
+}
+And remove the Retrolambda plugin and retrolambda block from each module's build.gradle file:
+
+// Remove the following plugin.
+apply plugin: 'me.tatarka.retrolambda'
+...
+// Remove this block after migrating useful configurations.
+retrolambda {
+    ...
+    // If you have arguments for the Java VM you want to keep,
+    // move them to your project's gradle.properties file.
+    jvmArgs '-Xmx2048m'
+}
+Disable support for Java 8 language features
+If you’re experiencing issues related to the support for Java 8 language features, you can disable it by adding the following to your gradle.properties file:
+
+android.enableDesugar=false
+To help us improve support for Java 8, please file a bug.
+
+Content and code samples on this page are subject to the licenses described in the Content License. Java is a registered trademark of Oracle and/or its affiliates.
+
+Last updated September 11, 2018.

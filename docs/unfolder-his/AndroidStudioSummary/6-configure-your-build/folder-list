@@ -1,0 +1,14 @@
+Configure your build
+VM1427:11 Overview
+VM1427:11 Set the application ID
+VM1427:11 Add build dependencies
+VM1427:11 Optimize your build speed
+VM1427:11 Use the build cache
+VM1427:11 Configure build variants
+VM1427:11 Build multiple APKs
+VM1427:11 Merge multiple manifests
+VM1427:11 Inject build variables into the manifest
+VM1427:11 Shrink your code and resources
+VM1427:11 Enable multidex
+VM1427:11 Analyze your build with APK Analyzer
+VM1427:11 Gradle tips and recipes

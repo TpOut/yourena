@@ -1,0 +1,229 @@
+Shrink your code and resources
+To make your APK file as small as possible, you should enable shrinking to remove unused code and resources in your release build. This page describes how to do that and how to specify what code and resources to keep or discard during the build.
+
+Code shrinking is available with ProGuard, which detects and removes unused classes, fields, methods, and attributes from your packaged app, including those from included code libraries (making it a valuable tool for working around the 64k reference limit). ProGuard also optimizes the bytecode, removes unused code instructions, and obfuscates the remaining classes, fields, and methods with short names.
+
+Resource shrinking is available with the Android plugin for Gradle, which removes unused resources from your packaged app, including unused resources in code libraries. It works in conjunction with code shrinking such that once unused code has been removed, any resources no longer referenced can be safely removed as well.
+
+Features in this document depend on:
+
+SDK Tools 25.0.10 or higher
+Android plugin for Gradle 3.0.0 or higher
+Shrink your code
+To enable code shrinking with ProGuard, add minifyEnabled true to the appropriate build type in your build.gradle file.
+
+Be aware that code shrinking slows down the build time, so you should avoid using it on your debug build if possible. However, it's important that you do enable code shrinking on your final APK used for testing, because it might introduce bugs if you do not sufficiently customize which code to keep.
+
+For example, the following snippet from a build.gradle file enables code shrinking for the release build:
+
+android {
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'),
+                    'proguard-rules.pro'
+        }
+    }
+    ...
+}
+Note: Android Studio disables ProGuard when using Instant Run. If you need code shrinking for incremental builds, try the experimental Gradle shrinker.
+
+In addition to the minifyEnabled property, the proguardFiles property specifies the following ProGuard rules:
+
+The getDefaultProguardFile('proguard-android.txt') method gets the default ProGuard settings file that is packaged with the Android plugin. When you build your project, the plugin creates a copy of the settings file in project-dir/build/intermediates/proguard-files/.
+Tip: For even more code shrinking, try the proguard-android-optimize.txt file located in the same directory. It includes the same ProGuard rules, but with other optimizations that perform analysis at the bytecode level—inside and across methods—to reduce your APK size further and help it run faster.
+
+The proguard-rules.pro file is where you can add custom ProGuard rules. By default, this file is located at the root of the module (next to the build.gradle file).
+To add more ProGuard rules that are specific to each build variant, add another proguardFiles property in the corresponding productFlavor block. For example, the following Gradle file adds flavor2-rules.pro to the flavor2 product flavor. Now flavor2 uses all three ProGuard rules because those from the release block are also applied.
+
+android {
+    ...
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'),
+                   'proguard-rules.pro'
+        }
+    }
+    flavorDimensions "version"
+    productFlavors {
+        flavor1 {
+        }
+        flavor2 {
+            proguardFile 'flavor2-rules.pro'
+        }
+    }
+}
+With each build, ProGuard outputs the following files:
+
+mapping.txt
+Provides a translation between the original and obfuscated class, method, and field names.
+seeds.txt
+Lists the classes and members that were not obfuscated.
+usage.txt
+Lists the code that was removed from the APK.
+These files are saved at <module-name>/build/outputs/mapping/release/.
+
+You can also output a dump file that describes the internal structure of all the class files in the APK. To do this, add a -dump line to your ProGuard configuration file, as shown in the following example:
+
+-dump <module-name>/build/outputs/mapping/release/dump.txt
+
+Customize which code to keep
+For some situations, the default ProGuard configuration file (proguard-android.txt) is sufficient and ProGuard removes all—and only—the unused code. However, many situations are difficult for ProGuard to analyze correctly and it might remove code your app actually needs. Some examples of when it might incorrectly remove code include:
+
+When your app references a class only from the AndroidManifest.xml file
+When your app calls a method from the Java Native Interface (JNI)
+When your app manipulates code at runtime (such as with reflection or introspection)
+Testing your app should reveal any errors caused by inappropriately removed code, but you can also inspect what code was removed by reviewing the usage.txt output file saved in <module-name>/build/outputs/mapping/release/.
+
+To fix errors and force ProGuard to keep certain code, add a -keep line in the ProGuard configuration file. For example:
+
+-keep public class MyClass
+Alternatively, you can add the @Keep annotation to the code you want to keep. Adding @Keep on a class keeps the entire class as-is. Adding it on a method or field will keep the method/field (and it's name) as well as the class name intact. Note that this annotation is available only when using the Annotations Support Library.
+
+There are many considerations you should make when using the -keep option; for more information about customizing your configuration file, read the ProGuard Manual. The Troubleshooting section outlines other common problems you might encounter when your code gets stripped away.
+
+Decode an obfuscated stack trace
+After ProGuard shrinks your code, reading a stack trace is difficult (if not impossible) because the method names are obfuscated. Fortunately, ProGuard creates a mapping.txt file each time it runs, which shows the original class, method, and field names mapped to the obfuscated names. ProGuard saves the file in the app <module-name>/build/outputs/mapping/release/ directory.
+
+Be aware that the mapping.txt file is overwritten every time you create a release build with ProGuard, so you must carefully save a copy each time you publish a new release. By retaining a copy of the mapping.txt file for each release build, you'll be able to debug a problem if a user submits an obfuscated stack trace from an older version of your app.
+
+When publishing your app on Google Play, you can upload the mapping.txt file for each version of your APK. Then Google Play will deobfuscate incoming stack traces from user-reported issues so you can review them in the Google Play Console. For more information, see the Help Center article about how to deobfuscate crash stack traces.
+
+To convert an obfuscated stack trace to a readable one yourself, use the retrace script (retrace.bat on Windows; retrace.sh on Mac/Linux). It is located in the <sdk-root>/tools/proguard/ directory. The script takes the mapping.txt file and your stack trace, producing a new, readable stack trace. The syntax for using the retrace tool is:
+
+retrace.bat|retrace.sh [-verbose] mapping.txt [<stacktrace_file>]
+For example:
+
+retrace.bat -verbose mapping.txt obfuscated_trace.txt
+If you do not specify the stack trace file, the retrace tool reads from standard input.
+
+Enable code shrinking with Instant Run
+If code shrinking is important to you while incrementally building your app, try the experimental code shrinker that's built into the Android plugin for Gradle. This shrinker supports Instant Run, unlike ProGuard.
+
+You can configure the Android plugin shrinker using the same configuration files as ProGuard. However, the Android plugin shrinker does not obfuscate or optimize your code—it only removes unused code. So you should use it for your debug builds only, and enable ProGuard for your release builds so your release APK's code is obfuscated and optimized.
+
+To enable the Android plugin shrinker, simply set useProguard to false in your "debug" build type (and keep minifyEnabled set true):
+
+android {
+    buildTypes {
+        debug {
+            minifyEnabled true
+            useProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'),
+                    'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'),
+                    'proguard-rules.pro'
+        }
+    }
+}
+Note: If the Android plugin shrinker initially removes a method, but you then make a code change to make the method reachable, Instant Run treats it as a structural code change and performs a cold swap.
+
+Shrink your resources
+Resource shrinking works only in conjunction with code shrinking. After the code shrinker removes all unused code, the resource shrinker can identify which resources the app still uses. This is especially true when you add code libraries that include resources—you must remove unused library code so the library resources become unreferenced and, thus, removable by the resource shrinker.
+
+To enable resource shrinking, set the shrinkResources property to true in your build.gradle file (alongside minifyEnabled for code shrinking). For example:
+
+android {
+    ...
+    buildTypes {
+        release {
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'),
+                    'proguard-rules.pro'
+        }
+    }
+}
+If you haven't already built your app using minifyEnabled for code shrinking, then try that before enabling shrinkResources, because you might need to edit your proguard-rules.pro file to keep classes or methods that are created or invoked dynamically before you start removing resources.
+
+Note: The resource shrinker currently does not remove resources defined in a values/ folder (such as strings, dimensions, styles, and colors). This is because the Android Asset Packaging Tool (AAPT) does not allow the Gradle Plugin to specify predefined versions for resources. For details, see issue 70869.
+
+Customize which resources to keep
+If there are specific resources you wish to keep or discard, create an XML file in your project with a <resources> tag and specify each resource to keep in the tools:keep attribute and each resource to discard in the tools:discard attribute. Both attributes accept a comma-separated list of resource names. You can use the asterisk character as a wild card.
+
+For example:
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:keep="@layout/l_used*_c,@layout/l_used_a,@layout/l_used_b*"
+    tools:discard="@layout/unused2" />
+Save this file in your project resources, for example, at res/raw/keep.xml. The build does not package this file into your APK.
+
+Specifying which resources to discard might seem silly when you could instead delete them, but this can be useful when using build variants. For example, you might put all your resources into the common project directory, then create a different keep.xml file for each build variant when you know that a given resource appears to be used in code (and therefore not removed by the shrinker) but you know it actually won't be used for the given build variant. It's also possible that the build tools incorrectly identified a resource as needed, which is possible because the compiler adds the resource IDs inline and then the resource analyzer might not know the difference between a genuinely referenced resource and an integer value in the code that happens to have the same value.
+
+Enable strict reference checks
+Normally, the resource shrinker can accurately determine whether a resource is used. However, if your code makes a call to Resources.getIdentifier() (or if any of your libraries do that—the AppCompat library does), that means your code is looking up resource names based on dynamically-generated strings. When you do this, the resource shrinker behaves defensively by default and marks all resources with a matching name format as potentially used and unavailable for removal.
+
+For example, the following code causes all resources with the img_ prefix to be marked as used.
+
+String name = String.format("img_%1d", angle + 1);
+res = getResources().getIdentifier(name, "drawable", getPackageName());
+The resource shrinker also looks through all the string constants in your code, as well as various res/raw/ resources, looking for resource URLs in a format similar to file:///android_res/drawable//ic_plus_anim_016.png. If it finds strings like this or others that look like they could be used to construct URLs like this, it doesn't remove them.
+
+These are examples of the safe shrinking mode that is enabled by default. You can, however, turn off this "better safe than sorry" handling, and specify that the resource shrinker keep only resources that it's certain are used. To do this, set shrinkMode to strict in the keep.xml file, as follows:
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:shrinkMode="strict" />
+If you do enable strict shrinking mode and your code also references resources with dynamically-generated strings, as shown above, then you must manually keep those resources using the tools:keep attribute.
+
+Remove unused alternative resources
+The Gradle resource shrinker removes only resources that are not referenced by your app code, which means it will not remove alternative resources for different device configurations. If necessary, you can use the Android Gradle plugin's resConfigs property to remove alternative resource files that your app does not need.
+
+For example, if you are using a library that includes language resources (such as AppCompat or Google Play Services), then your APK includes all translated language strings for the messages in those libraries whether the rest of your app is translated to the same languages or not. If you'd like to keep only the languages that your app officially supports, you can specify those languages using the resConfig property. Any resources for languages not specified are removed.
+
+The following snippet shows how to limit your language resources to just English and French:
+
+android {
+    defaultConfig {
+        ...
+        resConfigs "en", "fr"
+    }
+}
+Similarly, you can customize which screen density or ABI resources to include in your APK by building multiple APKs that each target a different device configuration.
+
+Merge duplicate resources
+By default, Gradle also merges identically named resources, such as drawables with the same name that might be in different resource folders. This behavior is not controlled by the shrinkResources property and cannot be disabled, because it is necessary to avoid errors when multiple resources match the name your code is looking up.
+
+Resource merging occurs only when two or more files share an identical resource name, type, and qualifier. Gradle selects which file it considers to be the best choice among the duplicates (based on a priority order described below) and passes only that one resource to the AAPT for distribution in the APK file.
+
+Gradle looks for duplicate resources in the following locations:
+
+The main resources, associated with the main source set, generally located in src/main/res/.
+The variant overlays, from the build type and build flavors.
+The library project dependencies.
+Gradle merges duplicate resources in the following cascading priority order:
+
+Dependencies → Main → Build flavor → Build type
+
+For example, if a duplicate resource appears in both your main resources and a build flavor, Gradle selects the one in the build flavor.
+
+If identical resources appear in the same source set, Gradle cannot merge them and emits a resource merge error. This can happen if you define multiple source sets in the sourceSet property of your build.gradle file—for example if both src/main/res/ and src/main/res2/ contain identical resources.
+
+Troubleshoot resource shrinking
+When you shrink resources, the Build   window shows a summary of the resources that are removed from the APK. (You need to first click Toggle view   on the left side of the window to display detailed text output from Gradle.) For example:
+
+:android:shrinkDebugResources
+Removed unused resources: Binary resource data reduced from 2570KB to 1711KB: Removed 33%
+:android:validateDebugSigning
+Gradle also creates a diagnostic file named resources.txt in <module-name>/build/outputs/mapping/release/ (the same folder as ProGuard's output files). This file includes details such as which resources reference other resources and which resources are used or removed.
+
+For example, to find out why @drawable/ic_plus_anim_016 is still in your APK, open the resources.txt file and search for that file name. You might find that it's referenced from another resource, as follows:
+
+16:25:48.005 [QUIET] [system.out] @drawable/add_schedule_fab_icon_anim : reachable=true
+16:25:48.009 [QUIET] [system.out]     @drawable/ic_plus_anim_016
+You now need to know why @drawable/add_schedule_fab_icon_anim is reachable—and if you search upwards you'll find that resource is listed under "The root reachable resources are:". This means there is a code reference to add_schedule_fab_icon_anim (that is, its R.drawable ID was found in the reachable code).
+
+If you are not using strict checking, resource IDs can be marked as reachable if there are string constants that look like they might be used to construct resource names for dynamically loaded resources. In that case, if you search the build output for the resource name, you might find a message like this:
+
+10:32:50.590 [QUIET] [system.out] Marking drawable:ic_plus_anim_016:2130837506
+    used because it format-string matches string pool constant ic_plus_anim_%1$d.
+If you see one of these strings and you are certain that the string is not being used to load the given resource dynamically, you can use the tools:discard attribute to inform the build system to remove it, as described in the section about how to customize which resources to keep.
+
+Content and code samples on this page are subject to the licenses described in the Content License. Java is a registered trademark of Oracle and/or its affiliates.
+
+Last updated September 24, 2018

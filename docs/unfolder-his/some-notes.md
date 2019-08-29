@@ -1,0 +1,1 @@
+自定义view相关：https://trickyandroid.com/protip-inflating-layout-for-your-custom-view/

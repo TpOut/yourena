@@ -1,0 +1,45 @@
+introduction 
+    getting started 
+    concepts  
+    jni tips
+  
+building   
+    introduction   
+    ndk-build 
+        the ndk-build-script
+        android.mk
+        application.mk
+    cmake
+    standalone toolchains   
+
+architectures and cpus  
+    introduction  
+    abi management   
+    cpu feature   
+    neon  
+
+debugging and profiling 
+    debug with as  
+    ndk-gdb   
+    ndk-stack   
+    addresssanitizer
+    native tracing 
+    simpleperf
+        overview
+        simpleperf command reference 
+    wrap shell script   
+
+libraries  
+    introduction
+    prebuild libraries  
+    c++ support
+    native apis   
+
+high-performance audio
+    ...
+
+vulkan 
+    ...
+
+machine learning 
+   ...

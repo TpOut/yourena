@@ -1,0 +1,41 @@
+Profile your app performance
+An app is considered to have poor performance if it responds slowly, shows choppy animations, freezes, crashes, or consumes a lot of power. To avoid these performance problems, use the profiling tools listed on this page to identify where your app is making inefficient use of resources, such as the CPU, memory, graphics, network, and device battery.
+
+Note: While profiling an app, you should disable Instant Run. There is a small performance impact when using Instant Run and a slightly larger impact when updating methods. This performance impact could interfere with information provided by performance profiling tools. Additionally, the stub methods generated while using the feature can complicate stack traces.
+
+Android Studio tools
+ANDROID DEVELOPERS
+
+Measure app performance with Android Profiler
+The Android Profiler in Android Studio 3.0 and higher replaces the Android Monitor tools. The Android Profiler tools provide real-time data to help you to understand how your app uses CPU, memory, network, and battery resources.For details about each
+
+ANDROID DEVELOPERS
+
+View the Java heap and memory allocations with Memory Profiler
+The Memory Profiler is a component in the Android Profiler that helps you identify memory leaks and memory churn that can lead to stutter, freezes, and even app crashes. It shows a realtime graph of your app's memory use and lets you capture a heap
+
+ANDROID DEVELOPERS
+
+Inspect CPU activity with CPU Profiler
+Optimizing your app’s CPU usage has many advantages, such as providing a faster and smoother user experience and preserving device battery life.You can use the CPU Profiler to inspect your app’s CPU usage and thread activity in real time while
+
+MORE
+Command line tools
+ANDROID DEVELOPERS
+
+systrace
+The systrace command allows you to collect and inspect timing information across all processes running on your device at the system level. It combines data from the Android kernel, such as the CPU scheduler, disk activity, and app threads, to
+
+ANDROID DEVELOPERS
+
+dumpsys
+dumpsys is a tool that runs on Android devices and provides information about system services. You can call dumpsys from the command line using the Android Debug Bridge (ADB) to get diagnostic output for all system services running on a connected
+
+ANDROID DEVELOPERS
+
+dmtracedump
+dmtracedump is a tool that generates graphical call-stack diagrams from trace log files. The tool uses the Graphviz Dot utility to create the graphical output, so you need to install Graphviz before running dmtracedump . If you haven't yet generated
+
+Content and code samples on this page are subject to the licenses described in the Content License. Java is a registered trademark of Oracle and/or its affiliates.
+
+Last updated June 5, 2018
