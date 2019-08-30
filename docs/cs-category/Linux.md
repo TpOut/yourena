@@ -43,3 +43,21 @@ exa : https://the.exa.website/
 ## 内核  
 linux内核揭秘：https://xinqiu.gitbooks.io/linux-insides-cn/content/index.html      
 简单kernel:https://github.com/MRNIU/SimpleKernel  
+
+## 命令  
+查看硬件组件的型号
+```
+cat/proc/cpuinfo  
+lspci   
+```  
+
+内核版本
+```
+uname -r
+```  
+
+脚本管理工具有很多，如   
+Ansible, or Salt，shell scripts, Chef, or Puppet
+
+
+linux 检测本地web服务器是否开启：wget -qO- 127.0.0.1
