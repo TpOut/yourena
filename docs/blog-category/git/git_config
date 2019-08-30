@@ -1,0 +1,9 @@
+# 用户名邮箱
+$ git config --global user.name "TpOut"    
+$ git config --global user.email 416756910@qq.com
+# 如果是之前处理过的冲突，会被按之前的规则合并
+$ git config --global merge.conflictstyle diff3
+#
+$ git config --global rerere.enabled true
+#
+$ git config --global credential.helper cache //

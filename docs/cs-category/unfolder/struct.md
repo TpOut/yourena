@@ -1,0 +1,4 @@
+mvvm
+mvp
+mvc
+flux
