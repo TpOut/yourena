@@ -16,6 +16,7 @@
 
 树莓派了解一下
 
+cs的机构排名： https://csrankings.org/#/index?ai&asia  
 
 计算机理论：https://introtcs.org/public/index.html  哈佛
 [自学了解下](https://teachyourselfcs.com/)
