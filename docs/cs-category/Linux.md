@@ -5,6 +5,8 @@ wget -qO- 127.0.0.1
 
 终端颜色修改：https://github.com/Mayccoll/Gogh  
 
+
+学习页面：https://linuxjourney.com  
 linux服务器：https://medium.com/@mutendebrian/how-to-secure-your-linux-server-6026cfcdefd8  
 linux服务：https://medium.com/@benmorel/creating-a-linux-service-with-systemd-611b5c8b91d6    
 
