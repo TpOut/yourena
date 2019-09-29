@@ -1,5 +1,3 @@
-计算机专业应该知道：http://matt.might.net/articles/what-cs-majors-should-know/
-
 如何阅读rfc : https://web.archive.org/web/20180916071340/https://www.mnot.net/blog/2018/07/31/read_rfc
 >有翻到中文译文：https://www.freebuf.com/column/184598.html
 
