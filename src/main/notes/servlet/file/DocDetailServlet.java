@@ -49,7 +49,7 @@ public class DocDetailServlet extends HttpServlet {
         }else{
             resp.setContentType("text/plain; UTF-8");
         }
-        LogUtil.saveToFile(suffix);
+        LogUtil.saveToFile("doc-detail",suffix);
 
         File file = new File(projactPath + URLDecoder.decode(suffix, "UTF-8"));
         OutputStream output = resp.getOutputStream();// 得到输出流

@@ -16,21 +16,15 @@ public class LogUtil {
 
     public static void saveToFile(String pathPrefix, String info) {
         File file = new File(pathPrefix + File.separator + "temp.log");
-        FileWriter fwriter = null;
-        try {
-            fwriter = new FileWriter(file,true);
+
+        try (FileWriter fwriter = new FileWriter(file,true)){
             fwriter.write(info);
             fwriter.write(System.getProperty("line.separator"));
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        } finally {
-            try {
-                fwriter.flush();
-                fwriter.close();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
+
+        }catch (IOException e){
+            System.out.print(e.toString());
         }
+
     }
 
 }
