@@ -7,7 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import main.notes.base.BaseListServlet;
+import main.notes.servlet.base.BaseListServlet;
 
 import static main.config.ConfigConstant.DOCS_NAME;
 import static main.config.ConfigConstant.DOC_FOOD_NAME;

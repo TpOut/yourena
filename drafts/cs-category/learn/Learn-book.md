@@ -2,7 +2,7 @@
 
 编码 
 
-> 在读，见 [code 笔记](../../cs-book/code/code-note.md)
+> 已读，见 [code 笔记](../../cs-book/code/code-note.md)
 
 Pointers on C
 

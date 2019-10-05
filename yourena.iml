@@ -22,5 +22,6 @@
     <orderEntry type="library" name="servlet-api" level="project" />
     <orderEntry type="library" name="marked" level="application" />
     <orderEntry type="library" name="dsbridge" level="application" />
+    <orderEntry type="library" name="marked" level="application" />
   </component>
 </module>

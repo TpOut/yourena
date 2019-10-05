@@ -33,9 +33,11 @@ public class DocDetailServlet extends HttpServlet {
 
 //        resp.setContentType("application/octet-stream");
 
+        //将地址中，在yourena之后的部分截断
         String webPath = req.getSession().getServletContext().getRealPath("");
-        String projactPath = webPath.substring(0, webPath.indexOf(PROJECT_NAME) + PROJECT_NAME.length());
+        String projectPath = webPath.substring(0, webPath.indexOf(PROJECT_NAME) + PROJECT_NAME.length());
 
+        //获取实际请求的路经
         StringBuffer requestURL = req.getRequestURL();
         int i = requestURL.indexOf(WEB_SITE);
         String suffix;
@@ -44,14 +46,17 @@ public class DocDetailServlet extends HttpServlet {
         }else {
             suffix = requestURL.substring(i + WEB_SITE.length(), requestURL.length());
         }
+        //判断格式
         if(suffix.toLowerCase().endsWith(".html")){
             resp.setContentType("text/html; UTF-8");
         }else{
-            resp.setContentType("text/plain; UTF-8");
+            resp.setContentType("text/markdown; UTF-8");
         }
+        //请求日志
         LogUtil.saveToFile("doc-detail",suffix);
 
-        File file = new File(projactPath + URLDecoder.decode(suffix, "UTF-8"));
+        //输出文章
+        File file = new File(projectPath + URLDecoder.decode(suffix, "UTF-8"));
         OutputStream output = resp.getOutputStream();// 得到输出流
 
         InputStream is = new FileInputStream(file);

@@ -1,6 +1,6 @@
 package main.notes.servlet.list.index;
 
-import main.notes.base.BaseListServlet;
+import main.notes.servlet.base.BaseListServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

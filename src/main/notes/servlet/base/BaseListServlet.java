@@ -1,4 +1,4 @@
-package main.notes.base;
+package main.notes.servlet.base;
 
 import java.io.IOException;
 
@@ -29,7 +29,7 @@ public class BaseListServlet extends HttpServlet {
         String docsPath = webPath.substring(0, webPath.indexOf(PROJECT_NAME) + PROJECT_NAME.length() + 1) + listPath;
 
         //项目生成到out后，存到服务器的/java-web/yourena目录
-        //软引用到webapps目录下，文章在/java-web/yourena的同级目录my-article
+        //软引用到webapps目录下，文章在/java-web/yourena的同级目录
         resp.getWriter().println(FileUtil.getAllFileName(docsPath));
     }
 

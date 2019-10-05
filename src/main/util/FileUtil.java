@@ -6,9 +6,11 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -26,7 +28,10 @@ public class FileUtil {
     }
 
     /**
-     * 将文件夹遍历，获得{name: , url: , sub: []} 的对象
+     * 将文件夹遍历，获得{name: , url: , type: , sub: []} 的对象
+     *
+     * 如果文件有后缀时间 _20190916 ，则以后缀为准，否则取修改时间
+     * 如果文件有同名html，则输出时以html 为准
      *
      * @param topDirectory 遍历起始文件夹
      * @return 起始文件夹下面的所有文件（包括文件夹）的名字和链接
@@ -77,11 +82,11 @@ public class FileUtil {
                 String pureName = null;
                 switch (splits.length) {
                     case 3:
-                        time = splits[2];
+                        time = splits[2].split("\\.")[0];
                     case 2:
                         if (TimeUtil.isDate(splits[1], "yyyyMMdd")) {
                             pureName = splits[0];
-                            time = splits[1];
+                            time = splits[1].split("\\.")[0];
                         } else {
                             pureName = splits[1];
                             tag = splits[0];
@@ -107,6 +112,7 @@ public class FileUtil {
                 }
                 sb.append("\"name\":\"").append(pureName).append("\"");
 
+                //如果有同名的html 文件，则返回 html
                 boolean needChange = false;
                 int filesLength = files.length;
                 for (int index = 0; index < filesLength; index++) {
@@ -124,7 +130,7 @@ public class FileUtil {
                 sb.append(",")
                         .append("\"url\":\"").append(url).append("\"")
                         .append(",")
-                        .append("\"time\":\"").append(time == null ? getModifyTime(f) : time).append("\"");
+                        .append("\"time\":\"").append(time == null ? getModifyTime(f) : formatTime(time)).append("\"");
 
                 if (null != summary) {
                     sb.append(",")
@@ -169,6 +175,9 @@ public class FileUtil {
         }
     }
 
+    /**
+     * 地址可能不是以/分割的，这里替换成/如此方便前端处理
+     */
     private static String pathClip(String path) {
         if (null == path || path.length() == 0) {
             return "invalid path";
@@ -189,6 +198,17 @@ public class FileUtil {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         cal.setTimeInMillis(time);
         return formatter.format(cal.getTime());
+    }
+
+    private static String formatTime(String time){
+        SimpleDateFormat originSdf = new SimpleDateFormat("yyyyMMdd");
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
+            return sdf.format(originSdf.parse(time));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 
 }
