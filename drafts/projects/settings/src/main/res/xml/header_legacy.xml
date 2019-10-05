@@ -1,0 +1,18 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference
+        android:title="@string/header1_title"
+        android:summary="@string/header1_summary"  >
+        <intent
+            android:targetPackage="com.example.prefs"
+            android:targetClass="com.example.prefs.SettingsActivity"
+            android:action="com.example.prefs.PREFS_ONE" />
+    </Preference>
+    <Preference
+        android:title="@string/header2_title"
+        android:summary="@string/header2_summary" >
+        <intent
+            android:targetPackage="com.example.prefs"
+            android:targetClass="com.example.prefs.SettingsActivity"
+            android:action="com.example.prefs.PREFS_TWO" />
+    </Preference>
+</PreferenceScreen>

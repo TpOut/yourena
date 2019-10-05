@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="@string/pref_setting1_key"
+        android:summary="@string/pref_setting1_summary"
+        android:title="@string/pref_setting1_title"/>
+    <ListPreference
+        android:defaultValue="@string/pref_setting2_sub_default"
+        android:dependency="@string/pref_setting1_key"
+        android:dialogTitle="@string/pref_setting2_sub_title"
+        android:entries="@array/pref_setting2_keys"
+        android:entryValues="@array/pref_setting2_values"
+        android:key="@string/pref_setting2_key"
+        android:title="@string/pref_setting2_title"/>
+    <Preference
+        android:key="@string/pref_setting3_key"
+        android:summary="@string/pref_setting3_summary"
+        android:title="@string/pref_setting3_title"
+        >
+        <!--<intent android:action="fd"/>-->
+    </Preference>
+    <PreferenceCategory>
+        <PreferenceScreen
+            android:key="@string/pref_setting4_key"
+            android:summary="@string/pref_setting4_summary"
+            android:title="@string/pref_setting4_title"
+            >
+            <Preference
+                android:key="@string/pref_setting5_key"
+                android:summary="@string/pref_setting5_summary"
+                android:title="@string/pref_setting5_title"
+                />
+        </PreferenceScreen>
+    </PreferenceCategory>
+</PreferenceScreen>

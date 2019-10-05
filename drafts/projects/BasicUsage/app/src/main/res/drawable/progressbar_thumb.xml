@@ -1,0 +1,17 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item>
+        <shape>
+            <size
+                android:height="20dp"
+                android:width="20dp" />
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+    <item android:id="@+id/seekBar_thumb">
+        <shape xmlns:android="http://schemas.android.com/apk/res/android"
+               android:shape="oval">
+            <corners android:radius="20dp"/>
+            <solid android:color="#55AEFC"/>
+        </shape>
+    </item>
+</layer-list>

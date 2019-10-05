@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- app:alpha 未起作用，后期再看 -->
+    <!--<item android:color="@android:color/black" android:state_checked="true" app:alpha="0.54" /> -->
+    <item android:color="@color/psts_tab_item_icon_tint_50" android:state_checked="true" /> 
+    <item android:color="@color/psts_tab_item_icon_tint_50" android:state_pressed="true" android:state_selected="false" />
+    <item android:color="@color/psts_tab_item_icon_tint_50" android:state_enabled="false" /> 
+    <item android:color="@color/psts_tab_item_checked_color" android:state_selected="true" /> 
+    <item android:color="@color/psts_tab_item_icon_tint" /> 
+</selector>

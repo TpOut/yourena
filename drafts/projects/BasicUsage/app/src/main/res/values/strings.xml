@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BasicUsage</string>
+
+    <string name="search_hint">搜索提示</string>
+</resources>

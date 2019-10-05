@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.yourena.tpout.settings.custompref.CustomTipPreference
+        android:key="@string/pref_custom_tip_key"
+        android:summary="@string/pref_custom_tip_summary"
+        android:title="@string/pref_custom_tip_title"
+        >
+
+    </com.yourena.tpout.settings.custompref.CustomTipPreference>
+    <SwitchPreference
+        android:key="@string/pref_custom_tip_key1"
+        android:summary="@string/pref_custom_tip_summary1"
+        android:title="@string/pref_custom_tip_title1">
+
+    </SwitchPreference>
+</PreferenceScreen>

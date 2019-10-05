@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">camera</string>
+    <string name="illustrate">说明:\n使用已有app拍照和录像，或者自己使用api处理</string>
+    <string name="way_other_app">已有app的方式</string>
+    <string name="way_system_api">调用api的方式</string>
+
+    <string name="take_photo">拍照</string>
+    <string name="record_video">拍摄</string>
+    <string name="action_save">保存</string>
+    <string name="action_cancel">重拍</string>
+</resources>

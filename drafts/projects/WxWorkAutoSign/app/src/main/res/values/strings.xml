@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">WxWorkAutoSign</string>
+
+    <string name="accessibility_service_description">选中</string>
+</resources>

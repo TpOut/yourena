@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SingleNormalView">
+        <attr name="nv_name" format="string"/>
+        <attr name="nv_key" format="string"/>
+        <attr name="nv_default_value" format="string"/>
+        <attr name="nv_linkFrag" format="string"/>
+    </declare-styleable>
+</resources>

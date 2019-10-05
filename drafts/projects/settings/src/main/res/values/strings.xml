@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Settings</string>
+
+    <string name="pref_setting_key">pref_setting_key</string>
+    <string name="pref_setting1_key">pref_setting1_key</string>
+    <string name="pref_setting2_key">pref_setting2_key</string>
+    <string name="pref_setting3_key">pref_setting3_key</string>
+    <string name="pref_setting4_key">pref_setting4_key</string>
+    <string name="pref_setting5_key">pref_setting5_key</string>
+
+
+    <string name="pref_setting_title">预设</string>
+    <string name="pref_setting_summary">预设的描述</string>
+    <string name="pref_setting1_title">预设１</string>
+    <string name="pref_setting1_summary">控制预设２的可控性</string>
+    <string name="pref_setting2_title">预设２</string>
+    <string name="pref_setting2_summary">一个选择列表</string>
+    <string name="pref_setting2_sub_title">预设２子列表</string>
+    <string name="pref_setting2_sub_default">03</string>
+    <string name="pref_setting3_title">预设3</string>
+    <string name="pref_setting3_summary">文本单选</string>
+    <string name="pref_setting4_title">预设4</string>
+    <string name="pref_setting4_summary">在category分隔标签内</string>
+    <string name="pref_setting5_title">预设5</string>
+    <string name="pref_setting5_summary">在screen分割标签内</string>
+
+    <string name="header_title">标头</string>
+    <string name="header_summary">标头的描述</string>
+    <string name="header1_title">标头1</string>
+    <string name="header1_summary">标头1的描述</string>
+    <string name="header2_title">标头2</string>
+    <string name="header2_summary">标头2的描述</string>
+
+    <string-array name="pref_setting2_keys">
+        <item>预设２－－选项１</item>
+        <item>预设２－－选项２</item>
+        <item>预设２－－选项３</item>
+        <item>预设２－－选项４</item>
+    </string-array>
+    <string-array name="pref_setting2_values">
+        <item>01</item>
+        <item>02</item>
+        <item>03</item>
+        <item>04</item>
+    </string-array>
+
+    <string name="pref_custom_tip_key">自定义tip键</string>
+    <string name="pref_custom_tip_key1">自定义tip键1</string>
+
+    <string name="pref_custom_tip_title">自定义tip标题</string>
+    <string name="pref_custom_tip_summary">自定义tip描述</string>
+    <string name="pref_custom_tip_title1">自定义tip标题1</string>
+    <string name="pref_custom_tip_summary1">自定义tip描述1</string>
+
+</resources>

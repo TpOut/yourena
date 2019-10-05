@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/wuyue/CLionProjects/cplusplus/静态.cpp
+静态.h
+/Users/wuyue/CLionProjects/cplusplus/静态.h
+
+/Users/wuyue/CLionProjects/cplusplus/静态.h
+

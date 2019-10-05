@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
+    <header
+        android:fragment="com.yourena.tpout.settings.frag.pref.SettingPrefFragment1"
+        android:summary="@string/header1_summary"
+        android:title="@string/header1_title"/>
+    <header
+    android:fragment="com.yourena.tpout.settings.frag.pref.SettingPrefFragment2"
+    android:title="@string/header2_summary"
+    android:summary="@string/header2_title" >
+    <!-- key/value pairs can be included as arguments for the fragment. -->
+    <extra android:name="someKey" android:value="someHeaderValue" />
+    </header>
+</preference-headers>

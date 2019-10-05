@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+       android:id="@+id/navigation_bar"
+       android:layout_width="120dp"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+
+    <ImageButton
+        android:id="@+id/go_back"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@null"
+        android:focusable="true"
+        android:scaleType="center"/>
+
+    <com.ecarx.navigation.bar.PagerSlidingTabStrip
+        android:id="@+id/psts_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:pstsItemIconTint="@color/psts_item_icon_selector"
+        app:pstsItemTextColor="@color/psts_item_text_selector"/>
+
+    <ImageButton
+        android:id="@+id/go_home"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@null"
+        android:focusable="true"
+        android:scaleType="center"/>
+</merge>

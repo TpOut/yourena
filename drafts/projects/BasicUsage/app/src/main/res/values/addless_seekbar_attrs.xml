@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="SeekNumberBar">
+        <attr name="snbTextSize" format="dimension"/>
+        <attr name="snbTextColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="SeekClickBar">
+        <attr name="startNum" format="integer"/>
+        <attr name="endNum" format="integer"/>
+        <attr name="clickStep" format="integer"/>
+        <attr name="scbTextSize" format="dimension"/>
+        <attr name="scbTextColor" format="color"/>
+        <attr name="showStartEndValue" format="boolean"/>
+        <attr name="thumbRadius" format="dimension"/>
+        <attr name="thumbColor" format="color"/>
+    </declare-styleable>
+
+</resources>

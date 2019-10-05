@@ -1,0 +1,43 @@
+ext {
+    //Android sdk
+    androidCompileSdkVersion = 28
+    androidMinSdkVersion = 15
+    androidTargetSdkVersion = 28
+
+    //Android lib
+    supportAppCompatVersion = "28.0.0"
+    constraintLayoutVersion = "1.1.3"
+    //test
+    espressoCoreVersion = "3.0.2"
+    junitVersion = "4.12"
+    runnerVersion = "1.0.2"
+    //JakeWharton
+    timberVersion = "4.7.1"
+    //other lib
+    rxAndroidVersion = "2.1.0"
+    rxJavaVersion = "2.2.4"
+    autoDisposeVersion = "1.1.0"
+    //permission
+    permissionDispatcherVersion = "3.3.2"
+
+    mainDependencies = [
+            supportAppCompat             : "com.android.support:appcompat-v7:${supportAppCompatVersion}",
+
+            recyclerView                 : "com.android.support:recyclerview-v7:${supportAppCompatVersion}",
+            constraintLayout             : "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
+
+            espresso                     : "com.android.support.test.espresso:espresso-core:${espressoCoreVersion}",
+            junit                        : "junit:junit:${junitVersion}",
+            runner                       : "com.android.support.test:runner:${runnerVersion}",
+
+            timber                       : "com.jakewharton.timber:timber:${timberVersion}",
+            rxAndroid                    : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+            rxJava                       : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+            autoDispose                  : "com.uber.autodispose:autodispose-android:${autoDisposeVersion}",
+            autoDisposeAndroid                  : "com.uber.autodispose:autodispose-android-archcomponents:${autoDisposeVersion}",
+
+            permissionDispatcher         : "com.github.hotchemi:permissionsdispatcher:${permissionDispatcherVersion}",
+            permissionDispatcherProcessor: "com.github.hotchemi:permissionsdispatcher-processor:${permissionDispatcherVersion}",
+
+    ]
+}

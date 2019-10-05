@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.yourena.tpout.settings.frag.fragnest.MyPrefScreen
+        android:key="MyPrefScreen"
+        android:summary="MyPrefScreen"
+        android:title="MyPrefScreen">
+        <Preference
+            android:key="PreferenceInMyPrefScreen"
+            android:summary="PreferenceInMyPrefScreen"
+            android:title="PreferenceInMyPrefScreen">
+
+        </Preference>
+    </com.yourena.tpout.settings.frag.fragnest.MyPrefScreen>
+</PreferenceScreen>
