@@ -23,6 +23,8 @@ import static main.config.ConfigConstant.WEB_SITE;
 /**
  * Created by shengjieli on 18-10-15.<br>
  * Email address: 416756910@qq.com<br>
+ *
+ * 为了支持本地图片，docDetail 其实就是对需求的文件，进行流返回
  */
 public class DocDetailServlet extends HttpServlet {
 
@@ -49,8 +51,13 @@ public class DocDetailServlet extends HttpServlet {
         //判断格式
         if(suffix.toLowerCase().endsWith(".html")){
             resp.setContentType("text/html; UTF-8");
-        }else{
+        }else if(suffix.toLowerCase().endsWith(".md")){
             resp.setContentType("text/markdown; UTF-8");
+        }else if(suffix.toLowerCase().endsWith(".jpg")
+        ||suffix.toLowerCase().endsWith(".png")){
+            resp.setContentType("image/*");
+        }else {
+            return;
         }
         //请求日志
         LogUtil.saveToFile("doc-detail",suffix);
