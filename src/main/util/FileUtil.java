@@ -194,10 +194,11 @@ public class FileUtil {
         return result.insert(0, "/").insert(0, ConfigConstant.DOCS_NAME).substring(0, result.length() - 1);
     }
 
+    @Deprecated //因为上传等原因，时间会被修改，尽量在文件名中写
     private static String getModifyTime(File f) {
         Calendar cal = Calendar.getInstance();
         long time = f.lastModified();
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy.MM.dd");
         cal.setTimeInMillis(time);
         return formatter.format(cal.getTime());
     }
