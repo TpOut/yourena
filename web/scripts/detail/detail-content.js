@@ -53,7 +53,7 @@ Ajax.get(baseUrl + notePath, function (res) {
             var baseIndex = a.href.indexOf(baseUrl);
             if (baseIndex >= 0) {
                 var sub = a.href.substring(a.href.indexOf(baseUrl) + baseUrl.length, a.href.length);
-                a.href = "detail-container.html?path=docs/" + sub;
+                a.href = baseUrl + "detail-container.html?path=" +resPath + sub;
             }
         }
 
