@@ -8,6 +8,10 @@ switch (categoryName) {
         document.getElementById("header_title").innerText = "Blog";
         servletName = "BlogList";
         break
+    case "novel":
+        document.getElementById("header_img").src = "/imgs/icons/ic_story.png";
+        document.getElementById("header_title").innerText = "Novel";
+        servletName = "NovelList";
 }
 
 Ajax.get(baseUrl + servletName, function (res) {

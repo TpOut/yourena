@@ -80,4 +80,15 @@
         <servlet-name>BlogListServlet</servlet-name>
         <servlet-class>main.notes.servlet.list.category.BlogListServlet</servlet-class>
     </servlet>
+
+    <!--小说 列表-->
+    <servlet-mapping>
+        <servlet-name>NovelListServlet</servlet-name>
+        <url-pattern>/NovelList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>NovelListServlet</servlet-name>
+        <servlet-class>main.notes.servlet.list.category.NovelListServlet</servlet-class>
+    </servlet>
 </web-app>

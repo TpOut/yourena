@@ -19,5 +19,6 @@ public class ConfigConstant {
     public static final String DOC_STORY_NAME = "story-book";
     public static final String DOC_CS_BOOK_NAME = "cs-book";
     public static final String DOC_BLOG_NAME  = "blog-category";
+    public static final String DOC_NOVEL_NAME  = "刀绅纪";
 
 }
