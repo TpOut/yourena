@@ -61,7 +61,7 @@ public class FileUtil {
             File f = files[i];
 
             String name = f.getName();
-            if (!name.endsWith(".md")) {
+            if (f.isFile() && !name.endsWith(".md")) {
                 //其他文件
                 othersFileLength++;
                 continue;

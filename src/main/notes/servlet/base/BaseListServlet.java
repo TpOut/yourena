@@ -14,6 +14,8 @@ import static main.config.ConfigConstant.PROJECT_NAME;
 /**
  * Created by shengjieli on 2018/11/5.<br>
  * Email address: 416756910@qq.com<br>
+ *
+ *     目录下是一篇篇文档，直接输出成列表
  */
 public class BaseListServlet extends HttpServlet {
 
