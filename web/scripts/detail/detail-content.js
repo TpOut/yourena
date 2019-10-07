@@ -27,6 +27,21 @@ document.getElementById("title").innerText = title;
 
 Ajax.get(baseUrl + notePath, function (res) {
     try {
+
+        hljs.initHighlightingOnLoad();
+        marked.setOptions({
+            renderer: new marked.Renderer(),
+            highlight: function(code) {
+                return hljs.highlightAuto(code).value;
+            },
+            pedantic: false,
+            gfm: true,
+            breaks: false,
+            sanitize: false,
+            smartLists: true,
+            smartypants: false,
+            xhtml: false
+        });
         document.getElementById('content').innerHTML = marked(res);
 
         //文档相对路经，处理一下
