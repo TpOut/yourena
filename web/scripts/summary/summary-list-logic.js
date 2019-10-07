@@ -10,21 +10,7 @@ function addList(res) {
     const length = listRes.length;
     for (let i = 0; i < length; i++) {
         let itemRes = listRes[i];
-        //如果是文件夹，即认为是文集，入口是 -index后缀的文件
-        if (itemRes['type'] === "directory") {
-            let subListRes = itemRes['sub'];
-
-            const subLength = subListRes.length;
-            for (let subI = 0; subI < subLength; subI++) {
-                let subItemRest = subListRes[subI];
-                if (subItemRest['type'] === "normal" && subItemRest['name'].indexOf("-index") !== -1) {
-                    addFileList(subItemRest);
-                    break;
-                }
-            }
-        } else if (itemRes['type'] === "normal") {
-            addFileList(itemRes);
-        }
+        addFileList(getListItem(itemRes))
     }
 }
 

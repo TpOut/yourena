@@ -59,6 +59,17 @@
         <servlet-class>main.notes.servlet.list.index.StoryListServlet</servlet-class>
     </servlet>
 
+    <!--cs书籍 列表-->
+    <servlet-mapping>
+        <servlet-name>CsBookListServlet</servlet-name>
+        <url-pattern>/CsBookList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CsBookListServlet</servlet-name>
+        <servlet-class>main.notes.servlet.list.index.CsBookListServlet</servlet-class>
+    </servlet>
+
     <!--博客 列表-->
     <servlet-mapping>
         <servlet-name>BlogListServlet</servlet-name>

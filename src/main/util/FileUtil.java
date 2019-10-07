@@ -169,6 +169,8 @@ public class FileUtil {
                 String line = reader.readLine();
                 if (line == null)
                     break;
+                //输出转义，这么多\的吗。。我震惊了
+                line = line.replaceAll("\"","\\\\\"");
                 result.add(line);
             }
             return result;
