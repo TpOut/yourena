@@ -60,7 +60,7 @@ public class DocDetailServlet extends HttpServlet {
             return;
         }
         //请求日志
-        LogUtil.saveToFile("doc-detail",suffix);
+        LogUtil.saveToFile(projectPath,suffix);
 
         //输出文章
         File file = new File(projectPath + URLDecoder.decode(suffix, "UTF-8"));
