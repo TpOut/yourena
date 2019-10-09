@@ -2,7 +2,7 @@
 
 编码 
 
-> 已读，见 [code 笔记](../../../docs/cs-book/Code/code-index_20191004.md)
+> 已读，见 [code 笔记](../../../MyDocs/cs-book/Code/code-index_20191004.md)
 
 Pointers on C
 

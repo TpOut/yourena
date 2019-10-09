@@ -13,7 +13,7 @@ public class ConfigConstant {
     public static final String DATABASE_URL = isDeployed ? "127.0.0.1" : "120.55.171.184";
 
     public static final String PROJECT_NAME   = "yourena";
-    public static final String DOCS_NAME      = "docs";
+    public static final String DOCS_NAME      = "MyDocs";
     public static final String DOC_FOOD_NAME  = "food-book";
     public static final String DOC_FEEL_NAME  = "feel-book";
     public static final String DOC_STORY_NAME = "story-book";
