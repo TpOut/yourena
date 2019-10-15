@@ -20,7 +20,7 @@
 
 预处理器会在源代码编译之前处理一些文本性质的操作：
 
-{% page-ref page="yu-chu-li/" %}
+[预处理](./pre-process/pre-process-index.md)
 
 预处理器根据c标准实现下面这些预处理符号
 
