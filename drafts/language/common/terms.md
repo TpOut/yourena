@@ -1,0 +1,12 @@
+# 名词
+
+| Term | Full |
+| :--- | :--- |
+| ADT | Abstract data type |
+| LIFO | Last in first out |
+| FIFO | First in first out |
+| CUT | Coordinated Universal Time |
+| GMT | Greenwich Mean Time |
+
+
+
