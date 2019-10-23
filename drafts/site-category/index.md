@@ -11,4 +11,8 @@ Publii  （github）
 Jekyll,  
 
 AWS S3静态托管，Cloudflare建立CDN:https://medium.com/better-programming/how-to-host-your-personal-website-for-free-3101c4ab2e49  
-（开源）架设服务让别人连接本地：https://github.com/schollz/hostyoself　　
+（开源）架设服务让别人连接本地：https://github.com/schollz/hostyoself　
+
+
+
+全文搜索：https://bhavaniravi.com/blog/challenges-in-full-text-search　

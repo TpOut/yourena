@@ -16,5 +16,9 @@ char *str1 = "xyz"
 
 
 
+#### 方法
+
+strlen，strcat, strcpy 等
+
 
 

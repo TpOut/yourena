@@ -4,13 +4,13 @@
 
 属于标量类型
 
-```text
+```c
 struct SAMPLE {
   int age;
   char *name;
 } y[20], *z;
 
-# 之后可以
+// 之后可以, 也可不写SAMPLE，如果后续不用
 struct SAMPLE x;
 
 //合并
@@ -25,7 +25,7 @@ struct INIT {
 }
 ```
 
-```text
+```c
 struct SELF; # 在互相引用时，可以先进行不完整声明
 
 struct SELF_REF {

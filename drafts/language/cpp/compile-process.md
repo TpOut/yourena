@@ -18,7 +18,7 @@ g++ -std=c++0x temp.cpp
 ```
 
 关于源代码文件的后缀，需要一定的格式，如果是不支持的格式，unix编译器会显示“bad magic number”  
-这是支持的格式：![&#x6587;&#x4EF6;&#x540E;&#x7F00;](format.png)
+这是支持的格式：[格式](./format.png)
 
 unix是大小写敏感的  
 标准C使用小写的c,C++程序使用大写的C  

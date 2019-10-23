@@ -10,6 +10,8 @@ description: common rule
 
 **易读** . 下划线，如 variable\_name . 驼峰，如 variableName
 
+> 命名风格主要取决于团队
+
 **语义** . 常量，大写，如 NAME
 
 #### 空隙

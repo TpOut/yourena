@@ -4,3 +4,7 @@
 - [源码结构](./src-code-organization.md)
 - [数据结构](./struct.md)
 - [名词](./terms.md)
+
+
+
+很多输入通过ctrl+z, ctrl+d, enter 等来中止，实际是 模拟文件尾

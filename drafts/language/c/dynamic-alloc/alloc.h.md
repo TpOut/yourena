@@ -7,3 +7,6 @@
 extern void *alloc(size_t size);
 ```
 
+
+
+这里的define malloc 什么意思？

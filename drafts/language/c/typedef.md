@@ -13,7 +13,7 @@ Simple x;
 ```
 
 ```c
-typedef char *ptr_to_char;
+typedef char * ptr_to_char;
 //然后可以
 ptr_to_char a;
 ```
