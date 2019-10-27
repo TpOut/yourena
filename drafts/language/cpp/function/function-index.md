@@ -20,6 +20,8 @@ argument 表示实参，parameter 表示行参
 
 
 
+std::initialize_list；可以表示任意长度的列表，即可变参数
+
 #### 原型
 
 函数要定义原型

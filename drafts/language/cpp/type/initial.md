@@ -1,3 +1,4 @@
+```c++
 int num(432) ; // c++ 赋值语法
 
 int num = {} //叫做列表初始化，C++11
@@ -5,6 +6,15 @@ int num = {} //叫做列表初始化，C++11
 int num{1}
 
 432ULL
+
+int *pi = new int (6);
+
+//c++ 11
+int *pi = new int {6};
+struct where {double v1, double v2}
+where * one = new where(2.5, 3.5);
+int * ar = new int[2]{2, 4, 5, 6};
+```
 
 
 

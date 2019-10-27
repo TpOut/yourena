@@ -49,7 +49,7 @@ extern 为一个标识符指定external链接属性。
 标识符在源文件中第一次声明时使用extern才有效
 
 ```c
-extern int b; //如果b在别的地方有定义，extern不是必须的，但是有助于可读性
+extern int b; //如果b在多处声明定义，则定义处的extern不是必须的，但是有助于可读性
 static int o;
 int c(){
     extern int e; //external
