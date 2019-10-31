@@ -21,6 +21,7 @@ long 转换成 short，如果不足保值，复制右边字节
 其他类型转换
 
 - static_cast<targetType>(srcTypeValue)
+- Dynamic_cast<targetType>(srcTypeValue)
 
 
 

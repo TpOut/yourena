@@ -7,6 +7,14 @@ double *p_d = new(arr + 5 * sizeof(double))double[N];
 //p_d 的地址不需要也无法delete
 ```
 
+```c++
+//当针对对象的时候
+Lsj lsj = new (buffer)Lsj;
+delete[] buffer; //只能删除buffer 指针
+lsj -> ~Lsj(); //所以需要主动调用析构函数，但是要在delete[] buffer之前调用
+//如果有覆盖操作，则按覆盖顺序反序释放
+```
+
 
 
 new 失败的时候，

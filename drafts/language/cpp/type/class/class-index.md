@@ -55,7 +55,7 @@ ClassSample sample = 32; //如果是单参
 ```c++
 //承诺不修改内部对象的方法
 void f() const; 
-void ClassSample::f() const;
+void ClassSample::f() const; //这里的const 表示 const ClassSample * this;
 ```
 
 
@@ -75,11 +75,27 @@ class Sample{
   static const int Months = 12; //c++98只支持整数或枚举，c++11 则没有限制
 }
 //这里解释的有点模糊
-//个人感觉是，const int Months = 12；是类的变量，而他不是静态的，故而只有在类创建的时候，才会真正的赋值为12（或者有修改的话，会是其他值）；而costs 声明的时候就使用了这个Months，即出现了冲突。
+//个人感觉是，const int Months = 12；是类的变量，而他不是静态的，故而只有在类创建的时候，才会真正的赋值为12（或者有修改的话，会是其他值）；而costs 声明的时候就使用了这个Months，这样在实际分配的时候，不能确定Months 还是12，即出现了冲突。
 ```
+
+
+
+静态成员函数：`static`
+
+类中可以嵌套类，结构，枚举
+
+
+
+![image-20191031224416124](image-20191031224416124.png)
 
 
 
 #### 对象数组
 
 对象数组显式初始化的时候，首先一定会被默认初始化，之后使用显式初始化的临时变量 赋值。
+
+
+
+#### 资源
+
+《The Design and Evolution of C++》
