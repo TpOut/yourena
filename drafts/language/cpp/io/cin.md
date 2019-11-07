@@ -1,3 +1,7 @@
+从p754开始
+
+
+
 ```c++
 while(cin) //cin会忽略空白符, 如果输入错误或者EOF，才会为false
 
@@ -6,7 +10,8 @@ while(cin.get(ch)) ;  //cin.get(ch) 不会忽略空白符
 cin.get() //类似c 的getchar
 
 cin.get() != EOF //注意char 的系统区别，所以EOF 需要声明成int， 使用时再转成char
-  
+
+cin >> hex;
 cin.getline() //读取行；读取并丢弃换行符
    .get(name, 20) //读取行，作为name；读取但不丢弃换行符
    .get()  //读取下一个字符，即换行符
@@ -41,6 +46,17 @@ if(!(cin >> input)){
     continue;
   }
   cout << "pls, correct input! ";
+}
+```
+
+```c++
+try{
+  while(cin >> input)
+  {
+    sum += input;
+  }
+}catch(ios_base::failure & bf){
+  cout << bf.what();
 }
 ```
 

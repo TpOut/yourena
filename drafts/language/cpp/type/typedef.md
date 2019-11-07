@@ -11,5 +11,3 @@ typedef double * (*p_fun)(double *, int);
 p_fun p1 = ...; //左右结构 比嵌套结构更容易 输入和阅读
 ```
 
-
-

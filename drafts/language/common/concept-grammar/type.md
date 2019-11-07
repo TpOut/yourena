@@ -12,6 +12,8 @@ char,int,long,float,double,boolean/bool
 
 字符串常量化："literal"
 
+动态语言，var 一般表示可变的类型，val 表示不可变（只读）
+
 ### 枚举
 
 enum

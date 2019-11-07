@@ -27,3 +27,8 @@ inFile.getline(line, 81);
 
 
 
+内核格式化
+
+用ostream方法将格式化信息写入string对象，或者使用istream方法将格式化信息读取，叫做内核格式化（incore formatting）。
+
+主要是sstream 头文件中的ostringstream 类
