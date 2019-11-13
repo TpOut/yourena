@@ -1,4 +1,5 @@
  - [《Machine Learning Yearning》](https://www.mlyearning.org/)，by 吴恩达  
+ 根据描述返回适合的机器算法https://mlroadmap.com/algosuggest/
  - 决策树模型
  - [机器学习视频](https://research.fb.com/the-facebook-field-guide-to-machine-learning-video-series/) facebook
  - [深度学习在线课程比较](https://hackernoon.com/deeplearning-101-coursera-vs-udemy-vs-udacity-b4eb3de06dbe)  

@@ -1,5 +1,6 @@
-web应用打包成docekr: https://itnext.io/dockerizing-modern-web-apps-cd9667eebf44  
+web应用打包成docekr: https://itnext.io/dockerizing-modern-web-apps-cd9667eebf44 
 
+粘性页尾https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
 grpc和restful: https://eng.fromatob.com/post/2019/05/why-were-switching-to-grpc/  
 
 开源评论系统：https://gitlab.com/commento  
