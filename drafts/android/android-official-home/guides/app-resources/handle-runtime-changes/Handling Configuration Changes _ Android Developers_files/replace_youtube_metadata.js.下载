@@ -1,0 +1,105 @@
+var REPLACE_YOUTUBE_RESOURCES = {
+  "https://www.youtube.com/watch?v=75m26_cb8Vk":
+  {
+    "youkuUrl": "http://v.youku.com/v_show/id_XMTYyNTY1MDU5Mg",
+  },
+
+  "https://www.youtube.com/watch?v=RrGRKbH85VE":
+  {
+    "youkuUrl": "http://v.youku.com/v_show/id_XMTY4ODIwODY2OA",
+  },
+
+  "https://www.youtube.com/watch?v=JV53EqrY8nI":
+  {
+    "youkuUrl": "http://v.youku.com/v_show/id_XMTc2MDcwMjM1Ng",
+  },
+
+  "https://www.youtube.com/watch?v=p4gmvHyuZzw":
+  {
+    "youkuUrl": "http://v.youku.com/v_show/id_XODY4NjYxNDI4.html?from=y1.7-2",
+    "image": "images/youtube/youtube_p4gmvHyuZzw.jpg"
+  },
+
+  "https://www.youtube.com/watch?v=YaG_ljfzeUw":
+  {
+    "youkuUrl": "http://v.youku.com/v_show/id_XODY4Njc0OTA4.html?from=s1.8-1-1.2&spm=a2h0k.8191407.0.0",
+    "image": "images/youtube/youtube_YaG_ljfzeUw.jpg"
+  },
+
+  "https://www.youtube.com/watch?v=XOcCOBe8PTc":
+  {
+    "youkuUrl": "http://v.youku.com/v_show/id_XODY4NjYzNjky.html?from=y1.7-2",
+    "image": "images/youtube/youtube_XOcCOBe8PTc.jpg"
+  },
+
+  "https://www.youtube.com/watch?v=-SY5nkNVUn0&list=PLWz5rJ2EKKc_w6fodMGrA1_tsI3pqPbqa":
+  {
+    "youkuUrl": "http://v.youku.com/v_show/id_XMTU2ODg1NjkzMg==.html?from=s1.8-1-1.2&spm=a2h0k.8191407.0.0",
+    "image": "images/youtube/youtube_-SY5nkNVUn0.jpg"
+  },
+  "https://www.youtube.com/watch?v=StqAZ1OQbqA&list=PLWz5rJ2EKKc_w6fodMGrA1_tsI3pqPbqa":
+  {
+    "youkuUrl": "http://v.youku.com/v_show/id_XMTU2MDI0NTE3Mg==.html?from=s1.8-1-1.2&spm=a2h0k.8191407.0.0",
+    "image": "images/youtube/youtube_StqAZ1OQbqA.jpg"
+  },
+
+  "https://www.youtube.com/watch?v=4rI4tTd7-J8&list=PLWz5rJ2EKKc_w6fodMGrA1_tsI3pqPbqa":
+  {
+    "youkuUrl": "http://v.youku.com/v_show/id_XMTUwNDM0MTUyOA==.html?from=s1.8-1-1.2&spm=a2h0k.8191407.0.0",
+    "image": "images/youtube/youtube_4rI4tTd7-J8.jpg"
+  },
+
+  "https://www.youtube.com/watch?v=kmUGLURRPkI":
+  {
+    "youkuUrl": "http://v.youku.com/v_show/id_XMTY2NzY3OTg3Ng==.html?from=s1.8-1-1.2&spm=a2h0k.8191407.0.0",
+    "image": "images/youtube/youtube_kmUGLURRPkI.jpg"
+  },
+
+  "https://www.youtube.com/watch?v=HGElAW224dE":
+  {
+    "youkuUrl": "http://v.youku.com/v_show/id_XMTY3NTM5MDExNg==.html?from=y1.7-2",
+    "image": "images/youtube/youtube_HGElAW224dE.jpg"
+  },
+
+  "https://www.youtube.com/watch?v=zQekzaAgIlQ":
+  {
+    "youkuUrl": "http://v.youku.com/v_show/id_XMTY2NjY0OTY5Ng==.html?from=y1.7-2",
+    "image": "images/youtube/youtube_zQekzaAgIlQ.jpg"
+  },
+
+  "https://www.youtube.com/watch?v=fEEulSk1kNY":
+  {
+    "youkuUrl": "http://v.youku.com/v_show/id_XMTMxNDIzODcxMg==.html?from=y1.7-2",
+    "image": "images/youtube/youtube_fEEulSk1kNY.jpg"
+  },
+
+  "https://www.youtube.com/watch?v=-3ry8PxcJJA":
+  {
+    "youkuUrl": "http://v.youku.com/v_show/id_XMTMxMDg0MjM2NA==.html?from=y1.7-2",
+    "image": "images/youtube/youtube_-3ry8PxcJJA.jpg"
+  },
+
+  "https://www.youtube.com/watch?v=_kKTGK-Cb_4":
+  {
+    "youkuUrl": "http://v.youku.com/v_show/id_XMTMxMDg0MzkwMA==.html?from=y1.7-2",
+    "image": "images/youtube/youtube__kKTGK-Cb_4.jpg"
+  },
+
+  "https://www.youtube.com/watch?v=AK38PJZmIW8&list=PLWz5rJ2EKKc-kIrPiq098QH9dOle-fLef":
+  {
+    "youkuUrl": "http://v.youku.com/v_show/id_XMTM5NDQzMjQwNA==.html?from=y1.7-2",
+    "image": "images/youtube/youtube_AK38PJZmIW8.jpg"
+  },
+
+  "https://www.youtube.com/watch?v=6K_jxccHv5M&index=1&list=PLOU2XLYxmsILFBfx66ens76VMLMEPJAB0":
+  {
+    "youkuUrl": "http://v.youku.com/v_show/id_XMTUxNDMzMjkyOA==.html?from=y1.7-2",
+    "image": "images/youtube/youtube_6K_jxccHv5M.jpg"
+  },
+
+  "https://www.youtube.com/watch?v=ctiaVxgclsg&list=PLWz5rJ2EKKc9BdE_PSLNIGjXXr3h_orXM":
+  {
+    "youkuUrl": "http://v.youku.com/v_show/id_XODY4NjM1NTI0.html?from=y1.7-2",
+    "image": "images/youtube/youtube_ctiaVxgclsg.jpg"
+  },
+}
