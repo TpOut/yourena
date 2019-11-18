@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/wuyue/CLionProjects/cplusplus/namespace_demo.cpp
+namespace_demo.h
+/Users/wuyue/CLionProjects/cplusplus/namespace_demo.h
+iostream
+-
+
+/Users/wuyue/CLionProjects/cplusplus/namespace_demo.h
+

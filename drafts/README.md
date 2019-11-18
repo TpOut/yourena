@@ -22,3 +22,9 @@ copy为无后缀文本格式，index 和 note 为md格式
 
 如果有copy，则表示该文章已经读过，可以看需要先去看下原文有无更新，对比只看index或者note即可（如果index和note都无相关内容，则可能表示这篇文章毫无可记之处，如android-studio-user-guide 》write-your-app 》build-a-ui-with-layout-editor）。  
 如果无copy，index中可能存在,也可能不存在相关记录，无需在意。重看即可或者通过index进入都可  
+
+
+
+#### 问题
+
+increase production parity。什么意思？

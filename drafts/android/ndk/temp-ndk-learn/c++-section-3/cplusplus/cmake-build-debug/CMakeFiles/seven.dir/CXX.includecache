@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/wuyue/CLionProjects/cplusplus/容器.cpp
+vector
+-
+queue
+-
+string.h
+-
+iostream
+-
+stack
+-
+algorithm
+-
+list
+-
+map
+-
+numeric
+-
+

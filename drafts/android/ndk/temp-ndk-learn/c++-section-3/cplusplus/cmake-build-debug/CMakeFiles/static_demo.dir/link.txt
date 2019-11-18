@@ -1,0 +1,1 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/static_demo.dir/static/static关键字总结.cpp.o CMakeFiles/static_demo.dir/static/otherfile.cpp.o  -o static_demo 

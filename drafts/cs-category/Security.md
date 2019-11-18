@@ -1,5 +1,4 @@
 [提高ssh安全](https://stribika.github.io/2015/01/04/secure-secure-shell.html)      
-
  [开源研究生教材](https://toc.cryptobook.us/)    
  加密学导论：https://intensecrypto.org/public/  哈弗  
  各种密码知识：https://cryptobook.nakov.com/  
@@ -10,3 +9,4 @@ indieAuth 协议是针对这一点改进，让任何网站都具备 OAuth 认证
 用户只要提交一个 URL 即可
 
 密码学历程：http://cryptocouple.com/
+椭圆曲线密码学：https://fangpenlin.com/posts/2019/10/07/elliptic-curve-cryptography-explained/

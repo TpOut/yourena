@@ -1,0 +1,922 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/cons关键字总结.cpp" line="16" mnemonic="8" />
+  </component>
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="cplusplus" targetName="static" />
+      <config projectName="cplusplus" targetName="six" />
+      <config projectName="cplusplus" targetName="five" />
+      <config projectName="cplusplus" targetName="friendly" />
+      <config projectName="cplusplus" targetName="one" />
+      <config projectName="cplusplus" targetName="lingsan" />
+      <config projectName="cplusplus" targetName="string" />
+      <config projectName="cplusplus" targetName="arraylist" />
+      <config projectName="cplusplus" targetName="template" />
+      <config projectName="cplusplus" targetName="staticdemo" />
+      <config projectName="cplusplus" targetName="night" />
+      <config projectName="cplusplus" targetName="EXCEPTION" />
+      <config projectName="cplusplus" targetName="eight" />
+      <config projectName="cplusplus" targetName="iterator" />
+      <config projectName="cplusplus" targetName="duotai" />
+      <config projectName="cplusplus" targetName="cplusplus" />
+      <config projectName="cplusplus" targetName="static_demo" />
+      <config projectName="cplusplus" targetName="four" />
+      <config projectName="cplusplus" targetName="seven" />
+      <config projectName="cplusplus" targetName="three" />
+      <config projectName="cplusplus" targetName="castype" />
+      <config projectName="cplusplus" targetName="seqlist" />
+      <config projectName="cplusplus" targetName="two" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="true">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="de5bf0c3-2cd9-493b-ba8a-ff9a143f6e58" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="12" column="23" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/容器.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2807">
+              <caret line="308" column="19" selection-start-line="308" selection-start-column="19" selection-end-line="308" selection-end-column="19" />
+              <folding>
+                <element signature="e#43#60#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>__builtin_va_start</find>
+      <find>sta</find>
+      <find>Tea</find>
+      <find>DynamicArray</find>
+      <find>继承</find>
+      <find>iterator</find>
+      <find>PrintfNode</find>
+      <find>LISTCHAR</find>
+      <find>allocator_type</find>
+      <find>class _Allocator</find>
+      <find>class _Allocator =</find>
+      <find>_Allocator</find>
+      <find>allocator&lt;_Tp&gt;</find>
+      <find>异常</find>
+      <find>s</find>
+      <find>pair</find>
+      <find>&amp;&amp;</find>
+      <find>static</find>
+      <find>容器</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>ArrayList</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/运算符重载.h" />
+        <option value="$PROJECT_DIR$/运算符重载.cpp" />
+        <option value="$PROJECT_DIR$/继承/extends.h" />
+        <option value="$PROJECT_DIR$/继承/Child.h" />
+        <option value="$PROJECT_DIR$/对象大小.cpp" />
+        <option value="$PROJECT_DIR$/多态与虚函数.cpp" />
+        <option value="$PROJECT_DIR$/静态.h" />
+        <option value="$PROJECT_DIR$/Seqlist.h" />
+        <option value="$PROJECT_DIR$/Seqlist.cpp" />
+        <option value="$PROJECT_DIR$/namespace_demo.h" />
+        <option value="$PROJECT_DIR$/test.cpp" />
+        <option value="$PROJECT_DIR$/Function.cpp" />
+        <option value="$PROJECT_DIR$/可变参数.cpp" />
+        <option value="$PROJECT_DIR$/pthrad.c" />
+        <option value="$PROJECT_DIR$/Teacher.h" />
+        <option value="$PROJECT_DIR$/namespace_demo.cpp" />
+        <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/零散的知识.cpp" />
+        <option value="$PROJECT_DIR$/static.cpp" />
+        <option value="$PROJECT_DIR$/Teacher.cpp" />
+        <option value="$PROJECT_DIR$/友元.cpp" />
+        <option value="$PROJECT_DIR$/FunctionOverloading.h" />
+        <option value="$PROJECT_DIR$/模版函数/templete.cpp" />
+        <option value="$PROJECT_DIR$/arraylist/ArrayList.h" />
+        <option value="$PROJECT_DIR$/arraylist/ArrayList.cpp" />
+        <option value="$PROJECT_DIR$/castype.cpp" />
+        <option value="$PROJECT_DIR$/多态/duotai.cpp" />
+        <option value="$PROJECT_DIR$/继承.cpp" />
+        <option value="$PROJECT_DIR$/模版函数/template.cpp" />
+        <option value="$PROJECT_DIR$/static/static_demo.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/readme.md" />
+        <option value="$PROJECT_DIR$/异常处理.cpp" />
+        <option value="$PROJECT_DIR$/static/otherfile.cpp" />
+        <option value="$PROJECT_DIR$/static/static关键字总结.cpp" />
+        <option value="$PROJECT_DIR$/静态.cpp" />
+        <option value="$PROJECT_DIR$/cons关键字总结.cpp" />
+        <option value="$PROJECT_DIR$/字符串/teststring.cpp" />
+        <option value="$PROJECT_DIR$/迭代器.cpp" />
+        <option value="$PROJECT_DIR$/容器.cpp" />
+      </list>
+    </option>
+  </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="1680" />
+    <option name="height" value="1050" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="cplusplus" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cplusplus" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cplusplus" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cplusplus" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cplusplus" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cplusplus" type="462c0819:PsiDirectoryNode" />
+              <item name="多态" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cplusplus" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cplusplus" type="462c0819:PsiDirectoryNode" />
+              <item name="字符串" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cplusplus" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cplusplus" type="462c0819:PsiDirectoryNode" />
+              <item name="模版函数" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.seven">
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EXCEPTION" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cplusplus" TARGET_NAME="EXCEPTION" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cplusplus" RUN_TARGET_NAME="EXCEPTION">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="arraylist" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cplusplus" TARGET_NAME="arraylist" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cplusplus" RUN_TARGET_NAME="arraylist">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="castype" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cplusplus" TARGET_NAME="castype" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cplusplus" RUN_TARGET_NAME="castype">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="cplusplus" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cplusplus" TARGET_NAME="cplusplus" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cplusplus" RUN_TARGET_NAME="cplusplus">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="duotai" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cplusplus" TARGET_NAME="duotai" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cplusplus" RUN_TARGET_NAME="duotai">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="eight" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cplusplus" TARGET_NAME="eight" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cplusplus" RUN_TARGET_NAME="eight">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="five" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cplusplus" TARGET_NAME="five" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cplusplus" RUN_TARGET_NAME="five">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="four" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cplusplus" TARGET_NAME="four" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cplusplus" RUN_TARGET_NAME="four">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="friendly" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cplusplus" TARGET_NAME="friendly" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cplusplus" RUN_TARGET_NAME="friendly">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="iterator" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cplusplus" TARGET_NAME="iterator" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cplusplus" RUN_TARGET_NAME="iterator">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="lingsan" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cplusplus" TARGET_NAME="lingsan" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cplusplus" RUN_TARGET_NAME="lingsan">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="night" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cplusplus" TARGET_NAME="night" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cplusplus" RUN_TARGET_NAME="night">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="one" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cplusplus" TARGET_NAME="one" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cplusplus" RUN_TARGET_NAME="one">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="seqlist" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cplusplus" TARGET_NAME="seqlist" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cplusplus" RUN_TARGET_NAME="seqlist">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="seven" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cplusplus" TARGET_NAME="seven" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cplusplus" RUN_TARGET_NAME="seven">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="six" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cplusplus" TARGET_NAME="six" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cplusplus" RUN_TARGET_NAME="six">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="static" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cplusplus" TARGET_NAME="static" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cplusplus" RUN_TARGET_NAME="static">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="static_demo" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cplusplus" TARGET_NAME="static_demo" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cplusplus" RUN_TARGET_NAME="static_demo">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="staticdemo" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cplusplus" TARGET_NAME="staticdemo" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cplusplus" RUN_TARGET_NAME="staticdemo">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="string" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cplusplus" TARGET_NAME="string" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cplusplus" RUN_TARGET_NAME="string">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="template" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cplusplus" TARGET_NAME="template" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cplusplus" RUN_TARGET_NAME="template">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="three" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cplusplus" TARGET_NAME="three" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cplusplus" RUN_TARGET_NAME="three">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="two" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cplusplus" TARGET_NAME="two" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cplusplus" RUN_TARGET_NAME="two">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Build All" />
+      <item itemvalue="Application.arraylist" />
+      <item itemvalue="Application.castype" />
+      <item itemvalue="Application.cplusplus" />
+      <item itemvalue="Application.duotai" />
+      <item itemvalue="Application.eight" />
+      <item itemvalue="Application.EXCEPTION" />
+      <item itemvalue="Application.five" />
+      <item itemvalue="Application.four" />
+      <item itemvalue="Application.friendly" />
+      <item itemvalue="Application.iterator" />
+      <item itemvalue="Application.lingsan" />
+      <item itemvalue="Application.night" />
+      <item itemvalue="Application.one" />
+      <item itemvalue="Application.seqlist" />
+      <item itemvalue="Application.seven" />
+      <item itemvalue="Application.six" />
+      <item itemvalue="Application.static" />
+      <item itemvalue="Application.static_demo" />
+      <item itemvalue="Application.staticdemo" />
+      <item itemvalue="Application.string" />
+      <item itemvalue="Application.template" />
+      <item itemvalue="Application.three" />
+      <item itemvalue="Application.two" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="de5bf0c3-2cd9-493b-ba8a-ff9a143f6e58" name="Default Changelist" comment="" />
+      <created>1542974380678</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1542974380678</updated>
+      <workItem from="1542974381815" duration="2260000" />
+      <workItem from="1543217550259" duration="3610000" />
+      <workItem from="1543234746668" duration="10000" />
+      <workItem from="1543294799875" duration="650000" />
+      <workItem from="1546491333066" duration="4461000" />
+      <workItem from="1546532846292" duration="325000" />
+      <workItem from="1546535244297" duration="644000" />
+      <workItem from="1547020268584" duration="1097000" />
+      <workItem from="1547021843573" duration="606000" />
+      <workItem from="1547087867596" duration="14000" />
+      <workItem from="1547706421209" duration="134000" />
+      <workItem from="1547706683430" duration="3415000" />
+      <workItem from="1547790692378" duration="1761000" />
+      <workItem from="1548051881657" duration="1627000" />
+      <workItem from="1548126484154" duration="4499000" />
+      <workItem from="1548251769565" duration="1028000" />
+      <workItem from="1548295640126" duration="2324000" />
+      <workItem from="1548314325047" duration="2000" />
+      <workItem from="1548816220097" duration="279000" />
+      <workItem from="1549198943305" duration="218000" />
+      <workItem from="1549954978331" duration="3506000" />
+      <workItem from="1552125580952" duration="316000" />
+      <workItem from="1552133442901" duration="13000" />
+      <workItem from="1552185071289" duration="11340000" />
+      <workItem from="1552221396979" duration="9000" />
+      <workItem from="1552222805570" duration="1058000" />
+      <workItem from="1553065382968" duration="1801000" />
+      <workItem from="1553074882759" duration="7000" />
+      <workItem from="1553085802156" duration="6067000" />
+      <workItem from="1553094883757" duration="19000" />
+      <workItem from="1553133119116" duration="6187000" />
+      <workItem from="1553237113995" duration="4473000" />
+      <workItem from="1553258036167" duration="6885000" />
+      <workItem from="1553330488362" duration="8145000" />
+      <workItem from="1553393519166" duration="59000" />
+      <workItem from="1553393582206" duration="2243000" />
+      <workItem from="1553424774659" duration="9283000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="90375000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4985755" visible="true" weight="0.20512821" />
+      <window_info id="Structure" order="1" sideWeight="0.5014245" side_tool="true" weight="0.20512821" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32959184" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.28367347" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32959184" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.3234694" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32959184" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="CMake" order="12" weight="0.32857144" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2002442" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32959184" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.28367347" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32959184" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.3234694" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32959184" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="CMake" order="12" weight="0.32857144" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Seqlist.cpp</url>
+          <line>57</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/模版函数/template.cpp</url>
+          <line>35</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/模版函数/template.cpp</url>
+          <line>51</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/arraylist/ArrayList.cpp</url>
+          <line>56</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/字符串/teststring.cpp</url>
+          <line>33</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>j = rel -a</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>array == array2</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/ostream">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16435">
+          <caret line="865" selection-start-line="859" selection-end-line="865" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/友元.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="931">
+          <caret line="49" column="20" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Teacher.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="28" column="6" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArrayList.cpp" />
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/exception">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="101" column="36" selection-start-line="101" selection-start-column="36" selection-end-line="101" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Teacher.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="48" column="35" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FunctionOverloading.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="13" column="77" selection-start-line="13" selection-start-column="77" selection-end-line="13" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/i386/_types.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="93" column="21" lean-forward="true" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/sys/_types/_size_t.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="30" column="15" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/castype.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="655">
+          <caret line="44" column="9" lean-forward="true" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/arraylist/ArrayList.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="30" column="14" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/多态/duotai.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3021">
+          <caret line="159" column="2" selection-start-line="159" selection-start-column="2" selection-end-line="159" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/模版函数/template.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="17" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="17" />
+          <folding>
+            <element signature="e#443#497#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/arraylist/ArrayList.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2071">
+          <caret line="109" column="1" selection-start-line="86" selection-start-column="3" selection-end-line="109" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pthrad.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" selection-start-line="6" selection-end-line="7" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/继承.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2527">
+          <caret line="133" column="19" selection-start-line="132" selection-start-column="44" selection-end-line="133" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Seqlist.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/iterator">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="1296" column="6" selection-start-line="1296" selection-start-column="6" selection-end-line="1296" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1741">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="701" column="14" selection-start-line="701" selection-start-column="14" selection-end-line="701" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Seqlist.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+          <folding>
+            <element signature="e#43#62#0" expanded="true" />
+            <element signature="e#280#289#0" expanded="true" />
+            <element signature="e#555#564#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/stack">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="110" column="47" selection-start-line="110" selection-start-column="37" selection-end-line="110" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="1539">
+            <caret line="81" column="224" selection-start-line="81" selection-start-column="224" selection-end-line="81" selection-end-column="224" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/stdexcept">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="125" column="39" selection-start-line="125" selection-start-column="39" selection-end-line="125" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/异常处理.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="42" column="23" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
+          <folding>
+            <element signature="e#44#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/otherfile.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/静态.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="29" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/零散的知识.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#43#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/cstring">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="68" column="5" selection-start-line="68" selection-end-line="68" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/type_traits">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5891" />
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/streambuf">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/fstream">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cons关键字总结.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/string">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="3118" column="61" selection-start-line="3118" selection-start-column="52" selection-end-line="3118" selection-end-column="61" />
+          <folding>
+            <element signature="e#117147#117194#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/string.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="88" selection-start-line="88" selection-end-line="88" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/iosfwd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="193" column="65" selection-start-line="193" selection-start-column="64" selection-end-line="193" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/字符串/teststring.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1722">
+          <caret line="92" column="8" selection-start-line="92" selection-start-column="4" selection-end-line="92" selection-end-column="8" />
+          <folding>
+            <element signature="e#43#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/静态.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/static关键字总结.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="26" column="32" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/list">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="278" column="20" lean-forward="true" selection-start-line="278" selection-start-column="20" selection-end-line="278" selection-end-column="26" />
+          <folding>
+            <element signature="e#9163#9190#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/memory">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="2155" lean-forward="true" selection-start-line="2155" selection-end-line="2155" />
+          <folding>
+            <element signature="e#57720#57731#0" expanded="true" />
+            <element signature="e#72017#72039#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/utility">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="635" column="31" lean-forward="true" selection-start-line="635" selection-start-column="31" selection-end-line="635" selection-end-column="31" />
+          <folding>
+            <element signature="e#9361#9383#0" expanded="true" />
+            <element signature="e#9484#9523#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/迭代器.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1539">
+          <caret line="81" column="26" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="26" />
+          <folding>
+            <element signature="e#193#211#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/vector">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="1130" column="73" lean-forward="true" selection-start-line="1130" selection-start-column="71" selection-end-line="1130" selection-end-column="73" />
+          <folding>
+            <element signature="e#16255#16307#0" expanded="true" />
+            <element signature="e#39909#39938#0" expanded="true" />
+            <element signature="e#40042#40071#0" expanded="true" />
+            <element signature="e#68743#68772#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/queue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="390" column="61" selection-start-line="390" selection-start-column="26" selection-end-line="390" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__functional_base">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="50" column="50" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/numeric">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="429" column="19" selection-start-line="429" selection-end-line="429" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/map">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="1054" lean-forward="true" selection-start-line="1054" selection-end-line="1054" />
+          <folding>
+            <element signature="e#21673#21691#0" expanded="true" />
+            <element signature="e#29553#29670#0" expanded="true" />
+            <element signature="e#38795#38896#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/algorithm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="5141" column="9" selection-start-line="5141" selection-end-line="5141" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/容器.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2807">
+          <caret line="308" column="19" selection-start-line="308" selection-start-column="19" selection-end-line="308" selection-end-column="19" />
+          <folding>
+            <element signature="e#43#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/wuyue/CLionProjects/c_demo/内存泄漏/leakmem.c
+leakmem.h
+/Users/wuyue/CLionProjects/c_demo/内存泄漏/leakmem.h
+
+/Users/wuyue/CLionProjects/c_demo/内存泄漏/leakmem.h
+mm_malloc.h
+-
+stdio.h
+/Users/wuyue/CLionProjects/c_demo/内存泄漏/stdio.h
+
+/Users/wuyue/CLionProjects/c_demo/内存泄漏/leakmem_test.c
+stdio.h
+-
+leakmem.h
+/Users/wuyue/CLionProjects/c_demo/内存泄漏/leakmem.h
+
