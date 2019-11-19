@@ -2,8 +2,7 @@
 int num(432) ; // c++ 赋值语法
 
 int num = {} //叫做列表初始化，C++11
-
-int num{1}
+int num{1} //也可以不传等于号
 
 432ULL
 

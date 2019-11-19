@@ -39,7 +39,7 @@ cctype，有很多类型相关的常用方法
 
 
 
-c++ 98 : char, wchar_t  ; c++ 11 : char16_t, char32_t
+c++ 98 : char, wchar_t  ; c++ 11 : long long , usigned long long , char16_t, char32_t
 
 
 
