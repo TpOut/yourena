@@ -18,7 +18,7 @@
 
 - [编译过程](./compile-process/compile-process-index.md)
 
-系统常量在[API](./api.md)页面查找
+- 系统常量在[API](./api.md)页面查找
 
 - c标准
 
