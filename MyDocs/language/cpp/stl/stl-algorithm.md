@@ -65,6 +65,8 @@ val[slice(1,4,3)] = 10;
 //则索引 1，4，7，10 被设置为10，还有gslice 表示多维
 ```
 
+模板valarray 独立于STL 开发，所以开始无法使用STL 算法，c++11 添加了 begin 和 end，来实现
+
 
 
 initializer_list（c++11）

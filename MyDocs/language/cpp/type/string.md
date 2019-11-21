@@ -5,7 +5,7 @@ char fish[8] = "fish";
 
 
 ```c++
-//原始字符串
+//原始字符串， c++11
 cout << R"(Who wouldn't?\n\n)" << endl;
 cout << R"+*("(Who wouldn't?)", she whispered.)+*" << endl;
 ```

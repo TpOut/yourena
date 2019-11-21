@@ -69,8 +69,6 @@ char * left(const char * str, int n = 1);
 
 非const 可以传递给非const 和const；而const 只能是const
 
-![image-20191023212728472](../../../../../../image-20191023212728472.png)
-
 #### 函数模版
 
 ```c++

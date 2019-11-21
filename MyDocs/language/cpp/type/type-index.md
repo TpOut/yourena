@@ -1,20 +1,6 @@
-double 转换成 float， 如果不足保值，结果不确定
-
-float 转换成 int，如果不足保值，结果不确定 （因为c++ 没有定义）
-
-long 转换成 short，如果不足保值，复制右边字节
-
-
-
 #### 浮点型
 
-float 
-
-double 
-
-long double
-
-float 至少32，double 至少48，且三者递增
+float, double, long double  (float 至少32，double 至少48，且三者递增)
 
 cfloat 文件
 
@@ -30,29 +16,17 @@ long long 至少64位，且比long 要长
 
 
 
+c++ 98 : char, wchar_t  ; c++ 11 : long long , usigned long long , char16_t, char32_t
+
+
+
 int 对于机器而言是最“自然”的长度，所以一般性使用int
 
-一般除非大型数组，否则没啥必要用short，当然尽量用（编写角度）
+一般除非大型数组，否则没啥必要用short（编写角度，当然得尽量用）
 
-如果整数值可能大于16位整数，用long；可以增加移植性
+如果整数值可能大于16位整数（约3万），用long （可以增加移植性）
 
-如果超过20亿，则使用long long
-
-
-
-c++中字节 和实现的基本字符集有关，
-
-如ASCII，足够使用8位容纳，则c++字节是8
-
-如果使用unicode，则可能需要相邻8位来容纳，因此有些实现可能是 16或者32位
-
-术语octet 专门表示8位的字节
-
-sizeOf 方法返回的字节数，即C++ 的字节
-
-
-
-climits 文件是由编译器厂商提供的，所以不同系统的编译器会有不同的文件。
+如果超过32位（约20亿），则使用long long
 
 
 
@@ -62,11 +36,9 @@ climits 文件是由编译器厂商提供的，所以不同系统的编译器会
 
 对于不带后缀的16、8进制，最小选择：int，unsigned int, unsigned long, long long/unsigned long long
 
-![企业微信截图_cbb21020-b55d-4e36-9ce0-632c8df9b8da](%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_cbb21020-b55d-4e36-9ce0-632c8df9b8da.png)
 
 
-
-整形提升：bool，char，unsigned chat, signed char, short 的都会被转化成int
+**整形提升**：bool，char，unsigned chat, signed char, short 的都会被转化成int
 
 如果short 比 int 短，unsigned short 被转换成 int；
 
@@ -76,9 +48,21 @@ wcahr_t 则被提升成第一个宽度足够的类型：int、unsigned int、lon
 
 
 
+[类](./class/class-index.md)
+
+[指针](./pointer/pointer-index.md)
+
 
 
 #### 类型转化
+
+double 转换成 float， 如果不足保值，结果不确定
+
+float 转换成 int，如果不足保值，结果不确定 （因为c++ 没有定义）
+
+long 转换成 short，如果不足保值，复制右边字节
+
+
 
 算术类型转换：
 
@@ -107,8 +91,6 @@ reinterpret_cast<type-name>(expression)
 
 
 
-
-
 ```c++
 //auto 不能作用在列表初始化时 (试了一下会初始化成initialize_list)
 auto a = {1,4,5}; //not ok
@@ -123,56 +105,59 @@ cctype，有很多类型相关的常用方法
 
 
 
-c++ 98 : char, wchar_t  ; c++ 11 : long long , usigned long long , char16_t, char32_t
-
-
-
-
-
 #### 初始化
 
-
-
 ```c++
-int num(432) ; // c++ 赋值语法
-
-int num = {} //叫做列表初始化，C++11
-int num{1} //也可以不传等于号
-
 432ULL
+2.54e+8
+8.33E-4
+//通用编码名
+\u00E2teau ; \U..
 
+int num(432) ; // c++ 赋值语法
 int *pi = new int (6);
 
-//c++ 11
+//列表初始化，C++11，禁止类型缩小转换；
+int num = {} 
+int num{1} //也可以不传等于号
+int num[2]{1,2};
+int array[3] = {}；//如果不支持，使用static int array[3] 初始化
+
 int *pi = new int {6};
 struct where {double v1, double v2}
-where * one = new where(2.5, 3.5);
+where * one = new where(2.5, 3.5); //也可以使用大括号
 int * ar = new int[2]{2, 4, 5, 6};
+
+//如果类有将 std::initializer_list 作为参数的构造函数，则只有该构造函数可以使用列表初始化
 ```
 
 
 
-2.54e+8
-
-8.33E-4
-
-
-
-通用编码名：\u00E2teau ; \U..
-
-
-
-列表项初始化，{}，禁止类型缩小转换；
-
-如果有些实现不支持，需要添加static，如：
+#### auto
 
 ```c++
-某些版本的 int array[3] = {} 不行，则使用 static int array[3] 初始化
+//需要显示初始化，让编译器能够将变量的类型设置为初始值的类型
+auto m = 113; //int
+auto pt = &m; //int *
+double f();
+auto pf = f; //double (*)();
 ```
 
+更多时候还是用于简化过长的类型名
 
 
 
+#### decltype
+
+将变量的类型声明为表达式指定的类型
+
+``` c++
+decltype(expression) y; //让y 类型和expression 相同
+//x 可以是引用和 const，但是有个地方需要看下：
+int j = 3;
+decltype(j) i1; //int
+decltype((j)) i2; //是 int &
+```
 
 
 

@@ -10,7 +10,7 @@
 >
 > 就是不需要ifndef 来限定，头文件中定义好，其他文件都包含这个头文件即可。而不是在多个头文件中分别复制一份。
 >
-> 但是和ifndef 不冲突，写在里面也没关系，没必要单独来记忆了。
+> 但是和ifndef 不冲突，写在里面也没关系，没必要单独处理了。
 
 指导原则之一是，不要为不使用的特性付出代价（内存或者时间） -- 默认应当选择最高效率的方案
 
@@ -30,11 +30,19 @@
 
 - [编译过程](./compile-process.md)
 
-- [语法](./grammar.md)
+- for语法
 
-- [api](./api.md)
-
-- [exception](./exception)
+    > ```c++
+    > //C++ 中for循环的 condtion 只要是表达式语句即可
+    > //现在的for 规则如下，可以不管，原文p130
+    > for(for-init-statement condition ; expression){
+    >     statement;
+    > }
+    > //foreach, c++ 11
+    > for(double x : prices) 
+    > for(double &x : prices)
+    > for(double x : {1.0, 2.0, 3.0})
+    > ```
 
 - typedef
 
@@ -51,6 +59,36 @@
     > p_fun p1 = ...; //左右结构 比嵌套结构更容易 输入和阅读
     > ```
 
+- sizeof
+
+    > ```c++
+    > int *num = new int[3]
+    > sizeof(*num) = 4; //即 num[0]，int
+    > sizeof(num) = 8; //指针本身
+    > ```
+    >
+    > c++中字节 和实现的基本字符集有关，
+    >
+    > 如ASCII，足够使用8位容纳，则c++字节是8位
+    >
+    > 如果使用unicode，则可能需要相邻8位来容纳，因此有些实现可能是 16或者32位
+    >
+    > 术语octet 专门表示8位的字节
+    >
+    > sizeOf 方法返回的字节数，即C++ 的字节
+
+- [api](./api.md)
+
+- [类型](./type/type-index.md)
+
+- [stl](./stl/stl-index.md)
+
+- [输入输出](./io/io-index.md)
+
+- [方法](./function.md)
+
+- [exception](./exception)
+
 - [作用域](./scope.md)
 
 - [动态分配](./dynamic-alloc.md)
@@ -64,6 +102,8 @@
     > ```
 
 - [tips](./cpp-tips.md)
+
+- [utils](./cpp-utils.md)
 
 
 

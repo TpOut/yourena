@@ -1,5 +1,7 @@
 迭代器，广义指针，iterator.begin, end,erase, insert, push_back
 
+c++11 新增了cbegin, cend ... 对应每个方法的 const 版本 
+
 
 
  random_shuffle(随机排序), sort
@@ -8,8 +10,6 @@
 //for_each 三参数可以写成
 for(auto & x : books) InflateBooks(x) ;
 ```
-
-vector
 
 
 
