@@ -170,6 +170,7 @@ public class FileUtil {
                 if (line == null)
                     break;
                 //输出转义，这么多\的吗。。我震惊了
+                line = line.replace("\\","\\\\"); //需要先转义 \， 否则后续的转义会被覆盖
                 line = line.replaceAll("\"","\\\\\"");
                 result.add(line);
             }

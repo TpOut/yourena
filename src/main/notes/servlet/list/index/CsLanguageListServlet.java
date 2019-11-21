@@ -1,6 +1,5 @@
 package main.notes.servlet.list.index;
 
-import jdk.nashorn.internal.parser.JSONParser;
 import main.notes.servlet.base.BaseListServlet;
 
 import javax.servlet.ServletException;
