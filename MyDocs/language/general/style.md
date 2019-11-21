@@ -2,7 +2,7 @@
 
 不能以数字开头，可以包含大小写字母，数字，下划线
 
-**易读** . 下划线，如 variable\_name . 驼峰，如 variableName
+**易读** . 下划线，如 variable_name . 驼峰，如 variableName
 
 > 命名风格主要取决于团队
 
@@ -32,12 +32,12 @@
 
 有实际参考的比如：  
 
-* \[pointers on c -- chapter2.3]
-* \[python的官方文档\]\([https://docs.python.org/3/tutorial/controlflow.html\#intermezzo-coding-style](https://docs.python.org/3/tutorial/controlflow.html#intermezzo-coding-style)\)  
-* \[kotlin的官方文档\]\([https://www.kotlincn.net/docs/reference/coding-conventions.html](https://www.kotlincn.net/docs/reference/coding-conventions.html)\)  
-* \[google风格文档\]\([https://google.github.io/styleguide/](https://google.github.io/styleguide/)\)
-* \[唯品会\]\([https://github.com/vipshop/vjtools](https://github.com/vipshop/vjtools)\)
-* \[阿里Java开发手册\]..
+* [pointers on c -- chapter2.3]
+* [python的官方文档]([https://docs.python.org/3/tutorial/controlflow.html\#intermezzo-coding-style](https://docs.python.org/3/tutorial/controlflow.html#intermezzo-coding-style))  
+* [kotlin的官方文档]([https://www.kotlincn.net/docs/reference/coding-conventions.html](https://www.kotlincn.net/docs/reference/coding-conventions.html))  
+* [google风格文档]([https://google.github.io/styleguide/](https://google.github.io/styleguide/))
+* [唯品会]([https://github.com/vipshop/vjtools](https://github.com/vipshop/vjtools))
+* [阿里Java开发手册]..
 * [https://nickjanetakis.com/blog/80-characters-per-line-is-a-standard-worth-sticking-to-even-today ](https://nickjanetakis.com/blog/80-characters-per-line-is-a-standard-worth-sticking-to-even-today%20)  
 
 

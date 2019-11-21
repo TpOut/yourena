@@ -30,7 +30,7 @@
 
 有些编译器允许在命令行中定义标识符，
 
-如 int array\[ARRAY\_SIZE\];
+如 int array[ARRAY_SIZE];
 
 可以编译的时候使用
 

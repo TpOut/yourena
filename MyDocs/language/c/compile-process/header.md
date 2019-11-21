@@ -23,7 +23,7 @@
 #endif //CDEMO_NODE_H
 ```
 
-PROJECT_A\_H 一般规则就是 项目名\__文件名\_H，clion能够自动生成。
+PROJECT_A_H 一般规则就是 项目名__文件名_H，clion能够自动生成。
 
 Q: 但是`#include <iostream>` 总会重复，比如头里有，调用的地方也要写；是编译器做了处理吗？
 

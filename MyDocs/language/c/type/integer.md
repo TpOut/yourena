@@ -6,7 +6,7 @@
 | signed char | -127~127 |
 | unsigned char | 0~255 |
 | short int | -32767~32767 |
-| unsigned short int | 0str\[\] = ; ~ 65535 |
+| unsigned short int | 0str[] = ; ~ 65535 |
 | int | -32767~32767 |
 | unsigned int | 0 ~ 65535 |
 | long int | -2147483647~2147483647 |

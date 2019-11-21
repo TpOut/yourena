@@ -70,6 +70,17 @@
         <servlet-class>main.notes.servlet.list.index.CsBookListServlet</servlet-class>
     </servlet>
 
+    <!--cs语言 列表-->
+    <servlet-mapping>
+        <servlet-name>CsLanguageListServlet</servlet-name>
+        <url-pattern>/CsLanguageList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CsLanguageListServlet</servlet-name>
+        <servlet-class>main.notes.servlet.list.index.CsLanguageListServlet</servlet-class>
+    </servlet>
+
     <!--博客 列表-->
     <servlet-mapping>
         <servlet-name>BlogListServlet</servlet-name>

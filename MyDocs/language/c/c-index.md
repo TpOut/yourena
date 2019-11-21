@@ -8,7 +8,7 @@
 
 - Main入口
 
-    >对于main入口的参数，argc和 \*\*argv（有些操作系统会传递第3个参数），是操作系统通过命令行形式传递的
+    >对于main入口的参数，argc和 **argv（有些操作系统会传递第3个参数），是操作系统通过命令行形式传递的
     >
     >前者指定了参数的数量，后者则是指向“参数指针”数组的指针  
     >
@@ -22,7 +22,7 @@
 
 - c标准
 
-    >最开始，C语言社区遵循一种事实标准，该标准基于Kernighan 和 Ritchie 编写的《The C Programming Language》， 通常被称为K&R C，在ANSI C出现后，又被称作经典C \( Classic C \)
+    >最开始，C语言社区遵循一种事实标准，该标准基于Kernighan 和 Ritchie 编写的《The C Programming Language》， 通常被称为K&R C，在ANSI C出现后，又被称作经典C ( Classic C )
     >
     >ANSI C 标准：不仅定义了C语言，还定义了一个ANSI C实现必须支持的标准C库
     >

@@ -36,7 +36,7 @@ int main(){
 
 ```java
 // java/kotlin
-package my.demo
+package my.demo;
 import java.util.*;
 
 ... //code

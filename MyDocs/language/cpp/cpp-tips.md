@@ -50,9 +50,9 @@ mutable：结构变量为const 时，指出某个变量有特权，可以被修�
 
 define的建议替代
 
-- 常量 const , 可以指定类型、支持复合类型（\[\]）、拥有作用域。
+- 常量 const , 可以指定类型、支持复合类型（[]）、拥有作用域。
 
-- \`\#define Cube\(x\) x\*x\*x \`
+- `\#define Cube\(x) x*x*x `
 
     表达式，尽量使用inline代替上面这种容易出现意外的define方式  
 

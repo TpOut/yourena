@@ -9,7 +9,7 @@
 
 ### stdlib.h
 
-常量：EXIT\_SUCCESS, EXIT\_FAILURE 
+常量：EXIT_SUCCESS, EXIT_FAILURE 
 
 #### 算数
 
@@ -19,7 +19,7 @@
 
 #### 随机数
 
-伪随机数：rand\(如需调整范围，用取模处理\) ; srand  
+伪随机数：rand(如需调整范围，用取模处理) ; srand  
 
 #### 字符串转化为数字
 
@@ -29,7 +29,7 @@
 
 #### 终止执行
 
-abort\(SIGABORT\) , atexit\(注册退出函数\), exit
+abort(SIGABORT) , atexit(注册退出函数), exit
 
 #### 环境
 
@@ -45,7 +45,7 @@ qsort  , bsearch
 
 ### stddef.h
 
-container\_of : 
+container_of : 
 
 ### math.h
 
@@ -53,7 +53,7 @@ mathcall.h
 
 除了stdlib中的算数部分，剩余的数学函数声明都在这里。返回值和绝大部分参数都是double　　
 
-函数的参数不合法，称作domin error。此时函数返回一个编译器定义的错误值。并且在errno中存储EDOM値；函数的结果过大或者过小，称作range error。此时函数过大返回HUGE\_VAL，过小返回0。可能会在errno中设置ERANGE。
+函数的参数不合法，称作domin error。此时函数返回一个编译器定义的错误值。并且在errno中存储EDOM値；函数的结果过大或者过小，称作range error。此时函数过大返回HUGE_VAL，过小返回0。可能会在errno中设置ERANGE。
 
 #### 三角函数
 
@@ -89,13 +89,13 @@ atof ; strtod
 
 ### time.h
 
-\(机器无法提供，或者提供的値太大，返回-1\)  
+(机器无法提供，或者提供的値太大，返回-1)  
 
 偶尔会出现“闰秒”，所以秒数可能是61
 
 #### 处理器时间
 
-程序执行之后的消耗时间：clock  \(需要除以CLOCKS\_PER\_SEC\)
+程序执行之后的消耗时间：clock  (需要除以CLOCKS_PER_SEC)
 
 #### 当天时间
 
@@ -105,13 +105,13 @@ time  ;
 
 ctime （转化成字符串，内部可能是调用了asctime）; difftime（计算差值）  
 
-gmtime \(UTC\GMT\); localtime
+gmtime (UTC GMT); localtime
 
-> time\_t　在很多编译器定义为32位，这样从1970到2038年的秒数会溢出
+> time_t　在很多编译器定义为32位，这样从1970到2038年的秒数会溢出
 
 asctime,  strftime
 
-mktime\(可以简单判断日期属于星期几\)
+mktime(可以简单判断日期属于星期几)
 
 ### setjmp.h
 
@@ -121,23 +121,23 @@ setjmp  , longjmp
 
 ### signal.h 
 
-SIG\_ERR, SIG\_DFL, SIG\_IGN  
+SIG_ERR, SIG_DFL, SIG_IGN  
 
-\(在我的环境下，信号是在signum-generic.h中，如SIGABORT\) 
+(在我的环境下，信号是在signum-generic.h中，如SIGABORT) 
 
 raise （可以手动触发信号，主要用来测试，避免goto的效果）
 
-void \(\*signal\(int sig, void \(\* handler\)\(int\)\)\)\(int\)  
+void (*signal(int sig, void (* handler)(int)))(int)  
 
-sig\_atomic\_t  
+sig_atomic_t  
 
 ### stdarg.h  
 
 可变参数
 
-类型 va\_list 和三个宏 : va\_start , va\_arg , va\_end
+类型 va_list 和三个宏 : va_start , va_arg , va_end
 
-arg参数需要用va\_start进行初始化  
+arg参数需要用va_start进行初始化  
 
 ### assert.h  
 
@@ -164,11 +164,11 @@ UINT_MAX
 
 ### float.h
 
-FLT\_MAX,... //浮点数大小
+FLT_MAX,... //浮点数大小
 
 ### string.h
 
-strcoll \(根据当前locale的LC\_COLLATE\); strxfrm ； strdup
+strcoll (根据当前locale的LC_COLLATE); strxfrm ； strdup
 
 memchr  
 memcmp  
@@ -178,18 +178,18 @@ memset
 
 |       函数名       |                             作用                             |                    备注                     |
 | :----------------: | :----------------------------------------------------------: | :-----------------------------------------: |
-|     strlen\(\)     |                             长度                             |                返回的是uint                 |
-| strcpy\(\)/strncpy |                             拷贝                             | 注意越界,可以调用strcpy\(..., size\_t len\) |
-| strcat\(\)/strncat |                             拼接                             |                    同上                     |
-| strcmp\(\)/strncmp |                             比较                             |                   字典序                    |
-|     strchr\(\)     |                    查找第一个匹配字符位置                    |                                             |
-|    strrchr\(\)     |                   查找最后一个匹配字符位置                   |                                             |
-|    strpbrk\(\)     |               查找一组字符中第一个匹配字符位置               |                                             |
-|     strstr\(\)     |                          查找字符串                          |                                             |
-|     strspn\(\)     | 统计属于某一组字符中的个数，直至遇到不属于该组字符的字符为止 |                                             |
-|    strcspn\(\)     |                                                              |                与上一个取反                 |
-|    strtrok\(\)     |                          去除分隔符                          |               会修改源字符串                |
-|    strerror\(\)    |              获取操作系统errno对应的描述字符串               |                                             |
+|     strlen()     |                             长度                             |                返回的是uint                 |
+| strcpy()/strncpy |                             拷贝                             | 注意越界,可以调用strcpy(..., size_t len) |
+| strcat()/strncat |                             拼接                             |                    同上                     |
+| strcmp()/strncmp |                             比较                             |                   字典序                    |
+|     strchr()     |                    查找第一个匹配字符位置                    |                                             |
+|    strrchr()     |                   查找最后一个匹配字符位置                   |                                             |
+|    strpbrk()     |               查找一组字符中第一个匹配字符位置               |                                             |
+|     strstr()     |                          查找字符串                          |                                             |
+|     strspn()     | 统计属于某一组字符中的个数，直至遇到不属于该组字符的字符为止 |                                             |
+|    strcspn()     |                                                              |                与上一个取反                 |
+|    strtrok()     |                          去除分隔符                          |               会修改源字符串                |
+|    strerror()    |              获取操作系统errno对应的描述字符串               |                                             |
 
 ### ctype.h
 
@@ -206,6 +206,5 @@ memset
 |   ispunct   | 标点符号，任何不属于数字或字母的图形字符（可打印字符） |                                           |
 |   isgraph   |                      任何图形字符                      |                                           |
 |   isprint   |         任何可打印字符，包括图形字符和空白字符         |                                           |
-| tolower\(\) |                                                        |                                           |
-| toupper\(\) |                                                        |                                           |
-
+| tolower() |                                                        |                                           |
+| toupper() |                                                        |                                           |
