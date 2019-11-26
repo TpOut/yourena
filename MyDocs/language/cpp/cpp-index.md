@@ -1,6 +1,10 @@
 > 主要内容摘自《c++ primer 6th》，部分内容来自 网络和开源项目。 
 >
 > 设计上是兼容c 的，很多新语法考虑 C++ release 2.0 ; C++ 11
+>
+> 
+>
+> 如果仔细阅读了书籍，则应很好地掌握了c++的规则，然而，这仅仅是学习这语言的开始。
 
 
 
@@ -22,7 +26,7 @@
     >
     >_N (一个下划线，一个大写字母，保留给编译器使用)
     >
-    >_(一个下划线，表示全局标识符)
+    >_(一个下划线，保留表示全局标识符)
     >
     >str或者sz（表示以空字符结束的字符串）b（布尔值）p（指针）c（char）m_lpctstr ( m_ 表示 类成员变量，long point const str)
 
@@ -105,9 +109,22 @@
 
 - [utils](./cpp-utils.md)
 
+- 附录
 
-
-lambda 表达式，是函数指针和函数符（函数对象）的替代品
+    > 计数系统，保留字（关键字, 替代标记alternative token, 库保留名称），ASCII 字符集
+    >
+    > 运算符优先级，其他运算符（位运算，解除引用运算，alignof, noexcept）
+    >
+    > ```c++
+    > int Lsj::*pt = &Lsj::name; //*pt 是一种标识符，也可以用于标识函数
+    > Lsj lsj;
+    > Lsj *l = new Lsj;
+    > cout << lsj.*pt; 
+    > cout << lsj->*pt ; 
+    > //* 和 ->* 都是成员解除引用运算符
+    > ```
+    >
+    > 
 
 
 
@@ -145,3 +162,6 @@ typeid(Lsj) == typeid(*lsj)
 作者主页](http://www.research.att.com/-bs) , c++ faq ](http://www.parashift.com/c++-faq/)
 
 c++ 编译器，ide等工具：https://www.bfilipek.com/2019/10/cppecosystem.html
+
+精选读物：附录H
+

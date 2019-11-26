@@ -44,4 +44,6 @@ mate == "string value"; //此时比较的是两者的地址
 
 string::npos 是字符串最大长度，一般是unsigned int 的最大值。
 
-![image-20191104162733145](image-20191104162733145.png)
+
+
+主要附录F 有描述

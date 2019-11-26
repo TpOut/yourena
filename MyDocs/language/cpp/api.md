@@ -32,3 +32,32 @@ srand() //可以传入种子
 #### initializer_list
 
 可以作为常规函数的参数
+
+
+
+#### 常规
+
+```c++
+std::generate();
+```
+
+
+
+#### 其他头文件
+
+chrono: 时间间隔
+
+tuple: 广义pair，可以存储任意多个类型不同的值
+
+ratio：编译阶段有理数算术库，可以准确表示任何有理数及算数运算
+
+regex： 正则
+
+cstdint： 拓展整形
+
+
+
+#### [包装器](./wrapper-or-adapter.md)
+
+#### [boost库](./boost.md)
+

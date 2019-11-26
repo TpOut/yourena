@@ -8,4 +8,5 @@
 | CUT  | Coordinated Universal Time        |
 | GMT  | Greenwich Mean Time               |
 | VAL  | Value–OrientedAlgorithmicLanguage |
+| POD  | Plain Old Data                    |
 

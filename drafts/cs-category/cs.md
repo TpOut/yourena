@@ -34,3 +34,7 @@ cs的机构排名： https://csrankings.org/#/index?ai&asia
 日志最佳实践：https://geshan.com.np/blog/2019/03/follow-these-logging-best-practices-to-get-the-most-out-of-application-level-logging-slides/
 虚拟内存：http://blog.coderhuo.tech/2017/10/19/Virtual_Memory_summary/
 编译器编译源码成二进制的过程：https://kishuagarwal.github.io/life-of-a-binary.html
+
+
+
+计算机中文件移动，实际上只是修改了记录信息。

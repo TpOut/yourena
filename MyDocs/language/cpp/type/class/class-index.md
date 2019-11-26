@@ -80,6 +80,17 @@ class Sample{
 
 
 
+```c++
+class Lsj{
+    //可以使用 delete 来禁止编译器使用某个方法
+    Lsj(const Lsj &) = delete;  //比private 的方式更加直观，不易操作错误
+    void do(int);
+    void double(int) = delete; //如此更加明确
+}
+```
+
+
+
 静态成员函数：`static`
 
 类中可以嵌套类，结构，枚举
