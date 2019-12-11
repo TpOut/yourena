@@ -69,6 +69,8 @@
 
 cpprefrence 站点可以查很多东西
 
+libc 手册
+
 modern-c : https://modernc.gforge.inria.fr/
 
 ui库：[https://github.com/andlabs/libui](https://github.com/andlabs/libui)  

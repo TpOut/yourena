@@ -165,3 +165,5 @@ c++ 编译器，ide等工具：https://www.bfilipek.com/2019/10/cppecosystem.htm
 
 精选读物：附录H
 
+More Exception c++
+https://news.codecademy.com/bjarne-stroustrup-interview/

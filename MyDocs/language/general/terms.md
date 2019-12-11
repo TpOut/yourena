@@ -9,4 +9,5 @@
 | GMT  | Greenwich Mean Time               |
 | VAL  | Value–OrientedAlgorithmicLanguage |
 | POD  | Plain Old Data                    |
+| SAM  | single abstract method            |
 
