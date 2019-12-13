@@ -69,7 +69,9 @@
 
 cpprefrence 站点可以查很多东西
 
-libc 手册
+gnu，libc 手册：https://www.gnu.org/software/libc/
+
+c编译器：https://www.sigbus.info/how-i-wrote-a-self-hosting-c-compiler-in-40-days
 
 modern-c : https://modernc.gforge.inria.fr/
 
@@ -84,4 +86,6 @@ ui库：[https://github.com/andlabs/libui](https://github.com/andlabs/libui)
 学习路径：[http://stevelosh.com/blog/2018/08/a-road-to-common-lisp/](http://stevelosh.com/blog/2018/08/a-road-to-common-lisp/) 
 
 开源教程：[http://www.gigamonkeys.com/book/](http://www.gigamonkeys.com/book/)
+
+
 

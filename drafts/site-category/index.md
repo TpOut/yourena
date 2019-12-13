@@ -17,3 +17,5 @@ AWS S3静态托管，Cloudflare建立CDN:https://medium.com/better-programming/h
 
 
 全文搜索：https://bhavaniravi.com/blog/challenges-in-full-text-search　
+
+服务器报错短信通知：https://sc.ftqq.com/3.version

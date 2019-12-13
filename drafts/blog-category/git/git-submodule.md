@@ -1,96 +1,269 @@
-原文：https://git-scm.com/book/en/v2/Git-Tools-Submodules
+## 子模块
+
+如果想直接上手操作，可以只看 “适用场景”、“定义”、“快速使用” 小节
+
+否则看这篇文章或者 [原文](https://git-scm.com/book/en/v2/Git-Tools-Submodules) 都可以
+
+[TOC]
+
+### 适用场景
+
+多个项目依赖一个库，每个项目可以修改库，并且保持库的同步。
 
 
 
-#### 适用场景
+### 定义
 
-多个项目依赖一个库，每个项目拥有修改库的可能，每个项目还要保持同步该库。
+广泛的子模块：以A 为一个整体，B 为一个整体。将B 作为 A 中的一部分，即称B 为A 的子模块。
+
+文件结构如下：
+
+```shell
+A
+|-- README.md
+|-- B
+    |-- README.md
+```
+
+**父仓库**：git 的整体即仓库，故而本文称A 为父仓库。
+
+**子模块**：同理，B 为子仓库，因为概念为submodule，故而本文称B 为子模块
+
+> 因为仓库本身是工具型。所以子模块的添加不应该增加或应该较少增加工具使用的负担。因此git 子模块有专门的命令将子模块和父仓库关联，以达到直接在父仓库执行命令操作子模块的便捷性。
+>
+> 但是由于一定的原因，在克隆、同步父仓库的时候，父仓库默认不会操作子模块，即需要使用者额外增加参数或者步骤
+
+**同步**：因为子模块有个`update` 的操作，所以仓库的`fetch`,`pull`,`push`操作在这里统一叫做同步
+
+**更新**：专指 `update`
 
 
 
-#### 定义
+本文中【】括起来的文本表示命令，可以在“相关命令” 小节里查看对应的命令语法
 
-同步：因为子模块有个`update` 的操作，所以仓库的`fetch`,`pull`,`push`操作在这里统一叫做同步
-
-更新：专指 `update`
-
-父仓库：含有子模块的仓库
+如【添加子模块】，直接全文搜索 输入“添加子模块”， 就可以在 “相关命令” 小节看到，且会比使用的地方有更详细的说明
 
 
 
-【】括起来表示命令，可以在“相关命令” 小节里查看名称对应的命令
+### 快速使用
 
-#### 快速使用
+父仓库和子模块，各自单独进行自身维护的时候，和常规流程没什么区别。这里不多做说明
 
-提前说明，可能是最初设计的原因，虽然现在 子模块 也被存储在 `.git` 中，但是在克隆、同步父仓库的时候，子模块的文件目录是一种特殊模式，父仓库默认不会对其进行自动操作。需要我们再进行一步更新操作，所以在流程上会更麻烦 （如果有疑问，看”教程和说明“小节就知道了）
+主要在于父仓库添加了直接操作子模块的步骤，使得使用更加复杂。
+
+但是关于操作复杂化这一点，熟悉命令之后，可以参考【配置】和【常用别名】进行一波命令优化。
+
+>环境 git 2.20.1 (Apple Git-117)
 
 
 
-- 初始化：
+#### 添加子模块
 
-    【添加子模块】
+假设当前有两个独立仓库baba，didi，didiUrl 表示didi 的远程地址
 
-- 克隆：
+希望baba 作为父仓库，didi 作为baba 的子模块
 
-    【克隆递归子模块】
+（可能需要 “常见问题” -- “忽略文件无效” 小节）
 
-- 同步到本地：
+- 如果baba 仓库中没有didi 文件夹
 
-    - 如果只需要同步子模块的内容，【更新子模块并合并】
-    - 如果要同步父仓库和子模块的内容，【pull递归子模块】
+    ```shell
+    git submodule add didiUrl #在父仓库【添加子模块】
+    git commit -sa #提交更新
+    ```
 
-    然后再【子模块切换分支】，再【更新子模块并合并/变基】
+- 如果baba 仓库中有同名didi 文件夹
 
-- 同步到远端：
+    - 就是想将didi 转化成子模块 
 
-    【push递归子模块】
+        ```shell
+        #把文件拷贝，并更新到didi仓库
+        ```
 
+    - ```shell
+        git rm -r subDirectory #在父仓库先删除原先的didi index
+        rm -r #然后常规删除didi 文件
+        
+        git submodule add didi #在父仓库【添加子模块】
+        git commit -sa #提交更新
+        ```
+
+    - didi 只是冲突
+
+        - 修改父仓库didi 文件
+
+            ```shell
+            mv ./didi ./didiInBaba #给父仓库的didi 换个文件名
+            git rm -r subDirectory #删除原先的didi在父仓库的记录
+            
+            git submodule add didi #在父仓库【添加子模块】
+            git commit -sa #提交更新
+            ```
+
+        - 修改didi 在父仓库的名字
+
+            ```shell
+            git submodule add didi didiIn #在父仓库【添加子模块】
+            git commit -sa #提交更新
+            ```
+
+
+
+#### 同步本地到远程
+
+现在本地仓库有了子模块，如果要同步，可以有两种方式
+
+- 父仓库同步
+
+    ```shell
+    git push --recurse-submodules=check #【push递归子模块】，检查子模块同步，防止依赖使用失败
+    ```
+
+- 只是子模块同步
+
+    ```shell
+    cd didi #进入子模块目录
+    git push origin #同步
+    cd ..
+    ```
+
+
+
+#### 克隆带有子模块的仓库
+
+```shell
+git clone babaUrl #克隆
+cd didi #进入didi 文件目录，此时没有任何文件
+git submodule init #初始化子仓库本地配置文件，没有懂这里的配置文件是啥
+git submodule update #同步子模块的数据
+
+cd didiSubmodule #如果didi 也还有子模块
+...
+```
+
+> 上述步骤实在有些繁琐
+>
+> ```shell
+> git clone --recurse-submodules babaUrl #【克隆递归子模块】一步完成，并且自动递归
+> ```
+
+```shell
+git checkout master #将didi 的HEAD 去除游离状态
+```
+
+
+
+#### 分支操作
+
+现在已经有了 带有didi 子模块的babaWithDidi 仓库
+
+- checkout 
+
+    - 独步操作
     
+        - 从有didi 的分支master 切换到没有didi 的分支dev
+    
+        ```shell
+            (master)$ git checkout -f dev #强制覆盖, 可以先看下不加-f 会怎么样
+        (master)$ rm -r didi #删除无关的文件
+            ```
+    
+        - 从没有didi 的分支master 切换到有didi 的分支dev
+    
+            ```shell
+            (dev)$ git checkout master
+            (master)$ cd didi
+            (master)$ git submodule update #更新子模块
+            (master)$ git checkout master #去除游离态
+            ```
+    
+    - 递归操作
+    
+        ```shell
+        git checkout --recurse-submodules #【checkout递归子模块】
+        ```
+    
+        
 
-#### 实际功效
+#### 同步远程到本地
 
-子模块已经是第三次阅读了，理解能力的确是一点点上去的。
+现在已经有了 带有didi 子模块的本地 babaWithDidiLocal，克隆自远程的babaWithDidi 仓库
+
+- 本地仓库没有修改
+
+    -  babaWithDidi 仓库整体修改
+
+        ```shell
+        git pull --recurse-submodules #【pull递归子模块】
+        ```
+
+        或者
+
+        ```shell
+        git pull #拉取
+        git submodule update --init --recursive #【更新子模块】
+        cd didi
+        git checkout master #去除游离态
+        ```
+
+    - didi 修改，而babaWithDidi 没有修改 (其实也属于“babaWithDidi 仓库整体修改”的一种情况)
+
+        ```shell
+        cd didi #进入子模块目录
+        git pull #同步
+        
+        cd ..
+        git commit -sa #提交修改
+        ```
+
+        或者
+
+        ```shell
+        git submodule update --remote --merge #更新子模块
+        git commit -sa #提交修改
+        ```
+
+- 本地仓库有修改
+
+    - babaWithDidi 更新了babaWithDidi/didi， babaWithDidiLocal 也更新了 babaWithDidiLocal/didi
+
+        ```shell
+        #此时父仓库和子模块，对于远程而言，进度都已经分叉
+        (babaWithDidiLocal)$ git pull #可以正常合并，或者使用【pull递归子模块】也可以
+        ```
 
 
 
-子模块，顾名思义，其自身需要自成一体，能够单独作为一个git 仓库，又同时能够作为另一个git 仓库的 内部数据。按我的理解：
+### 相关命令
 
-- 自成一体：子模块单独作为一个git 仓库进行自身维护
+关于命令的格式，参看 [命令行格式说明](../../cs-category/command-line.md)
 
-- 内部数据：父仓库随时可以拉取子模块的最新内容，甚至对子模块修改后能推送到子模块的远程仓库
-- 不受影响：父仓库自身的管理应该不受影响，日志不干扰，流程不变化
+没有模块名字作为参数的都是处理所有子模块
 
-
-
-结果看下来”不受影响“这一点还是相差蛮大的，只是可以通过【配置】和【常用别名】减少影响。
-
-
-
-#### 相关命令
-
-没指定模块名字的都是处理所有子模块
-
-```git
+```shell
 #配置
-git config --global diff.submodule log //配置后，git diff 等同于 git diff --submodule
-git config status.submodulesummary 1 //配置后，git status 展示子模块的摘要
-git config submodule.recurse [1|true] //配置后，除了clone，命令默认添加--recurse-submodules（支持的话） 
-git config -f .gitmodules submodule.<submoduleName>.branch stable //配置【更新子模块】默认拉取的分支，-f 表示影响所有人,没有则只影响自己；或者在`.git/config`也可配置
-git config push.recurseSubmodules [check|on-demand] //配置【push递归子模块】的行为
+
+#子模块url 修改
+git config submodule.<submoduleName>.url <URL> #修改子模块在本地配置的 url
+git config --global diff.submodule log #配置后，git diff 等同于 git diff --submodule
+git config status.submodulesummary 1 #配置后，git status 展示子模块的摘要
+git config submodule.recurse [1|true] #配置后，除了clone，命令默认添加--recurse-submodules（支持的话） 
+git config -f .gitmodules submodule.<submoduleName>.branch stable #配置【更新子模块】默认拉取的分支，-f 表示影响所有人,没有则只影响自己。可以省掉去除游离态的步骤
+git config push.recurseSubmodules [check|on-demand] #配置【push递归子模块】时的检查行为
 
 #常用别名
-$ git config alias.sdiff '!'"git diff && git submodule foreach 'git diff'"
-$ git config alias.spush 'push --recurse-submodules=on-demand'
-$ git config alias.supdate 'submodule update --remote --merge'
+git config alias.sdiff '!'"git diff && git submodule foreach 'git diff'"
+git config alias.spush 'push --recurse-submodules=on-demand'
+git config alias.supdate 'submodule update --remote --merge'
 
 #命令
 
 #添加子模块
-git submodule add <submoduleURL> //subURL 可以是相对路径也可以是url
-#更新子模块
+git submodule add <submoduleURL> [targetName]//subURL 可以是相对路径也可以是url
+#更新子模块，本地配置
 git submodule update [--init] [--recursive] //如果没有初始化过，需要init;如果有嵌套，需要recursive
-#更新子模块并合并/变基
-git submodule update --remote [--merge|rebase] //默认master，没有合并/变基是游离态，要在父仓库使用
+#更新子模块，从远端
+git submodule update --remote [--merge|rebase] //默认master，没有[--merge|rebase]是游离态，要在父仓库使用
 
 #命令参数
 
@@ -102,263 +275,99 @@ git checkout --recurse-submodules
 #pull递归子模块
 git pull --recurse-submodules
 #push递归子模块
-git push --recurse-submodules=[check|on-demand] //check 表示如果子模块有没push的，直接失败；on-demand则先尝试再次push子模块
+git push --recurse-submodules=[check|on-demand] //check 表示如果子模块有没push的，直接失败；on-demand则先尝试push子模块再失败
 #克隆递归子模块
 git clone --recurse-submodules <srcURL> [targetURL]
 
-
-#配置
-
-#修改子模块的本地配置 url
-git config submodule.<submoduleName>.url <URL>
-
 #遍历工具
 
-$ git submodule foreach 'git stash'
-#子模块切换分支
-$ git submodule foreach 'git checkout -b featureA'
-$ git diff; git submodule foreach 'git diff'
-
+git submodule foreach <`gitCommand`> #对每个子模块执行command
+#常用 foreach
+git submodule foreach 'git stash'
+git submodule foreach 'git checkout -b featureA'
+git diff; git submodule foreach 'git diff'
 ```
 
 
 
-### 教程和说明
+### 信息补充
 
-#### 预设
+父仓库和子模块关联之后
 
-有一个仓库 baba，一个仓库 didi
+- 子模块也会以一种特殊文件模式（160000，表示该文件在提交中，是作为一个目录整体）存储在父仓库的 `.git` 中。
 
-（为了方便起见，都建在本地；为了模拟使用情况，两个仓库里都初始化了README）
+- 会在父仓库修改或创建 `.gitmodules` ，这个文件记录了子模块和父仓库的映射关系，当前示例为：
 
-git 2.20.1 (Apple Git-117)
+    ```shell
+    [submodule "didi"]
+    	path = didi
+    	url = ../didi
+    ```
 
+    当其他人克隆父仓库的时候，将依据此文件中每个子模块的url 拉取数据
 
+    可以用【子模块url 修改】
 
-#### 添加子模块
-
-baba【添加子模块】didi，此时
-
-- 使用`ls` 查看，baba 目录里面增加了didi 文件夹，而且里面有didi 的README 文件。
-
-- 使用`git status` 查看，didi 文件夹和一个叫做 `.gitmodules` 的文件已经被加到了`staged` 状态
-
-    - `.gitmodules` 记录了子模块didi 和父仓库 baba的映射关系，当前示例为：
-
-        ```git
-        [submodule "didi"]
-        	path = didi
-        	url = ../didi
-        ```
-
-        当其他人克隆父仓库的时候，将依据此文件中每个子模块的url 拉取数据，具体测试在后面的 “协作” 小节
-
-- 使用`git diff`，可以看到关于子模块的描述，其中有文件模式 `new file mode 160000`
-
-然后`git commit`，记录的输出中也展示了文件模式
-
->文件模式
->
->100644 ：常规模式，表示一个子目录或者文件
->160000： 表示该文件在提交中，是作为一个目录整体（entry）。
->
->git 对于后者有特殊的处理。比如此处，在目录外时git 不会track 目录里的内容
+- 子模块是否创建的依据，可以通过在子模块目录查看`git log`，成功则显示子模块 的日志
+- `git status`默认看不到子模块的信息，需要参考【配置】
+- 提示信息中会出现 `update` 、左箭头`<` 等相关的字样
 
 
 
-此时进入didi 文件夹，使用`git log` ，会展示 didi 的日志
+### 遇到问题
 
 
 
-#### 克隆
+#### 操作失败
 
-baba 已经加入didi 的数据。
+Q：在分支A 进行了某个操作，同步到分支B 的时候，没有生效
 
-现在从别的地方按常规克隆一下baba 看看，把第三个仓库叫做 babaWithDidi
+A：
 
-进入babaWithDidi，此时  
+master 分支有didi 子目录，而dev 有didi 子模块 (且是从原先的didi 子目录转化过来)
 
-- `ls -a` 可以看到 `.gitmodules` 文件已存在
-- `git log` 可以看到提交日志也是齐全的
+同时didi 子目录中有一文件temp 是 gitignore 掉的
 
-进入didi 文件夹，使用 `git log` 会展示 babaWithDidi 的日志
+以如上场景执行`merge` 操作为例：
 
-但没有任何文件。别慌，这是正常现象
+```shell
+#个人理解，merge 简单来看，是将dev 中和master 的不同，在master 上补全
+#只是因为temp 文件被忽略，dev 操作temp 的步骤，不会被git 追踪，即master 上无法获悉
+#然后master 补全的时候，无法对 didi/temp 进行操作
+#此时git 发现，master 上的didi 不为空，所以不会去做后续的操作
+#最终导致didi 转化成子模块失败
 
-对于didi 的文件拉取，还要执行两个命令（如果只执行update 无效）：
+#处理办法
+(master)$ rm -r temp #只能先自己将temp 相关的操作再次执行一遍
+(master)$ master merge didi #然后就可以了
 
-```git
-git submodule init //初始化本地配置文件，没有懂这里的配置文件是啥
-git submodule update //fetch 子模块的数据，并且检出父仓库合适的提交日志
-//上述两个命令可以被【更新子模块】代替
+#相信还有很多类似的情况，思路应该都是一样
 ```
 
 
 
-上面的步骤多的让人烦恼，甚至还有子模块的子模块，你可以使用【克隆递归子模块】一步达成
+#### 忽略文件无效
 
-然后一切都和之前的baba 仓库一样了，只是didi 的HEAD 指向的是commitHash，即 **游离态**。
+A：在子模块中的文件，并不会被父仓库的`.gitignore` 文件作用。
 
+Q：需要自己再补充一个，否则可能造成"操作失败"的问题
 
 
-#### 游离态处理
 
-当克隆、同步到本地的didi 的HEAD 是游离态
+### 未涉及部分
 
-需要再进行额外的步骤，
 
-首先进入didi 目录，然后`git checkout`到具体的分支
 
-再返回父仓库目录，执行【更新子模块并合并/变基】，此时才是和常规的操作一样，真正的合并到本地
+##### 子模块引用修改
 
+额，用了git 几年了，基本没有引用修改的情况（都是宁可用新地址重新下一个哈哈哈）
 
+暂时不测试了。（有需要看原文“合并子模块修改 Merging Submodule Changes“小节哦）
 
-#### 中间点
 
-经过 ”预设、添加子模块、克隆“ 三节之后，本地有三个仓库：
-
-- didi 仓库
-
-- baba 仓库，含有子模块didi
-
-- babaWithDidi 仓库，克隆自 baba 仓库
-
-    
-
-接下来就是讲各种协作场景，拆分成步骤，其实就是仓库同步的逻辑。
-
-
-
-#### 子模块同步
-
-**远程同步到本地**
-
-- 1、didi 修改，而baba/didi 没有修改
-
-    - 1、
-
-        在baba 目录 【更新子模块并合并/变基】
-
-        或者进入baba/didi 目录进行常规同步操作
-
-        
-
-        返回baba 目录，会发现修改，此时
-
-        用`git diff --submodule` ，查看区别
-
-        然后commit修改即可
-
-        
-
-**本地同步到远程（注意先从”远程同步到本地“）**
-
-- 2、didi 没有修改，而baba/didi 修改
-
-    - 1、
-
-        在baba/didi 执行常规的同步操作即可，只是会引起baba 的变化
-
-        所以也可以直接使用baba 的同步方法，参看 ”父仓库同步“ 小节
-
-
-
-#### 父仓库同步
-
-子模块要是没有修改，就和原先的一样咯。下面就不说咯
-
-**远程同步到本地**
-
-- 1、didi 修改
-
-    - 1、baba 更新了baba/didi（baba 自己是有提交的） babaWithDidi 没有更新 babaWithDidi/didi
-
-        babaWithDidi `git pull` 之后会发现父仓库已经同步日志，子模块没有同步。
-
-        此时用【配置】后的`git status`可以看到`update`提示，并且信息中有左箭头`<` 。
-
-        
-
-        所以其实`pull` 已经递归处理了子模块（个人猜测是指所有的常规文件），只是父仓库不会帮助子模块`update`
-
-        即需要【更新子模块】(好习惯是加上初始化和递归参数)
-
-        
-
-        而上述步骤又可以优化成一步【pull递归子模块】
-
-        只是didi 的HEAD 依旧是 **游离态**， 参看之前的 ”游离态处理“ 
-
-    - 2、baba 更新了baba/didi， babaWithDidi 也更新了 babaWithDidi/didi
-
-        此时
-
-        baba/didi 和 babaWithDidi/didi 在相同分支
-
-        baba 和 babaWithDidi 也在不同分支
-
-        用babaWithDidi 执行 `git pull` ，会正常合并。也可以使用【pull递归子模块】
-
-    - 3、baba 修改了baba/didi,  babaWithDidi 也修改了 babaWithDidi/didi
-
-        此时
-
-        baba/didi 和 babaWithDidi/didi 在不同分支
-
-        baba 和 babaWithDidi 也在不同分支
-
-        用babaWithDidi 执行 `git pull` ，会正常合并。也可以使用【pull递归子模块】
-
-    
-
-- 1、didi 的引用修改
-
-    额，用了git 几年了，基本没有引用修改的情况（都是宁可用新地址重新下一个哈哈哈）
-
-    暂时不测试了。（有需要看原文哦）
-
-    
-
-**本地同步到远程（注意先从”远程同步到本地“）**
-
-- 1、
-
-    常规的推送不会推送子模块，为了防止错误，需要在推送的时候检查子模块使用
-
-    使用【push递归子模块】
-
-
-
-#### 其他
 
 ##### 嵌套子模块
 
 因为暂时还不在需求范围之内，不做具体使用测试。估计没啥毛病
 
 
-
-#### issues
-
-##### 分支切换
-
-2.13以下的版本，切换依赖子模块和不依赖子模块的分支会有问题，需要再执行【子模块更新】；
-
-而之后的版本使用【checkout递归子模块】可以解决
-
-
-
-##### 将子目录转化成子模块
-
-因为子目录记录在`.git`中，所以不能单纯的`rm -Rf subDirectory`
-
-要使用`git rm -r subDirctory`, 然后【添加子模块】
-
-
-
-此时，假设在master 上将目录转化成子模块，
-
-如果常规的`checkout` 其他分支, 会发现子模块的文件在其他分支也有，只是`untracked`
-
-也可以 `checkout -f`来强制覆盖，但是这会用当前子模块覆盖子目录，需要注意没有丢失数据。
-
-而再从其他分支`checkout`回master的时候，会发现子模块目录下没有文件，甚至`update`都没救，此时需要进入子模块目录执行`git checkout .` 才行。

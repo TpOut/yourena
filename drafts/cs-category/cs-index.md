@@ -18,9 +18,14 @@ cs的机构排名： https://csrankings.org/#/index?ai&asia
 
 计算机理论：https://introtcs.org/public/index.html  哈佛
 [自学了解下](https://teachyourselfcs.com/)
+
+自学：https://functionalcs.github.io/curriculum/
+
 自学方案：https://functionalcs.github.io/curriculum/
 [比特位计算的应用](https://catonmat.net/low-level-bit-hacks)
 [计算机科学快速课程](Crash-Course-Computer-Science-Chinese)
+
+计算机理论介绍：https://introtcs.org/public/index.html
 
 计算设备历史：http://ed-thelen.org/comp-hist/CBC.html
 

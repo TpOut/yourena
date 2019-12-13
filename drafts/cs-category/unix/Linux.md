@@ -1,10 +1,11 @@
 ```  
 //获取网页的返回数据
 wget -qO- 127.0.0.1
-```  
+```
+https://github.com/dylanaraps/pure-bash-bible
 
 终端颜色修改：https://github.com/Mayccoll/Gogh  
-
+linux 编程学习：http://man7.org/
 
 学习页面：https://linuxjourney.com  
 linux服务器：https://medium.com/@mutendebrian/how-to-secure-your-linux-server-6026cfcdefd8  
@@ -30,6 +31,16 @@ linux内核源代码搜索：https://elixir.bootlin.com/linux/latest/source　�
 
 syslog日志指南：https://devconnected.com/syslog-the-complete-system-administrator-guide/  
 
+Linux系统教学：http://www.linuxfromscratch.org/
+
+https://linux.cn/
+
+shell 命令解释：https://www.explainshell.com/
+
+shell 命令检查：https://www.shellcheck.net/
+
+Curl ：https://catonmat.net/cookbooks/curl
+
 ## fsearch
  github.
 
@@ -53,15 +64,12 @@ linux内核揭秘：https://xinqiu.gitbooks.io/linux-insides-cn/content/index.ht
 ```
 cat/proc/cpuinfo  
 lspci   
-```  
+```
 
 内核版本
 ```
 uname -r
-```  
+```
 
 脚本管理工具有很多，如   
 Ansible, or Salt，shell scripts, Chef, or Puppet
-
-
-linux 检测本地web服务器是否开启：wget -qO- 127.0.0.1

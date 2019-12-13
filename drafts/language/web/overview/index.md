@@ -37,4 +37,3 @@ json检测工具：
 [https://jsonlint.com/](https://jsonlint.com/)  
 dom结构解析工具：  
 [https://software.hixie.ch/utilities/js/live-dom-viewer/](https://software.hixie.ch/utilities/js/live-dom-viewer/)
-

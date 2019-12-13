@@ -1,3 +1,9 @@
+https://chromium.googlesource.com/libyuv/libyuv/
+
+leixiaohua 博客
+
+
+
 需要了解：    
 颜色模式：位图、灰度级、索引、RGB、Lab CMYK  
 颜色深度：8,16,32位

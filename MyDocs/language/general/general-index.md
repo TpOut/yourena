@@ -103,3 +103,8 @@ if(){
 }
 ```
 
+
+
+在线练习：https://edabit.com/challenges/javascript
+
+书籍 https://github.com/zhisheng17/zhisheng/blob/master/好书推荐单.md

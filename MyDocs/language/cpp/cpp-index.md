@@ -163,7 +163,14 @@ typeid(Lsj) == typeid(*lsj)
 
 c++ 编译器，ide等工具：https://www.bfilipek.com/2019/10/cppecosystem.html
 
+cpp预编译器：https://gcc.gnu.org/onlinedocs/cpp/index.html#SEC_Contents
+
 精选读物：附录H
 
 More Exception c++
 https://news.codecademy.com/bjarne-stroustrup-interview/
+
+书籍列表：http://club.topsage.com/thread-361458-1-1.html
+
+练习：https://www.patest.cn/
+

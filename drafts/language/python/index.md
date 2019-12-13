@@ -22,3 +22,8 @@ pip安装： [https://docs.python.org/3/installing/index.html\#installing-index]
 
 python数学计算库：[https://jalammar.github.io/visual-numpy/](https://jalammar.github.io/visual-numpy/)
 
+
+
+
+
+转化python 命令为图形工具：https://github.com/chriskiehl/Gooey

@@ -17,3 +17,6 @@
    神经网络深度学习：https://goalkicker.com/  复旦  
    
    对抗性神经网络：https://blog.floydhub.com/gans-story-so-far/    
+
+google机器入门
+https://developers.google.com/machine-learning/crash-course/prereqs-and-prework

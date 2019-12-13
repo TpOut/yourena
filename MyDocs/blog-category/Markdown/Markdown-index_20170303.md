@@ -2,7 +2,7 @@ MarkDown基本语法比较简单，就是简略版本的html
 
 ### 语法学习：  
 
-参看 wiki百科
+参看 wiki百科, 还有https://commonmark.org/help/
 
 基本部分多用就能记住了
 
