@@ -1,5 +1,7 @@
 web应用打包成docekr: https://itnext.io/dockerizing-modern-web-apps-cd9667eebf44 
 
+用户指纹追踪：https://en.wikipedia.org/wiki/Karatsuba_algorithm#Example
+
 粘性页尾https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
 grpc和restful: https://eng.fromatob.com/post/2019/05/why-were-switching-to-grpc/  
 

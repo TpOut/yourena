@@ -1,5 +1,7 @@
 ### 前言
 
+makeFile 教程： https://blog.mindlessness.life/2019/11/17/the-language-agnostic-all-purpose-incredible-makefile.html
+
 这不是写给想要入门语言的人，而是想给有经验程序员快速翻阅的笔记  
 
 由于自己是一个Android开发，所以习惯和现有知识都是偏向Java的， 如有不准确甚至错误的地方，还望指出  

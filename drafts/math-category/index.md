@@ -1,3 +1,6 @@
+线代教程：https://textbooks.math.gatech.edu/ila/
+微积分：https://0a.io/chapter1/calculus-explained.html
+
 [数理回归](https://www.listendata.com/2018/03/regression-analysis.html)  
 [马尔科夫链](http://setosa.io/ev/markov-chains/)  
 [马尔科夫决策过程](https://xaviergeerinck.com/markov-property-chain-reward-decision)    

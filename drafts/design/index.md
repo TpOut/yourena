@@ -10,7 +10,9 @@ https://material-ui.com/
 https://material.io/tools/theme-editor/
 https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Colors/Color_picker_tool
 https://codepen.io/pen/
+渐变：https://www.designwithai.com/aigradient
 https://colors.ichuantong.cn/
+可用性：https://whocanuse.com/
 
 ### 文章笔记
 https://design.google/library/

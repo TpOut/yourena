@@ -1,3 +1,6 @@
+a*寻路算法演示：https://sbfkcel.github.io/fast-astar/
+a*算法教程：http://theory.stanford.edu/~amitp/GameProgramming/
+
  - [sha256](https://webassemblycode.com/sha256-books-implementation/)    
  https://medium.com/biffures/part-5-hashing-with-sha-256-4c2afc191c40
 

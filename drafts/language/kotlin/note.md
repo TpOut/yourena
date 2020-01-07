@@ -13,11 +13,6 @@ heroku ?
 
 小几百的方法数，apk增加的大小少于100k
 
-已使用公司的分享：  
-Pinterest:[https://www.youtube.com/watch?v=mDpnc45WwlI](https://www.youtube.com/watch?v=mDpnc45WwlI)  
-Basecamp's:[https://m.signalvnoise.com/how-we-made-basecamp-3s-android-app-100-kotlin/](https://m.signalvnoise.com/how-we-made-basecamp-3s-android-app-100-kotlin/)  
-keepsafe:[https://medium.com/keepsafe-engineering/lessons-from-converting-an-app-to-100-kotlin-68984a05dcb6](https://medium.com/keepsafe-engineering/lessons-from-converting-an-app-to-100-kotlin-68984a05dcb6)
-
 ### js带走
 
 目前对接ECMAScript 5.1 并且正在考虑ECMAScript 2015  
@@ -42,8 +37,4 @@ kotlin可以和已有的第三方库或者框架,如jquery/react 一起使用。
 ### 多平台
 
 是一个试验功能。。那我就不看了。。
-
-### 基本语法
-
-包名和路径名并不需要一样
 
