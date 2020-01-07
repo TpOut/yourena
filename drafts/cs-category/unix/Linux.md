@@ -41,6 +41,8 @@ shell 命令检查：https://www.shellcheck.net/
 
 Curl ：https://catonmat.net/cookbooks/curl
 
+lsb: https://www.linuxbase.org/lsb-cert/productdir.php?by_lsb
+
 ## fsearch
  github.
 
@@ -60,7 +62,18 @@ linux内核揭秘：https://xinqiu.gitbooks.io/linux-insides-cn/content/index.ht
 简单kernel:https://github.com/MRNIU/SimpleKernel  
 
 ## 命令  
+### 文件结构
+
+查看密码
+
+```shell
+/root/anaconda-ks.cfg
+```
+
+kickstart
+
 查看硬件组件的型号
+
 ```
 cat/proc/cpuinfo  
 lspci   
@@ -73,3 +86,7 @@ uname -r
 
 脚本管理工具有很多，如   
 Ansible, or Salt，shell scripts, Chef, or Puppet
+
+
+
+不要把当前目录（.）放在PATH中，很容易误操作。而且进入公用区域时（如/tmp）可能操作恶意软件
