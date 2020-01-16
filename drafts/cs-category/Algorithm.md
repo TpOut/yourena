@@ -1,4 +1,5 @@
 a*寻路算法演示：https://sbfkcel.github.io/fast-astar/
+椭圆曲线加密教程：https://www.johannes-bauer.com/compsci/ecc/
 a*算法教程：http://theory.stanford.edu/~amitp/GameProgramming/
 
  - [sha256](https://webassemblycode.com/sha256-books-implementation/)    
