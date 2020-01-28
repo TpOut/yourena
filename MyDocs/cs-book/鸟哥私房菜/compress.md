@@ -50,6 +50,3 @@ tar 打包的文件叫做tarfile, 如果还进行了压缩就叫做tarball
 
 
 `xsfdump` `xfsrestore` 文件系统的完全备份
-
-
-

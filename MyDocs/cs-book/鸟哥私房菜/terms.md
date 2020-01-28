@@ -8,7 +8,7 @@ ROM(read only memory)
 
 BIOS(basic input output system)
 
-EEPROM(Electrically Erasable Programmable read only memory)
+UEFI （Unified Extensible Firmware Interface）
 
 VGA（video graphics array）
 
@@ -18,5 +18,8 @@ SSD （Solid State Disk/Drive）
 
 LSB (Linux Standard Basic) : https://wiki.linuxfoundation.org/lsb/start
 
-FHS（File system Hierarchy Standard）: http://www.pathname.com/fhs/
+FHS（File system Hierarchy Standard）
 
+ACL（Access Control List）
+
+PAM（Pluggable Authentication Modules）

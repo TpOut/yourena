@@ -1,4 +1,4 @@
-linux 查看命令：
+查看命令：
 
 ```shell
 cat /proc/cpuinfo
