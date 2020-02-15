@@ -1,6 +1,4 @@
-# 单例
-
-from: [https://mp.weixin.qq.com/s?\_\_biz=MzA3MDMyMjkzNg==&mid=2652261637&idx=1&sn=f069445f9e5df982ecfd47c9d40cc016&scene=23&srcid=0414ZwGpJ1q2pmzxgCzXQJdq\#rd](https://mp.weixin.qq.com/s?__biz=MzA3MDMyMjkzNg==&mid=2652261637&idx=1&sn=f069445f9e5df982ecfd47c9d40cc016&scene=23&srcid=0414ZwGpJ1q2pmzxgCzXQJdq#rd)
+转载（文章已经没了）: [https://mp.weixin.qq.com/s?\_\_biz=MzA3MDMyMjkzNg==&mid=2652261637&idx=1&sn=f069445f9e5df982ecfd47c9d40cc016&scene=23&srcid=0414ZwGpJ1q2pmzxgCzXQJdq\#rd](https://mp.weixin.qq.com/s?__biz=MzA3MDMyMjkzNg==&mid=2652261637&idx=1&sn=f069445f9e5df982ecfd47c9d40cc016&scene=23&srcid=0414ZwGpJ1q2pmzxgCzXQJdq#rd)
 
 单例模式可能是代码最少的模式了，但是少不一定意味着简单，想要用好、用对单例模式，还真得费一番脑筋。本文对Java中常见的单例模式写法做了一个总结，如有错漏之处，恳请读者指正。
 
@@ -8,7 +6,13 @@ from: [https://mp.weixin.qq.com/s?\_\_biz=MzA3MDMyMjkzNg==&mid=2652261637&idx=1&
 
 顾名思义，饿汉法就是在第一次引用该类的时候就创建对象实例，而不管实际是否需要创建。代码如下：
 
-public class Singleton { private static Singleton = new Singleton\(\); private Singleton\(\) {} public static getSignleton\(\){ return singleton; } }
+```java
+public class Singleton { 
+  private static Singleton = new Singleton(); 
+  private Singleton() {} 
+  public static getSignleton(){ return singleton; } 
+}
+```
 
 这样做的好处是编写简单，但是无法做到延迟创建对象。但是我们很多时候都希望对象可以尽可能地延迟加载，从而减小负载，所以就需要下面的懒汉法：
 

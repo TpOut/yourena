@@ -1,27 +1,3 @@
-# 大话设计模式-程杰
-
-源码地址：`http://www.cnblogs.com/Files/cj723/BigTalkDesignPattenSourceCode.rar`
-
-书的前面介绍了很多著作： 《设计模式：可复用面向对象软件的基础》（GOF的ERICH Gamm,Richard Helm, Ralph Johnson, John Vlissides） 《设计模式解析》（Alan Shalloway, James R. Trott） 《敏捷软件开发：原则、模式与实践》\(Robert C.Martin\) 《重构--改善既有代码的设计》\(Martin Fowler\) 《重构与模式》\(Joshua Kerievsky\) 《Java与模式》\(阎宏\) 《Head first design patterns》\(eric freeman\)
-
-语言是c\#
-
-前面讲的还好，后面的有点扯的
-
-### 分类
-
-#### 创建型
-
-抽象工厂，建造者，工厂方法，原型模式，单例模式
-
-#### 结构型
-
-适配器，桥接，组合，装饰，外观，享元，代理
-
-#### 行为型
-
-观察者，模板方法，命令，状态，职责链， 解释器，中介者，访问者，策略，备忘录，迭代器
-
 ### 简单工厂模式
 
 就是使用判断语句 来根据输入信息，得到对应的输出信息。 然后封装到单一的方法内部，不需要让调用者知道具体细节。
