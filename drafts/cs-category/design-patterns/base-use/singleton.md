@@ -1,6 +1,16 @@
+保证一个类仅有一个实例，并提供一个访问它的全局访问点
+
+![image-20200225094805495](image-20200225094805495.png)
+
+
+
+
+
 转载（文章已经没了）: [https://mp.weixin.qq.com/s?\_\_biz=MzA3MDMyMjkzNg==&mid=2652261637&idx=1&sn=f069445f9e5df982ecfd47c9d40cc016&scene=23&srcid=0414ZwGpJ1q2pmzxgCzXQJdq\#rd](https://mp.weixin.qq.com/s?__biz=MzA3MDMyMjkzNg==&mid=2652261637&idx=1&sn=f069445f9e5df982ecfd47c9d40cc016&scene=23&srcid=0414ZwGpJ1q2pmzxgCzXQJdq#rd)
 
-单例模式可能是代码最少的模式了，但是少不一定意味着简单，想要用好、用对单例模式，还真得费一番脑筋。本文对Java中常见的单例模式写法做了一个总结，如有错漏之处，恳请读者指正。
+单例模式可能是代码最少的模式了，但是少不一定意味着简单，想要用好、用对单例模式，还真得费一番脑筋。
+
+本文对Java中常见的单例模式写法做了一个总结，如有错漏之处，恳请读者指正。
 
 饿汉法
 
