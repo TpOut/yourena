@@ -8,7 +8,7 @@
 
 对于构造复杂的运行时刻结构特别有用
 
-C o m p o s i t e（ 4 . 3）通常是用B u i l d e r生成的
+composite 通常是用B u i l d e r生成的
 
 ![image-20200226092740712](image-20200226092740712.png)
 
