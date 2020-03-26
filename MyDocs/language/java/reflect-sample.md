@@ -1,7 +1,3 @@
-# 反射
-
-
-
 ```text
 /**
  * just for quick practice

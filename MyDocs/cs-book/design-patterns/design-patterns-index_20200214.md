@@ -50,6 +50,8 @@ UML类图工具：rational rose
 
 《Java与模式》\(阎宏\) 《Head first design patterns》\(eric freeman\)
 
+![&#x6355;&#x83B7;.PNG](https://upload-images.jianshu.io/upload_images/1936727-8174b52004d11690.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ---
 
 两本弯路。。。

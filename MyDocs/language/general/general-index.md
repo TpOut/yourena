@@ -87,6 +87,16 @@ lambda的方法缩写情况下，参数可以直接用it 代表
 ternary operator : https://en.wikipedia.org/wiki/%3F:
 ```
 
+#### 格式化
+
+格式化：%b,%C,%d,%f,%e,%s（可以在百分号和字母中间加宽度和精度，加"-"表示左对齐，转义%%）
+
+#### 转义字符
+
+```java
+ \b,\t,\n,\f,\r,\,\"
+```
+
 
 
 #### 其他
@@ -103,7 +113,7 @@ if(){
 }
 ```
 
-
+[uml](./uml)
 
 在线练习：https://edabit.com/challenges/javascript
 

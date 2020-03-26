@@ -1,8 +1,10 @@
-# jar包
+> 核心技术章4.8描述了shell命令将代码生成JAR的方式，同时简要描述了内部查询步骤。
 
+Java归档（Java ARchive）
 
+![&#x6355;&#x83B7;.PNG](https://upload-images.jianshu.io/upload_images/1936727-0f7d7f9698d59c21.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-Java归档（Java ARchive） 既可以包含类文件，也可以包含图像和声音等其他类型文件，使用ZIP压缩格式
+![&#x6355;&#x83B7;.PNG](https://upload-images.jianshu.io/upload_images/1936727-b614d43d80de739e.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 jar制作工具目录： jdk/bin
 

@@ -1,6 +1,6 @@
-# 安全
+主要来源：\[JavaCore卷Ⅱ中文第9版--章9\] 
 
-主要来源：\[JavaCore卷Ⅱ中文第9版--章9\] 深入拓展：[《Inside Java 2 Platform Security : Architecture, API Design, and Implementation》](http://www.oracle.com/technetwork/java/javaee/gong-135902.html)
+深入拓展：[《Inside Java 2 Platform Security : Architecture, API Design, and Implementation》](http://www.oracle.com/technetwork/java/javaee/gong-135902.html)
 
 ### Java技术自身安全机制
 
