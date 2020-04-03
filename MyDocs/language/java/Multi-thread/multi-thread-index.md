@@ -1,4 +1,12 @@
-Thread.yield\(\);让当前线程切换成就绪状态，让所有线程重新竞争调度 thread1.join\(\);让线程thread1执行完毕之后，其他线程再执行 setDaemon来设置守护线程，
+[Thread](./Thread.md)
+
+
+
+Thread.yield\(\);让当前线程切换成就绪状态，让所有线程重新竞争调度
+
+ thread1.join\(\);让线程thread1执行完毕之后，其他线程再执行
+
+ setDaemon来设置守护线程，
 
 加锁：
 

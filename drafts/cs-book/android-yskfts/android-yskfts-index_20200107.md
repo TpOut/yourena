@@ -16,6 +16,14 @@
 
 
 
+热插拔、插件化：
+
+资源加载：反射获取AssetManager, 用addAssetPath设置资源路径  
+生命周期管理：用代理activity的生命周期，通过反射或者接口来实现  
+ClassLoader: 
+
+
+
 AMS.stopServiceToken
 
 </font>

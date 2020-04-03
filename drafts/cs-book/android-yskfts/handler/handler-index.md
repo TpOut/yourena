@@ -35,3 +35,10 @@ initialValue
 
 
 
+
+
+activityThread
+
+在入口就执行了prepare 操作，对应的handler 就是ActivityThread.H
+
+ActivityThread 通过ApplicationThread 和AMS 进行进程间通信，AMS 以进程间通信的方式完成ActivityThread 的请求后会回调ApplicationThread 的Binder 方法，此时Application 会向H 发送消息，就做到了切换到主线程的操作。

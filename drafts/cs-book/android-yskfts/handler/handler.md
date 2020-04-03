@@ -54,5 +54,3 @@ getIMessenger //MessengerImpl extends IMessenger.Stub, 持有handler 实例，�
 
 
 
-**final** MessageQueue mQueue**;** **final** Looper mLooper**;** **final** Callback mCallback**;** **final** **boolean** mAsynchronous**;** IMessenger mMessenger**;**
-
