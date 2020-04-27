@@ -36,6 +36,29 @@
 
 [algorithm](./algorithm.md)
 
+
+
+```java
+static class DeadLoopClass{
+  static{
+    //如果不加if，编译器会检测到while(ture) 死循环，同时发现在静态初始化部分，然后拒绝编译
+    //添加if 则会“绕过”这个检测
+    if(true){
+      Sytem.out.println("...");
+      while(true){
+        
+      }
+    }
+  }
+}
+```
+
+
+
+
+
+
+
 ---
 
 设计模式 : https://java-design-patterns.com/patterns/
