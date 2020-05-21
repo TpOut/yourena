@@ -1,7 +1,11 @@
+线性代数：https://ocw.mit.edu/resources/res-18-010-a-2020-vision-of-linear-algebra-spring-2020/index.htm
+
+facebbok 开源了聊天机器人框架Blender,https://venturebeat.com/2020/04/29/facebook-open-sources-blender-a-chatbot-that-people-say-feels-more-human/
+
 大数相乘算法：https://en.wikipedia.org/wiki/Karatsuba_algorithm#Example
 
 全世界最快速的前500大超级计算机：http://www.top500.org/
-
+施普林格机器学习图书免费下载：https://link.springer.com/book/10.1007/978-0-387-84858-7
 
 如何阅读rfc : https://web.archive.org/web/20180916071340/https://www.mnot.net/blog/2018/07/31/read_rfc
 >有翻到中文译文：https://www.freebuf.com/column/184598.html
@@ -46,6 +50,7 @@ cs的机构排名： https://csrankings.org/#/index?ai&asia
 编译器编译源码成二进制的过程：https://kishuagarwal.github.io/life-of-a-binary.html
 
 java程序设计附录-正则
+基本示例教程：https://refrf.shreyasminocha.me/
 
 计算机中文件移动，实际上只是修改了记录信息。
 
