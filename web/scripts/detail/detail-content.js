@@ -21,18 +21,19 @@ var splits = notePath.split("/");
 //标题，不包含后缀
 var title = splits[splits.length - 1].split(".")[0];
 //资源路经，如果是图片
-var resPath = notePath.substring(0,notePath.indexOf(title));
+var resPath = notePath.substring(0, notePath.indexOf(title));
 document.getElementsByTagName("title")[0].innerText = title;
 document.getElementById("title").innerText = title;
 
 Ajax.get(baseUrl + notePath, function (res) {
     try {
 
-        hljs.initHighlightingOnLoad();
         marked.setOptions({
             renderer: new marked.Renderer(),
-            highlight: function(code) {
-                return hljs.highlightAuto(code).value;
+            //高亮代码
+            highlight: function (code, language) {
+                const validLanguage = hljs.getLanguage(language) ? language : 'plaintext';
+                return hljs.highlight(validLanguage, code).value;
             },
             pedantic: false,
             gfm: true,
@@ -43,6 +44,7 @@ Ajax.get(baseUrl + notePath, function (res) {
             xhtml: false
         });
         document.getElementById('content').innerHTML = marked(res);
+        hljs.initHighlightingOnLoad() // 不加这句会没有背景
 
         //文档相对路经，处理一下
         var allA = document.getElementsByTagName('a');
@@ -53,13 +55,13 @@ Ajax.get(baseUrl + notePath, function (res) {
             var baseIndex = a.href.indexOf(baseUrl);
             if (baseIndex >= 0) {
                 var sub = a.href.substring(a.href.indexOf(baseUrl) + baseUrl.length, a.href.length);
-                a.href = baseUrl + "detail-container.html?path=" +resPath + sub;
+                a.href = baseUrl + "detail-container.html?path=" + resPath + sub;
             }
         }
 
         //图片相对路经，处理一下
         var allImg = document.getElementsByTagName("img");
-        for(var i = 0;i<allImg.length;i++){
+        for (var i = 0; i < allImg.length; i++) {
             var img = allImg[i];
 
             var baseIndex = img.src.indexOf(baseUrl);
