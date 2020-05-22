@@ -45,3 +45,5 @@ CFLAGS="-Wall" make clean main
 
 `ldd` 查看某个可执行的二进制文件含有的动态函数库
 
+---
+ 
