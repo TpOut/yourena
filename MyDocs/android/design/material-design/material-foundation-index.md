@@ -32,9 +32,6 @@ https://webaim.org/
 language categories  
 https://material.io/design/typography/language-support.html#language-categories-reference
 
-老版本的页面： 
-https://material.io/archive/guidelines/  
-
 处理使用障碍：  
 https://www.google.com/accessibility/for-developers.html  
 
