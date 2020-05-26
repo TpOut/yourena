@@ -2,7 +2,7 @@ Android 结构上分为以下几点，直接纵向使用，横向学习：
 
 - app 
 
-[设计基础](../design) 、[java 基础](../language/java/java-index.md)、kotlin 基础  
+[设计基础](./design/design-index.md) 、[java 基础](../language/java/java-index.md)、kotlin 基础  
 [app 实现](./)
 
 - framework 
