@@ -15,6 +15,17 @@
         <servlet-class>main.notes.servlet.database.AccessServlet</servlet-class>
     </servlet>
 
+    <!--词库数据库-->
+    <servlet-mapping>
+        <servlet-name>WordListServlet</servlet-name>
+        <url-pattern>/AddWord</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>WordListServlet</servlet-name>
+        <servlet-class>main.notes.servlet.database.WordListServlet</servlet-class>
+    </servlet>
+
     <!--所有文件详情-->
     <servlet-mapping>
         <servlet-name>DocDetailServlet</servlet-name>

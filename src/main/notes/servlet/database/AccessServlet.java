@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import main.config.ConfigConstant;
+import main.config.SecConfig;
 import main.notes.util.ServletUtil;
 
 import static main.config.ConfigConstant.DATABASE_URL;
@@ -28,7 +29,6 @@ public class AccessServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         ServletUtil.setCharset(resp);
         ServletUtil.formatJson(resp);
         resp.getWriter().println("{\"num\":\"" + String.valueOf(queryAndUpdateAccess(req)) + "\"}");
@@ -44,8 +44,8 @@ public class AccessServlet extends HttpServlet {
 
         String JDBC_DRIVER = "com.mysql.jdbc.Driver";
         String DB_URL = "jdbc:mysql://" + DATABASE_URL + ":3306/lishengjie";
-        String USER = "root";
-        String PASS = "794704185";
+        String USER = SecConfig.name;
+        String PASS = SecConfig.ps;
 
         Connection conn = null;
         Statement stmt = null;
