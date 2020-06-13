@@ -87,5 +87,5 @@ ui库：[https://github.com/andlabs/libui](https://github.com/andlabs/libui)
 
 开源教程：[http://www.gigamonkeys.com/book/](http://www.gigamonkeys.com/book/)
 
-
+c 内部：http://www.avabodh.com/cin/cin.html  
 

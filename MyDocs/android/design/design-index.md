@@ -59,4 +59,6 @@ http://blog-en.tilda.cc/articles-website-design-mistakes
 https://www.webdesignmuseum.org/
 https://gallery.manypixels.co/
 https://getavataaars.com/
-https://mixkit.co/art/
+https://mixkit.co/art/  
+
+https://nodesign.dev/  

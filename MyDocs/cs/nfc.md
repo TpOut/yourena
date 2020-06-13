@@ -1,0 +1,7 @@
+EMVCO NFC
+
+HCE (Host Card Emulation)  
+
+ISO/IEC 7816
+ISO/IEC 14443-4 (ISO-DEP)
+ISO/IEC 7816-4
