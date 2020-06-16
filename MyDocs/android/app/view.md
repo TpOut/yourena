@@ -2,6 +2,12 @@
 
 drawable : autoMirrored  
 
+```
+Context.obtainDrawable()
+```
+
+
+
 
 
 0宽高的view 不再能获取焦点（10.0  

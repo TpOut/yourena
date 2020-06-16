@@ -16,3 +16,10 @@ Shows Wi-Fi settings, but *not* the other connectivity settings. This is useful 
 Shows all settings related to near-field communication *(NFC).*
 
 [`ACTION_VOLUME`](https://developer.android.google.cn/reference/android/provider/Settings.Panel#ACTION_VOLUME)
+
+
+
+
+
+https://github.com/android/user-interface-samples/tree/master/PreferencesKotlin  
+

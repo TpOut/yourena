@@ -1,3 +1,7 @@
+ExporedByTouchHelper  
+
+
+
 Android 10 
 
 [`isTextEntryKey()`](https://developer.android.google.cn/reference/android/view/accessibility/AccessibilityNodeInfo#isTextEntryKey()) 

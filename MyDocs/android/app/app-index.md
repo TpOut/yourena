@@ -1,4 +1,22 @@
+
+
+兼容库：https://developer.android.google.cn/topic/libraries/support-library/features  
+
+
+
 10 以上on-device trace 分析结果的格式是 https://ui.perfetto.dev/#!/  。可以转化为systrace 的格式   
+
+
+
+免安装 应用： https://developer.android.google.cn/topic/google-play-instant/getting-started/feature-plugin  
+
+
+
+应用模块化  
+
+https://developer.android.google.cn/studio/projects/dynamic-delivery#customize_delivery  
+
+https://developer.android.google.cn/guide/app-bundle/playcore  
 
 
 

@@ -25,7 +25,10 @@ Android 结构上分为以下几点，直接纵向使用，横向学习：
 
     TEE
 
+![The Android software stack](https://developer.android.google.cn/guide/platform/images/android-stack_2x.png)
+
 ---
 按顺序看 developer.android.google.cn  
 
 https://android-developers.googleblog.com/2018/08/android-pie-sdk-is-now-more-kotlin.html
+
