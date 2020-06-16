@@ -1,0 +1,2 @@
+- 可以在 apk analyzer 中，选择 一个dex,再选中一个类，右键 生成 keep 规则
+- 因为debug配置保存的目录原因，不建议忽略`project_directory/.idea/runConfigurations/`
