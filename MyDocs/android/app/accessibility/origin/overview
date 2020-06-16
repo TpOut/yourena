@@ -1,0 +1,66 @@
+Accessibility overview
+This resource may not be available in your region.
+Accessibility is an important part of any app. Whether you're developing a new app or improving an existing one, consider the accessibility of your app's components.
+
+By integrating accessibility features and services, you can improve your app's usability, particularly for users with disabilities.
+
+YOUTUBE
+
+What's New in Android Accessibility (Google I/O 2017)
+Learn how to use the exciting new APIs to make your app experience more accessible.
+
+YOUTUBE
+
+APPlicable: Improving Accessibility for All Users
+Learn how the Google Space at Campus Tel Aviv is helping users and developers create universally usable app experiences.
+
+YOUTUBE
+
+Developing Accessible Apps for Users with Motor Impairments
+Using the tips and best practices from this video, you can make your apps easier for users with motor impairments to use.
+
+Note: Although it's beneficial to add accessibility features in your app, you should use them only for the purpose of helping users with disabilities interact with your app.
+
+Impact of accessibility
+By integrating accessibility features in your app, you make it more inclusive:
+
+Increase your app's reach.
+
+According to The World Bank, 15% of the world's population has some type of disability. People with disabilities depend on accessible apps and services to communicate, learn, and work. By making your app more accessible, you can reach more users.
+
+Improve your app's versatility.
+
+Accessibility can make it easier for all users, not only those with disabilities, to interact with your app. For example, if someone is using your app while cooking, they can use voice commands instead of touch gestures to navigate.
+
+Development resources
+To make your app more accessible, follow these key principles of inclusive design, development, and testing:
+
+Design your app to support accessibility needs.
+
+By following material design best practices, you allow all of your users, including users with disabilities, to navigate and interact with your app more easily.
+
+Develop your app using accessibility best practices.
+
+As you create your app, follow basic accessibility principles that make a big difference to your users, including content labeling, touch target size, color contrast, and view attributes.
+
+Test with accessibility in mind.
+
+Integrate accessibility with your app's testing cycle by incorporating both manual and automated accessibility testing. To make this process easier, learn about the different accessibility services that Android offers, such as TalkBack and Switch Access.
+
+By familiarizing yourself with these services and testing your app using them, you can better understand the experience of users with accessibility needs.
+
+If you want to create a new interaction model to help people with a specific type of disability, or if your app's content has a particular accessibility requirement, you can create your own accessibility service. To learn more, see the Building Accessibility Services guide.
+
+Additional sample code
+To download a sample app that shows how to make an app more accessible, see Android BasicAccessibility Sample.
+
+Documentation
+Make apps more accessible
+Use node tree debugging
+Build accessibility services
+Build more accessible custom views
+Build an accessibility service
+Test your app's accessibility
+Content and code samples on this page are subject to the licenses described in the Content License. Java is a registered trademark of Oracle and/or its affiliates.
+
+Last updated August 14, 2018.

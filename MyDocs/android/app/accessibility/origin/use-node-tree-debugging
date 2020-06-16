@@ -1,0 +1,140 @@
+
+Use node tree debugging
+Node tree debugging is a method of testing your app for accessibility.
+
+About node tree debugging
+Accessibility services use a separate representation of your app's UI to operate. As you debug, you might find it useful to view the hierarchy and attributes of UI elements in the same way that accessibility services view them. To accomplish this task, you can use node tree debugging. This tool provides information about how an AccessibilityService object, such as TalkBack, views UI elements within your app.
+
+In node tree debugging, a window's content is presented as a tree of AccessibilityNodeInfo objects. Each node in the tree may have a set of AccessibilityAction objects associated with it. Each AccessibilityAction object, in turn, stores information about the interactions that it supports, such as focusable or clickable.
+
+Note: The object hierarchy provided by the node tree debugging tool is simplified and may not map one-to-one with the corresponding hierarchy of View objects within an app's UI.
+
+Turn on node tree debugging
+To turn on node tree debugging, complete these steps:
+
+In Talkback Settings > Developer settings, select Enable node tree debugging.
+In Talkback Settings > Developer settings, set "Log output level" to Verbose.
+Configure a TalkBack gesture to print the node tree. This gesture is used to display the current view hierarchy to logcat.
+In Talkback Settings > Touch exploration, select Manage gestures.
+Select any gesture.
+Select Print node tree.
+Turn Talkback on.
+Use node tree debugging
+To use node tree debugging, complete these steps:
+
+Run the following command in a terminal window:
+
+$ adb logcat
+Note: Output from the logcat command can be noisy. To filter the logcat output, consider using the TreeDebug keyword.
+
+Open your app.
+Perform the gesture that you configured to print the node tree. The hierarchy tree is displayed in the terminal window.
+Interpret node tree debugging output
+The following two examples use a single LinearLayout with two child views, a CheckBox and a Switch. The node tree debugging tool recognizes that the LinearLayout element can be interpreted as a FrameLayout.
+
+Note: The node tree debugging output in logcat displays physical pixel sizes and positions (px), not density-independent ones (dp).
+
+Example: Screen without accessibility focus
+<LinearLayout orientation="vertical">
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hi, I'm a checkbox!"
+        android:contentDescription="Testing a" />
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Toggle me!"
+        android:contentDescription="Testing a" />
+</LinearLayout>
+When you perform the "Print node tree" gesture, if all of the following conditions are true:
+
+The screen doesn't have accessibility focus
+The CheckBox isn't checked
+The Switch is OFF
+...logcat then displays the following node tree:
+
+V TreeDebug: (-2147453807)81.FrameLayout:(0, 0 - 1440, 2560):your-activity-name
+V TreeDebug: (-2147450924)81.CheckBox:(56, 336 - 1384, 448):Hi, I'm a checkbox!:Testing a:FAC:( ):focusable:clickable
+V TreeDebug: (-2147451885)81.Switch:(56, 448 - 1384, 543):Toggle me! OFF:Testing a:FAC:( ):focusable:clickable
+This node tree shows the following information:
+
+FrameLayout
+Positioned in the top-left corner of the screen (0, 0).
+Element is 1440 pixels wide and 2560 pixels tall.
+
+Note: Typically, these size values correspond with the physical dimensions of your device's screen.
+
+Element displays the name of your activity.
+CheckBox
+Positioned 56 pixels from the left edge of the screen and 336 pixels from the top edge.
+Element is 1384 pixels wide and 448 pixels tall.
+Element text is "Hi, I'm a checkbox!".
+Element has a content description of "Testing a".
+The following actions are supported:
+ACTION_FOCUS ("F")
+ACTION_ACCESSIBILITY_FOCUS ("A")
+ACTION_CLICK ("C")
+Element isn't checked ("( )").
+Switch
+Positioned 56 pixels from the left edge of the screen and 448 pixels from the top edge.
+Element is 1384 pixels wide and 543 pixels tall.
+Element text is "Toogle me!".
+Element has a content description of "Testing a".
+The following actions are supported:
+ACTION_FOCUS ("F")
+ACTION_ACCESSIBILITY_FOCUS ("A")
+ACTION_CLICK ("C")
+Element is OFF, not checked ("( )").
+Example: Screen with accessibility focus
+When you perform the "Print node tree" gesture, if all of the following conditions are true:
+
+Accessibility focus is on the Switch
+The CheckBox is checked
+The Switch is ON
+...logcat then displays the following node tree:
+
+V TreeDebug: (-2147453807)81.FrameLayout:(0, 0 - 1440, 2560):your-activity-name
+V TreeDebug: (-2147450924)81.CheckBox:(56, 336 - 1384, 448):Hi, I'm a checkbox!:Testing a:FAC:(X):focusable:clickable
+V TreeDebug: (-2147451885)81.Switch:(56, 448 - 1384, 543):Toggle me! ON:Testing a:FaC:(X):focusable:clickable:accessibilityFocused
+This node tree shows the following information:
+
+FrameLayout
+Positioned in the top-left corner of the screen (0, 0).
+Element is 1440 pixels wide and 2560 pixels tall.
+
+Note: Typically, these size values correspond with the physical dimensions of your device's screen.
+
+Element displays the name of your activity.
+CheckBox
+Positioned 56 pixels from the left edge of the screen and 336 pixels from the top edge.
+Element is 1384 pixels wide and 448 pixels tall.
+Element text is "Hi, I'm a checkbox!".
+Element has a content description of "Testing a".
+The following actions are supported:
+ACTION_FOCUS ("F")
+ACTION_ACCESSIBILITY_FOCUS ("A")
+ACTION_CLICK ("C")
+Element is checked ("(X)").
+Switch
+Positioned 56 pixels from the left edge of the screen and 448 pixels from the top edge.
+Element is 1384 pixels wide and 543 pixels tall.
+Element text is "Toogle me!".
+Element has a content description of "Testing a".
+The following actions are supported:
+ACTION_FOCUS ("F")
+ACTION_CLEAR_ACCESSIBILITY_FOCUS ("a")
+
+(Because the Switch already has focus)
+
+ACTION_CLICK ("C")
+Element is ON, checked ("(X)").
+To see a list of symbols used in node tree debugging to represent state and supported actions, see the TreeDebug class in the "talkback" GitHub project.
+
+Previous
+arrow_back Making apps more accessible
+Next
+arrow_forward Building accessibility services
+Content and code samples on this page are subject to the licenses described in the Content License. Java is a registered trademark of Oracle and/or its affiliates.
+
+Last updated April 17, 2018.
