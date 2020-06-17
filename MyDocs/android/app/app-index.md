@@ -2,6 +2,14 @@ https://developer.android.com/dev-summit/
 
 
 
+```
+intent.Extra.key 支持跨app 的时候，最好使用包名前缀：
+
+`const val EXTRA_MESSAGE = BuildConfig.APPLICATION_ID + ".MESSAGE"` 
+```
+
+
+
 https://codelabs.developers.google.com/?cat=Android
 
 https://developer.android.google.cn/samples?technology=  

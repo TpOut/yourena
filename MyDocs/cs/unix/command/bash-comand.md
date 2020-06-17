@@ -1,3 +1,38 @@
+查看密码
+
+```shell
+/root/anaconda-ks.cfg
+```
+
+kickstart
+
+查看硬件组件的型号
+
+```
+cat/proc/cpuinfo  
+lspci   
+```
+
+内核版本
+
+```
+uname -r
+```
+
+
+
+`history`
+
+
+
+**alias**
+
+`ll` 等同于 `ls -l`
+
+
+
+apt-aptget的区别：https://itsfoss.com/apt-vs-apt-get-difference/  
+
 
 
 日期和时间`date` ，日历`cal` , 
@@ -134,4 +169,22 @@ cat /proc/filesystems # 已加载到内存中支持的文件系统
 
 
 
+
+---
+
+https://github.com/dylanaraps/pure-bash-bible
+ https://wangdoc.com/bash/intro.html
+
+  幂等bash脚本：https://arslan.io/2019/07/03/how-to-write-idempotent-bash-scripts/  
+  bash alias:https://medium.com/@raimibinkarim/9-bash-aliases-to-make-your-life-easier-3e5855aa95fa  
+
+syslog日志指南：https://devconnected.com/syslog-the-complete-system-administrator-guide/  
+
+shell 命令解释：https://www.explainshell.com/
+
+shell 命令检查：https://www.shellcheck.net/
+
+Curl ：https://catonmat.net/cookbooks/curl
+
+lsb: https://www.linuxbase.org/lsb-cert/productdir.php?by_lsb
 

@@ -1,20 +1,4 @@
-## 运行app
 
-连接设备前提是安装adb和配置udev规则
-
-- 可以用apt安装adb,会配置一个默认的udev（由社区管理）。需要保证自己在plugdev组内
-
-    ```
-    apt-get install adb
-    ```
-
-- 或者安装Androidstudio，需要自己配置一个51-android文件。
-
-然后就可以在列表上(`adb devices`)看到了
-
-如果在连接设备上有什么问题，可以查看工具栏的 tools > connection assistant
-
-Android4.2.2(17)以上的设备在连接时会弹出 rsa安全码 的确认提示
 
 ## 视频拍摄
 
