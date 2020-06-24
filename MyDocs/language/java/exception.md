@@ -1,8 +1,8 @@
 即使到达finally块之前有return语句，依旧会执行finally块
 
-![&#x5F02;&#x5E38;&#x5206;&#x7C7B;.PNG](https://upload-images.jianshu.io/upload_images/1936727-fdaba825485b4ac8.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![exception1](exception1.png)
 
-![&#x5F02;&#x5E38;&#x5BF9;&#x65B9;&#x6CD5;&#x5185;&#x4EE3;&#x7801;&#x6267;&#x884C;&#x7684;&#x5F71;&#x54CD;.PNG](https://upload-images.jianshu.io/upload_images/1936727-6676b723bb180672.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![exception2](exception2.png)
 
 可以在catch语句中重新抛出异常给调用者。
 
@@ -10,9 +10,7 @@
 
 
 
-
-
-![&#x6355;&#x83B7;.PNG](https://upload-images.jianshu.io/upload_images/1936727-324e21e91ee2df6a.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) error类和runtimeException类的子类属于未检查异常，其他异常属于已检查异常 RuntimeException和运行时没必要联系，反倒和c++中的logic\_error类似。非runtimeException类似c++中的runtime
+![exception3](exception3.png) error类和runtimeException类的子类属于未检查异常，其他异常属于已检查异常 RuntimeException和运行时没必要联系，反倒和c++中的logic\_error类似。非runtimeException类似c++中的runtime
 
 对于那些可能被他人使用的java方法，应该根据异常规范在方法的首部声明可能的异常 
 
@@ -20,13 +18,13 @@
 
 栈跟踪的原理。
 
-![&#x6355;&#x83B7;.PNG](https://upload-images.jianshu.io/upload_images/1936727-8b6cc5ecf5083432.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![exception4](exception4.png)
 
-![&#x6355;&#x83B7;.PNG](https://upload-images.jianshu.io/upload_images/1936727-8972af8bc8080bef.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![exception5](exception5-2993140.png)
 
-![&#x6355;&#x83B7;.PNG](https://upload-images.jianshu.io/upload_images/1936727-b736719e80623fa8.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![exception6](exception6-2993120.png)
 
-```text
+```java
     //覆盖返回值，返回值是2
     public static int getValue(){
         try{
@@ -39,7 +37,7 @@
 
 对finally内的close执行操作进行双重catch：
 
-```text
+```java
 InputStream in = ...;
 Exception ex = null;
 try{
@@ -58,7 +56,7 @@ try{
 }
 ```
 
-//AutoCloseable接口资源文件，简单的双重catch方式（尽量别补上catch和finally块了）： ![&#x6355;&#x83B7;.PNG](https://upload-images.jianshu.io/upload_images/1936727-059b2c9986b5493d.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+//AutoCloseable接口资源文件，简单的双重catch方式（尽量别补上catch和finally块了）：![exception7](exception7.png) 
 
 addSuppressed 方法增加到原来的异常
 

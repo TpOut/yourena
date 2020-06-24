@@ -9,9 +9,8 @@ LinkedList遍历操作不要使用循环get，应该使用iterator，foreach就�
 静态方法也能被继承。 但是， 静态方法不能被覆盖（只是隐藏） 
 
 能够使用迭代较清晰解决的问题不要使用递归，如果使用了，尽量使用尾递归（即继续调用方法时，方法尾部没有后续代码)  
-  
-因为返回类型不是方法的签名，所以覆盖方法的时候，需要注意(或利用)返回类型  
 
+因为返回类型不是方法的签名，所以覆盖方法的时候，需要注意(或利用)返回类型  
 
 **观感**
 ![&#x6355;&#x83B7;.PNG](./see-sence.png)
@@ -19,7 +18,7 @@ LinkedList遍历操作不要使用循环get，应该使用iterator，foreach就�
 case条件： 有兴趣可以再去看下为什么后面可以增加String ![&#x6355;&#x83B7;.PNG](https://upload-images.jianshu.io/upload_images/1936727-7364df9e8de2f5c4.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) 
 
 **可访问性**
-![&#x53EF;&#x89C1;&#x6027;.png](https://upload-images.jianshu.io/upload_images/1936727-710319b930ed2d2c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![tips1](tips1.png)
 
 **重载**
 
@@ -76,7 +75,7 @@ System.out.println\("Chapter "+ '2'\);
 
 @see用法示例：
 
-```text
+```java
 @see classPathName.className#methodName()
 @see <a href="www.sample.com">this is a label</a>
 //显示在see also
@@ -85,11 +84,11 @@ System.out.println\("Chapter "+ '2'\);
 
 多个@see需要放在一起 如果要单独放置可以使用@link，如：
 
-```text
+```java
 {@link package.class#featrue label}
 ```
 
-![&#x6355;&#x83B7;.PNG](https://upload-images.jianshu.io/upload_images/1936727-53b27b41ed675e20.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![tips2](tips2.png)
 
 > 核心技术4.9.7章描述了生成注释的步骤
 

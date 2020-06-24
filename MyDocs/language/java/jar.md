@@ -2,22 +2,22 @@
 
 Java归档（Java ARchive）
 
-![&#x6355;&#x83B7;.PNG](https://upload-images.jianshu.io/upload_images/1936727-0f7d7f9698d59c21.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![jar1](jar1.png)
 
-![&#x6355;&#x83B7;.PNG](https://upload-images.jianshu.io/upload_images/1936727-b614d43d80de739e.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![jar2](jar2.png)
 
 jar制作工具目录： jdk/bin
 
 > jre自带针对类文件的压缩工具 pack200： 也在jdk/bin中。可以在jar命令中添加一个参数来调用 详情参看：[官网pack200](http://doc.oracle.com/javase/1.5.0/docs/guide/deployment/deployment-guide/pack200.html)
 
-```text
+```shell
 #常规命令
 jar {ctxui}[vfmn0PMe] [jar-file] [manifest-file] [entry-point] [-C dir] files ...
 #例如
 jar cvf target.jar *.class icon.gif
 ```
 
-```text
+```shell
 #示例manifest.mf
 Manifest-Version: 1.0
 描述这个归档文件的行
@@ -33,7 +33,7 @@ Name: com/mycompany/mypkg/
 
 指定入口点
 
-```text
+```shell
 #使用命令
 jar cvfe MyProgram.jar com.example.package.TestClass files...
 #配置manifest
@@ -48,7 +48,7 @@ Main-Class: com.example.package.TestClass
 
 密封jar
 
-```text
+```shell
 #清单文件的主节，全局
 Sealed: true
 #只针对Mypkg的配置

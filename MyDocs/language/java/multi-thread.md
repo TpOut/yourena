@@ -1,7 +1,3 @@
-[Thread](./Thread.md)
-
-
-
 Thread.yield\(\);让当前线程切换成就绪状态，让所有线程重新竞争调度
 
  thread1.join\(\);让线程thread1执行完毕之后，其他线程再执行
@@ -10,7 +6,7 @@ Thread.yield\(\);让当前线程切换成就绪状态，让所有线程重新竞
 
 加锁：
 
-```text
+```java
 public synchronized void method(){
 
 }
@@ -37,7 +33,7 @@ class Class{
 
 线程间协作： 可以通过Lock的newCondition\(\)方法创建对象，然后就可以调用await\(\)、signal\(\)和signalAll\(\)方法实现相互通信。这个条件的创建会让某些情况下无用的线程不再造成抢占资源的消耗，也可以确保有用的线程准确被调用。
 
-```text
+```java
 //使用琐和条件的方式更具灵活性
 class Class{
     private Lock lock = new ReentrantLock();
@@ -69,15 +65,15 @@ Q1：这本书已经是第十版了，还是说Java虚拟机总是选择当前�
 
 **12、信号量** Semaphore
 
-**13、线程安全的集合** ![&#x6355;&#x83B7;.PNG](https://upload-images.jianshu.io/upload_images/1936727-f5b9c77493f8d70d.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+**13、线程安全的集合**  
+
+![thread1](thread1.png)
 
 
 
 
 
-
-
-```text
+```java
 public void run(){
     try{
         while(!Thread.currentThread().isInterrupted()){
@@ -129,7 +125,7 @@ concurrent.atomic, 如AtomicInteger,建议开发并发工具的系统程序员�
 
 当程序挂起时，键入ctrl+\,将得到所有线程的列表
 
-```text
+```java
 public static final SimpleDateFormat  dateFormat = new ...;
 //如果在并发的情况下执行，可能造成结果混乱
 String dateStamp  = dateFormat.format(new Date());
@@ -163,13 +159,17 @@ invokeAny,异步处理，取最早的结果。ExecutorCompletionService
 
 fork-join,RecursiveTask--RecursiveAction,work stealing.ForkJoinPool
 
-章节14.10有简单说明 ![&#x6355;&#x83B7;.PNG](https://upload-images.jianshu.io/upload_images/1936727-f191432071a5ec2a.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+章节14.10有简单说明  
+
+![thread2](thread2.png)
 
 信号量，permits, synchronization primitive
 
 Q1： final Map m = new Map\(\);//如果不是final,多线程读取可能会null
 
-**问题** Q1：可以思考Date和Calendar的设计思路 Q2：理解make工具 Q3: System.setOut\(\) change a final field by invoking native method Q4: try to find the mechanism of main method ![&#x6355;&#x83B7;.PNG](https://upload-images.jianshu.io/upload_images/1936727-11400fb5e790c1ef.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+**问题** Q1：可以思考Date和Calendar的设计思路 Q2：理解make工具 Q3: System.setOut\(\) change a final field by invoking native method Q4: try to find the mechanism of main method   
+
+![thread3](thread3.png)
 
 **总结** 静态引用如： import static java.lang.System.\*; 可以忽略类名直接书写对应的静态方法或域
 

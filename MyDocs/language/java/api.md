@@ -1,4 +1,4 @@
-  
+
 ```java
 String lineSeparator = System.getProperty("line.separator");//行分隔符  
 
@@ -22,14 +22,14 @@ Proxy, InvocationHandler。 ![&#x6355;&#x83B7;.PNG](./api1.png)
 
 启用断言：
 
-```text
-//可以缩写成-ea
+```shell
+#可以缩写成-ea
 java -enableassertions MyJava
-//包或者类
+#包或者类
 java -ea:MyClass -ea:com.company... MyJava
-//禁用, -da
+#禁用, -da
 -disableassetions 
-//"系统类"不支持，用-esa
+#"系统类"不支持，用-esa
 -enablesystemassertions
 ```
 
