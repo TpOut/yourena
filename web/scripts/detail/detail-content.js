@@ -45,17 +45,14 @@ Ajax.get(baseUrl + notePath, function (res) {
         });
         document.getElementById('content').innerHTML = marked(res);
         hljs.initHighlightingOnLoad() // 不加这句会没有背景
-
         //文档相对路经，处理一下
         var allA = document.getElementsByTagName('a');
         for (var i = 0; i < allA.length; i++) {
             var a = allA[i];
 
-            //文档的地址
-            var baseIndex = a.href.indexOf(baseUrl);
-            if (baseIndex >= 0) {
-                var sub = a.href.substring(a.href.indexOf(baseUrl) + baseUrl.length, a.href.length);
-                a.href = baseUrl + "detail-container.html?path=" + resPath + sub;
+            //如果是自己的地址，则获取相对路径并拼接
+            if (a.href.indexOf(baseUrl) >= 0) {
+                a.href = baseUrl + "detail-container.html?path=" + resPath + a.getAttribute("href");
             }
         }
 
@@ -63,15 +60,12 @@ Ajax.get(baseUrl + notePath, function (res) {
         var allImg = document.getElementsByTagName("img");
         for (var i = 0; i < allImg.length; i++) {
             var img = allImg[i];
-
-            var baseIndex = img.src.indexOf(baseUrl);
-            if (baseIndex >= 0) {
-                var sub = img.src.substring(img.src.indexOf(baseUrl) + baseUrl.length, img.src.length);
+            if (img.src.indexOf(baseUrl) >= 0) {
                 //图片的地址
                 if (img.src.indexOf("jpg") !== -1
                     || img.src.indexOf("png") !== -1
                 ) {
-                    img.src = baseUrl + resPath + sub;
+                    img.src = baseUrl + resPath + img.getAttribute("src");
                 }
             }
 

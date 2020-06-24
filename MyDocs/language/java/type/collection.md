@@ -11,8 +11,6 @@ Q2：有空看下Spliterator
 
 
 
-![2018424-154443.jpg]()
-
 ![&#x6355;&#x83B7;.PNG](./iterator-接口.jpg)
 
 Q1：无序的add就不能叫做add吗？![2018424-160744.jpg](./无序不叫add.jpg)
@@ -44,7 +42,7 @@ RandomAccess接口用来标记是否支持高效的随机访问
 Collecitons.checkedList() 
 keySet，视图
 
-```text
+```java
 String[] values = (String[]) s.toArray();//error
 String[] values = s.toArray(new String[size]);
 ```
@@ -52,3 +50,4 @@ String[] values = s.toArray(new String[size]);
 **遗留**  
 hashtable,properties,vector,stack,bitset  
 enumeration
+

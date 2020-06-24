@@ -2,7 +2,7 @@ string1.compareTo\(string2\)
 
 **10、代码点和代码单元**
 
-```text
+```java
 //代码单元
 str.length()
 //代码点

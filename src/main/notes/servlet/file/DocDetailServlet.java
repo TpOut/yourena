@@ -62,8 +62,16 @@ public class DocDetailServlet extends HttpServlet {
         //请求日志
         LogUtil.saveToFile(projectPath,suffix);
 
+        if(!suffix.contains("MyDocs")){
+            return; //防止任意读取系统文件
+        }
+
         //输出文章
         File file = new File(projectPath + URLDecoder.decode(suffix, "UTF-8"));
+        System.out.println("file isExist : " + file.exists());
+        if(!file.exists()){
+            return;
+        }
         OutputStream output = resp.getOutputStream();// 得到输出流
 
         InputStream is = new FileInputStream(file);

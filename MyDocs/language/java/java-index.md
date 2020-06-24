@@ -8,9 +8,10 @@
 
 
 
-[命名风格](../general/style.md)  
+[命名风格](./../general/style.md)  
 [类型](./type/type-index.md)  
 lambda
+
 > 可以看下这个链接：[https://www.zhihu.com/question/20125256](https://www.zhihu.com/question/20125256) 
 
 标签

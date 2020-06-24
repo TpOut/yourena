@@ -29,7 +29,7 @@ public class TalkingClock{
 }
 ```
 
-![&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x4F2A;&#x5B9E;&#x73B0;.PNG](inner3.png) access$0对应上述伪实现的accessBeep ![&#x6355;&#x83B7;.PNG](./inner6.png)
+![&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x4F2A;&#x5B9E;&#x73B0;.PNG](./inner3.png) access$0对应上述伪实现的accessBeep ![&#x6355;&#x83B7;.PNG](./inner6.png)
 
 可以在方法快中定义类，这样基本做到完全隐藏，只对方法可见。（匿名内部类的真正语法）
 

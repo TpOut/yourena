@@ -24,7 +24,7 @@
 
 E,K,V,T-U-S,
 
-```text
+```java
 //多接口限定，如果有类，那么只能是一个且需要在第一位
 T extends Comparable & Serializable
 ```
@@ -35,7 +35,7 @@ T extends Comparable & Serializable
 
 首先确认类型擦除的概念（处理成限定类型再强转，好奇三四个限定怎么个强转法？新建类？）
 
-```text
+```java
 class Pair<T>{
     private T first;
     private T second;
@@ -89,7 +89,7 @@ instance的原理
 
 由于数组会有自查限制，如 ArrayList\[\] p ,需要记忆p能够存储的类型，而泛型运行后只能识别ArrayList，有可能造成赋值错误。所以规定不能初始化泛型数组，但是作为变参（T ...）时，变相实现了初始化数组（会有警告，可以@SafeVarargs或者@SuppressWarnings\("unchecked"\)）。
 
-```text
+```java
 //初始化泛型实例
 public Pair<T>{
 
@@ -108,7 +108,7 @@ public Pair<T>{
 }
 ```
 
-```text
+```java
 //强转泛型数组类型
     public static <T extends Comparable> T[] minmax(T... a) {
         T[] mm = (T[]) Array.newInstance(a.getClass().getComponentType(), 2);
@@ -134,7 +134,7 @@ Q4：泛型异常--核心章12.6.7。不能设计泛型类继承异常， 也不
 
 Q5：章12.6.7，
 
-```text
+```java
 //去除必检异常的检测
     @SuppressWarnings("unchecked")
     public static <T extends Throwable> void throwAs(Throwable e) throws T {
@@ -142,3 +142,4 @@ Q5：章12.6.7，
     }
 //这个方法的意义完全没看懂
 ```
+
