@@ -7,3 +7,5 @@ linux命令搜索：https://wangchujiang.com/linux-command/
 
 命令行工具增强：https://remysharp.com/2018/08/23/cli-improved    
 
+scp 相关
+https://gravitational.com/blog/scp-familiar-simple-insecure-slow/

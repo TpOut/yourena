@@ -12,3 +12,14 @@
 使用的时候就算记不住，试一下就行了。没必要在每个语言里写,太占篇幅  
 比较特殊的会写的不用担心  
 
+
+
+---
+
+makeFile 教程： https://blog.mindlessness.life/2019/11/17/the-language-agnostic-all-purpose-incredible-makefile.html
+
+
+
+各种语言的题目：[https://edabit.com/challenges](https://edabit.com/challenges)
+
+Yaml: http://www.yamllint.com/

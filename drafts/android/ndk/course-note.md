@@ -1,8 +1,8 @@
 ## C第1节
 面试点： bitmap, mmap   
 
-c/c++ 标准地址：https://en.cppreference.com/w/  
-可以用来查询方法的使用和运行demo      
+
+   
 
 内存对齐  
 重新赋值的 int32_t 等等  

@@ -33,4 +33,4 @@ indieAuth：https://aaronparecki.com/2018/07/07/7/oauth-for-the-open-web
 密码学历程：http://cryptocouple.com/
 椭圆曲线密码学：https://fangpenlin.com/posts/2019/10/07/elliptic-curve-cryptography-explained/
 
-
+software : KeePass

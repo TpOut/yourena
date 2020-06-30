@@ -1,3 +1,6 @@
+
+virtual memeory, page, page frame number(PFN)
+
 线性代数：https://ocw.mit.edu/resources/res-18-010-a-2020-vision-of-linear-algebra-spring-2020/index.htm
 
 facebbok 开源了聊天机器人框架Blender,https://venturebeat.com/2020/04/29/facebook-open-sources-blender-a-chatbot-that-people-say-feels-more-human/
