@@ -41,6 +41,10 @@ linux 是通过两个`file` ，指向同一个临时inode，而这个inode 指�
 
 **sockets**
 
+
+
+
+
 - system v IPC 机制
 
   这个机制下的方式，使用通用的认证方法，调用系统方法时需要传递一个唯一的引用id  

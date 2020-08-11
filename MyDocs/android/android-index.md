@@ -2,8 +2,8 @@ Android 结构上分为以下几点，直接纵向使用，横向学习：
 
 - app 
 
-[设计基础](./design/design-index.md) 、[java 基础](../language/java/java-index.md)、kotlin 基础  
-[app 实现](./)
+    [设计基础](./design/design-index.md) 、[java 基础](../cs/language/java/java-index.md)、kotlin 基础  
+    [app 实现](./app/app-index.md)
 
 - framework 
 
@@ -11,11 +11,11 @@ Android 结构上分为以下几点，直接纵向使用，横向学习：
 
 - native 
 
-    [c 基础](../language/c/c-index.md) 、[c++ 基础](../language/cpp/cpp-index.md) 、[Jni 部分](../language/java/jni/jni-index.md)
+    [c 基础](../cs/language/c/c-index.md) 、[c++ 基础](../cs/language/cpp/cpp-index.md) 、[Jni 部分](../cs/language/java/jni/jni-index.md)
 
 - art
 
-    [Jvm 部分](../language/java/jvm/jvm-index.md)
+    [Jvm 部分](../cs/language/java/jvm/jvm-index.md)
 
 - hal 
 
