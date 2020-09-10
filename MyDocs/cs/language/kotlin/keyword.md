@@ -115,3 +115,15 @@ import org.example.Msg
 import org.text.Msg as textMsg
 ```
 
+
+
+yield
+
+```
+// 目前的理解是和sequence 的构造器配合，实现一个`发射` 数据的功能
+
+// 但是不太理解和协程配合时为什么阻塞和不阻塞的问题
+
+Restricted suspending
+```
+
