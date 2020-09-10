@@ -1,4 +1,20 @@
-按功能、模块分类，进行摘要总结。
+按使用来讲，打开一个app 的方式无非一个地方触发，然后系统会启动app。  
+
+按开发来讲，触发点为[四大组件]，启动app 展示的页面叫做入口界面。     
+
+>这里涉及到[intent] 和[启动流程]  
+
+入口界面是一个特殊的界面，界面实现包括[代码编写]、[资源编写] - [LayoutEditor] - [Window-ViewGroup/View]、其他如[manifest]、[Strings - TranslationsEditor] 编写   
+
+这些编写的文件打包是通过[gradle] 实现，[Android studio] 帮我们集成了构建流程  
+
+打包后的格式是apk
+
+> [打包压缩流程]
+
+当我们运行app 时可以选择设备，如[emulator]    
+
+ 而每个app 运行在自己的[sandbox] 中
 
 
 

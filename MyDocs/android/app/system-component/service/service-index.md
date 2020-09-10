@@ -1,8 +1,18 @@
+Q：android service 如果正在运行,系统是怎么做到终结它的?
+
+
+
 8.0 服务受限：  
 
 限制场景下启动startService 会报异常  
 
 限制场景下startForegroundService 五秒之内必须 startForeground  
+
+
+
+startService, bindService
+
+由于隐式intent 启动service 容易造成未知运行，所以5.0 以后不允许
 
 
 
