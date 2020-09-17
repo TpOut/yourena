@@ -1,5 +1,7 @@
 [一种理解方式](./coroutines-myway.md)  
 
+> element 的一个实例表示多种类型，可以学习下CoroutineContext.Element 
+
 然后是基本的使用部分：
 
 [协程的使用](./coroutines-usage.md)
