@@ -30,7 +30,9 @@ coroutine ：协程是一个概念，可以理解成线程管理的抽象，更�
 
 
 
-context 执行可以做到suspend 和resume，是`Continuation` 的功劳（这个概念还没看懂，理解成“部分代码块”）
+context 执行可以做到suspend 和resume，是`Continuation` 的功劳（这个概念还没看懂，理解成“部分代码块”）  
+
+suspend 的意思应该是指将协程从当前线程剥离，只是会马上被dispatcher 进行分配（一般会直接resume 到另一条线程）
 
 
 
