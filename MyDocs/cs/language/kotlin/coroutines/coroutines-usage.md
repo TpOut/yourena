@@ -16,9 +16,13 @@ newCoroutineContext
 
 创建方式：
 
-`runBlocking` 创建一个绑定在当前线程的协程，会先执行协程内容；一般用于测试
+
 
 `coroutineScope` 创建一个scope，并使用创建它的coroutine 传递的context，但是会用参数中的代码块创建一个新的job 来替代原先context 的job
+
+
+
+`runBlocking` 创建一个绑定在当前线程的协程，会先执行协程内容；一般用于测试
 
 构造协程：launch，通过scope 创建协程并根据设置启动协程
 
