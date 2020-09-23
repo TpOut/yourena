@@ -50,7 +50,11 @@ newCoroutineContext
 
 返回job ：
 
-join，当前协程，等待job 所在的协程 执行完毕
+join，当前协程，等待job 所在的协程 执行完毕(包括 finalization -- finally)
+
+> 既然取消的设计产生的finally ，那么finally 里就不该做耗时操作；
+>
+> 但是的确有需求，可以使用withContext(NonCancellable)
 
 await，
 
