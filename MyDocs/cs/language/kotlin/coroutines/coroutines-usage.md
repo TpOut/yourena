@@ -32,7 +32,13 @@ newCoroutineContext
 
 启动方式（构造器）：
 
+- coroutineScope
+
+  使用当前的Dispatcher
+
 - launch 
+
+  使用当前的Dispatcher + Default
 
   设置包括是否创建后马上执行、
 
