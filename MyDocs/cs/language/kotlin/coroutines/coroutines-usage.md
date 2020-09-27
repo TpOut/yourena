@@ -22,7 +22,7 @@ newCoroutineContext
 
 Scope 创建方式：
 
-``CoroutineScope` ` 
+`CoroutineScope`  `MainScope` -- 用于ui  
 
 
 
