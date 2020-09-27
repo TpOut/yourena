@@ -7,16 +7,26 @@ coroutine 可以从scope 创建
 Scope 基本类是`CoroutineScope` 
 
 - 使用这个类创建基本范围，一般用提供的快捷方法`coroutineScope`
+
 - `GlobalScope` 是创建一个全局的范围
+
+  > 但是不建议使用launch 和async 启动协程，而一般自己建立一个CoroutineScope
+  >
+  > 可以使用produce，创建channel
+
 - 可以指定参数`CoroutineStart` 实现懒加载，在`job.join` , `job.start` 之后才会真正执行
 
 newCoroutineContext
 
 
 
-创建方式：
+Scope 创建方式：
+
+``CoroutineScope` ` 
 
 
+
+协程创建方式：
 
 `coroutineScope` 创建一个scope，并使用创建它的coroutine 传递的context，但是会用参数中的代码块创建一个新的job 来替代原先context 的job
 
