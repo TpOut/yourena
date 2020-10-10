@@ -2,7 +2,7 @@ deffered 方便协程之间的单数据传递
 
 channels 提供了数据的流式传递
 
-ProducerScope 
+ProducerScope , actor ?
 
 
 
