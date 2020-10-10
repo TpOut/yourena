@@ -18,6 +18,8 @@ Scope 基本类是`CoroutineScope`
 
 newCoroutineContext
 
+supervisorScope
+
 
 
 Scope 创建方式：
