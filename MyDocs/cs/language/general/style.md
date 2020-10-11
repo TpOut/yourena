@@ -6,7 +6,11 @@
 
 不能以数字开头，可以包含大小写字母，数字，下划线  
 
-**易读性** . 下划线，如 variable_name . 驼峰，如 variableName  
+**易读性** . 
+
+下划线，如 variable_name . 驼峰，如 variableName  
+
+数值类型，也可以使用下划线分割
 
 > 命名风格主要取决于团队  
 
@@ -28,7 +32,11 @@
 
 ---
 
-- kotlin文档：https://www.kotlincn.net/docs/reference/coding-conventions.html
+- kotlin文档：
+
+    https://developer.android.com/kotlin/style-guide
+
+    https://www.kotlincn.net/docs/reference/coding-conventions.html
 
 * [google风格文档]([https://google.github.io/styleguide/](https://google.github.io/styleguide/))
 * [唯品会]([https://github.com/vipshop/vjtools](https://github.com/vipshop/vjtools))

@@ -44,7 +44,7 @@ int main(){
 #### 分包
 
 ```java
-// java/kotlin
+// java/kotlin，java 要求类包名和路径一致
 package my.demo;
 import java.util.*;
 
@@ -67,7 +67,7 @@ namespace cp{
 在文本中，用`$`关键字可以直接嵌入变量値  
 甚至接受表达式
 
-```text
+```kotlin
 "sum of $a"  
 "${s1.replace("is", "was")}, but now is $a"
 ```
@@ -120,4 +120,3 @@ ternary operator : https://en.wikipedia.org/wiki/%3F:
 | 64位带符号 | 8      | 正负900亿亿             |
 |  32位浮点  | 4      | 正负1.4E-45到3.4E+38    |
 |  64位浮点  | 8      | 正负4.9E-324到1.79E+308 |
-

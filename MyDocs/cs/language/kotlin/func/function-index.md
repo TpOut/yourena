@@ -77,6 +77,8 @@ foo(qux = { println("hello") }) // Uses both default values bar = 0 and baz = 1
 foo { println("hello") } 
 ```
 
+[higher-order](./higher-order.md)
+
 
 
 **变参**

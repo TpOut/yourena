@@ -17,3 +17,9 @@ inv()
 val x = (1 shl 2) and 0x000FF000
 ```
 
+```kotlin
+..
+in !in
+downto, until, step
+```
+
