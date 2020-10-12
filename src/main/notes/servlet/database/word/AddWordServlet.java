@@ -1,4 +1,4 @@
-package main.notes.servlet.database;
+package main.notes.servlet.database.word;
 
 import main.config.SecConfig;
 
@@ -14,11 +14,10 @@ import java.sql.Statement;
 
 import static main.config.ConfigConstant.DATABASE_URL;
 
-public class WordListServlet extends HttpServlet {
+public class AddWordServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        addWord(req);
     }
 
     @Override

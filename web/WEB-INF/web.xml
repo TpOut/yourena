@@ -18,12 +18,22 @@
     <!--词库数据库-->
     <servlet-mapping>
         <servlet-name>WordListServlet</servlet-name>
-        <url-pattern>/AddWord</url-pattern>
+        <url-pattern>/WordList</url-pattern>
     </servlet-mapping>
 
     <servlet>
         <servlet-name>WordListServlet</servlet-name>
-        <servlet-class>main.notes.servlet.database.WordListServlet</servlet-class>
+        <servlet-class>main.notes.servlet.database.word.WordListServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddWordServlet</servlet-name>
+        <url-pattern>/AddWord</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddWordServlet</servlet-name>
+        <servlet-class>main.notes.servlet.database.word.AddWordServlet</servlet-class>
     </servlet>
 
     <!--所有文件详情-->
