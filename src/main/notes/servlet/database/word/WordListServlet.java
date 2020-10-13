@@ -80,7 +80,7 @@ public class WordListServlet extends HttpServlet {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        String sql = "SELECT * FROM words LIMIT " + (pageNum - 1) * 10 + ",20";
+        String sql = "SELECT * FROM words LIMIT " + (pageNum - 1) * 20 + ",20";
         List<WordBean> wordBeanList = new ArrayList<>();
         try (Connection connection = DriverManager.getConnection(DB_URL, USER, PASS);
              PreparedStatement stmt = connection.prepareStatement(sql)) {
