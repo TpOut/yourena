@@ -1,14 +1,24 @@
 package main.notes.servlet.database.word;
 
 public class WordBean {
+    private int id;
     private String src;
     private String dst;
     private String sentence;
 
-    public WordBean(String src, String dst, String sentence) {
+    public WordBean(int id, String src, String dst, String sentence) {
+        this.id = id;
         this.src = src;
         this.dst = dst;
         this.sentence = sentence;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getSrc() {

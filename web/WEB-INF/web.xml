@@ -36,6 +36,16 @@
         <servlet-class>main.notes.servlet.database.word.AddWordServlet</servlet-class>
     </servlet>
 
+    <servlet-mapping>
+        <servlet-name>ReplaceWordServlet</servlet-name>
+        <url-pattern>/ReplaceWord</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ReplaceWordServlet</servlet-name>
+        <servlet-class>main.notes.servlet.database.word.ReplaceWordServlet</servlet-class>
+    </servlet>
+
     <!--所有文件详情-->
     <servlet-mapping>
         <servlet-name>DocDetailServlet</servlet-name>

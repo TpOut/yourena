@@ -52,6 +52,8 @@ public class WordListServlet extends HttpServlet {
                 stringBuilder.append(",");
             }
             stringBuilder.append("{")
+                    .append("\"id\":").append("\"").append(bean.getId()).append("\"")
+                    .append(",")
                     .append("\"src\":").append("\"").append(bean.getSrc()).append("\"")
                     .append(",")
                     .append("\"dst\":").append("\"").append(bean.getDst()).append("\"")
@@ -87,6 +89,7 @@ public class WordListServlet extends HttpServlet {
             ResultSet resultSet = stmt.executeQuery();
             while (resultSet.next()) {
                 WordBean bean = new WordBean(
+                        resultSet.getInt(1),
                         resultSet.getString(2),
                         resultSet.getString(3),
                         resultSet.getString(4));
