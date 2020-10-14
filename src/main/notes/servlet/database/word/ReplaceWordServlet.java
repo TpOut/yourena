@@ -7,18 +7,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 import static main.config.ConfigConstant.DATABASE_URL;
+import static main.config.ConfigConstant.isDeployed;
 
 public class ReplaceWordServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doAction(req);
+        if (!isDeployed) {
+            doAction(req);
+        }
     }
 
     @Override
@@ -41,12 +41,12 @@ public class ReplaceWordServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        String addSql = "UPDATE words SET result="
-                + "'" + result + "'"
-                + " WHERE id=" + id;
+        String addSql = "UPDATE words SET result = ? WHERE id = ? ";
         try (Connection connection = DriverManager.getConnection(DB_URL, USER, PASS);
-             Statement stmt = connection.createStatement()) {
-            stmt.execute(addSql);
+             PreparedStatement stmt = connection.prepareStatement(addSql)) {
+            stmt.setString(1, result);
+            stmt.setString(2, id);
+            stmt.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -7,17 +7,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 import static main.config.ConfigConstant.DATABASE_URL;
+import static main.config.ConfigConstant.isDeployed;
 
 public class AddWordServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if (!isDeployed) {
+            addWord(req);
+        }
     }
 
     @Override
@@ -42,15 +43,13 @@ public class AddWordServlet extends HttpServlet {
         }
 
         String addSql = "INSERT INTO words (src,result,sentence, create_time)"
-                + " VALUES ("
-                + "'" + src + "',"
-                + "'" + result + "',"
-                + "'" + sentence + "',"
-                + "NOW()"
-                + ")";
+                + " VALUES ( ?, ?, ?, NOW())";
         try (Connection connection = DriverManager.getConnection(DB_URL, USER, PASS);
-             Statement stmt = connection.createStatement()) {
-            stmt.execute(addSql);
+             PreparedStatement stmt = connection.prepareStatement(addSql)) {
+            stmt.setString(1, src);
+            stmt.setString(2, result);
+            stmt.setString(3, sentence);
+            stmt.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
