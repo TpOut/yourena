@@ -1,8 +1,8 @@
 基本都用注解实现，
 
-entitiy 类对应表，可以嵌套（实际是平摊），可以自定义复杂类和对应列值的转换
+entitiy 类对应表，列可以嵌套（实际是平摊），可以自定义复杂类和对应列值的转换
 
-一对多，多对多（以及嵌套）可以定义一个方法快速查询
+表一对多，多对多（以及嵌套），可以定义一个方法快速查询
 
 支持视图，增删改查（多个查询可以合并为一个事务）  
 
@@ -14,7 +14,7 @@ entitiy 类对应表，可以嵌套（实际是平摊），可以自定义复杂
 
 支持从文件（assets / disk file）恢复
 
-升级和迁移
+升级和迁移，测试和[分析器](../../../android-studio/debug-your-app/debug-your-db-with-inspector.md)
 
 
 
@@ -44,9 +44,11 @@ entitiy 类对应表，可以嵌套（实际是平摊），可以自定义复杂
 
 - test and budeg your database  
 
+    Last updated 2020-10-12 UTC.
+
 - reference complex data
 
-    
+  Last updated 2019-12-27 UTC
 
 - save data using SQLite
 
