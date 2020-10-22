@@ -2,9 +2,17 @@
 
 entitiy 类和表，一对多，多对多（以及嵌套）可以定义一个方法快速查询
 
-支持视图，增删改查，变量名引用于数据库语句，POJO 映射查询列	
+支持视图，增删改查（多个查询可以合并为一个事务）  
 
-编译时检查错误
+编译生成
+
+> 可以检查错误，变量名引用于数据库语句，POJO 映射查询列，多种返回类型等	
+
+支持Rxjava 
+
+支持从文件（assets / disk file）恢复
+
+升级和迁移
 
 
 
@@ -26,9 +34,19 @@ entitiy 类和表，一对多，多对多（以及嵌套）可以定义一个方
 
 - access data using daos
 
+  Last updated 2020-07-13 UTC.
+
+- pre-populate your database
+
+- migrate your database 
+
+- test and budeg your database  
+
+- reference complex data
+
     
 
-- 
+- save data using SQLite
 
 
 
