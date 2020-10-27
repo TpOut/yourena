@@ -18,7 +18,22 @@
 
 
 
+```
+可以将apk 安装在外部存储：
 
+​```xml
+<manifest ...
+  android:installLocation="preferExternal">
+  ...
+</manifest>
+​```
+
+
+
+Android 10之后，对于外部存储设置的存储域（scoped storage），只能访问app专属的外部存储目录和app自己创建的共享媒体文件
+
+文件的打开和读取很耗性能  
+```
 
 
 
@@ -64,6 +79,10 @@ https://developer.android.google.cn/guide/app-bundle/playcore
 
 
 
+###追踪类 android.os.Debug类 使用起来比较简单，我们先导入 import android.os.Debug这个包。 在需要开始跟踪的地方加入 Debug.startMethodTracing(“/sdcard/debug”); 最终在停止调试的地方加入 Debug.stopMethodTracing(); 最终在sdcard上生成的debug文件我们可以用sdk/tools中的traceview来查看运行的结果。
+
+
+
 art  
 
  Android 10 adds Generational Garbage Collection to ART's Concurrent Copying (CC) Garbage Collector to make garbage collection more efficient
@@ -94,9 +113,39 @@ Custom descriptions are useful to help the autofill service clarify what is bein
 
 
 
+Vss = virtual set size
+Rss = resident set size
+Pss = proportional set size
+Uss = unique set size
+
+CodeLab:
+https://codelabs.developers.google.com/?cat=Android
+Training Course:
+https://developer.android.google.cn/courses
+Kotlin:  
+https://www.udacity.com/course/developing-android-apps-with-kotlin--ud9012  
+
+
+//代码示例
+https://developer.android.google.cn/samples/index.html
+
+//tts介绍  
+https://android-developers.googleblog.com/2009/09/introduction-to-text-to-speech-in.html  
+
+
+//测试相关  
+Android测试库 ：  
+https://github.com/googlesamples/android-testing  
+ViewActions:  
+https://developer.android.google.cn/reference/android/support/test/espresso/action/ViewActions   
+Robolectric:  
+http://robolectric.org/getting-started/
+
+---
+https://developer.android.google.cn/
+
 
 
 ---
 
 编辑器：https://androidpal.com/studio/about
-

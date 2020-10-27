@@ -68,6 +68,10 @@ findDocumentPath()
 
 
 
+内部缓存的大小建议在1MB 左右 
+
+
+
 #### 概念[^1]
 
 Android 文件系统类似于`disk-based` 文件系统，系统提供了存储的类型：
@@ -96,13 +100,17 @@ Android 文件系统类似于`disk-based` 文件系统，系统提供了存储�
 
 
 
-
-
 Android10：
 
 无需权限访问：`getExternalFilesDir` , 通过 `MediaStore` 创建的音视频图像  
 
 
+
+- internal 存储目录：app私有存储，Android 10 以上路径会被加密
+
+- external 存储目录：虽然其他app 有权限后可以访问，但是建议对这部分文件转移到共享存储  
+
+两者都有对应的持久存储和缓存存储。
 
 
 

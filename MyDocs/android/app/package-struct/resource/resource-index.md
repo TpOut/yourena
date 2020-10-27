@@ -37,3 +37,25 @@
 
 此时要进行状态保存，小数据可以用[saveInstance/restoreInstance] 实现，现在推荐使用[ViewModel]  
 
+
+
+~~~java
+不写dimen 单位  
+```
+<resources>
+    <!--没有单位的dimens-->
+    <!--代码中引用请查看getNoUnitDimens()方法-->
+    <item name="text_line_spacing" format="float" type="dimen">1.2</item>
+</resources>
+
+    /**
+     * 引用没有单位的dimens
+     */
+    private void getNoUnitDimens() {
+        TypedValue outValue = new TypedValue();
+        mAppContext.getResources().getValue(R.dimen.text_line_spacing, outValue, true);
+        float value = outValue.getFloat();
+    }
+```
+~~~
+
