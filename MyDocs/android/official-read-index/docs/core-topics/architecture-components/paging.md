@@ -12,7 +12,7 @@
     
         Last updated 2020-09-08 UTC.
     
-    - page from netword and database
+    - page from network and database
     
         
     
