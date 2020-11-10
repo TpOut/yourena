@@ -1,3 +1,7 @@
+目前只能replace ，需要单独处理一些情况
+
+
+
 手势导航
 
 WindowInsets  
