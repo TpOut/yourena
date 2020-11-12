@@ -22,3 +22,8 @@ val formattedName: List<String>
     }
 ```
 
+
+
+```
+CopyOnWriteArrayList
+```
