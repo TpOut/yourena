@@ -47,7 +47,15 @@ Float, Double (32. 64位)
 
 
 
-Any
+各种索引都可以用[] 的形式访问
+
+
+
+**Unit** 
+
+
+
+**Any**
 
 `NaN` 和自己比较才相等，否则大于任何其他数，包括`POSITIVE_INFINITY` 
 

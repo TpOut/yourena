@@ -1,3 +1,5 @@
+很多列表啥的都有不可变的类型
+
 ### 构造
 
 ```kotlin
@@ -152,7 +154,7 @@ val dest = src.copy(age = 2);
 
 ### data
 
-需求主构造函数起码有一个参数，且参数类型定义为`val`/`var`
+需求主构造函数起码有一个参数，且参数直接声明（val/var）
 
 不能为abstract, Open, sealed, inner
 

@@ -10,6 +10,7 @@
 | VAL  | Value–OrientedAlgorithmicLanguage |
 | POD  | Plain Old Data                    |
 | SAM  | single abstract method            |
+| POJO | Plain old Java object             |
 
 蒙特卡罗模拟
 

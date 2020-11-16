@@ -73,3 +73,14 @@ val accountName = account.name!!.trim() // !!是非空断言,这样会让name作
 val safeAccountName = account.name?.trim()  //会自动判断name是否为空，不会有异常
 ```
 
+
+
+try-with-resource  
+
+```kotlin
+val stream = Files.newInputStream(Paths.get("/some/file.txt"))
+stream.buffered().reader().use { reader ->
+    println(reader.readText())
+}
+```
+

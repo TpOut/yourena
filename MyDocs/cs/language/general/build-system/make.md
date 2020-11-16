@@ -46,4 +46,5 @@ CFLAGS="-Wall" make clean main
 `ldd` 查看某个可执行的二进制文件含有的动态函数库
 
 ---
- 
+
+makeFile 教程： https://blog.mindlessness.life/2019/11/17/the-language-agnostic-all-purpose-incredible-makefile.html

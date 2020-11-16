@@ -9,6 +9,18 @@ init{
 private val users = mutableListOf<User>()
 ```
 
+
+
+**基本变量**
+
+```kotlin
+str.toIntOrNull()
+```
+
+
+
+
+
 遍历集合 map
 
 https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map.html

@@ -1,3 +1,7 @@
+TODO() 方法返回 Nothing
+
+
+
 变量在类中叫做属性
 
 **val** 是一个不能重新赋值的变量，即没有setter  
@@ -47,7 +51,7 @@ var ...
 
 `is` 类型检查
 
-`in` 用于循环，包括for，区间
+`in` 用于循环，包括for，区间( ... , until , downTo , step )
 
 
 
@@ -125,5 +129,13 @@ yield
 // 但是不太理解和协程配合时为什么阻塞和不阻塞的问题
 
 Restricted suspending
+```
+
+
+
+inline 
+
+```kotlin
+inline fun <reified T: Any> Gson.fromJson(json: JsonElement): T = this.fromJson(json, T::class.java)
 ```
 
