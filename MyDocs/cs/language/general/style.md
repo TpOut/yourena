@@ -2,6 +2,14 @@
 >
 > python文档：https://docs.python.org/3/tutorial/controlflow.html#intermezzo-coding-style
 
+
+
+**注解**
+
+不建议像java 一样，把`@params` 单独ling 出来。而是写入句子中，如`its [params]`
+
+
+
 #### 命名
 
 不能以数字开头，可以包含大小写字母，数字，下划线  

@@ -15,6 +15,11 @@ private val users = mutableListOf<User>()
 
 ```kotlin
 str.toIntOrNull()
+
+ """
+    Foo
+    Bar
+    """.trimIndent()
 ```
 
 
