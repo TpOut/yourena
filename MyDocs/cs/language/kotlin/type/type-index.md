@@ -14,3 +14,6 @@
 
 [typealias](./typealias.md)
 
+
+
+各种索引都可以用[] 的形式访问

@@ -15,6 +15,10 @@ val b: Byte = 1 //Byte
 2L //Long
 ```
 
+unsign 
+
+UInt，...
+
 
 
 **浮点型**
@@ -45,9 +49,9 @@ Float, Double (32. 64位)
 \uFF00 //除了上述字符，都用unicode
 ```
 
-
-
-各种索引都可以用[] 的形式访问
+```kotlin
+if (c !in '0'..'9')
+```
 
 
 

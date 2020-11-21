@@ -51,7 +51,7 @@ var ...
 
 `is` 类型检查
 
-`in` 用于循环，包括for，区间( ... , until , downTo , step )
+`in` 用于循环，包括for，区间( ... , until , downTo , step )，通过`IntRange` `IntProgress` 等实现  
 
 
 

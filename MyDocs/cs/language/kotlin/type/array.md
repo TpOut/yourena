@@ -3,6 +3,7 @@ Array(5){ i -> (i*i).toString() }
 arrayOf(1,2,3)
 arrayOfNulls()
 
+// 各种类型的array 
 ByteArray, ShortArray, ...
 var arr: IntArray = intArrayOf(1, 2, 3)
 arr[0] = arr[1] + arr[2]
