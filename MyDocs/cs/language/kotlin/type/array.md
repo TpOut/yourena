@@ -8,6 +8,7 @@ ByteArray, ShortArray, ...
 var arr: IntArray = intArrayOf(1, 2, 3)
 arr[0] = arr[1] + arr[2]
 
+arr.iterator()
 arr.indices
 arr.withIndex()
 
