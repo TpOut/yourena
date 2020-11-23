@@ -30,11 +30,13 @@ class App{
 class SplashAct{
     fun preDoThing(){
         Thing.env = Thing.Env()
-        Thing.preDo()
     }
 }
 // HomeActivity
 class HomeAct{
+    fun preDoThing(){
+        Thing.preDo()
+    }
     fun doThing(){
         Thing.do()
     }
@@ -42,10 +44,9 @@ class HomeAct{
 // Thing
 object Thing{
     var env? = null
-    ...略 ...
-    fun doThing(){
-        env!!
-    }
+    fun preDo(){}
+    fun do(){ env!! }
+    ...
 }
 ```
 
@@ -53,11 +54,13 @@ object Thing{
 
 #### **异常：**
 
-上线之后，发现26 行产生了一堆kotlin-npe   
+上线之后，发现26 行（`doThing() ` 里的env!! ）产生了一堆kotlin-npe   
+且没有运行到此处的时候( `preDo() ` )，程序正常
 
+那么隐藏现象是：
+application.onCreate 重走了，SplashAct 没走，HomeAct 走了
 
-
-#### **分析过程：**
+#### **分析复现过程：**
 
 经过打点核查，发现崩溃用户都没有进入过SplashAct，直接进入的HomeAct，且页面是重新创建的    
 
@@ -73,17 +76,18 @@ object Thing{
 
 > 不然用户点击一个页面，却打开另一个页面，Android 要炸
 
-我们知道只有已经打开过的情况，再次进入才能越过SplashAct  
+我们知道只有已经打开过HomeAct 的情况，再次进入才能越过SplashAct , 直达HomeAct 
 
 
 
 于是方向设定在 内存不足，HomeAct 缩入后台，然后被回收，重新创建
 
-嗯。开启了不保留活动页，复现了一下，没有出来
+嗯。**开启了不保留活动页，复现了一下，没有出来**
 
 
 
 ？？？
+
 
 
 
@@ -109,7 +113,7 @@ object Thing{
 
 #### **解题方法 - 智力篇**
 
-> 其实是在暴力篇的结论下，偏向性看的代码，如有错误，欢迎拍砖！！！
+> 是在暴力篇的结论下，偏向性看的代码，如有错误，欢迎拍砖！！！
 
 其实还是因为公司电脑没拉aosp，不得不刚，回家我就打开源码看起来（假装认真脸
 
@@ -202,6 +206,10 @@ mActivities.remove(token);
 
 
 #### 总结
+不管是暴力篇中的尝试：
+人为不断重复 打开页面并缩入后台，间隔时间较小。最长估计也就一两分钟
 
-假设页面具有前后性的操作，都可以重新写一下了。
+还是智力篇中的分析：
+本身全销毁页面，进程内存应该非常足够。且代码层面还没有到进程切换的地步
 
+都让我觉得，Android 不杀进程会走application.onCreate()
