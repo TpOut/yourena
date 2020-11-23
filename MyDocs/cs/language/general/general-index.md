@@ -34,5 +34,9 @@
 - [算法](./algorithm.md)
 - [图例](./UML.md)
 
+当项目变得比较大型之后，需要处理命名冲突问题，引入了[分包]()的概念
+
+
+
 ---
 how to design program：https://htdp.org/2018-01-06/Book/index.html
