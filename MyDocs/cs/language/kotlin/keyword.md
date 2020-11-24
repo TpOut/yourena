@@ -1,4 +1,11 @@
-TODO() 方法返回 Nothing
+`label`
+
+```kotlin
+loop@ for (i in 0..4) {
+    println("222")
+    return@loop
+}
+```
 
 
 
