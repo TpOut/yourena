@@ -1,6 +1,10 @@
 协程在执行后，都只是异步处理一个值  
 
-而flow 可以异步处理多个结果并返回
+而flow 可以异步处理多个结果并返回（持续订阅）
+
+
+
+具体应该是框架层实现，主要表现在 flow 的“非立即执行”代码块，可以调用suspend 方法
 
 
 
@@ -12,15 +16,49 @@ flow 则是协程环境下的懒加载循环器
 
 
 
-flow / flowOf / asFlow ：感觉可以很简单就实现定时器的效果  
+**创建方式：**
 
-> flow 创建的会每次emit 时自动检测取消，
->
-> asFlow 这种则不会，可以使用cancellable  
+flow / flowOf / asFlow 
+
+```kotlin
+// flow
+flow{
+    for(i in 1..3){
+        delay(100)
+        println("e")
+        emit(i)
+    }
+}
+
+// flowOf
+flowOf(1..3)
+
+// asFlow
+(1..3).asFlow()
+```
+
+flow 创建的会每次emit 时自动检测取消，
+
+asFlow 这种则不会，可以使用cancellable 
 
 
+
+**操作符：**
 
 还有很多操作符，去看原文吧
+
+```kotlin
+suspend fun performRequest(request: Int): String {
+    delay(1000) // imitate long-running asynchronous work
+    return "response $request"
+}
+
+fun main() = runBlocking<Unit> {
+    (1..3).asFlow() // a flow of requests
+        .map { request -> performRequest(request) }
+        .collect { response -> println(response) }
+}
+```
 
 如过程处理 map / transform 等，
 
@@ -29,6 +67,8 @@ flow / flowOf / asFlow ：感觉可以很简单就实现定时器的效果
 终端处理 toList / first / reduce 
 
 
+
+**启动方式：**
 
 启动 collect / safeCollect  
 
