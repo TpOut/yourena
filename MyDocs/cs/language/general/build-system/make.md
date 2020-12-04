@@ -1,8 +1,14 @@
-当前内容来自《鸟哥私房菜》
+>  当前内容来自《鸟哥私房菜》
+>
+> https://www.gnu.org/software/make/manual/make.html
+>
+> 以及
+>
+> https://www.thapaliya.com/en/writings/well-documented-makefiles/
 
-https://www.gnu.org/software/make/manual/make.html
 
 
+[makefile 文档式编写](Makefile)
 
 使用`make` 命令依据makefile 的内容执行各种操作
 

@@ -1,4 +1,4 @@
-`label`
+`@` 可以用于标记表达式  
 
 ```kotlin
 loop@ for (i in 0..4) {

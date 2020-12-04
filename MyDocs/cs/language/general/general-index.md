@@ -29,6 +29,7 @@
 - [类型](./type.md)
 - [操作符]()
 - [函数](./function.md)
+- [控制流]()
 - [数据结构](./struct.md)
 - [构建系统](./build-system/build-system-index.md)
 - [算法](./algorithm.md)

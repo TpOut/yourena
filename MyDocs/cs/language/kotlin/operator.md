@@ -15,5 +15,9 @@ name = firstName ?: return //可以直接返回
 ..
 in !in
 downto, until, step
+
+// 上面主要用于for 循环
+// 而for 循环支持，实现以下操作方法的事物（成员函数，或者拓展）
+operator iterator()：Type{operator next(); operator hasNext()}   
 ```
 
