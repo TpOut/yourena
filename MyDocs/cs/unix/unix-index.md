@@ -15,3 +15,5 @@ linux服务：https://medium.com/@benmorel/creating-a-linux-service-with-systemd
 Linux系统教学：http://www.linuxfromscratch.org/
 
 https://linux.cn/
+
+容器化：docker , podman
