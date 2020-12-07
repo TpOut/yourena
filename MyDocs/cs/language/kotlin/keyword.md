@@ -5,6 +5,21 @@ loop@ for (i in 0..4) {
     println("222")
     return@loop
 }
+
+var result = loop@{ // 结果是 () -> kotlin.Int
+    return@loop 1 // non-local return from the lambda passed to run
+}
+
+var result = run loop@{ // 结果是 1
+    return@loop 1 // non-local return from the lambda passed to run
+}
+
+var result = run{ // 结果是 () -> kotlin.Int
+        loop@{
+            return@loop 1 // non-local return from the lambda passed to run
+        }
+    }
+
 ```
 
 

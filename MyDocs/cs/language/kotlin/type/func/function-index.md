@@ -17,6 +17,14 @@ Unit 是一个只有一个值的类型
 
 
 
+常规的return 是在最近的函数中进行返回，称作local-return
+
+而lambda，因为特殊性，其内部的return 不会将其当做”最近的函数“，而是在lambda 外层的函数返回，所以叫做non-local return  
+
+tips: list.foreach 可以传递匿名函数，在匿名函数内部return 不会跳出外部  
+
+
+
 [infix]()
 
 方法可以直接被语句赋值：
