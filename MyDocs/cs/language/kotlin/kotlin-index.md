@@ -28,7 +28,7 @@
 
 [android-ktx](./ktx.md)
 
-closabel 拓展了一个use 函数，方便自动关闭
+closable 拓展了一个use 函数，方便自动关闭
 
 
 

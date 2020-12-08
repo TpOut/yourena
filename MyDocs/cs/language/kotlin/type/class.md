@@ -1,5 +1,13 @@
 [TOC]
 
+**Any**
+
+所有对象的基类  
+
+`NaN` 和自己比较才相等，否则大于任何其他数，包括`POSITIVE_INFINITY` 
+
+`-0.0` 比 `0.0` 要小
+
 ### 构造
 
 ```kotlin
@@ -32,19 +40,23 @@ car = Car("lanbojini", mWheels)
 
 类属性的默认访问权限是public
 
+kotlin 在jvm 上会自动生成一个全参默认值的构造函数，方便Jackson 等序列化构造  
+
 
 
 ### 继承
 
 所有的类都继承自 `Any` 类，包含`equals() `, `hashCode()` and `toString()`
 
+`open`  
+
 
 
 #### 方法重写
 
-`super`  构造函数可以调用父类，方法属性也一样
+`super`  可以调用父类构造函数、方法、属性
 
-`super@Outer` 外部类的父类
+`super@Outer` 外部类Outer 的父类
 
  `open` 只有父类为open 且方法也为open ，方法才可以被重写
 
@@ -69,27 +81,50 @@ open class Lsj() : BaseLsj() {
 类似方法，有一些限制：
 
 - 属性的类型必须兼容
-- 子类的重写属性，要能初始化，或者有get 方法（如var 属性重写val 属性）
+- 子类的重写属性，要能初始化，或者有get 方法
 
 ```kotlin
-class Rectangle(override val vertexCount: Int = 4) : Shape //可以在主构造里使用
+// 可以在主构造里使用, 
+// 将val 属性重写为var 属性
+class Rectangle(override var vertexCount: Int = 4) : Shape(val vertextCount: Int) 
 ```
 
 
 
 #### 继承构造顺序
 
-父主构造 >> 父init >> 父次构造 >> 子主构造 >> 子init  >> 子次构造
+父主构造 >> 父init >> 父次构造 >> 子主构造 >> 子init  >> 子次构造  
+
+因此要注意，父类的构造和初始化要谨慎甚至不使用open 属性，防止子类继承父类的open 属性后出现初始化顺序问题     
+
+
+
+#### 内部类  
+
+```kotlin
+class FilledRectangle: Rectangle() {
+    override fun draw() { 
+        val filler = Filler()
+        filler.drawAndFill()
+    }
+
+    inner class Filler {
+        fun drawAndFill() {
+            super@FilledRectangle.draw() // Calls Rectangle's implementation of draw()
+        }
+    }
+}
+```
 
 
 
 #### 多继承
 
 ```kotlin
+// 如果出现继承方法冲突
 open class Rect{
     open fun draw(){}
 }
-
 interface Polygon{
     fun draw(){}
 }
