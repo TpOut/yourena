@@ -3,7 +3,7 @@
 ### 构造
 
 ```kotlin
-class Car private Constructor(val wheels: List<Wheel>){ // 主构造，没有修饰符可以省略Constructor
+class Car private Constructor(val wheels: List<Wheel>){ // 主构造，没有修饰符可以省略
     val seats = listOf<Seat>()
     val wheelNum = wheels.size() // 可以直接调用构造参数
   
@@ -28,7 +28,7 @@ val car = Car(mWheels) // 实例化，如果没有定义主次构造，则直接
 car = Car("lanbojini", mWheels)
 ```
 
-构造顺序：主构造 >> init >> 次构造
+构造顺序：主构造 >> 属性、init >> 次构造
 
 类属性的默认访问权限是public
 
