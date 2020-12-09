@@ -153,15 +153,19 @@ for((firstName, lastName) int users!!)
 
 `companion object`
 
+这就是一种内置语法糖，在MyClass 里创建一个object，因为object 是单例  
+
+所以每个myClass 实例持有的只有一个对象  
+
 ```kotlin
 class MyClass{
-    companion object{
+    companion object{  // 可选类名
         println("companion");
     }
 }
 
 fun main(){
-    MyClass.println();
+    MyClass.println(); // 对应调用可以省略object 名，如果要java 里调用也省略，需要注解，但是会增加实际的方法  
 }
 ```
 
