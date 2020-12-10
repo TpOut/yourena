@@ -17,10 +17,10 @@
 需要自己实现
 
 ```kotlin
-//实现
+//定义，注意参数默认为当前实例的值
 fun copy(name: String = this.name, age: Int = this.age) = User(name, age)
 
-//使用
+//使用，可以部分参数变更
 val dest = src.copy(age = 2);
 ```
 

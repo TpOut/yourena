@@ -3,18 +3,21 @@
 ### data
 
 ```kotlin
-data class User{var firstName: Sring?};
+data class User(var firstName: Sring?){
+    var lastName: String 
+};
 ```
 
-自动生成
+自动生成以下方法，如有重写冲突看原文细节
 
 - getter, setter
-
-- equals(), hashCode(), toString()
-
-  > 当然如果父类 已经显示定义或者声明为final 那就不需要了  
+- equals(), hashCode(), toString()  
 
 - copy(), componentN()
+
+需要注意的是，firstName 会被当作这些方法的处理对象，而lastName 不会
+
+> 相当于User 是通过firstName 来判断是否相等  
 
 
 
