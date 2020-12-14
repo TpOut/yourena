@@ -88,9 +88,7 @@ sealed 本身是抽象的，可以拥有抽象成员
 
 不能拥有非Private 构造（默认就是Private）
 
-
-
-#### 使用场景：
+**使用场景主要就在when ：**
 
 ```kotlin
 sealed class Expr

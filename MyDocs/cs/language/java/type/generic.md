@@ -4,25 +4,42 @@
 
 
 
- ?、? extends T、? super T E\[\] elements = \(E\[\]\)new Object\[capatity\];
+ E\[\] elements = \(E\[\]\)new Object\[capatity\];
 
 
 
-泛型用大写字母代替类型，无字母限制，但是一般使用如下字母： E - Element \(在集合中使用，因为集合中存放的是元素\) T - Type（Java 类） K - Key（键） V - Value（值） N - Number（数值类型） ？ - 表示不确定的java类型 S、U、V - 2nd、3rd、4th types
+泛型用大写字母代替类型，无字母限制，但是一般使用如下字母：
 
-受限泛型： T extends Object\(表示泛型必须是Object或者其子类，Object可以是任何类\) 通配泛型： 1、非受限通配 -- ? -- 基本没限制，等同于 ? extends Object 2、受限通配 -- ? extends T -- 表示T或者T的一个子类型（T需要替换成实际的类） 3、下限通配 -- ? super T -- 表示T或者T的一个父类型（T需要替换成实际的类）
+- E - Element \(在集合中使用，因为集合中存放的是元素\) 
+- T - Type（Java 类） K - Key（键） V - Value（值） N - Number（数值类型） 
+- ？ - 表示不确定的java类型 
+- S、U、V - 2nd、3rd、4th types
+
+
+
+受限泛型： T extends Object\(表示泛型必须是Object或者其子类，Object可以是任何类\)   
+
+通配泛型： 
+
+- 1、非受限通配 -- ? -- 基本没限制，等同于 ? extends Object 
+- 2、受限通配 -- ? extends T -- 表示T或者T的一个子类型（T需要替换成实际的类） 
+- 3、下限通配 -- ? super T -- 表示T或者T的一个父类型（T需要替换成实际的类）
 
 受限泛型是指定义泛型相关类或方法时候的约束，而通配泛型则是在使用泛型类或方法时候的约束
 
-泛型只是一种约束，实际上还是类型消除的，只是编译器进行了自动转化。 类型消除会带来一系列的限制，如： 不能new E\(\)；不能new E\[\] ![&#x6355;&#x83B7;.PNG](./泛型-静态参数限定.png)
+泛型只是一种约束，实际上还是类型消除的，只是编译器进行了自动转化。
+
+ 类型消除会带来一系列的限制，如： 不能new E\(\)；不能new E\[\]
+
+ 
+
+![&#x6355;&#x83B7;.PNG](./泛型-静态参数限定.png)
 
 ![&#x6355;&#x83B7;.PNG](./泛型-异常限制.png)
 
 泛型创建数组： E\[\] elements = \(E\[\]\) new Object\[capacity\]（会存在类型检测警告）
 
 
-
-E,K,V,T-U-S,
 
 ```java
 //多接口限定，如果有类，那么只能是一个且需要在第一位
