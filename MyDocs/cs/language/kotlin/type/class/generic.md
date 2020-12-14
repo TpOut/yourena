@@ -20,31 +20,27 @@ val l = singletonList<Int>(1)
 
 泛型一样会在运行时进行类型擦除
 
-但是inline reified 可以应对此种情况，进行类型检查 
-
-```kotlin
-//  public final class Gson {
-//     ...
-//     public <T> T fromJson(JsonElement json, Class<T> classOfT) throws JsonSyntaxException {
-//     ...
-
-inline fun <reified T: Any> Gson.fromJson(json: JsonElement): T = this.fromJson(json, T::class.java)
-```
-
 
 
 #### variance
 
+先了解这三个概念，从结论往回看会更好一些：invariant , covariant , contravariant  
+
+
+
 Java 中，泛型是不可变( invariant，如List<String> 不是 List<Object> 子类 )的，所以使用通配符来增加适用性，但是很多时候还是很僵硬。
 
+主要因为通配符是在使用端 声明时处理，而不能在定义端 声明时处理。造成很多时候，明明某个类只有协变或者逆变之一的功能，却还是因为类的声明是不可变的，导致处理上的不方便。
 
 
-declaration-site variance 
+
+**declaration-site** variance 
 
 对于没有消费元素类型（如上述List<Object> 只是从List<String> 获取数据，然后传给外部）的泛型而言，不应该禁止相对的转化。
 
 ```kotlin
-//kotlin 就加了 out 修饰符, 叫做可变注解(variance annotation)
+// kotlin 就加了 out 修饰符, 叫做可变注解(variance annotation)
+// 这里out 保证了T 没有被消费，只是
 interface Source<out T>{
     fun nextT(): T
 }
@@ -106,13 +102,14 @@ fun <T> copyWhenGreater(list: List<T>, threshold: T): List<String>
 
 
 
+但是inline reified 可以应对此种情况，进行类型检查 
 
-
-没看懂
-
+```kotlin
 //  public final class Gson {
 //     ...
 //     public <T> T fromJson(JsonElement json, Class<T> classOfT) throws JsonSyntaxException {
 //     ...
 
 inline fun <reified T: Any> Gson.fromJson(json: JsonElement): T = this.fromJson(json, T::class.java)
+```
+

@@ -1,13 +1,3 @@
-称只读的集合为生产者（Producers），只写的集合为消费者（Consumers）
-
-速记为 PECS : Producer-Extention , Consumer-Super
-
-
-
- E\[\] elements = \(E\[\]\)new Object\[capatity\];
-
-
-
 泛型用大写字母代替类型，无字母限制，但是一般使用如下字母：
 
 - E - Element \(在集合中使用，因为集合中存放的是元素\) 
@@ -25,26 +15,77 @@
 - 2、受限通配 -- ? extends T -- 表示T或者T的一个子类型（T需要替换成实际的类） 
 - 3、下限通配 -- ? super T -- 表示T或者T的一个父类型（T需要替换成实际的类）
 
-受限泛型是指定义泛型相关类或方法时候的约束，而通配泛型则是在使用泛型类或方法时候的约束
+受限泛型是指定义端 声明泛型相关类或方法时候的约束，而通配泛型则是在调用端 声明使用泛型类或方法时候的约束
+
+> 为什么定义的时候只有一个extends 呢？
+>
+> 大概是因为这样编写的代码才有意义吧，不然用super ，啥方法都不能保证存在
+
+```java
+public static void main(String[] args) {
+    List<Dog> dogs = new ArrayList<>();
+    countLegs(dogs);
+}
+// 此时List<Dog> 会被 List<? extends Animal> 接受
+static int countLegs (List<? extends Animal > animals ) {
+    int retVal = 0;
+    for ( Animal animal : animals ){
+        retVal += animal.countLegs();
+    }
+    return retVal;
+}
+```
+
+
+
+extend 用于集合时会导致只读
+
+> 原因大致有两点：
+>
+> ```java
+> List<Parent> list = new ArrayList() 
+> List<? extend Parent> listDerived = listStr  
+>     //如果此时可以通过listStrDerived 进行添加处理
+> //那么listStr 中就可能被加入不是String 类型的值
+> ```
+>
+> ```java
+> // 还有我们都知道泛型擦除，具体类型的转换其实是编译器生成的
+> List<? extend Parent> listDerived;
+>     // 如果此时可以通过listStrDerived 进行添加
+> //那么listStrDerived.add() 对应的方法就需要被编译器生成
+> 
+> -- 编译器可以找到代码中有限的子类？反射呢？
+> ```
+
+对应的super 会导致只写，（读出的都是object
+
+PECS 称只读的集合为生产者（Producers），只写的集合为消费者（Consumers）
+
+速记为 : Producer-Extention , Consumer-Super
+
+
 
 泛型只是一种约束，实际上还是类型消除的，只是编译器进行了自动转化。
 
  类型消除会带来一系列的限制，如： 不能new E\(\)；不能new E\[\]
 
+> 泛型创建数组： E\[\] elements = \(E\[\]\) new Object\[capacity\]（会存在类型检测警告）
+
  
-
-![&#x6355;&#x83B7;.PNG](./泛型-静态参数限定.png)
-
-![&#x6355;&#x83B7;.PNG](./泛型-异常限制.png)
-
-泛型创建数组： E\[\] elements = \(E\[\]\) new Object\[capacity\]（会存在类型检测警告）
-
-
 
 ```java
 //多接口限定，如果有类，那么只能是一个且需要在第一位
 T extends Comparable & Serializable
 ```
+
+
+
+![&#x6355;&#x83B7;.PNG](./泛型-静态参数限定.png)
+
+![&#x6355;&#x83B7;.PNG](./泛型-异常限制.png)
+
+
 
 ![2018420-154411.jpg](./泛型-接口限制.jpg)
 

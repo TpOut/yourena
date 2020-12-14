@@ -59,6 +59,12 @@ struct、union
 
 
 
+**泛型**
+
+https://en.wikipedia.org/wiki/Existentialism  
+
+
+
 #### 数组
 
 type[] 表示数组
