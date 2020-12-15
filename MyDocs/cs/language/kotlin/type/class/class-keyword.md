@@ -14,7 +14,7 @@
 
 ### 单例
 
-也使用 `object` 定义，是线程安全的
+使用 `object` 定义，是线程安全的
 
 不能声明为Local（即不能在方法中定义）， 但是可以内嵌在非内部类中（包括其他object 类）
 
@@ -29,13 +29,9 @@ val users = Repo.users
 
 
 
-#### object 小节
-
-object 语句在使用的时候就被执行
-
 object 声明在第一次被访问的时候初始化
 
-companion object 在附生的类被加载的时候初始化
+[object 匿名类]() [伴生类companion object ]() 参看类嵌套
 
 
 

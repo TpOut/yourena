@@ -1,59 +1,22 @@
+类和接口可以任意互套
+
+```kotlin
+interface OuterInterface {
+    class InnerClass
+    interface InnerInterface
+}
+
+class OuterClass {
+    class InnerClass
+    interface InnerInterface
+}
+```
+
 
 
 #### 内部类  
 
 ```kotlin
-class FilledRectangle: Rectangle() {
-    override fun draw() { 
-        val filler = Filler()
-        filler.drawAndFill()
-    }
-
-    inner class Filler {
-        fun drawAndFill() {
-            super@FilledRectangle.draw() // Calls Rectangle's implementation of draw()
-        }
-    }
-}
-```
-
-
-
-#### 伴生类
-
-`companion object`
-
-这就是一种内置语法糖，在MyClass 里创建一个object，因为object 是单例  
-
-所以每个myClass 实例持有的只有一个对象  
-
-```kotlin
-class MyClass{
-    companion object{  // 可选类名
-        println("companion");
-    }
-}
-
-fun main(){
-    MyClass.println(); // 对应调用可以省略object 名，如果要java 里调用也省略，需要注解，但是会增加实际的方法  
-}
-```
-
-
-
-#### 嵌套类
-
-```kotlin
-class Outer {
-    private val bar: Int = 1
-    class Nested {
-        fun foo() = 2
-    }
-}
-
-val demo = Outer.Nested().foo() // == 2
-
-//如果使用inner 关键字，则可以访问外部类的变量
 class Outer {
     private val bar: Int = 1
     inner class Inner {
@@ -62,11 +25,24 @@ class Outer {
 }
 
 val demo = Outer().Inner().foo() // == 1
+
+class FilledRectangle: Rectangle() {
+    override fun draw() { 
+        val filler = Filler()
+        filler.drawAndFill()
+    }
+    // 持有外部类的引用
+    inner class Filler {
+        fun drawAndFill() {
+            super@FilledRectangle.draw()
+        }
+    }
+}
 ```
 
 
 
-### 匿名类
+#### 匿名类
 
 对于只想修改某个现有类的一小部分，可以使用`object` 关键字
 
@@ -126,12 +102,15 @@ class C {
 
 匿名类可以访问最近一层作用域的变量
 
+#### 伴生类
 
+`companion object`
 
-### 伴生类
+在依附对象创建好之后创建
 
 ```kotlin
-//属于类，而不是属于“类对象”
+// 这就是一种内置语法糖，在MyClass 里创建一个object，因为object 是单例  
+// 所以每个myClass 实例持有的只有一个对象  
 class MyClass {
     companion object Factory {
         fun create(): MyClass = MyClass()
@@ -145,13 +124,14 @@ class MyClass {
 }
 val x = MyClass.Companion //用Companion 表示
 
-//如果一个类名被直接使用，就是代表获取这个类的伴生类对象，不管是不是有名字
+// 如果一个类名被直接使用，就是代表获取这个类的伴生类对象，不管是不是有名字
+// jvm 上可以使用注解@JvmStatic ，增加实际的static 方法和fields 
 class MyClass1 {
     companion object Named { }
 }
 val x = MyClass1
 class MyClass2 {
-    companion object { }
+    companion object { } //必要时，默认名字为 Companion  
 }
 val y = MyClass2
 
@@ -159,14 +139,10 @@ val y = MyClass2
 interface Factory<T> {
     fun create(): T
 }
-
 class MyClass {
     companion object : Factory<MyClass> {
         override fun create(): MyClass = MyClass()
     }
 }
-
 val f: Factory<MyClass> = MyClass
 ```
-
-在jvm 上，如果想用伴生类生成static 方法和fields，可以使用@JvmStatic 注解
