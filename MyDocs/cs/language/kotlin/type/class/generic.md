@@ -75,24 +75,18 @@ fun copy(from: Array<out Any>, to: Array<Any>) { ... }
 
 
 
-star projections
-
-![企业微信截图_0b0fa6ec-bf20-4474-9a89-3256bc697281](%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_0b0fa6ec-bf20-4474-9a89-3256bc697281.png)
-
-
-
 #### 泛型约束
 
-向上绑定(upper bound)，即java 的extend
+向上绑定(upper bound)  （注意java 中的extend 既 用于泛型约束，又用于协变  
 
 ```kotlin
+// 默认的向上绑定是 Any?
 fun <T : Comparable<T>> sort(list: List<T>) {  ... }
-
-//默认的向上绑定是 Any?
 ```
 
 ```kotlin
-//括号里只能写一个向上绑定，如果要多个，需要where 
+// 括号里只能写一个向上绑定，如果要多个，需要用 where
+// 调用方需要全部实现多个接口
 fun <T> copyWhenGreater(list: List<T>, threshold: T): List<String>
     where T : CharSequence,
           T : Comparable<T> {
@@ -102,7 +96,19 @@ fun <T> copyWhenGreater(list: List<T>, threshold: T): List<String>
 
 
 
-但是inline reified 可以应对此种情况，进行类型检查 
+#### Start - projection
+
+上面两个关键字还不能覆盖所有场景。还有一种场景，是想让所有类型都能传递  
+
+但是为了安全性，有很明确的一些约束  
+
+![image-20201215225641795](image-20201215225641795.png)
+
+
+
+**泛型擦除**
+
+inline reified 可以应对此种情况，进行类型检查 
 
 ```kotlin
 //  public final class Gson {
