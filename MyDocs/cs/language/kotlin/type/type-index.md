@@ -6,10 +6,6 @@
 
 [class](./class.md)
 
-[enum](./enum.md)
-
-[generic](./generic.md)
-
 [inline](./inline.md)
 
 [typealias](./typealias.md)

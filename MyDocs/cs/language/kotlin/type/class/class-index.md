@@ -26,7 +26,7 @@ val dest = src.copy(age = 2);
 
 
 
-inline 和typealias 对比
+**inline 和typealias** 对比
 
 ```kotlin
 typealias NameTypeAlias = String

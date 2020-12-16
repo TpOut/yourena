@@ -63,7 +63,7 @@ fun main() {
 
 #### box
 
-这里还是没看太懂为什么是这样？
+这里还是没看太懂为什么使用Foo 是unboxed，而使用T 是boxed  
 
 ```kotlin
 interface I
