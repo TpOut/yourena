@@ -1,14 +1,19 @@
-代理，顾名思义，在执行某个操作的时候，套上一层操作。
+属性的处理有很多常见的场景，比如只处理一次，后续用缓存；设置的时候，通知其他需要知道的对象等等  
 
-而在开发语言中，这个操作是指设置和获取属性值。
+当我们针对这些场景，对属性的处理进行封装的时候，会套上一层操作，即进行属性代理  
 
-所以实质都是代理属性，kotlin 用统一的语法：
+
+
+属性代理的语法是：
 
 ```kotlin
 // 语法规则是
 val/var <property name>: <Type> by <expression>
 // 如
 class Example{
+    var p: String by Delegate()
+}
+fun example(){
     var p: String by Delegate()
 }
 // 这里的Delegate() 即是代理属性表达式, by 表示从表达式获取代理
@@ -25,6 +30,8 @@ class Delegate {
 }
 // 此时你调用p = "2" 和获取p 的时候 对应会调用Delegate.setValue ，Delegate.getValue  
 // 但是日志会显示
+这个例子中 
+thisRef 的类型可以是Example 和它的父类，KProperty 可以是String 和它的父类，value 和属性一样或者是父类
 thisRef = p所依附的类/如果在方法中则是null, property.name = p, value = "2"
 ```
 
@@ -39,8 +46,9 @@ thisRef = p所依附的类/如果在方法中则是null, property.name = p, valu
         println("computed!")
         "Hello"
     }
-    //默认情况下，lazyValue 的计算是同步的
-    //如果lazy 的参数是LazyThreadSafetyMode.PUBLICATION， 则线程安全
+    // 默认情况下，lazyValue 的计算是`synchronized` 的，单线程执行，其他线程马上可见
+    // 如果lazy 的参数是LazyThreadSafetyMode.PUBLICATION，则认为可以多线程执行  
+    // 如果参数是LazyThreadSafetyMode.NONE，不做任何额外线程相关保证。Android 适合
     ```
 
 - 设置的时候，通知其他想知道的人。实现为obervable
@@ -50,12 +58,14 @@ thisRef = p所依附的类/如果在方法中则是null, property.name = p, valu
         prop, old, new ->
         println("$old -> $new")
     }
-    //如果要做赋值拦截，使用 vetoable() 方法
+    // 默认值是 "<no name>"
+    // 这里的方法是在赋值之后调用，如果要赋值之前调用（比如要做赋值拦截），使用 vetoable() 方法
     ```
 
 - 将一个属性 代理为另一个属性
 
     ```kotlin
+    // 适用规则
     class MyClass(var memberInt: Int, val anotherClassInstance: ClassWithDelegate) {
         var delegatedToMember: Int by this::memberInt
         var delegatedToTopLevel: Int by ::topLevelInt
@@ -63,7 +73,21 @@ thisRef = p所依附的类/如果在方法中则是null, property.name = p, valu
         val delegatedToAnotherClass: Int by anotherClassInstance::anotherClassInt
     }
     var MyClass.extDelegated: Int by ::topLevelInt
+    
     // 在废弃一个属性，新建一个属性时很有用
+    class MyClass {
+       var newName: Int = 0
+       @Deprecated("Use 'newName' instead", ReplaceWith("newName"))
+       var oldName: Int by this::newName
+    }
+    
+    fun main() {
+       val myClass = MyClass()
+       // Notification: 'oldName: Int' is deprecated.
+       // Use 'newName' instead
+       myClass.oldName = 42
+       println(myClass.newName) // 42
+    }
     ```
 
 - 很多属性单独代理的话会很麻烦，希望批量处理。
@@ -80,9 +104,31 @@ thisRef = p所依附的类/如果在方法中则是null, property.name = p, valu
     // 比如json 等动态处理时
     ```
 
-    
 
-甚至可以用于本地方法：
+
+
+属性代理的底层实现是编译器会生成一个`prop$delegate` 的变量
+
+```kotlin
+class C {
+    var prop: Type by MyDelegate()
+}
+// 编译器生成的
+class C {
+    private val prop$delegate = MyDelegate()
+    //如果实现provideDelegate
+    private val prop$delegate = MyDelegate().provideDelegate(this, this::prop)
+    
+    var prop: Type
+        get() = prop$delegate.getValue(this, this::prop)
+        set(value: Type) = prop$delegate.setValue(this, this::prop, value)
+}
+// this::prop 是一个KProperty 的反射对象，它描述prop 的信息
+```
+
+
+
+代理属性甚至可以用于本地方法：
 
 ```kotlin
 fun example(computeFoo: () -> Foo) {
@@ -96,7 +142,7 @@ fun example(computeFoo: () -> Foo) {
 
 
 
-更简便的方式，甚至不需要创建一个代理类，直接实现方法即可：
+更简便的方式，甚至不需要创建一个代理类，直接匿名类实现接口即可：
 
 ```kotlin
 interface ReadOnlyProperty<in R, out T> {
@@ -111,11 +157,11 @@ interface ReadWriteProperty<in R, T> {
 
 
 
-而我们用ReadOnlyProperty 实现的时候发现还有个不足：
-
-<font color=red>这个例子还是没看明白</font>
+但是在使用ReadOnlyProperty 实现的时候发现还有个不足：
 
 ```kotlin
+// 类似Android 中初始化，findViewById 之后，需要转化成ImageView 或者TextView  
+// 所以我们需要传入一个string, 即“image”/"text" 来区分
 class MyUI {
     val image by bindResource(ResourceID.image_id, "image")
     val text by bindResource(ResourceID.text_id, "text")
@@ -131,8 +177,11 @@ fun <T> MyUI.bindResource(
        return textDelegate
    }
 }
-// 你需要将属性的名称显式传给代理方法
-// 此时kotlin 为你提供一个provideDelegate 方法
+// 上面这种需要将属性的类别显式传给代理方法
+
+--<font color =red >没看懂这里为什么改成下面就不需要了</>--
+
+// 为了减少这种不方便，kotlin 为你提供一个provideDelegate 方法
 // 此方法在属性依赖类（MyUI）创建时生效，即代理对象创建时
 
 class ResourceDelegate<T> : ReadOnlyProperty<MyUI, T> {
@@ -170,54 +219,3 @@ val provider = PropertyDelegateProvider { thisRef: Any?, property ->
 
 val delegate: Int by provider
 ```
-
-
-
-代理的底层实现是编译器会生成一个`prop$delegate` 的变量
-
-```kotlin
-class C {
-    var prop: Type by MyDelegate()
-}
-// 编译器生成的
-class C {
-    private val prop$delegate = MyDelegate()
-    //如果实现provideDelegate
-    private val prop$delegate = MyDelegate().provideDelegate(this, this::prop)
-    
-    var prop: Type
-        get() = prop$delegate.getValue(this, this::prop)
-        set(value: Type) = prop$delegate.setValue(this, this::prop, value)
-}
-// this::prop 是一个KProperty 的反射对象，它描述prop 的信息
-```
-
-
-
-然后我们再来看一下简单的语法问题：
-
-```kotlin
-interface Base {
-    val message: String
-    fun print()
-}
-
-class BaseImpl() : Base {
-    override val message = "BaseImpl: x = $x"
-    override fun print() { print(message) }
-}
-
-class Derived(b: Base) : Base by b {
-    // 重写之后，如果print 没重写，则无法获取这个message
-    // override val message = "Message of Derived" 
-    
-    // 重写之后不会调用代理
-    // override fun print(){} 
-}
-
-fun main() {
-    val b = BaseImpl(10)
-    Derived(b).print() // 自动在Derived 中用Base 代理所有方法 
-}
-```
-
