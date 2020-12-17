@@ -116,7 +116,7 @@ class C {
 // 编译器生成的
 class C {
     private val prop$delegate = MyDelegate()
-    //如果实现provideDelegate
+    //如果实现provideDelegate，本章末尾有讲  
     private val prop$delegate = MyDelegate().provideDelegate(this, this::prop)
     
     var prop: Type
@@ -157,62 +157,42 @@ interface ReadWriteProperty<in R, T> {
 
 
 
-但是在使用ReadOnlyProperty 实现的时候发现还有个不足：
+但是在使用`ReadOnlyProperty` 实现的时候发现还有个不足：
 
 ```kotlin
-// 类似Android 中初始化，findViewById 之后，需要转化成ImageView 或者TextView  
-// 所以我们需要传入一个string, 即“image”/"text" 来区分
 class MyUI {
-    val image by bindResource(ResourceID.image_id, "image")
-    val text by bindResource(ResourceID.text_id, "text")
+    val image by bindResource()
 }
-
-fun <T> MyUI.bindResource(
-        id: ResourceID<T>,
-        propertyName: String
-): ReadOnlyProperty<MyUI, T> {
-   if(checkProperty(this, propertyName)){
-       return ImageDelegate
-   }else{
-       return textDelegate
-   }
+// 如果我们想在代理返回之前，根据属性自身做一个判断，即这里的checkProperty(this，propertyName)
+fun <T> MyUI.bindResource(): ReadOnlyProperty<MyUI, T> {
+  val type = checkProperty(this, propertyName)
+  return if(type = 1) ImageResourceDelegate() else TextResourceDelegate()
 }
-// 上面这种需要将属性的类别显式传给代理方法
+// 你会发现拿不到属性的名称propertyName，需要调用者手动传入一个参数
 
---<font color =red >没看懂这里为什么改成下面就不需要了</>--
-
-// 为了减少这种不方便，kotlin 为你提供一个provideDelegate 方法
-// 此方法在属性依赖类（MyUI）创建时生效，即代理对象创建时
-
-class ResourceDelegate<T> : ReadOnlyProperty<MyUI, T> {
-    override fun getValue(thisRef: MyUI, property: KProperty<*>): T { ... }
-}
+// 为了减少这种不方便，kotlin 为你提供一个provideDelegate 方法，可以让你在
+// 此方法在属性依赖类（MyUI）创建时生效，即代理对象创建时你就可以拿到这个proertyName  
 
 class ResourceLoader<T>(id: ResourceID<T>) {
     operator fun provideDelegate(
             thisRef: MyUI,
-            prop: KProperty<*>
+            property: KProperty<*>
     ): ReadOnlyProperty<MyUI, T> {
-       if(checkProperty(this, prop.name)){
-           return ImageResourceDelegate
-       }else{
-           return textResourceDelegate
-       }
+        val type = checkProperty(this, property.name)
+        return if(type = 1) ImageResourceDelegate() else TextResourceDelegate()
     }
-
     private fun checkProperty(thisRef: MyUI, name: String) { ... }
 }
-
 class MyUI {
     fun <T> bindResource(id: ResourceID<T>): ResourceLoader<T> { ... }
 
     val image by bindResource(ResourceID.image_id)
-    val text by bindResource(ResourceID.text_id)
 }
 ```
 
+上述写法需要自己实现类，过于繁杂，可以用库接口`PropertyDelegateProvider` 简写为：
+
 ```kotlin
-// provider 同样可以简写为方法
 val provider = PropertyDelegateProvider { thisRef: Any?, property ->
     ReadOnlyProperty<Any?, Int> {_, property -> 42 }
 }
