@@ -65,6 +65,13 @@ https://en.wikipedia.org/wiki/Existentialism
 
 
 
+全局/本地的概念：
+
+- 全局指类内，或者文件级别
+- 本地指方法内
+
+
+
 #### 数组
 
 type[] 表示数组

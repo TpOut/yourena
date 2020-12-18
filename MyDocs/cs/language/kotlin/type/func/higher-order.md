@@ -1,20 +1,36 @@
-kotlin 的方法是first-class( 参看wiki)
+kotlin 的方法是first-class function ( 参看wiki)
 
-[functional programming idiom `fold`](https://en.wikipedia.org/wiki/Fold_(higher-order_function))
+为了实现这种函数，就需要方法类型，即一种定义方式 :  
+
+`val funVar : (Receiver.(p1: Params) -> Unit)? = ...`
+
+接收器和参数名是可选的  
 
 
 
-方法类型
+有了方法类型的概念后，就可以做实例化：
 
-- 基本格式
+```kotlin
+// lambda 形式
+val stringLengthFunc: (String) -> Int = { input ->
+    input.length
+}
 
-`val funVar : () -> Unit = ...`
+// 匿名函数形式
+... = fun(s: String): Int { return s.toIntOrNull() ?: 0 }
 
-- 附加接收器类型
+// 可调用形式 [callable references]()
+```
 
-`A.(B) -> C`
 
-- Suspending fuctions
 
-需要在前面两者之前加`suspend` 关键字
+而高阶函数\(higher order functions\)则是允许方法作为参数，或者作为返回值。
+
+```
+
+```
+
+
+
+当将方法作为参数的时候，可以用 [lambda]() 简化编写
 

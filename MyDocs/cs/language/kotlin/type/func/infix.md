@@ -1,4 +1,8 @@
-infix 可以省略调用点和括号。但是必须是成员或拓展方法，不是变参和没有默认值的单参
+infix 可以省略调用点和括号。
+
+- 必须是成员或拓展方法  
+- 单参，不是变参和不能有默认值  
+- 省略调用点时，必须指明receiver  
 
 ```kotlin
 //如位元操作符的实现， 只对于Int, Long 可用
@@ -15,15 +19,4 @@ infix fun Int.shl(x: Int): Int { ... }
 
 1 shl 2
 1.shl(2)
-
-//也有一点不方便
-class MyStringCollection {
-    infix fun add(s: String) { /*...*/ }
-    
-    fun build() {
-        this add "abc"   // Correct
-        add("abc")       // Correct
-        //add "abc"        // Incorrect: the receiver must be specified
-    }
-}
 ```

@@ -40,64 +40,16 @@ var result = run{ // 结果是 () -> kotlin.Int
 
 
 
-let
+`*` 展开参数  
 
 ```kotlin
-value?.let {
-    ... // execute this block if not null
-}
-
-val nullableFoo :Foo? = ...
-//只在不为空的时候，传入方法并且执行
-nullableFoo?.let { foo ->
-   foo.baz()
-   foo.zap()
-}
+fun foo(vararg strings: String) { /*...*/ }
+foo(strings = *arrayOf("a", "b", "c"))
 ```
 
-with
 
-```kotlin
-//同时执行一个类的方法
-class Turtle {
-    fun penDown()
-    fun penUp()
-    fun turn(degrees: Double)
-    fun forward(pixels: Double)
-}
 
-val myTurtle = Turtle()
-with(myTurtle) { //draw a 100 pix square
-    penDown()
-    for(i in 1..4) {
-        forward(100.0)
-        turn(90.0)
-    }
-    penUp()
-}
-```
-
-apply
-
-```kotlin
-//配置属性，弥补构造？
-val myRectangle = Rectangle().apply {
-    length = 4
-    breadth = 5
-    color = 0xFAFAFA
-}
-```
-
-also
-
-```kotlin
-var a = 1
-var b = 2
-a = b.also { b = a }
-// a = b 之后再执行一遍also 括号里的内容b = a，但是a 还是之前的内容
-```
-
-as
+`as ` 
 
 ```kotlin
 import org.example.Msg
@@ -106,7 +58,7 @@ import org.text.Msg as textMsg
 
 
 
-yield
+`yield ` 
 
 ```
 // 目前的理解是和sequence 的构造器配合，实现一个`发射` 数据的功能
@@ -118,7 +70,7 @@ Restricted suspending
 
 
 
-inline 
+`inline `  
 
 ```kotlin
 inline fun <reified T: Any> Gson.fromJson(json: JsonElement): T = this.fromJson(json, T::class.java)
