@@ -1,6 +1,10 @@
+语法：
+
+```kotlin
+val sum: (Int, Int) -> Int = { x: Int, y: Int -> x + y }
+```
 
 
-lambda 理解成一个特殊的匿名函数   
 
 ```kotlin
 // 在kotlin 中是一个抽象函数类
@@ -32,6 +36,10 @@ tips: list.foreach 可以传递匿名函数，在匿名函数内部return 不会
 #### 语法糖
 
 ```kotlin
+val stringLengthFunc: (String) -> Int = { input ->
+    input.length
+}
+
 // lambda 作为方法最后一个参数的时候，可以简写
 fun foo(
     qux: () -> Unit,
