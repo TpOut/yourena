@@ -8,8 +8,6 @@ Function
 
 如果一个方法没有return 任何有用的值(useful value)，那么返回的类型是**`Unit` **。可以省略return Unit
 
-Unit 是一个只有一个值的类型
-
 
 
 **变参**

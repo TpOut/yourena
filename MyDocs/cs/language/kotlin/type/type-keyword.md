@@ -47,7 +47,9 @@ if (foo::bar.isInitialized) {
 
 **Unit** 
 
-方法默认返回，
+方法默认返回，  
+
+Unit 是一个只有一个值的类型  
 
 
 
@@ -75,3 +77,6 @@ if (foo::bar.isInitialized) {
 
 各种索引都可以用[] 的形式访问
 
+
+
+`internal`  
