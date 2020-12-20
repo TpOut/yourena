@@ -54,22 +54,12 @@ receiver.f(x)
 
 #### 语法糖
 
-- [inline-function]() 优化调用
-
 - [lambda]()
 
     > ```kotlin
     > // 注意lambda 和简写函数的定义区别 -- 个人老是会搞混  
     > // 简写代码块，右值一定是单句表达式，且参数是写在左值里的  
     > // 而lambda，即使是单句表达式，也需要加大括号，参数是写在右值里的    
-    > ```
-
-    > ```kotlin
-    > { a, b -> a.length < b.length }
-    > // 上面的lambda 字面量，等于下面的方法
-    > fun compare(a: String, b: String): Boolean = a.length < b.length
-    > // 注意单行函数的定义，但是如果是多行呢？
-    > // 所以理解成编译器会帮忙生成函数  
     > ```
 
 - 操作符实例化？
@@ -90,32 +80,30 @@ receiver.f(x)
 
 #### 字面量
 
-lambda 和匿名方法 都叫做 方法字面量，意思是：方法没有被声明，但是会以表达式的形式传递    
+lambda 和匿名方法 都叫做 方法字面量，意思是：方法没有被声明，但是会以表达式的形式传递  
+
+```kotlin
+{ a, b -> a.length < b.length }
+// 上面的lambda 字面量，等于下面的方法
+fun compare(a: String, b: String): Boolean = a.length < b.length  
+// 所以理解成编译器会帮忙生成函数  
+```
+
+  
 
 字面量方法添加接收器的时候，不用添加参数，接收器会被隐式转化为 this：  
 
 ```kotlin
-val sum: Int.(Int) -> Int = { other -> plus(other) } // 等效 this.plus() 
-val sum = fun Int.(other: Int): Int = this + other  
+val sum: Int.(Int) -> Int = { other -> plus(other) } // receiver.this.plush()
+// 上面的lambda，等于下面的方法
+val sum = fun Int.(other: Int): Int = this + other // 这里的this 为什么代表receiver ???
 ```
 
-```kotlin
-class HTML {
-    fun body() { ... }
-}
-
-fun html(init: HTML.() -> Unit): HTML {
-    val html = HTML()  // create the receiver object
-    html.init()        // pass the receiver object to the lambda
-    return html
-}
-
-html {       // lambda with receiver begins here
-    body()   // calling a method on the receiver object
-}
-```
+这种形式的主要好处，是用于[type-safe builders]()  
 
 
+
+[inline-function]() 优化调用
 
 
 
