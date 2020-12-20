@@ -70,7 +70,7 @@ class B : A() {
 // B().foo() // 结果是10
 ```
 
-简写代码块
+简写代码块（需要表达式单句 -- single expression  
 
 ```kotlin
 fun generateAnswerString(countThreshold: Int): String = 

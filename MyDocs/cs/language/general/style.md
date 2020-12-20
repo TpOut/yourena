@@ -1,3 +1,13 @@
+#### language style
+
+---
+
+LinQ：https://docs.microsoft.com/en-us/previous-versions/dotnet/articles/bb308959(v=msdn.10)
+
+
+
+#### coding style
+
 > pointers on c -- chapter2.3
 >
 > python文档：https://docs.python.org/3/tutorial/controlflow.html#intermezzo-coding-style
