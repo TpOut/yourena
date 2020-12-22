@@ -107,3 +107,7 @@ inline fun <reified T> TreeNode.findParentOfType(): T? {
 }
 ```
 
+```kotlin
+inline fun <reified T: Any> Gson.fromJson(json: JsonElement): T = this.fromJson(json, T::class.java)
+```
+

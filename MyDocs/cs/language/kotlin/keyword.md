@@ -36,7 +36,18 @@ var result = run{ // 结果是 () -> kotlin.Int
 
 `is` 类型检查
 
-`in` 用于循环，包括for，区间( ... , until , downTo , step )，通过`IntRange` `IntProgress` 等实现  
+`in` 主要用于循环，包括for，区间( ... , until , downTo , step )，通过`IntRange` `IntProgression` 等实现
+
+```kotlin
+// Range. 要自己实现compareTo() 让contains 方法做判断，实现rangetTo() 让... 操作符调用     
+val versionRange = Version(1, 11)..Version(1, 30)
+println(Version(0, 9) in versionRange)
+
+//Progress，实现了Iterator，所以支持collection 的变换方法  
+IntProgression, LongProgression, and CharProgression.
+```
+
+
 
 
 
@@ -67,12 +78,3 @@ import org.text.Msg as textMsg
 
 Restricted suspending
 ```
-
-
-
-`inline `  
-
-```kotlin
-inline fun <reified T: Any> Gson.fromJson(json: JsonElement): T = this.fromJson(json, T::class.java)
-```
-
