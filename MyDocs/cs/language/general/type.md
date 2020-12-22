@@ -76,3 +76,31 @@ https://en.wikipedia.org/wiki/Existentialism
 
 type[] 表示数组
 
+
+
+#### collection  
+
+- list
+- set
+- map
+
+注意接口设计的时候，list / set 都是从collection 继承，而map 不是  
+
+一般collection 继承自iterator .(即iterator 设计模式)。  
+
+一般map 也支持iterator，只不过类似组合的方式实现（内部持有一个set  
+
+
+
+ArrayList 理解成可变数组  
+
+
+
+两个list 需要每个位置的值都顺序相等，才认为相等；  
+
+set 则值相等即可，注意LinkedHashSet 也是如此  
+
+
+
+
+
