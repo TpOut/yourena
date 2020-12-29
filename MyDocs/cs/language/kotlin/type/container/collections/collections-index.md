@@ -14,6 +14,10 @@ map 默认推导是LinkedHashMap
 
 
 
+继承相关 `AbstractCollection`  `AbstractList`  `AbstractSet`  `AbstractMap`
+
+
+
 #### 语法糖
 
 ```kotlin
