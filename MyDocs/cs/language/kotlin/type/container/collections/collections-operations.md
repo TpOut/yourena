@@ -12,7 +12,17 @@
     >
     > unzip 可以解pair  
 
-  - 
+  - associate   
+
+      将元素映射成map collection，key 或value 并关联生成value 或key  
+
+  - flatten  ( flatMap )
+
+      平铺内部collection  
+
+  - joinTo
+
+      将每个元素join 为字符串  
 
 - filter
 
