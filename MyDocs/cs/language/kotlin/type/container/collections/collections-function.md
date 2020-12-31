@@ -1,5 +1,0 @@
-```kotlin
-isEmpty()
-get()  
-```
-
