@@ -65,9 +65,33 @@ get()
 
     返回`Grouping` 对象
 
+    > 可以对其做 eachCount / fold / reduce / aggregate 操作
+
 - retrieve
   - part of
+  
+    - slice
+  
+      裁剪一段数据
+  
+    - take / drop  (takeWhile, dropLast)
+  
+      从头或者从尾获取一定数量的数据
+  
+    - chunked （可加表达式
+  
+      固定大小分割成多段数据
+  
+    - windowed （zipWithNext
+  
+      遍历步长，取固定大小的数据，组成新数据
+  
   - single
+  
+    - elementAt ( elementAtOrElse
+    - first / last ( find )
+    - random ( Random )
+    - contains ( containsAll  
   
 - order
 
