@@ -1,11 +1,71 @@
 #### normal
 
 ```kotlin
-plus / minus
+plus / minus / plusAssign / minusAssign   
 
-isEmpty()
-get()  
+isEmpty()  
+
+add() / addAll() // iterable, sequence, array  
+put() / putAll() //  iterable, sequence, array, Pair's  
+
+remove() / removeAll() // 后者可加条件
+retainAll() // 留存  
+clear()  
 ```
+
+- list
+
+    ```kotlin
+    get() (getOrElse, getOrNull )
+    indexOf() (lastIndexOf, indexOfFirst)  
+    removeAt() (removeFisrOrNull ) 
+    set() 
+    fill()
+    ```
+
+    ```kotlin
+    binarySearch() // 需要排好序
+    // 可以传递一个规则作非自然排序
+    val productList = listOf(
+        Product("WebStorm", 49.0),
+        Product("AppCode", 99.0),
+        Product("DotTrace", 129.0),
+        Product("ReSharper", 149.0))
+    
+    println(productList.binarySearch(Product("AppCode", 99.0), compareBy<Product> { it.price }.thenBy { it.name }))
+    // 甚至只传递目标值，而不是同类型元素
+    fun priceComparison(product: Product, price: Double) = sign(product.price - price).toInt()
+    
+    fun main() {
+        val productList = listOf(
+            Product("WebStorm", 49.0),
+            Product("AppCode", 99.0),
+            Product("DotTrace", 129.0),
+            Product("ReSharper", 149.0))
+    
+        println(productList.binarySearch { priceComparison(it, 99.0) })
+    }
+    ```
+
+- set
+
+    ```kotlin
+    union() // 按集合原顺序连接  
+    intersect() // 交集  
+    subtract() // 接收器中的差集部分
+    ```
+
+- map
+
+    ```kotlin
+    getOrElse()  
+    filterValues / fiterKeys  
+    
+    ```
+
+    map 的plus ，如果key 重复会选择右侧的。  
+
+    remove 如果传递的值是(key, value)， 那么两者都匹配才会删除  
 
 #### populate
 
@@ -95,7 +155,39 @@ get()
   
 - order
 
+    排序相关，comparable / comparator  
+
+    - compareBy  
+
+        ```kotlin
+        println(listOf("aaa", "bb", "c").sortedWith(compareBy { it.length }))
+        ```
+
+    - sorted (sortedBy / sortedWith) 
+
+    - reversed  (asReversed )
+
+        倒序
+
+    - shuffled  
+
+        随机
+
 - aggregate
+
+    - minOrNull / maxOrNull  (maxByOrNull, minWithOrNull )
+
+    - average
+
+    - sum (sumBy, sumByDouble )
+
+    - count
+
+    - fold / reduece （reduceRight, foldIndexed, `*OrNull`  
+
+        获取当前位置的数值（或者初始化值）和下个位置的数值，进行操作并返回结果作为下次操作的第一个数值。再或者下个位置的值作为第二个值。。循环  
+
+- 
 
 
 
