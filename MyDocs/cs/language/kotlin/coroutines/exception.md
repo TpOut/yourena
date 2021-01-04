@@ -24,7 +24,7 @@
 
 android 默认uncaughtExceptionPreHandler  
 
-所以使用async 时，要么`try/catch` 要么主动`await` 一下 -- 不然没有日志很蛋疼  
+所以使用async 时，要么`try/catch` 要么主动`await` 一下 -- 不然没有日志很蛋疼    
 
 
 

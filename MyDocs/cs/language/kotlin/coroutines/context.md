@@ -1,13 +1,3 @@
-包括job 和dispatcher，name  
-
-协程的isActive 其实就是调用的job?.isActive
-
-
-
-dispatcher 则是管理协程和线程的绑定
-
-
-
 ```kotlin
 // 这里为什么先打印unconfined 后打印runBlocking ，大概是底层实现的缘故吧
 // 目前理解成launch 默认类似handler.post ，而launch(Unconfined) 在遇到suspend 之前是直接先执行
