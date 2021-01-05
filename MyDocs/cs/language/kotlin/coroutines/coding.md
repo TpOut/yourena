@@ -13,19 +13,7 @@ fun main() = runBlocking<Unit> {
 
 
 
-newSingleThreadContext .use{}
 
 
 
-协程-local data，threadLocal.asContextElement(value = "launch")  
-
-不管执行线程怎么切，协程上的 value 都是launch
-
-> 注意使用，如果子协程会修改 协程-local，父携程是不会追踪数据变化的。所以父协程如果有使用需要，则在创建时要建立自己的 协程-local  
->
-> **ensurePresent**
-
-
-
-切换环境，主要是线程， withContext  
 
