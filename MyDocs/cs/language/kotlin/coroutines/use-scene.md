@@ -8,6 +8,23 @@
 
 
 
+#### delay
+
+```kotlin
+// delay 是对协程所绑定的线程进行延时处理  
+GlobalScope.launch {
+    delay(1000L)
+    println("World!")
+}
+
+```
+
+
+
+
+
+
+
 组合使用，
 
 - 顺序调用
