@@ -8,20 +8,58 @@
 
 
 
+#### runBlocking
+
+可以用于测试
+
+```kotlin
+class MyTest {
+    @Test
+    fun testMySuspendingFunction() = runBlocking<Unit> {
+        // here we can use suspending functions using any assertion style that we like
+    }
+}
+```
+
+相对于coroutineScope 方法而言，它是阻塞线程而不是挂起
+
+> 这里的阻塞是指协程的执行会按顺序执行完毕  
+>
+> 
+
+```kotlin
+fun main() = runBlocking { // this: CoroutineScope
+    launch { 
+        delay(200L)
+        println("Task from runBlocking")
+    }
+    
+    coroutineScope { // Creates a coroutine scope
+        launch {
+            delay(500L) 
+            println("Task from nested launch")
+        }
+    
+        delay(100L)
+        println("Task from coroutine scope") // This line will be printed before the nested launch
+    }
+    
+    println("Coroutine scope is over") // This line is not printed until the nested launch completes
+}
+```
+
+
+
 #### delay
 
 ```kotlin
-// delay 是对协程所绑定的线程进行延时处理  
+// 将协程延迟执行
 GlobalScope.launch {
     delay(1000L)
     println("World!")
 }
 
 ```
-
-
-
-
 
 
 

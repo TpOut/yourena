@@ -40,8 +40,6 @@
 
     - context 由多个元素`Element` 组成   
 
-        可以用启动项`CoroutineStart` 配置一些参数
-
         - element 包括 
 
             - 代码块任务`Job`  
@@ -57,7 +55,7 @@
             - 异常捕获器`ExceptionHandler`
 
         > `ContinuationInterceptor` 
-        >
+>
         >`CoroutineExceptionHandler`
 
 
@@ -94,8 +92,10 @@ val scope = MainScope()
 
 创建了特征值之后，就要可以创建协程了，对应构造器：
 
-- `launch` 同步
-- `async` 异步
+- `launch` 
+- `async` 
+
+> launch 和asyc 的区别是后者结果的异步返回，而不是线程的同步异步
 
 ```kotlin
 // 启动示例
@@ -106,13 +106,13 @@ scope.launch{
 
 构造器创建的协程，默认情况下会自动**启动 ** 
 
-如果要修改启动项，则：
+如果要修改特征值context，或者启动项`CoroutineStart`  都可以在这里配置：  
 
 ```kotlin
-
+scope.launch(Dispatchers.IO,CoroutineStart.LAZY){
+    
+}
 ```
-
-
 
 启动后的协程，我们需要进行管理，则引用启动时返回的实例：
 
@@ -133,6 +133,13 @@ Job 的基本类是`Job`,
 - `cancel`  
 
 - `join` 等待job 代码块执行完毕(包括 finalization -- finally)
+
+    ```kotlin
+    val job = scope.launch{
+        // doSomeThing
+    }
+    job.join()    
+    ```
 
 子类`Deffered` 有方法：
 
@@ -157,7 +164,7 @@ Job 的基本类是`Job`,
 
 CompletableJob 线程安全  
 
-[更多用法]()
+[更多用法](use-scene)
 
 #### 结构化
 
@@ -165,13 +172,25 @@ CompletableJob 线程安全
 
 为了防止创建后忘记关闭（不管我们有没有持有引用，协程启动后在scope 范围内就存在），默认以结构化的形式关联，基本体系如下：
 
-  
 
-协程运行时，可以直接调用构造器新开协程，用的就是所在协程的scope(看代码就知道，代码块的this 就是scope)。而新开的协程会作为原先协程的子协程。即它们之间会产生关联结构（父子）。默认情况下context 也会直接传递  
 
-> 实际上应该是通过job.children/parent 来实现关联结构的
+我们拥有特征值的实例之后，可以用特征值实例作为接收器，来构造新协程。  
+
+此时新协程的特征值默认使用接收器的特征值，  
+
+且新协程的特征值与特征值实例会产生关联结构（父子）。     
+
+> 会看到`AbstractCoroutine` 有 parentContext
 >
-> 即使scope 范围相同，两个scope 实例依旧是不同的，会造成额外的消耗 -- 如多次GlobalScope.
+> `ScopeCoroutine` 有parent 也是取自此   
+
+```kotlin
+// 示例
+fun main() = runBlocking {
+    GlobalScope.launch{} // 不会关联
+    launch {} // 会关联
+}
+```
 
 
 
@@ -195,7 +214,17 @@ CompletableJob 线程安全
 
 
 
- 
+#### 调试
+
+基于上述的一些基本情况，我们差不多可以开始实践了  
+
+此时最关键的还是在于[调试工具]()  
+
+
+
+#### 测试
+
+
 
 #### 代码验证
 
@@ -203,9 +232,11 @@ CompletableJob 线程安全
 
 
 
+#### tips
 
+1、即使scope 范围相同，两个scope 实例依旧是不同的，会造成额外的消耗 -- 如多次GlobalScope.
 
-
+? 怎么看到GlobalScope 现在是object 了
 
 
 
