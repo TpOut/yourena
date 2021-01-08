@@ -6,7 +6,24 @@
 
 [select]()  
 
+#### suspend
 
+关于suspend ，它只是一个标记，表示内部的代码块可被挂起  
+
+被标记为suspend 的函数，会保证函数（调用点）之后的代码，在函数执行完成之后执行  
+
+```kotlin
+runBlocking{
+    coroutineScope{
+        println("xixi")  
+    }
+    println("over")  //一定在coroutineScope 里的内容执行后打印
+}
+```
+
+#### GlobalScope
+
+执行时，类似守护线程  
 
 #### delay
 
@@ -19,7 +36,85 @@ GlobalScope.launch {
 
 ```
 
+#### yield
 
+[yield-usage]()
+
+#### cancel
+
+拓展函数 `cancelAndJoin`    
+
+协程的可取消在于`suspend` 方法，每次执行时会进行判断。  
+
+如果正在执行密集型计算，那么就没有地方会进行判断。需要代码里调用`yield`，或者显式判断逻辑`isActive`  
+
+```kotlin
+// 取消会引起异常  
+val job = launch {
+    try {
+        repeat(1000) { i ->
+            println("job: I'm sleeping $i ...")
+            delay(500L)
+        }
+    } finally {
+        println("job: I'm running finally")  
+        // 一般性join 后finally 代码块都会立即执行  
+        // 但是如果的确是一个耗时操作，需要`withContext(NonCancellable)`
+        withContext(NonCancellable) {
+            println("job: I'm running finally")
+            delay(1000L)
+            println("job: And I've just delayed for 1 sec because I'm non-cancellable")
+        }
+    }
+}
+delay(1300L)  
+println("main: I'm tired of waiting!")  
+job.cancelAndJoin()    
+
+```
+
+**超时**  
+
+```kotlin
+withTimeout(1300L) {
+    repeat(1000) { i ->
+        println("I'm sleeping $i ...")
+        delay(500L)
+    }
+}
+
+// 获取结果
+val result = withTimeoutOrNull(1300L) {
+    repeat(1000) { i ->
+        println("I'm sleeping $i ...")
+        delay(500L)
+    }
+    "Done" // will get cancelled before it produces this result
+}
+println("Result is $result")
+```
+
+超时的异常是异步的，所以可能在代码执行之前出现异常，但是在代码执行之后，才抛出  
+
+所以在使用资源类需要关闭的逻辑时，不能使用上面的从结果赋值的方式，而是：  
+
+```kotlin
+var resource: Resource? = null
+    try {
+        withTimeout(60) {
+        delay(50)
+        resource = Resource()  
+        }
+    } finally {  
+        resource?.close()   
+    }
+```
+
+
+
+
+
+#### compose
 
 组合使用，
 
@@ -39,17 +134,17 @@ GlobalScope.launch {
 
 
 
+#### 种类
+
+ suspendCancellableCoroutine  
+
+
+
 #### tips
 
-代码块中`try/catch/finally` ，一般性join 后finally 代码块都会立即执行，但是如果是一个需要挂起的操作，需要`withContext(NonCancellable)`  
+`use` 方法，资源释放？  
 
-但是正在进行计算（如循环）的协程需要逻辑控制来停止：
 
-- 一个是逻辑代码判断当前协程是否已被取消（isAlive
-
-    - 一个是库的yield 方法，自动帮助判断是否已被取消 
-
-    
 
 #### 超时
 

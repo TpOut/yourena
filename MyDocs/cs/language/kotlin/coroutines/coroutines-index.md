@@ -55,8 +55,8 @@
             - 异常捕获器`ExceptionHandler`
 
         > `ContinuationInterceptor` 
->
-        >`CoroutineExceptionHandler`
+        >
+        > `CoroutineExceptionHandler`
 
 
 
@@ -73,7 +73,6 @@ Scope 基本类是`CoroutineScope`，通过它可以创建协程。其他所有�
 - `MainScope`  
 
 - `GlobalScope`   
-- `coroutineScope`   
 
 可以看到，在创建的时候，其内部组合了另一个特征值context。
 
@@ -94,8 +93,11 @@ val scope = MainScope()
 
 - `launch` 
 - `async` 
+- `coroutineScope`   
 
 > launch 和asyc 的区别是后者结果的异步返回，而不是线程的同步异步
+>
+> [launch 行为](launch-like-post)
 
 ```kotlin
 // 启动示例
@@ -104,17 +106,9 @@ scope.launch{
 }
 ```
 
-构造器创建的协程，默认情况下会自动**启动 ** 
+然后我们就可以在协程里运行`suspend` 函数了
 
-如果要修改特征值context，或者启动项`CoroutineStart`  都可以在这里配置：  
-
-```kotlin
-scope.launch(Dispatchers.IO,CoroutineStart.LAZY){
-    
-}
-```
-
-启动后的协程，我们需要进行管理，则引用启动时返回的实例：
+管理协程需要引用启动时返回的实例：
 
 ```kotlin
 val job = scope.launch{
@@ -130,7 +124,9 @@ Job 的基本类是`Job`,
 
 有方法：
 
-- `cancel`  
+- `start`  
+
+- `cancel`    
 
 - `join` 等待job 代码块执行完毕(包括 finalization -- finally)
 
@@ -161,6 +157,19 @@ Job 的基本类是`Job`,
             deferreds.awaitAll()      
         }
     ```
+
+构造器创建的协程，默认情况下会自动**启动 ** 
+
+如果要修改特征值context，或者启动项`CoroutineStart`  都可以在这里配置。  
+
+启动项包括：启动时机，是否可取消，在协程第一处可挂起之前运行在当前线程    
+
+```kotlin
+scope.launch(Dispatchers.IO,CoroutineStart.LAZY){
+    
+}
+// 此时调用 `job.join` , `job.start` 之后才会真正执行
+```
 
 CompletableJob 线程安全  
 
@@ -242,23 +251,11 @@ fun main() = runBlocking {
 
 
 
-
-
-
-
 invokeOnCompletion  
 
-completionHandler  
+completionHandler    
 
-
-
-- 可以指定参数`CoroutineStart` 实现懒加载，在`job.join` , `job.start` 之后才会真正执行
-
-- 启动时机，是否可取消，在协程第一处可挂起之前运行在当前线程  
-
-    
-
-`runBlocking` 创建一个绑定在当前线程的协程，会先执行协程内容；一般用于测试
+  
 
 `supervisorScope` 
 
@@ -269,21 +266,13 @@ completionHandler
 
 
 
-> 既然取消的设计产生的finally ，那么finally 里就不该做耗时操作；
->
-> 但是的确有需求，可以使用withContext(NonCancellable)
-
-
-
 launch 处理了UncaughtException（`CoroutineExceptionHandler`），其他的如async 则需要在返回的结果中获取异常  
 
 
 
-[协程的结构限制](./coroutines-struct.md)  
-
 但是不建议使用launch 和async 启动协程，而一般自己建立一个CoroutineScope
 
-可以使用produce，创建channel
+可以使用produce，创建channel  
 
 
 
