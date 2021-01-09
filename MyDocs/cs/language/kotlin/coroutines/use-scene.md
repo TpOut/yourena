@@ -25,6 +25,16 @@ runBlocking{
 
 执行时，类似守护线程  
 
+```kotlin
+//GlobalScope.async 方法不是`suspend` 方法，它启动后是线程异步的。     
+val job = GlobalScope.async{doSomething}
+doOtherLogic()
+job.await()
+// 这种单独执行async 的方式不被推荐，因为doOtherLogic 出错时抛出异常，取消整体操作，但是job 还在后台运行  
+```
+
+
+
 #### delay
 
 ```kotlin
@@ -114,19 +124,35 @@ var resource: Resource? = null
 
 
 
+#### lazy 
 
+```kotlin
+fun main() = runBlocking {
+    var lazyJob: Job? = null
+    var lazyDef: Deferred<String>? = null
 
-#### compose
+    lazyJob = GlobalScope.launch {
+        if (lazyDef == null) {
+            lazyDef = xixi()
+        }
+        launch {
+            println("before await")
+            println(lazyDef!!.await())
+            println(lazyDef!!.await()) //deferred 会存结果，所以可以算是自带懒加载效果
+        }
+    }
 
-> 实际上launch 也可以异步调用，只是没有结果，要自己处理
->
-> ```kotlin
-> val job = GlobalScope.async{doSomething}
-> doOtherLogic()
-> job.await()
-> // 这种单独执行async 的方式不被推荐，因为doOtherLogic 出错时抛出异常，取消整体操作，但是job 还在后台运行 -- 因为GlobalScope 
-> // 所以不管怎么样，最好是把一个操作的代码，都写在一个scope 中，基于结构化结构，便于取消
-> ```
+    lazyJob.join()
+}
+
+private suspend fun xixi(): Deferred<String> {
+    return GlobalScope.async(start = CoroutineStart.LAZY) {
+        println("refresh deferred result")
+        delay(100)
+        "its deferred result"
+    }
+}
+```
 
 
 
@@ -139,13 +165,7 @@ var resource: Resource? = null
 #### tips
 
 - `use` 方法，资源释放？  
-
 - 计时： `measureTimeMillis {}`
-
-- 官方说，可以用Lazy 启动项代替lazy 方法，但是怎么写呢？
-
-  > The use-case for `async(start = CoroutineStart.LAZY)` is a replacement for the standard `lazy` function in cases when computation of the value involves suspending functions.
-
 - 
 
 
