@@ -95,7 +95,7 @@ val scope = MainScope()
 - `async` 
 - `coroutineScope`   
 
-> launch 和asyc 的区别是后者结果的异步返回，而不是线程的同步异步
+> launch 和async 的区别是后者执行结果可以作为返回值，而不是线程的同步异步
 >
 > [launch 行为](launch-like-post)
 
@@ -168,7 +168,7 @@ Job 的基本类是`Job`,
 scope.launch(Dispatchers.IO,CoroutineStart.LAZY){
     
 }
-// 此时调用 `job.join` , `job.start` 之后才会真正执行
+// 此时调用 `job.join`/ `job.start`/ `job.await` 之后才会真正执行
 ```
 
 CompletableJob 线程安全  
