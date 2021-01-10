@@ -263,11 +263,6 @@ completionHandler
 
 
 
-- `await`  
-- `awaitAll`
-
-
-
 launch 处理了UncaughtException（`CoroutineExceptionHandler`），其他的如async 则需要在返回的结果中获取异常  
 
 

@@ -6,6 +6,8 @@
 
 [select]()  
 
+
+
 #### suspend
 
 关于suspend ，它只是一个标记，表示内部的代码块可被挂起  
@@ -32,8 +34,6 @@ doOtherLogic()
 job.await()
 // 这种单独执行async 的方式不被推荐，因为doOtherLogic 出错时抛出异常，取消整体操作，但是job 还在后台运行  
 ```
-
-
 
 #### delay
 
@@ -124,6 +124,47 @@ var resource: Resource? = null
 
 
 
+#### dispatcher
+
+用来管理coroutine 和thread 的关联(confine)     
+
+- `Dispatchers.Unconfined`   
+- `Dispatchers.Default` 是一个共享的线程池，和Global.launch 使用的一个参数  
+- `newSingleThreadContext` ，为携程单独创建的线程，实际应用中不推荐使用。即使用也最好是全局复用一下。有`close` 方法进行关闭
+-   
+
+除了常规的线程同步方式，可以使用`thread confinement`  
+
+
+
+**同步**  
+
+有多线程，就有同步的问题  
+
+对应线程锁，协程也有锁：
+
+`mutex.lock()` `mutex.unlock()` `mutex.withLock`
+
+
+
+使用actor，通过顺序的channel，保证多个coroutine 的操作同步。
+
+
+
+协程-local data，threadLocal.asContextElement(value = "launch")  
+
+不管执行线程怎么切，协程上的 value 都是launch
+
+> 注意使用，如果子协程会修改 协程-local，父携程是不会追踪数据变化的。所以父协程如果有使用需要，则在创建时要建立自己的 协程-local  
+>
+> **ensurePresent**
+
+
+
+切换环境，主要是线程， withContext  
+
+
+
 #### lazy 
 
 ```kotlin
@@ -166,36 +207,8 @@ private suspend fun xixi(): Deferred<String> {
 
 - `use` 方法，资源释放？  
 - 计时： `measureTimeMillis {}`
-- 
+- 不同的协程构造器对已有的特征值有不同的继承方式：
+  - 比如launch 默认继承context    
+  - 
 
 
-
-#### 同步
-
-除了常规的线程同步方式，可以使用`thread confinement`  
-
-即从库层面把所有的计算进行同步，通过`newSingleThreadContext`  
-
-
-
-对应线程锁，协程也有锁：
-
-`mutex.lock()` `mutex.unlock()` `mutex.withLock`
-
-
-
-使用actor，通过顺序的channel，保证多个coroutine 的操作同步。
-
-
-
-协程-local data，threadLocal.asContextElement(value = "launch")  
-
-不管执行线程怎么切，协程上的 value 都是launch
-
-> 注意使用，如果子协程会修改 协程-local，父携程是不会追踪数据变化的。所以父协程如果有使用需要，则在创建时要建立自己的 协程-local  
->
-> **ensurePresent**
-
-
-
-切换环境，主要是线程， withContext  
