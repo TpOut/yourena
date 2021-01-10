@@ -9,6 +9,19 @@
 main @coroutine#2
 ```
 
+而很多时候id 是动态的，不能确定场景，需要名称：
+
+```kotlin
+// 创建时传入context 即可
+val v1 = async(CoroutineName("v1coroutine")) {
+    delay(500)
+    log("Computing v1")
+    252
+}
+```
+
+
+
 
 
 ---

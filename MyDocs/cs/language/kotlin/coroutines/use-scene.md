@@ -122,20 +122,72 @@ var resource: Resource? = null
     }
 ```
 
+#### CoroutineContext
 
+多个context，即时不同种类，也可以用`+` 进行组合  
 
-#### dispatcher
+- CoroutinStart
+    - `CoroutineStart.UNDISPATCHED`  
 
-用来管理coroutine 和thread 的关联(confine)     
+- Dispatcher 
 
-- `Dispatchers.Unconfined`   
-- `Dispatchers.Default` 是一个共享的线程池，和Global.launch 使用的一个参数  
-- `newSingleThreadContext` ，为携程单独创建的线程，实际应用中不推荐使用。即使用也最好是全局复用一下。有`close` 方法进行关闭
--   
+    用来管理coroutine 和thread 的关联(confine) , 是一个closable 对象      
 
-除了常规的线程同步方式，可以使用`thread confinement`  
+    - `Dispatchers.Unconfined` 在遇到`suspend` 之前，代码在当前线程运行。          
+    - `Dispatchers.Default` 是一个共享的线程池，和Global.launch 使用的一个参数  
+    - `Executors.newSingleThreadExecutor().asCoroutineDispatcher()` ，为携程单独创建的线程，实际应用中不推荐使用。即使用也最好是全局复用一下。有`close` 方法进行关闭  
 
+- ThreadContextElement
 
+```kotlin
+val threadLocal = ThreadLocal<String?>() // declare thread-local variable
+
+fun main() = runBlocking<Unit> {
+    threadLocal.set("main")
+    println("切协程前 '${threadLocal.get()}'")
+    val job = launch(threadLocal.asContextElement(value = "launch")) {
+        println("切协程后 '${threadLocal.get()}'")
+    }
+    job.join()
+    println("切回协程后 '${threadLocal.get()}'")    
+}
+```
+
+同时，不管协程的执行线程怎么切，同一个协程上的local value 都是不变的  
+
+注意这里使用launch ，修改的是子协程；但是如果使用withContext ，则可能造成未知结果，具体看asContextElement 的api 文档
+
+在复杂情况下，很容易忘写这个element，可以使用`ensurePresent()` 做快速失败逻辑，如：
+
+```kotlin
+public suspend inline fun <T> ThreadLocal<T>.getSafely(): T {
+  ensurePresent()
+  return get()
+}
+
+// Usage
+withContext(...) {
+  val value = threadLocal.getSafely() // Fail-fast in case of improper context
+}
+```
+
+#### 线程
+
+```kotlin
+fun main() {
+    newSingleThreadContext("Ctx1").use { ctx1 ->
+        newSingleThreadContext("Ctx2").use { ctx2 ->
+            runBlocking(ctx1) {
+                log("Started in ctx1")
+                withContext(ctx2) {
+                    log("Working in ctx2")
+                }
+                log("Back to ctx1")
+            }
+        }
+    }    
+}
+```
 
 **同步**  
 
@@ -147,21 +199,9 @@ var resource: Resource? = null
 
 
 
+除了常规的线程同步方式，可以使用`thread confinement`  
+
 使用actor，通过顺序的channel，保证多个coroutine 的操作同步。
-
-
-
-协程-local data，threadLocal.asContextElement(value = "launch")  
-
-不管执行线程怎么切，协程上的 value 都是launch
-
-> 注意使用，如果子协程会修改 协程-local，父携程是不会追踪数据变化的。所以父协程如果有使用需要，则在创建时要建立自己的 协程-local  
->
-> **ensurePresent**
-
-
-
-切换环境，主要是线程， withContext  
 
 
 
@@ -205,10 +245,25 @@ private suspend fun xixi(): Deferred<String> {
 
 #### tips
 
-- `use` 方法，资源释放？  
+- 检索对象`coroutineContext[Job]`  
+
+- 切换环境 withContext  
+
+    > 在Android 使用lifecycle.launch 中，如果用`result = witchContext{}` 的方式会造成泄漏。具体场景是切换线程，其他的不确定       
+
+- `closable` 资源对象，拓展了`use` 方法，实现自动释放    
+
+    ```kotlin 
+    File("").inputStream().use { 
+                
+    }
+    ```
+
 - 计时： `measureTimeMillis {}`
+
 - 不同的协程构造器对已有的特征值有不同的继承方式：
   - 比如launch 默认继承context    
-  - 
+  
+      
 
 

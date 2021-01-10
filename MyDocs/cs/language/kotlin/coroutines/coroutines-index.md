@@ -70,7 +70,9 @@ Scope 基本类是`CoroutineScope`，通过它可以创建协程。其他所有�
 
 这个类里预置了一些库方法或类：
 
-- `MainScope`  
+-  `CoroutineScope()`
+
+- `MainScope()`  
 
 - `GlobalScope`   
 
@@ -87,6 +89,12 @@ Scope 基本类是`CoroutineScope`，通过它可以创建协程。其他所有�
 ```kotlin
 // 创建示例
 val scope = MainScope()
+// 也可以传递context  
+newSingleThreadContext("Ctx").use { ctx ->
+    runBlocking(ctx) {
+        
+    }
+}
 ```
 
 创建了特征值之后，就要可以创建协程了，通过特征值的构造器方法：
@@ -183,11 +191,14 @@ CompletableJob 线程安全
 
 
 
-我们拥有特征值的实例之后，可以用特征值实例作为接收器，来构造新协程。  
+outScope.outCoroutine 创建了一个 innerCoroutine  
 
-此时新协程的特征值默认使用接收器的特征值，  
+此时outCoroutine 是innerCoroutine 的父亲，且innerCoroutine 的innerContext 传承自 outScope  ，且innerJob 是outCoroutine.outJob  的孩子      
 
-且新协程的特征值与特征值实例会产生关联结构（父子）。     
+- 当innerCoroutine 是GlobalScope.launch 创建时，out 和inner 之间没有父子关系  
+-   
+
+
 
 所以从特征值初始值，即顶层Scope 起，后续所有直接或间接创建的协程都同属于此  
 
@@ -249,9 +260,11 @@ fun main() = runBlocking {
 
 ? 怎么看到GlobalScope 现在是object 了
 
+2、Dispatchers.Unconfined 在suspend 之后的执行线程要怎么指定呢？  
 
+3、scope 的isActive 其实就是job 的isActive  
 
-
+ 
 
 invokeOnCompletion  
 
