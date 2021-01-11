@@ -1,18 +1,32 @@
-协程在执行后，都只是异步处理一个值  
-
-而flow 可以异步处理多个结果并返回（持续订阅）
-
-
-
-具体应该是框架层实现，主要表现在 flow 的“非立即执行”代码块，可以调用suspend 方法
-
-
-
 listOf 马上装载  
 
 sequence 懒加载循环器  
 
-flow 则是协程环境下的懒加载循环器
+flow 则是协程环境下的懒加载循环器  
+
+
+
+也正式因为此，flow 可以调用suspend 方法异步处理多个结果并返回（持续订阅）  
+
+```kotlin
+fun simple(): Flow<Int> = flow { // 构造器
+    for (i in 1..3) {
+        delay(100)
+        emit(i) // 发射
+    }
+}
+
+fun main() = runBlocking<Unit> {
+    launch {
+        for (k in 1..3) {
+            println("I'm not blocked $k")
+            delay(100)
+        }
+    }
+    // 接收
+    simple().collect { value -> println(value) } 
+}
+```
 
 
 
