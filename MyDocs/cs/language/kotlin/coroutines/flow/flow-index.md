@@ -6,7 +6,7 @@ flow 则是协程环境下的懒加载循环器
 
 
 
-也正式因为此，flow 可以调用suspend 方法异步处理多个结果并返回（持续订阅）  
+因此，flow 的代码块中可以调用suspend 方法异步处理结果，如：    
 
 ```kotlin
 fun simple(): Flow<Int> = flow { // 构造器
@@ -23,8 +23,11 @@ fun main() = runBlocking<Unit> {
             delay(100)
         }
     }
-    // 接收
-    simple().collect { value -> println(value) } 
+    // 可以用超时关闭，所以可理解成collect 里面是一个协程之内的逻辑？
+    withTimeoutOrNull(250) {
+        // 接收
+        simple().collect { value -> println(value) } 
+    }
 }
 ```
 
@@ -32,34 +35,23 @@ fun main() = runBlocking<Unit> {
 
 **创建方式：**
 
-flow / flowOf / asFlow 
+除了上面的flow 还有 flowOf / asFlow  
 
 ```kotlin
-// flow
-flow{
-    for(i in 1..3){
-        delay(100)
-        println("e")
-        emit(i)
-    }
-}
-
 // flowOf
 flowOf(1..3)
 
-// asFlow
+// asFlow，用于iterable  
 (1..3).asFlow()
 ```
 
-flow 创建的会每次emit 时自动检测取消，
-
-asFlow 这种则不会，可以使用cancellable 
+flow 创建的会每次emit 时自动检测取消，asFlow 这种则不会  
 
 
 
 **操作符：**
 
-还有很多操作符，去看原文吧
+最常见的map 示例如下：  
 
 ```kotlin
 suspend fun performRequest(request: Int): String {
@@ -68,17 +60,60 @@ suspend fun performRequest(request: Int): String {
 }
 
 fun main() = runBlocking<Unit> {
+    val currentTimeMillis = System.currentTimeMillis()
     (1..3).asFlow() // a flow of requests
-        .map { request -> performRequest(request) }
-        .collect { response -> println(response) }
+        .map { request ->
+            println("${System.currentTimeMillis() - currentTimeMillis} passed, before request $request")
+            performRequest(request)
+        }
+        .collect { response ->
+            println("${System.currentTimeMillis() - currentTimeMillis} passed, before collect")
+            println(response)
+        }
 }
+//结果是先走完请求1 -> map -> collect，
+//再开始请求2 -> map -> collect 
 ```
 
-如过程处理 map / transform 等，
+上面示例的结果也揭示了flow 里的操作符都是按串行顺序执行  
 
-过程配置 take / buffer / conflate / onEach 等
 
-终端处理 toList / first / reduce 
+
+具体分类有：
+
+- 过程处理 map / transform 等，
+
+    ```kotlin
+    // transform 
+    (1..3).asFlow()
+            .transform { request -> 
+                //发射多个
+                emit("Making request $request") 
+                emit(performRequest(request)) 
+            }
+            .collect { response -> println(response) }
+    ```
+
+- 过程处理 take / buffer / conflate / onEach 等
+
+    具体代码看原文吧
+
+    ```kotlin
+    // take 
+    // 在达到数量之后，取消执行，所以会引发异常需要捕获    
+    ```
+
+- 终端处理 collect / toList / first / reduce   
+
+    ```kotlin
+    // reduce, 和sequence 的操作感觉大体不差    
+    val sum = (1..5).asFlow()
+        .map { it * it }                          
+        .reduce { a, b -> a + b }
+    println(sum)
+    ```
+
+    
 
 
 
