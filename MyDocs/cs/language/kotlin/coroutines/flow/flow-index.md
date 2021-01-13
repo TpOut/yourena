@@ -31,6 +31,14 @@ fun main() = runBlocking<Unit> {
 }
 ```
 
+
+
+注意flow 这里的对比对象，隐式表明flow 是iterator 的处理工具  
+
+所以如果想在iterator 创造之后，再发射对象，有点不太行   
+
+
+
 **创建方式：**
 
 除了上面的flow 还有 flowOf / asFlow  
