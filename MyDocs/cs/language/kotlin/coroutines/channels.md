@@ -1,10 +1,10 @@
 deffered 方便协程之间的单数据传递  
 
-channels 提供了**协程之间** 数据流的传递（划重点）     
+channels 提供了**协程之间** 数据流的传递（划重点）   
 
 
 
-类似`BlockingQueue`，但是发送和接收都不会阻塞  
+类似`BlockingQueue`，但是发送和接收都不会阻塞（因为在协程内    
 
 ```kotlin
 fun main() = runBlocking {
@@ -67,6 +67,10 @@ fun main() = runBlocking<Unit> {
 对于消费部分，有一个便捷封装consumeEach（需要是produce 返回的ReceiveChannel）  
 
 ```kotlin
+fun CoroutineScope.produceSquares(): ReceiveChannel<Int> = produce {
+    for (x in 1..5) send(x * x)
+}
+
 val squares = produceSquares()
 squares.consumeEach { println(it) }
 println("Done!")
@@ -215,7 +219,20 @@ fun main() = runBlocking<Unit> {
 
 #### 更多用法：
 
-`actor`   
+`actor` 和`produce` 对比，前者绑定在接收协程；后者绑定在发送协程  
+
+不管哪里运行，保证协程再actor 中是一个一个串行的  
+
+> 还可以看下多线程里的实例  
+
+```kotlin
+fun main() = runBlocking {
+    val a = actor<Int> {
+        println(receive())
+    }
+    a.send(1)
+}
+```
 
 `BroadcastChannel`
 

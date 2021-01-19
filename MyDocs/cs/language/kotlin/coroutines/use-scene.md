@@ -171,40 +171,6 @@ withContext(...) {
 }
 ```
 
-#### 线程
-
-```kotlin
-fun main() {
-    newSingleThreadContext("Ctx1").use { ctx1 ->
-        newSingleThreadContext("Ctx2").use { ctx2 ->
-            runBlocking(ctx1) {
-                log("Started in ctx1")
-                withContext(ctx2) {
-                    log("Working in ctx2")
-                }
-                log("Back to ctx1")
-            }
-        }
-    }    
-}
-```
-
-**同步**  
-
-有多线程，就有同步的问题  
-
-对应线程锁，协程也有锁：
-
-`mutex.lock()` `mutex.unlock()` `mutex.withLock`
-
-
-
-除了常规的线程同步方式，可以使用`thread confinement`  
-
-使用actor，通过顺序的channel，保证多个coroutine 的操作同步。
-
-
-
 #### lazy 
 
 ```kotlin

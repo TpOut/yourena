@@ -36,7 +36,7 @@ android 默认`uncaughtExceptionPreHandler`
 
 而使用`CoroutineExceptionHandler` 处理时，只有所有的子协程都关闭了之后，才会开始处理异常。  
 
-所以如果同时多个协程有多个异常，除了第一个是常规的exception，其他都在`exception.suppressed` 中
+所以如果同时多个协程有多个异常，除了第一个是常规的exception，其他都在`exception.suppressed` 中 -- 对应jdk 1.7+  
 
 
 
@@ -63,7 +63,7 @@ asyncJob.join 同上，
 
 asyncJob.await 则必须捕获对应抛出的源异常   
 
-但是handler 都能获取到对应的源异常
+但是coroutineExceptionHandler 都能获取到对应的源异常
 
 
 

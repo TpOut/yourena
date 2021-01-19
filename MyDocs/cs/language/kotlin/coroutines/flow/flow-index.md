@@ -240,7 +240,7 @@ fun main() = runBlocking<Unit> {
     println(sum)
     ```
 
-[异常]()
+[flow 中的异常]()
 
 
 

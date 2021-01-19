@@ -145,7 +145,7 @@ Job 的基本类是`Job`,
     job.join()    
     ```
 
-子类`Deffered` 有方法：
+子类`Deffered` /`CompletableDeferred`有方法：
 
 - `await` 等待job 代码块执行完毕
 
@@ -166,6 +166,20 @@ Job 的基本类是`Job`,
         }
     ```
 
+- `complete`
+
+    ```kotlin
+    // 传递
+    val response = CompletableDeferred<Int>()
+    counter.send(GetCounter(response))
+    println("Counter = ${response.await()}")
+    
+    // 另一个协程，类似回调？
+    is GetCounter -> msg.response.complete(counter)
+    ```
+
+    
+
 构造器创建的协程，默认情况下会自动**启动 ** 
 
 如果要修改特征值context，或者启动项`CoroutineStart`  都可以在这里配置。  
@@ -181,7 +195,13 @@ scope.launch(Dispatchers.IO,CoroutineStart.LAZY){
 
 CompletableJob 线程安全  
 
-[更多用法](use-scene)
+[更多用法](use-scene)  
+
+#### 调试
+
+基于上述的一些基本情况，我们差不多可以开始实践了  
+
+此时最关键的还是在于[调试工具]()  
 
 #### 结构化
 
@@ -191,13 +211,12 @@ CompletableJob 线程安全
 
 
 
-outScope.outCoroutine 创建了一个 innerCoroutine  
+如果 outScope.outCoroutine 创建了一个 innerCoroutine   
 
-此时outCoroutine 是innerCoroutine 的父亲，且innerCoroutine 的innerContext 传承自 outScope  ，且innerJob 是outCoroutine.outJob  的孩子      
+此时outCoroutine 是innerCoroutine 的父亲，且默认innerCoroutine 的innerContext 传承自 outScope  ，且innerJob 是outCoroutine.outJob  的孩子      
 
 - 当innerCoroutine 是GlobalScope.launch 创建时，out 和inner 之间没有父子关系  
 - outCoroutine 如果没有父coroutine ，就叫做root coroutine  
--   
 
 
 
@@ -220,30 +239,21 @@ fun main() = runBlocking {
 关联结构之间的互动有以下规则：
 
 - 协程的取消会导致子协程取消；
-
 - 协程的完成，需要等所有子协程完成  
 - 如果job 取消，则协程取消。
+
+
+
+然后加入[异常](./exception) 情况，有一些新的规则：
+
 - job 出现异常（非Cancellation异常），协程也异常（异步协程不会）。异常会取消job，还会导致父协程取消。以此类推到最顶层协程
 
-
-
 - 合并规则。只要有一个子协程出现异常，整个协程链都会被取消  
+- 针对规则。异常传递可以止于supervisor，有`supervisorScope` 和`SupervisorJob` 。如果子协程异常不会往父协程传递，只会向下传递取消，即不影响其他子协程  
 
-- 针对规则。异常传递可以止于使用`SupervisorJob` 的协程，不会再往父协程传递
+#### 同步
 
-
-
-#### 异常
-
-
-
-#### 调试
-
-基于上述的一些基本情况，我们差不多可以开始实践了  
-
-此时最关键的还是在于[调试工具]()  
-
-
+上述没讲到，但是明显存在的就是[多线程同步问题](./multithread-sync)    
 
 #### 测试
 
