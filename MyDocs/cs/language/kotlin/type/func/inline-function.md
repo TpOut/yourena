@@ -80,6 +80,8 @@ beak/continue 目前还不支持
 
 `reified`  
 
+在调用的时候，将具体的类型inline   
+
 注意只有inline 方法可以使用（毕竟语法糖，不是改底层    
 
 ```kotlin
@@ -108,6 +110,11 @@ inline fun <reified T> TreeNode.findParentOfType(): T? {
 ```
 
 ```kotlin
+//  public final class Gson {
+//     ...
+//     public <T> T fromJson(JsonElement json, Class<T> classOfT) throws JsonSyntaxException {
+//     ...
+
 inline fun <reified T: Any> Gson.fromJson(json: JsonElement): T = this.fromJson(json, T::class.java)
 ```
 

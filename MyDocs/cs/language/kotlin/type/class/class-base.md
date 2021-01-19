@@ -118,8 +118,14 @@ println("$name, $age years of age")
 // 实现的关键在于
 operator fun User.component1() = getName()
 operator fun User.component2() = getAge()
+
+// 省略无用参数，可以减少对应的方法调用  
+val (_, age) ... 
 ```
 
 `componentN()` 是系统提供的一种语法机制，便于使用  
 
 提供了n 个方法，就可以解构成n 个参数
+
+
+

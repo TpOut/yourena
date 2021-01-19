@@ -34,7 +34,7 @@ var result = run{ // 结果是 () -> kotlin.Int
 
 
 
-`is` 类型检查
+`is` `!is` 类型检查
 
 `in` 主要用于循环，包括for，区间( .. , until , downTo , step )，通过`IntRange` `IntProgression` 等实现
 
@@ -59,6 +59,10 @@ IntProgression, LongProgression, and CharProgression.
 ```
 
 
+
+`this` 表示接受器实例或者最近的闭包(*innermost enclosing scope*)  
+
+https://kotlinlang.org/docs/reference/this-expressions.html  
 
 
 

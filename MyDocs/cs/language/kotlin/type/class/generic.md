@@ -108,14 +108,5 @@ fun <T> copyWhenGreater(list: List<T>, threshold: T): List<String>
 
 **泛型擦除**
 
-inline reified 可以应对此种情况，进行类型检查 
-
-```kotlin
-//  public final class Gson {
-//     ...
-//     public <T> T fromJson(JsonElement json, Class<T> classOfT) throws JsonSyntaxException {
-//     ...
-
-inline fun <reified T: Any> Gson.fromJson(json: JsonElement): T = this.fromJson(json, T::class.java)
-```
+inline reified (具体在[inline -function]())可以应对此种情况，进行类型检查 
 
