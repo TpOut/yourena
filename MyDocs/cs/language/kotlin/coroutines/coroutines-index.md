@@ -255,6 +255,10 @@ fun main() = runBlocking {
 
 上述没讲到，但是明显存在的就是[多线程同步问题](./multithread-sync)    
 
+#### 实验功能
+
+[select](./select)
+
 #### 测试
 
 
