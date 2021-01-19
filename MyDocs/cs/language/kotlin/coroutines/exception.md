@@ -1,6 +1,6 @@
 协程的取消会产生cancellationException
 
-在设计上属于正常现象，不会真的“异常”
+在设计上属于正常现象，不会真的“异常”  
 
 
 
@@ -10,19 +10,25 @@
 
 
 
-而协程异常的捕获，首先`try/catch` , 然后 `CoroutineExceptionHandler`，再者`Thread.uncaughtHandler`
+- 异常都被协程处理成**uncaught** 异常，从子协程一层层往根协程上抛。    
 
+- 而协程异常的捕获优先级，首先`try/catch` , 然后 `CoroutineExceptionHandler`，再者`Thread.uncaughtExceptionHandler`  
 
+- 因为async 和receive 是接收触发性质的，它们的异常在触发时抛出。  
 
-一般性只有顶级launch 协程才会用到`CoroutineExceptionHandler` ，但是如果父协程是supervisor，因为无法传递所以自己处理。  
+对于`CoroutineExceptionHandler` ，因为上述的原因，只有根协程才会用到。  
 
-> 子协程传递给父协程，所以无效；异步会捕获所有，然后传递给结果，所以无效
+> 子协程传递给父协程，所以无效；
+>
+> 触发式会捕获所有，然后传递给结果，所以无效
 >
 > runBlocking 设计上总是会被子协程异常取消，所以无效 
 
 
 
-android 默认uncaughtExceptionPreHandler  
+
+
+android 默认`uncaughtExceptionPreHandler`    
 
 所以使用async 时，要么`try/catch` 要么主动`await` 一下 -- 不然没有日志很蛋疼    
 

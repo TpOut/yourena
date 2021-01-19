@@ -213,6 +213,33 @@ fun main() = runBlocking<Unit> {
 }
 ```
 
+#### 更多用法：
+
+`actor`   
+
+`BroadcastChannel`
+
+```kotlin
+fun main() = runBlocking<Unit> {
+    val bc = BroadcastChannel<Int>(1)
+    launch {
+        println("sendTime ${System.currentTimeMillis()}")
+        bc.send(1)
+        delay(10000)
+        bc.cancel()
+    }
+    repeat(5) {
+        launch {
+            val openSubscription = bc.openSubscription()
+            println("receiveTime ${System.currentTimeMillis()}")
+            println(openSubscription.receive())
+        }
+    }
+}
+```
+
+
+
 
 
 

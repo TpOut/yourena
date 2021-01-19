@@ -196,6 +196,7 @@ outScope.outCoroutine 创建了一个 innerCoroutine
 此时outCoroutine 是innerCoroutine 的父亲，且innerCoroutine 的innerContext 传承自 outScope  ，且innerJob 是outCoroutine.outJob  的孩子      
 
 - 当innerCoroutine 是GlobalScope.launch 创建时，out 和inner 之间没有父子关系  
+- outCoroutine 如果没有父coroutine ，就叫做root coroutine  
 -   
 
 
