@@ -75,11 +75,13 @@ foo(strings = *arrayOf("a", "b", "c"))
 
 
 
-`as ` 
+`as ` / `as?`
 
 ```kotlin
 import org.example.Msg
 import org.text.Msg as textMsg
+
+val aInt: Int? = a as? Int // 如果a 不是Int  
 ```
 
 

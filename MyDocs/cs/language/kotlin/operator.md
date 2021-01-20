@@ -22,3 +22,8 @@ downto, until, step
 operator iterator()：Type{operator next(); operator hasNext()}   
 ```
 
+操作符重载：
+
+https://kotlinlang.org/docs/reference/operator-overloading.html  
+
+有几个特点：1、index 索引实现 ；2、调用（invoke）修改；
