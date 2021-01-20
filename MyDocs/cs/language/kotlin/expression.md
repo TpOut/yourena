@@ -1,6 +1,6 @@
 `if`, `when`, `for`, `while` 都是表达式  
 
-try/catch 在这里都是表达式 
+`try`也是表达式，  
 
 
 
@@ -60,10 +60,10 @@ fun Request.getBody() =
 try/catch 在这里都是表达式
 
 ```kotlin
- val result = try {
-        count()
-    } catch (e: ArithmeticException) {
-        throw IllegalStateException(e)
-    }
+val result = try {
+    count()
+} catch (e: ArithmeticException) {
+    throw IllegalStateException(e)
+}
 ```
 
