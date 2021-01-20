@@ -83,7 +83,9 @@ fun generateAnswerString(countThreshold: Int): String =
 
 #### 高阶函数
 
-[higher-order](./higher-order.md)
+[higher-order](./higher-order.md)  
+
+`takeIf` `takeUnless`  
 
 
 

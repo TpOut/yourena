@@ -41,12 +41,12 @@ class Example(@field:Ann val foo,    // annotate Java field
               @get:Ann val bar,      // annotate Java getter
               @param:Ann val quux)   // annotate Java constructor parameter
 
-// 提供了打包注解
+// 同一个调用处，也可以写多个注解
+// 提供了"打包注解"
 class Example {
      @set:[Inject VisibleForTesting]
      var collaborator: Collaborator
 }
-
-
 ```
 
+还有一些java/ kotlin 互调的细节，看原文吧

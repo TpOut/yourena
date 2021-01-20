@@ -1,12 +1,8 @@
 **作用域方法**
 
-包括 run, let, apply, also
-
-这些方法都有一个接收器 this， 可能有参数 it， 可能有返回
+这些方法会形成一个临时scope，包括 let, run, let, apply, also
 
 https://github.com/JoseAlcerreca/kotlin-std-fun
-
-
 
 
 
@@ -18,75 +14,22 @@ https://github.com/JoseAlcerreca/kotlin-std-fun
 
 有五个方法，他们的区别主要在于对象如何被代码块访问，以及表达式的返回值
 
-对于访问，有lambda receiver(`this` ) 和lambda argument(`it` ) 的区别
+对于访问，有lambda receiver(`this` ) 和lambda argument(`it` ) 的区别  
 
-#### let
+run \ with \ apply 用this， 因为this 可以省略，容易和外部混淆，一般建议使用属性、方法配置  
 
-```kotlin
-Person("Alice", 20, "Amsterdam").let {
-    println(it)
-    it.moveTo("London")
-    it.incrementAge()
-    println(it)
-}
-```
+let \ also 使用it,  一般在对象作为方法参数时使用  
+
+run \ with \ let 返回lambda 结果 ； apply \ also 返回对象
 
 
 
-let
-
-```kotlin
-value?.let {
-    ... // execute this block if not null
-}
-
-val nullableFoo :Foo? = ...
-//只在不为空的时候，传入方法并且执行
-nullableFoo?.let { foo ->
-   foo.baz()
-   foo.zap()
-}
-```
-
-with
-
-```kotlin
-//同时执行一个类的方法
-class Turtle {
-    fun penDown()
-    fun penUp()
-    fun turn(degrees: Double)
-    fun forward(pixels: Double)
-}
-
-val myTurtle = Turtle()
-with(myTurtle) { //draw a 100 pix square
-    penDown()
-    for(i in 1..4) {
-        forward(100.0)
-        turn(90.0)
-    }
-    penUp()
-}
-```
-
-apply
-
-```kotlin
-//配置属性，弥补构造？
-val myRectangle = Rectangle().apply {
-    length = 4
-    breadth = 5
-    color = 0xFAFAFA
-}
-```
-
-also
-
-```kotlin
-var a = 1
-var b = 2
-a = b.also { b = a }
-// a = b 之后再执行一遍also 括号里的内容b = a，但是a 还是之前的内容
-```
-
+> Here is a short guide for choosing scope functions depending on the intended purpose:
+>
+> - Executing a lambda on non-null objects: `let`
+> - Introducing an expression as a variable in local scope: `let`
+> - Object configuration: `apply`
+> - Object configuration and computing the result: `run`
+> - Running statements where an expression is required: non-extension `run`
+> - Additional effects: `also`
+> - Grouping function calls on an object: `with`
