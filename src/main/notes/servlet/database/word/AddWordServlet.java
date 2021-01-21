@@ -1,13 +1,17 @@
 package main.notes.servlet.database.word;
 
 import main.config.SecConfig;
+import main.notes.util.ServletUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import static main.config.ConfigConstant.DATABASE_URL;
 import static main.config.ConfigConstant.isDeployed;
@@ -17,16 +21,16 @@ public class AddWordServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (!isDeployed) {
-            addWord(req);
+            addWord(req, resp);
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        addWord(req);
+        addWord(req, resp);
     }
 
-    private void addWord(HttpServletRequest req) {
+    private void addWord(HttpServletRequest req, HttpServletResponse resp) {
         String src = req.getParameter("src");
         String result = req.getParameter("result");
         String sentence = req.getParameter("sentence");
@@ -50,7 +54,29 @@ public class AddWordServlet extends HttpServlet {
             stmt.setString(2, result);
             stmt.setString(3, sentence);
             stmt.execute();
+            printSuccess(resp);
         } catch (SQLException e) {
+            e.printStackTrace();
+            printFail(resp);
+        }
+    }
+
+    private void printSuccess(HttpServletResponse resp) {
+        ServletUtil.setCharset(resp);
+        ServletUtil.formatJson(resp);
+        try {
+            resp.getWriter().println("{\"success\"}");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void printFail(HttpServletResponse resp) {
+        ServletUtil.setCharset(resp);
+        ServletUtil.formatJson(resp);
+        try {
+            resp.getWriter().println("{\"fail\"}");
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
