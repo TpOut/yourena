@@ -64,7 +64,7 @@ public class WordListServlet extends HttpServlet {
                     .append(",")
                     .append("\"sentence\":").append("\"").append(bean.getSentence()).append("\"")
                     .append(",")
-                    .append("\"createTime:\":").append("\"").append(bean.getCreateTime()).append("\"")
+                    .append("\"createTime\":").append(bean.getCreateTime())
                     .append("}");
         }
         stringBuilder
