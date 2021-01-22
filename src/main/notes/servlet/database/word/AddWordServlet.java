@@ -65,7 +65,7 @@ public class AddWordServlet extends HttpServlet {
         ServletUtil.setCharset(resp);
         ServletUtil.formatJson(resp);
         try {
-            resp.getWriter().println("{\"result\":\"success\"}");
+            resp.getWriter().println("{\"resultStatus\":\"success\"}");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -75,7 +75,7 @@ public class AddWordServlet extends HttpServlet {
         ServletUtil.setCharset(resp);
         ServletUtil.formatJson(resp);
         try {
-            resp.getWriter().println("{\"result\":\"fail\"}");
+            resp.getWriter().println("{\"resultStatus\":\"fail\"}");
         } catch (IOException e) {
             e.printStackTrace();
         }
