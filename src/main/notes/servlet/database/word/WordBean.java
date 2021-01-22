@@ -5,12 +5,22 @@ public class WordBean {
     private String src;
     private String dst;
     private String sentence;
+    private long createTime;
 
-    public WordBean(int id, String src, String dst, String sentence) {
+    public WordBean(int id, String src, String dst, String sentence, long createTime) {
         this.id = id;
         this.src = src;
         this.dst = dst;
         this.sentence = sentence;
+        this.createTime = createTime;
+    }
+
+    public long getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(long createTime) {
+        this.createTime = createTime;
     }
 
     public int getId() {

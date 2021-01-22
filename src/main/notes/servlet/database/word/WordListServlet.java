@@ -63,6 +63,8 @@ public class WordListServlet extends HttpServlet {
                     .append("\"dst\":").append("\"").append(bean.getDst()).append("\"")
                     .append(",")
                     .append("\"sentence\":").append("\"").append(bean.getSentence()).append("\"")
+                    .append(",")
+                    .append("\"createTime:\":").append("\"").append(bean.getCreateTime()).append("\"")
                     .append("}");
         }
         stringBuilder
@@ -96,7 +98,9 @@ public class WordListServlet extends HttpServlet {
                         resultSet.getInt(1),
                         resultSet.getString(2),
                         resultSet.getString(3),
-                        resultSet.getString(4));
+                        resultSet.getString(4),
+                        resultSet.getTimestamp(5).getTime()
+                );
                 wordBeanList.add(bean);
             }
         } catch (SQLException e) {
