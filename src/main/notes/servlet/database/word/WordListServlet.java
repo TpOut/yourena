@@ -34,13 +34,17 @@ public class WordListServlet extends HttpServlet {
         }
         List<WordBean> list = queryWord(page);
         if (list.size() == 0) {
+            resp.getWriter().println("{\"resultStatus\":\"fail\"}");
             return;
         }
         ServletUtil.setCharset(resp);
         ServletUtil.formatJson(resp);
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder
-                .append("{\"page\":")
+                .append("{")
+                .append("\"resultStatus\":\"success\"")
+                .append(",")
+                .append("\"page\":")
                 .append("\"").append(pageNum).append("\"")
                 .append(",")
                 .append("\"result\":[");
