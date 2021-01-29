@@ -1,0 +1,10 @@
+- Overview
+- android vitals
+  - overview
+  - stuck partial wake lock
+  - excessive wakeup
+  - excessive background wifi-scan
+  - excessive background network usage
+  - anrs
+  - 
+
