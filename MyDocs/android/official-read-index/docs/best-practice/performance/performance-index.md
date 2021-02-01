@@ -6,5 +6,7 @@
   - excessive background wifi-scan
   - excessive background network usage
   - anrs
+  - crashes 
+  - slow rendering
   - 
 

@@ -71,15 +71,16 @@ crash
 
   但是系统信息就比较杂乱，需要自定义来区分哪一部分  
 
+
   如果方法本身少于200us，或者被调用数十次，就不建议添加
-  
+
   ```python
   // 命令行添加 -a
   python systrace.py -a com.example.myapp -b 16384 \
         -o my_systrace_report.html sched freq idle am wm gfx view binder_driver hal \
         dalvik camera input res
   ```
-  
+
   ```kotlin
   // 代码添加
   Trace.beginSection("SampleTag")
@@ -117,11 +118,30 @@ crash
 
   ISSUE_DRAW_COMMANDS_START - FRAME_COMPLETED 是GPU 消耗时间
 
-- 
+- 列表
 
+  考虑刷新时用diffUtil，嵌套时公用view 池，设置预拉取数目   
 
+  create 的时候inflate 远比一两个view 动态控制耗时（测量一下大致多少个？  
 
+  recycleItem 的时候/setText 之类会引起resize 的  
 
+- layout 场景：
+
+  使用translation / rotation / alpha 之类的只触发draw 显然比padding / margins 之类的触发整个绘制的更好
+- 渲染时机
+
+  **Record View#draw** UIThread  
+
+  **DrawFrame** renderThread  
+
+  
+
+  
+
+  
+
+  
 
 
 
