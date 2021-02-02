@@ -129,6 +129,7 @@ crash
 - layout 场景：
 
   使用translation / rotation / alpha 之类的只触发draw 显然比padding / margins 之类的触发整个绘制的更好
+  
 - 渲染时机
 
   **Record View#draw** UIThread  
@@ -139,9 +140,5 @@ crash
 
   
 
-  
 
-  
-
-
-
+打点
