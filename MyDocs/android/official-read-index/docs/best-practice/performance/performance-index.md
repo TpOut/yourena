@@ -8,5 +8,7 @@
   - anrs
   - crashes 
   - slow rendering
+  - frozen frames  
   - 
+  - app startup time
 

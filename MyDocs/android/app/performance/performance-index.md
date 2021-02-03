@@ -134,11 +134,77 @@ crash
 
   **Record View#draw** UIThread  
 
+  - 在draw 里经常会绘制bitmap，调用drawBitmap。它是在cpu 上处理，会比较慢
+
+    可以考虑保存BitmapShader，然后调用drawRoundRect。  
+
+    或者设置绘制LayerType 为LAYER_TYPE_HARDWARE  
+  
+    > 常见的有装饰图片（设置圆角），在上面绘制渐变，或者图像过滤（ColorMatrixColorFilter）  
+  
   **DrawFrame** renderThread  
-
   
-
+  - 尽可能不要用Canvas.saveLayer  
   
+  - drawPath 的内容如果在帧之间改动较大，建议用常规方法拼  
+  
+  - clipPath 类似，可以先处理好BitmapShader，然后draw  
+  
+  - bitmap 展示的时候，是以OpenGL textures 的形式上传给GPU，这个过程可以通过prepareToDraw() 提前触发。（一般性库都有做）
+  
+  - 还可能因为syncFrameState 卡住，IPC 调用卡住
+  
+    > syncFrameState 看下源码？
+    >
+    > ipc 可以用adb 查看
+    >
+    > ```shell
+    > $ adb shell am trace-ipc start
+    > … use the app - scroll/animate ...
+    > $ adb shell am trace-ipc stop --dump-file /data/local/tmp/ipc-trace.txt
+    > $ adb pull /data/local/tmp/ipc-trace.txt
+    > ```
+  
+- 对象创建和回收
+
+  memory Profiler  
 
 
-打点
+
+
+**启动时间：**
+
+冷启动、暖启动、热启动  
+
+- 加载和运行app 
+- 展示白屏
+- 创建进程  
+- 创建application
+- 创建main thread
+- 创建activity 
+- 第一帧绘制后显示，替换掉白屏  
+
+测量方式：
+
+- ```shell
+  ActivityManager: Displayed com.android.myexample/.StartupTiming: +3s534ms
+  
+  adb [-d|-e|-s <serialNumber>] shell am start -S -W
+  com.example.app/.MainActivity
+  -c android.intent.category.LAUNCHER
+  -a android.intent.action.MAIN
+  ```
+
+手动触发时间日志
+
+```shell
+reportFullyDrawn()
+system_process I/ActivityManager: Fully drawn {package}/.MainActivity: +1s54ms
+```
+
+
+
+
+
+
+
