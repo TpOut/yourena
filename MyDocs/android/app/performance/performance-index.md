@@ -12,6 +12,8 @@
 
 - 后台网络使用  
 
+- 独立的buckets 电量管理，  
+
 
 
 anr  
@@ -59,7 +61,7 @@ crash
 
   - 使用release 包
   - 冷启动，低端设备
-  - gpu 渲染分析
+  - 开发者选项 gpu 渲染分析，的确不太直观
 
 - Systrace
 
@@ -202,9 +204,56 @@ reportFullyDrawn()
 system_process I/ActivityManager: Fully drawn {package}/.MainActivity: +1s54ms
 ```
 
+优化方向：
+
+- 懒加载，Hilt  
+- content provider 统一启用，StartUp
+- layout、 I/O、Bitmap、Vector  
+
+也可以通过隐藏启动页，和修改展示背景来视觉上优化体验，本质上没啥用  
 
 
 
+**进程和线程**
+
+进程这部分，主要还是讲前后台，尽量存活久一点的逻辑  
+
+分时控制，WorkManager /  AlarmManager  
+
+设置优先级，Process.setThreadPriority  
+
+控制数量  
 
 
 
+**内存管理**  
+
+减少对象分配回收 频繁过程  
+
+四大组件，内存不足的时候有回调，onTrimLevel  
+
+判断内存状态  
+
+数据结构， sparse  
+
+protobuf  
+
+如果抽象代码没有明显的好处，就别抽了。。  
+
+
+
+代码层面:
+
+- stringbuffer ，和string
+
+- int 数组 ，和 Integer 数组
+
+- 两个列表，和封装的对象列表
+
+- final static 变量 
+
+- 对于arrayList 应当手写循环，其他的用for each 迭代  
+
+- 浮点数比整数慢2倍
+
+  

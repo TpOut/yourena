@@ -11,4 +11,11 @@
   - frozen frames  
   - 
   - app startup time
+- processes and thread overview 
+
+- better performance through threading  
+
+
+
+
 
