@@ -9,5 +9,11 @@ P2 = 11111110 // 让最后一位为低电平
     
 sfr SCON = 0x98 // ?? 直接上地址？
 sbit TI = SCON^1 // 获取第二位，小端
+    
+// 中断函数
+void int0() interrrupt 0 //using 1 （可选
+{
+    
+}
 ```
 
