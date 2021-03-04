@@ -4,9 +4,7 @@
 
 
 
-**Input dispatching timed out (Waiting to send non-key event because the touched window has not finished processing certain input events that were delivered to it over 500.0ms ago. Wait queue length: 36. Wait queue head age: 5506.7ms.), VisibleToUser**
-
-
+**Input dispatching timed out (Waiting to send non-key event because the touched window has not finished processing certain input events that were delivered to it over 500.0ms ago. Wait queue length: 36. Wait queue head age: 5506.7ms.), VisibleToUser**  
 
 看了下堆栈的相同点都是项目里，列表滑动时的release 操作。里面会先调用 mediaPlayer.reset 再调用mediaPlayer.release。而也有一些地方没有调用reset，就没有anr 日志。
 
