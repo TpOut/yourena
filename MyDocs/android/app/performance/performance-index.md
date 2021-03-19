@@ -257,3 +257,9 @@ protobuf
 - 浮点数比整数慢2倍
 
   
+
+---
+
+anr 分析思路，
+
+https://blog.csdn.net/weixin_44708240/article/details/109159408  
