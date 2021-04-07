@@ -1,3 +1,19 @@
+算数：基础数学的组成，如纯粹数字，加减运算符
+
+代数：有算数之外的部分，如函数 
+
+积分、微分（古典、极限）：黎曼和    
+
+微商 / 导数 / 切线、割线， 
+
+
+
+---
+
+线性代数，可视化理解（3Blue1Brown）：https://www.bilibili.com/video/BV1Ys411k7yQ?from=search&seid=13785836808954316645
+
+
+
 线代教程：https://textbooks.math.gatech.edu/ila/
 微积分：https://0a.io/chapter1/calculus-explained.html
 
@@ -13,3 +29,4 @@
 魔方中蕴含的数学：https://web.mit.edu/sp.268/www/rubik.pdf    
 偏重于数学的算法：https://github.com/jeffgerickson/algorithms    
 文本、数学公式转化：http://asciimath.org/  
+
