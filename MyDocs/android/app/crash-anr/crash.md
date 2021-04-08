@@ -17,3 +17,9 @@
 示例对解析进行了说明，看起来基本是一行代码，一段解释器  
 
 如果栈信息最后指向了类似`libc.so(__pthread_start)` 这样的线程启动代码，那么表示展开正确；否则都是被截断的，基本不能确认是正确  
+
+
+
+---
+
+c++ 相关的检测：https://source.android.google.cn/devices/tech/debug/native-crash?hl=zh-cn
