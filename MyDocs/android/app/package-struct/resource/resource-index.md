@@ -25,7 +25,7 @@
 ?[<package_name>:][<resource_type>/]<resource_name>
 ```
 
-
+当使用系统资源时，引用`android:` 包名，且是唯一合法的非应用包名  
 
 基于适配的原因，系统提供了一系列限定词，这些限定词对应设备的一些[配置](./configure.md)。用于较粗粒度的设备分类  
 
