@@ -1,3 +1,4 @@
+
 要理解一个 root activity 的概念 = activities that start a new task   
 
 xml 中 activity 属性有 
@@ -25,6 +26,24 @@ xml 中 activity 属性有
 - taskAffinity  
 
   
+  
+  excludeFromRecents  
+
+finishOnTaskLaunch // 这个逻辑就很奇葩  
+
+maxRecents  
+
+noHistory  
+
+relinquishTaskIdentity  
 
 
+
+launchMode  
+
+taskAffinity  
+
+
+
+`ActivityManager.TaskDescription`  
 

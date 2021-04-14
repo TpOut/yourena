@@ -1,5 +1,7 @@
 UsageStats
 
+[performance]() 
+
 
 
 电量优化：

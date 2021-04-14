@@ -1,3 +1,7 @@
+[manifest - profileable]  
+
+
+
 电量相关
 
 - PowerManager 可以进行电量管理，有一个锁屏后的 部分唤醒功能`PARTIAL_WAKE_LOCK`  
