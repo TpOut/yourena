@@ -20,3 +20,6 @@ UsageStats
 
 `OnFrameMetricsAvailableListener.onFrameMetricsAvailable()`  
 
+
+
+`getMemoryClass()` or `getLargeMemoryClass()`.
