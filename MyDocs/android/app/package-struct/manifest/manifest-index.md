@@ -4,7 +4,14 @@
 
 xml 中 
 
-- `<action>` 一定在intent-filter 之内   
+- intent-filter  
+
+  这里的priority 和order 有点疑问,  
+
+  为什么要三个类型  
+
+  - `<action>`:    
+  - `<data>`:  
 
 - `<activity>` `<application>`  
 
@@ -12,8 +19,19 @@ xml 中
 
   - `<debuggable>` 
   - `<networkSecurityConfig>`    
-  - `<testOnly>`   
+  - testOnly
 
+- `<activity>`  
+
+  外部访问 export / permission / icon / label   
+
+- provider
+
+  - grant-uri-permission  
+
+- instrumentation
+
+- installLocation  
 - 
 
 
