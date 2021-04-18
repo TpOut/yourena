@@ -41,8 +41,6 @@ relinquishTaskIdentity
 
 launchMode  
 
-taskAffinity  
-
 
 
 `ActivityManager.TaskDescription`  
