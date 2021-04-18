@@ -10,3 +10,5 @@
 
 - [app resources]()
 
+- [app-manifest-file]()
+
