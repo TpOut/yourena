@@ -32,7 +32,13 @@ xml 中
 - instrumentation
 
 - installLocation  
-- 
+- [screen]() 
+
+- uses-configuration / uses-feature / uses-library     
+
+- uses-permission
+
+  gp 会根据权限假定一些功能需求，以过滤设备，所以最好是声明一下app 的功能需求  
 
 
 

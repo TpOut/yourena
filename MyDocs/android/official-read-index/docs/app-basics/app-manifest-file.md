@@ -76,4 +76,18 @@
 
   2020-03-19
 
-- 
+- supports-screens  
+
+   2019-12-27
+
+- use-configuration  
+
+- uses-feature  
+
+- uses-library
+
+- uses-permission
+
+- uses-permission-sdk-23
+
+- uses-sdk
