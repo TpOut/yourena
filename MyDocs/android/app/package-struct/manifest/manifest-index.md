@@ -32,9 +32,12 @@ xml 中
 - instrumentation
 
 - installLocation  
+
 - [screen]() 
 
 - uses-configuration / uses-feature / uses-library     
+
+  hasSystemFeature()
 
 - uses-permission
 
