@@ -27,11 +27,13 @@ cutout 部分：`android:resizeableActivity` 这个属性不太行
 
 
 
-平板的认定是large / xlarge     
+平板的认定是large / xlarge  
+
+​     
+
+layout alias   
 
 
-
-  
 
 manifest 中 anyDensity = false 或者Bitmap.inScaled = false  
 
