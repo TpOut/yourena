@@ -9,5 +9,9 @@
 
 
 
-看下Intent 的流程，怎么实现的Action 交互? 广播或者binder ? 
+看下Intent 的流程，怎么实现的Action 交互? 广播或者binder ?   
+
+
+
+如何验证安装apk 的签名？  
 
