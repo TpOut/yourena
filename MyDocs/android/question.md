@@ -17,6 +17,10 @@
 
 
 
+系统永远不会直接终止 Activity 以释放内存，而是会终止 Activity 所在的进程？
+
+
+
 start/ end 应该是后加的参数，那么老版本照理来讲应该只支持left/ right，是怎么实现兼容的？aapt ？  
 
   
