@@ -16,6 +16,15 @@
 
  而每个app 运行在自己的[sandbox] 中
 
+运行之后，会调用每个activity，对应生命周期，解藕来说 
+
+```kotlin
+lifecycleObservable   
+@OnLifecycleEvent(Lifecycle.Event.ON_RESUME)  
+```
+
+而activity 过重，产生了更灵活的[fragment]()   
+
 
 
 ```

@@ -45,6 +45,15 @@ transitions 框架：
 
 `Scene` `TransitionManager` `Fade` `ChangeBounds`  
 
+```kotlin
+TransitionInflater.from(requireContext())
+        exitTransition = inflater.inflateTransition(R.transition.fade)
+```
+
+
+
+使用多个动画时，AnimationSet 会有一些忽略，所以应优先transitions  
+
 
 
 `Animator` 暂停和继续  
