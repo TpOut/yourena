@@ -1,4 +1,4 @@
-FragmentContainerView   
+FragmentContainerView（老版本）   
 
 setPrimaryNavigationFragment()   
 
@@ -11,6 +11,8 @@ setMaxLifecycle
 事务   
 
 replace / addBackStack / hide / detach  等  
+
+> 注意FragmentManager 的detach 和用户可调用的detach 不同  
 
 
 
