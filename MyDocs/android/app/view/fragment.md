@@ -8,6 +8,12 @@ setMaxLifecycle
 
 
 
+fragment 之间传递数据可以用viewModel  
+
+甚至现在已经可以类似做到setResult 了  
+
+
+
 事务   
 
 replace / addBackStack / hide / detach  等  
