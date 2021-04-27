@@ -14,6 +14,12 @@ fragment 之间传递数据可以用viewModel
 
 
 
+甚至activity 的appbar ，menu 之类的回调也关联起来了，
+
+当然也可以单独fragment 实例化appbar   
+
+
+
 事务   
 
 replace / addBackStack / hide / detach  等  

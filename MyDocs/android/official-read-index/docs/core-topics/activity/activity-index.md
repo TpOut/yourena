@@ -34,6 +34,10 @@
   
   - communicate with fragments
   
-    
+    2020-11-23 
+  
+  - worKing with the app bar 
+  
+    2020-11-23
   
   - 
