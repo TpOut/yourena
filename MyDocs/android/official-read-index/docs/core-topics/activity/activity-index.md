@@ -40,4 +40,10 @@
   
     2020-11-23
   
-  - 
+  - displaying dialogs with dialogFragment
+  
+    2020-11-23
+  
+  - test your fragments
+  
+    2021-04-27
