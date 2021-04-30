@@ -47,3 +47,27 @@
   - test your fragments
   
     2021-04-27
+  
+- handling app links  
+
+- loaders
+
+- recents screen
+
+- restriction on starting activities from the background 
+
+  2021-03-13  
+
+- app shortcuts 
+
+  - overview
+
+    2019-12-27
+
+  - create shortcuts  
+
+    
+
+  - 
+
+- 
