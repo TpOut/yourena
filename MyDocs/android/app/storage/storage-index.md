@@ -100,9 +100,11 @@ Android 文件系统类似于其他平台的`disk-based` 文件系统，支持�
 
 - 共享存储：
 
-    `MediaStoreApi` -- 媒体文件，图像音视频
+    媒体文件，图像音视频，对应`MediaStore`  Api
 
-    `文档形式` -- 其他类型文件，如下载文件 / 通过系统文件选择器？
+    `文档形式` -- 其他类型文件，如下载文件，对应Storage Access Framework -- 系统文件选择器？
+
+    数据集，多app 通用，对应`BlobStoreManager`
 
 - Preferences：
 
