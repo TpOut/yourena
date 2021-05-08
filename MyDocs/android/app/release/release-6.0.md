@@ -16,9 +16,9 @@
 
 异步音视频渲染  
 
-摄像头控制闪光灯、图像再处理
+摄像头控制闪光灯、图像再处理  
 
- Android for work 
+ Android for work  
 
 权限申请  
 
