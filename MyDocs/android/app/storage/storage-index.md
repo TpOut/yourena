@@ -2,6 +2,43 @@
 
 
 
+#### 最佳实践
+
+- 媒体
+
+  有区别的在于 
+
+  - 获取图片的位置信息时；
+  - 一个操作删改多个文件时；
+  - 使用文件路径直接访问代码（库）  
+
+- 非媒体
+
+  有区别的在于
+
+  - 将文件写入第二个存储分区  
+  - 开启scope storage 时需要移植
+
+
+
+
+
+展示逻辑时，都建议使用MediaStore（但是我就是可以用File 直接处理啊？）
+
+<font color=red>这个逻辑需要确认下，因为之前就是？</font>
+
+但是访问文件的时候，可以直接使用File 路径  
+
+
+
+
+
+使用MediaStore 时，查询路径用`DATA` 列；更新用`DISPLAY_NAME` / `RELATIVE_PATh`  
+
+
+
+
+
 Storage Access Framework (SAF)  优化了一些问题，如创建seekable 文件描述符，    
 
 `DocumentProvider` 支持网络存储，或者使用MTP 协议（Media Transfer Protocol  
@@ -85,6 +122,26 @@ android 11 将划分逻辑改为基于“使用文件的目的”，非专有目
 
 
 当然你也想在平时不暴露文件（即不放在MediaStore），而只在某些时候暴露 `FileProvider` 
+
+
+
+虚拟文件：  指没有直接字节码到文件，如云端文件，以URI 来通用表示  
+
+因为7.0 以前必须传递stream   
+
+可以用  `CATEGORY_OPENABLE` 过滤  
+
+```
+https://developer.android.com/about/versions/nougat/android-7.0.html#virtual_files
+```
+
+
+
+#### 管理所有文件
+
+需要一个权限  
+
+且还是以最小使用为主吧，google play会有一些政策  
 
 
 

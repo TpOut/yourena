@@ -27,7 +27,17 @@
    - datasets
 
      2021-05-04
-     
-     
+
+- manage all files on a storage
+
+- save key-value data
+
+   2020-10-02
 
 - [save data in a local database]()
+
+- android storage use cases and best practises
+
+   2021-05-04  
+
+- 
