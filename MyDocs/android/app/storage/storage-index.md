@@ -31,11 +31,17 @@
 
 
 
-
-
 使用MediaStore 时，查询路径用`DATA` 列；更新用`DISPLAY_NAME` / `RELATIVE_PATh`  
 
 
+
+分享：
+
+android 6.0 直接分享（direct share）  
+
+android 10 快捷分享（share shortcut）  
+
+当使用快捷方式的时候，可以设置是否被当作share targets  
 
 
 

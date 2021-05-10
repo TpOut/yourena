@@ -40,4 +40,16 @@
 
    2021-05-04  
 
+- sharing simple data
+
+   - overview
+
+   - sending simple data to other apps
+
+     2021-05-04
+
+   - receiving simple data from other apps
+
+     
+
 - 
