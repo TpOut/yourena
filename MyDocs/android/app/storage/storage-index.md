@@ -35,6 +35,20 @@
 
 
 
+文件分享：
+
+依赖于`FileProvider`  
+
+具体其实看api 文档即可，分享的目录必须在xml 中定义，而不是代码编写    
+
+分享给其他app 时，不要用Uri.fromFile，用FileProvider.getUriForFile ,前者有权限问题  
+
+
+
+contentResolver 可以获取uri 类型  
+
+
+
 分享：
 
 android 6.0 直接分享（direct share）  

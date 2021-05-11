@@ -50,6 +50,26 @@
 
    - receiving simple data from other apps
 
+- sharing files
+
+   - overview
+
+     2019-12-27
+
+   - setting up file sharing
+
+     2020-05-06
+
+   - sharing a file
+
+     2020-10-15
+
+   - requesting a shared file
+
+     2019-12-27
+
+   - retriving file information
+
      
 
 - 
