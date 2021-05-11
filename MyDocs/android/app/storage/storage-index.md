@@ -41,7 +41,9 @@ android 6.0 直接分享（direct share）
 
 android 10 快捷分享（share shortcut）  
 
-当使用快捷方式的时候，可以设置是否被当作share targets  
+当使用快捷方式的时候，可以设置是否被当作share targets    
+
+且快捷分享的方式属于推式，会加快展示页面的展示  
 
 
 
