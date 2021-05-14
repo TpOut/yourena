@@ -1,52 +1,3 @@
-变化安装：https://developer.android.google.cn/about/versions/marshmallow/android-6.0?hl=en#adoptable-storage  
-
-
-
-#### 最佳实践
-
-- 媒体
-
-  有区别的在于 
-
-  - 获取图片的位置信息时；
-  - 一个操作删改多个文件时；
-  - 使用文件路径直接访问代码（库）  
-
-- 非媒体
-
-  有区别的在于
-
-  - 将文件写入第二个存储分区  
-  - 开启scope storage 时需要移植
-
-
-
-
-
-展示逻辑时，都建议使用MediaStore（但是我就是可以用File 直接处理啊？）
-
-<font color=red>这个逻辑需要确认下，因为之前就是？</font>
-
-但是访问文件的时候，可以直接使用File 路径  
-
-
-
-使用MediaStore 时，查询路径用`DATA` 列；更新用`DISPLAY_NAME` / `RELATIVE_PATh`  
-
-
-
-文件分享：
-
-依赖于`FileProvider`  
-
-具体其实看api 文档即可，分享的目录必须在xml 中定义，而不是代码编写    
-
-分享给其他app 时，不要用Uri.fromFile，用FileProvider.getUriForFile ,前者有权限问题  
-
-
-
-contentResolver 可以获取uri 类型  
-
 
 
 分享：
@@ -55,37 +6,7 @@ android 6.0 直接分享（direct share）
 
 android 10 快捷分享（share shortcut）  
 
-当使用快捷方式的时候，可以设置是否被当作share targets    
 
-且快捷分享的方式属于推式，会加快展示页面的展示  
-
-
-
-Storage Access Framework (SAF)  优化了一些问题，如创建seekable 文件描述符，    
-
-`DocumentProvider` 支持网络存储，或者使用MTP 协议（Media Transfer Protocol  
-
-
-
-findDocumentPath()
-
-`DocumentsContract`
-`DocumentsProvider`
-`DocumentsContract.Path`
-
-
-
-`StorageManager.openProxyFileDescriptor()`
-`openProxyFileDescriptor()` 
-`ProxyFileDescriptorCallback`
-
-
-
-`buildChildDocumentsUriUsingTree()`  `buildDocumentUriUsingTree` `query`    
-
-`createDocument`  `COLUMN_FLAGS`  
-
-`DocumentsProvider` `isChildDocument` `FLAG_SUPPORTS_IS_CHILD`  
 
 `getExternalMediaDirs()` 
 
@@ -105,15 +26,7 @@ findDocumentPath()
 
 
 
-#### 前置知识  
-
-硬件基本：Android 本身自带内部存储和外接存储  
-
-由于外部存储的可插拔，每次访问前都检查一下；甚至有些有多个外部设备，你需要选择主存    
-
-apk 本身也是一种数据，所以安装的位置也可以配置，`installLocation`  
-
-而文件部分，常见的就有持久文件，和缓存文件  
+ 
 
 
 

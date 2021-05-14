@@ -80,6 +80,10 @@
 
      2020-11-20  
 
-   - 
+   - creating a content provider
+
+   - open files using storage access framework
+
+   - create a custom document provider  
 
 - 
