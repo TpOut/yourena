@@ -116,5 +116,7 @@ inline fun <reified T> TreeNode.findParentOfType(): T? {
 //     ...
 
 inline fun <reified T: Any> Gson.fromJson(json: JsonElement): T = this.fromJson(json, T::class.java)
+
+inline fun <reified T> Gson.fromJson(json: String) = fromJson<T>(json, object: TypeToken<T>() {}.type)
 ```
 

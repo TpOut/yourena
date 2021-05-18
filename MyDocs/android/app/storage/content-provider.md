@@ -1,6 +1,8 @@
-Binary Large OBject (BLOB) implemented as a 64KB    
+ 
 
 
+
+分页加载
 
 多个同时执行  
 

@@ -1,2 +1,0 @@
-`requestSync` `setDisallowMetered`
-
