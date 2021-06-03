@@ -28,4 +28,12 @@
 
     2021-05-18 
 
-  - 
+  - testing worker implementation 
+  
+     2021-02-24 
+  
+  - integration tests with Work Manager 
+  
+    
+  
+  - debugging work manager
