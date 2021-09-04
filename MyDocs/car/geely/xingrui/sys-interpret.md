@@ -58,7 +58,11 @@
 
 - AEB，自动紧急制动系统
 
+  需要ESC 支持
+
 - CC，Cruise Control System，定速巡航控制系统
+
+  > 靠中距离雷达实现
 
 - ACC S&G，Adaptive Cruise Control - Sop&Go，自适应巡航  
 
@@ -66,17 +70,37 @@
 
   简述：主要在高速和高架等路况好的地方使用，可以设定车速和跟车距离（车间时距）。
 
-- ICC，智能领航系统  
+- ICC，Intelligent Cruise Control，智能领航系统   
 
-  功能：在ACC 之上增加方向辅助控制
+  功能：在ACC 之上增加方向辅助控制  
+
+  > 靠摄像头实现
 
   
 
-- LKA，车道保持辅助系统
+- LKA，Lane Keeping Assist，车道保持辅助系统
+
+  功能：防止偏离车道  
+
+  - LDW，Lane Departure Warning，车道偏离报警
+
+  - LDP，Lane Departure Prevention，车道偏离辅助
+
+    压线
+
+  - LKS，Lane Keeping Systems，车道保持
+
+    居中
 
 - SLIF，速度限制提醒系统  
 
+  功能：通过摄像头识别道路限速
+
+  简述：还是导航好使，经常识别错  
+
 - IHBC，智能远近光灯控制系统IHBC  
 
+  功能：通过摄像头
+  
   
 
