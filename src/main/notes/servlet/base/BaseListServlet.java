@@ -2,12 +2,10 @@ package main.notes.servlet.base;
 
 import java.io.IOException;
 
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import main.notes.util.ServletUtil;
 import main.util.FileUtil;
+
+import jakarta.servlet.http.*;
 
 import static main.config.ConfigConstant.PROJECT_NAME;
 
@@ -22,7 +20,7 @@ public class BaseListServlet extends HttpServlet {
     /**
      * 统一行为：设置格式
      */
-    protected static void printJsonFromFile(HttpServletRequest req, HttpServletResponse resp, String listPath) throws IOException {
+    protected static void printJsonFromFile(HttpServletRequest req, HttpServletResponse resp, String listPath){
         ServletUtil.setCharset(resp);
         ServletUtil.formatJson(resp);
 

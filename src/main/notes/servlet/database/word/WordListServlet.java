@@ -3,10 +3,7 @@ package main.notes.servlet.database.word;
 import main.config.SecConfig;
 import main.notes.util.ServletUtil;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -17,7 +14,7 @@ import static main.config.ConfigConstant.DATABASE_URL;
 public class WordListServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String pageNum = req.getParameter("pageNum");
         int page = -1;
         if (pageNum == null || pageNum.isEmpty()) {
@@ -74,7 +71,7 @@ public class WordListServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
     }
 
     private List<WordBean> queryWord(int pageNum) {

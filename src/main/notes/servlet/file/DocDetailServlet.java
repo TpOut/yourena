@@ -9,10 +9,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URLDecoder;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.*;
 
 import main.notes.util.ServletUtil;
 import main.util.LogUtil;
@@ -29,7 +26,7 @@ import static main.config.ConfigConstant.WEB_SITE;
 public class DocDetailServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         ServletUtil.setCharset(resp);
 

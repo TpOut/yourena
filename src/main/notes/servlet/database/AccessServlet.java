@@ -10,10 +10,7 @@ import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.Date;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.*;
 
 import main.config.ConfigConstant;
 import main.config.SecConfig;
@@ -28,7 +25,7 @@ import static main.config.ConfigConstant.DATABASE_URL;
 public class AccessServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         ServletUtil.setCharset(resp);
         ServletUtil.formatJson(resp);
         resp.getWriter().println("{\"num\":\"" + String.valueOf(queryAndUpdateAccess(req)) + "\"}");

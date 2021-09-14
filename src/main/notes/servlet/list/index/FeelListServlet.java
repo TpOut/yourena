@@ -2,9 +2,7 @@ package main.notes.servlet.list.index;
 
 import main.notes.servlet.base.BaseListServlet;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.*;
 import java.io.File;
 import java.io.IOException;
 
@@ -18,7 +16,7 @@ import static main.config.ConfigConstant.DOC_FEEL_NAME;
 public class FeelListServlet extends BaseListServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         String listPath = DOCS_NAME + File.separator + DOC_FEEL_NAME;
         printJsonFromFile(req, resp, listPath);
