@@ -1,5 +1,9 @@
 ---
 
+性能测试工具：Lmbench3
+
+
+
 the linux document project : http://www.tldp.org/
 
 从零开始linux : http://www.linuxfromscratch.org/lfs/view/10.0-rc1/prologue/foreword.html

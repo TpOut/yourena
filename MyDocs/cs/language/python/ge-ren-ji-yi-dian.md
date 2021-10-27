@@ -1,9 +1,4 @@
-# 个人记忆点
 
-### 使用
-
-使用python3.6进入console，退出方式：  
-在主提示区输入，直到输入文件结束标识时会执行语句：unix-ctrl+d;windows-ctrl+z;或者输入quit\(\);
 
 ### 说明
 

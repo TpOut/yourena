@@ -17,6 +17,8 @@ SyntaxError: positional argument follows keyword argument
 
 这里的设计有点疑问，positional argument 完全可以取顺位，是因为没必要做这点完善吗？
 
+答：是的，kotlin 做到了
+
 #### 文档
 
 读取空行之后缩进格数作为标准的理由是：  

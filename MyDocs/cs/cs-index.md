@@ -27,6 +27,16 @@ facebbok 开源了聊天机器人框架Blender,https://venturebeat.com/2020/04/2
 
 树莓派了解一下
 
+
+
+芯片集成制造：WOS 概念
+
+微结构方面：HPS 结构（超标量、动态调度、乱序执行、预测跳转）  
+
+两级自适应跳转预测、
+
+
+
 cs的机构排名： https://csrankings.org/#/index?ai&asia  
 
 计算机理论：https://introtcs.org/public/index.html  哈佛
