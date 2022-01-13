@@ -76,9 +76,9 @@ public class WordListServlet extends HttpServlet {
 
     private List<WordBean> queryWord(int pageNum) {
         String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-        String DB_URL = "jdbc:mysql://" + DATABASE_URL + ":3306/lishengjie?useSSL=false";
-        String USER = SecConfig.name;
-        String PASS = SecConfig.ps;
+        String DB_URL = "jdbc:mysql://" + DATABASE_URL + ":"+ SecConfig.mysql_port + "/lishengjie?useSSL=false";
+        String USER = SecConfig.mysql_user_name;
+        String PASS = SecConfig.mysql_user_ps;
 
         try {
             Class.forName(JDBC_DRIVER);

@@ -9,9 +9,9 @@ import java.io.File;
 public class ConfigConstant {
 
     //本机调试 : 服务器部署
-    public static final boolean isDeployed = false;
+    public static final boolean isDeployed = true;
 
-    public static final String WEB_SITE = isDeployed ? "127.0.0.1:8080" : "localhost:8080";
+    public static final String WEB_SITE = isDeployed ? "192.168.0.101:8080" : "localhost:8080";
     public static final String DATABASE_URL = "127.0.0.1";
 
     public static final String PROJECT_NAME = "yourena";

@@ -35,14 +35,14 @@ public class AccessServlet extends HttpServlet {
      * @return currentAccessNum after update
      */
     private int queryAndUpdateAccess(HttpServletRequest req) {
-        if(!ConfigConstant.isDeployed)
+        if (!ConfigConstant.isDeployed)
             return 0;
         int num = 0;
 
         String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-        String DB_URL = "jdbc:mysql://" + DATABASE_URL + ":3306/lishengjie";
-        String USER = SecConfig.name;
-        String PASS = SecConfig.ps;
+        String DB_URL = "jdbc:mysql://" + DATABASE_URL + ":" + SecConfig.mysql_port + "/lishengjie";
+        String USER = SecConfig.mysql_user_name;
+        String PASS = SecConfig.mysql_user_ps;
 
         Connection conn = null;
         Statement stmt = null;

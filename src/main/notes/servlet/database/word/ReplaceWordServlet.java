@@ -1,10 +1,15 @@
 package main.notes.servlet.database.word;
 
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import main.config.SecConfig;
 
-import jakarta.servlet.http.*;
 import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import static main.config.ConfigConstant.DATABASE_URL;
 import static main.config.ConfigConstant.isDeployed;
@@ -28,9 +33,9 @@ public class ReplaceWordServlet extends HttpServlet {
         String result = req.getParameter("result");
 
         String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-        String DB_URL = "jdbc:mysql://" + DATABASE_URL + ":3306/lishengjie?useSSL=false";
-        String USER = SecConfig.name;
-        String PASS = SecConfig.ps;
+        String DB_URL = "jdbc:mysql://" + DATABASE_URL + ":" + SecConfig.mysql_port + "/lishengjie?useSSL=false";
+        String USER = SecConfig.mysql_user_name;
+        String PASS = SecConfig.mysql_user_ps;
 
         try {
             Class.forName(JDBC_DRIVER);
