@@ -11,6 +11,9 @@
 | POD  | Plain Old Data                    |
 | SAM  | single abstract method            |
 | POJO | Plain old Java object             |
+| NaN  | not-a-number                      |
 
 蒙特卡罗模拟
+
+
 

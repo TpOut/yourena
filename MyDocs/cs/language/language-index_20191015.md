@@ -4,6 +4,7 @@
 - [c](./c/c-index.md)
 - [cpp](./cpp/cpp-index.md)
 - [kotlin](./kotlin/kotlin-index.md)
+- [python]()  
 
 
 由于自己水平原因， 如有不准确甚至错误的地方，还望指出  

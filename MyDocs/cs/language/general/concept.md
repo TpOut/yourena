@@ -43,7 +43,9 @@ namespace cp{
 
 #### 表达式
 
-if , for ,while 
+不同语言会有差异性，主要是具有返回值    
+
+# if , for    
 
 #### 文本变量
 

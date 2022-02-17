@@ -4,3 +4,5 @@ Rust 是一种静态的编译型语言，实现了`C` 或 `C++` 大部分的功�
 
 
 
+https://www.youtube.com/playlist?list=PLlrxD0HtieHjbTjrchBwOVks_sr8EVW1x  
+
