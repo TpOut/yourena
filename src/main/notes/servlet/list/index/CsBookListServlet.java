@@ -7,8 +7,7 @@ import jakarta.servlet.http.*;
 
 import main.notes.servlet.base.BaseListServlet;
 
-import static main.config.ConfigConstant.DOCS_NAME;
-import static main.config.ConfigConstant.DOC_CS_BOOK_NAME;
+import static main.config.ConfigConstant.*;
 
 /**
  * Created by TpOut on 2019/10/7.<br>
@@ -19,7 +18,7 @@ public class CsBookListServlet extends BaseListServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-        String listPath = DOCS_NAME + File.separator + DOC_CS_BOOK_NAME;
+        String listPath = DOCS_PRE + File.separator + DOCS_NAME + File.separator + DOC_CS_BOOK_NAME;
         printJsonFromFile(req, resp, listPath);
 
     }

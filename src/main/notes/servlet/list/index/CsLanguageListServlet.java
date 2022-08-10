@@ -16,7 +16,7 @@ public class CsLanguageListServlet extends BaseListServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        String listPath = DOCS_NAME + File.separator + DOC_CS_LANGUAGE_NAME;
+        String listPath = DOCS_PRE + File.separator + DOCS_NAME + File.separator + DOC_CS_LANGUAGE_NAME;
         printJsonFromFile(req, resp, listPath);
 
     }
