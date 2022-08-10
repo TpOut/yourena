@@ -14,8 +14,7 @@ import jakarta.servlet.http.*;
 import main.notes.util.ServletUtil;
 import main.util.LogUtil;
 
-import static main.config.ConfigConstant.PROJECT_NAME;
-import static main.config.ConfigConstant.WEB_SITE;
+import static main.config.ConfigConstant.*;
 
 /**
  * Created by shengjieli on 18-10-15.<br>
@@ -32,19 +31,24 @@ public class DocDetailServlet extends HttpServlet {
 
 //        resp.setContentType("application/octet-stream");
 
-        //将地址中，在yourena之后的部分截断
+        //将地址中，在yourena之后的部分截断，如 webPath = /Users/lishengjie/yourena/out/artifacts/yourena_war_exploded/
         String webPath = req.getSession().getServletContext().getRealPath("");
         String projectPath = webPath.substring(0, webPath.indexOf(PROJECT_NAME) + PROJECT_NAME.length());
 
         //获取实际请求的路经
         StringBuffer requestURL = req.getRequestURL();
-        int i = requestURL.indexOf(WEB_SITE);
+        // 服务器的形式为：http://127.0.0.1:8080/MyDocs/.../***.md
+        // 本地的地址: http://localhost:8080 或者127.；根据配置来
+        String request_server = server_local;
+
+        int i = requestURL.indexOf(request_server);
         String suffix;
         if(i == -1){
             suffix = requestURL.toString();
         }else {
-            suffix = requestURL.substring(i + WEB_SITE.length(), requestURL.length());
+            suffix = requestURL.substring(i + request_server.length(), requestURL.length());
         }
+
         //判断格式
         if(suffix.toLowerCase().endsWith(".html")){
             resp.setContentType("text/html; UTF-8");
@@ -64,8 +68,7 @@ public class DocDetailServlet extends HttpServlet {
         }
 
         //输出文章
-        File file = new File(projectPath + URLDecoder.decode(suffix, "UTF-8"));
-        System.out.println("file isExist : " + file.exists());
+        File file = new File(projectPath + File.separator + URLDecoder.decode(suffix, "UTF-8"));
         if(!file.exists()){
             return;
         }

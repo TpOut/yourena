@@ -12,14 +12,15 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import static main.config.ConfigConstant.isDeployed;
 import static main.config.SecConfig.DATABASE_URL;
 
 public class AddWordServlet extends HttpServlet {
 
+    private static final boolean isTest = true;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        if (!isDeployed) {
+        if (!isTest) {
             addWord(req, resp);
         }
     }

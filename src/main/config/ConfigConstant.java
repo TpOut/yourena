@@ -1,6 +1,5 @@
 package main.config;
 
-import javax.sound.midi.Track;
 import java.io.File;
 
 /**
@@ -10,12 +9,14 @@ import java.io.File;
 public class ConfigConstant {
 
     //本机调试 : 服务器部署
-    public static final boolean isDeployed = true;
-
-    public static final String WEB_SITE = "127.0.0.1:8080"; // 服务器是127，本地干脆也不用 localhost:8080
+    public static final boolean deployed = false;
+    public static final String server_deploy = "http://www.tpout.com/";
+    //服务器servlet 里需要用127，本地干脆也不用 localhost:8080，参看 @see DocDetailServlet.java
+    public static final String server_local= "http://127.0.0.1:8080";
+    public static final String WEB_SITE = deployed ? server_deploy : server_local;
 
     public static final String PROJECT_NAME = "yourena";
-//    public static final String DOCS_PRE = isDeployed ? ".." + File.separator + ".." + File.separator + ".." : "";
+    //    public static final String DOCS_PRE = isDeployed ? ".." + File.separator + ".." + File.separator + ".." : "";
     public static final String DOCS_PRE = ""; // 为什么不需要这个前缀呢？奇怪
     public static final String DOCS_NAME = "MyDocs";
     public static final String DOC_FOOD_NAME = "my-story" + File.separator + "cook";

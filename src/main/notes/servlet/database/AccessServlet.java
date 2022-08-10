@@ -25,6 +25,8 @@ import static main.config.SecConfig.DATABASE_URL;
  */
 public class AccessServlet extends HttpServlet {
 
+    private static final boolean isTest = true;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         ServletUtil.setCharset(resp);
@@ -36,7 +38,7 @@ public class AccessServlet extends HttpServlet {
      * @return currentAccessNum after update
      */
     private int queryAndUpdateAccess(HttpServletRequest req) {
-        if (!ConfigConstant.isDeployed)
+        if (isTest)
             return 0;
         int num = 0;
 
