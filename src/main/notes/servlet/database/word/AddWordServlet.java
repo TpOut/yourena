@@ -3,6 +3,7 @@ package main.notes.servlet.database.word;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import main.config.ConfigConstant;
 import main.config.SecConfig;
 import main.notes.util.ServletUtil;
 
@@ -16,11 +17,9 @@ import static main.config.SecConfig.DATABASE_URL;
 
 public class AddWordServlet extends HttpServlet {
 
-    private static final boolean isTest = true;
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        if (!isTest) {
+        if(!ConfigConstant.deployed) {
             addWord(req, resp);
         }
     }
