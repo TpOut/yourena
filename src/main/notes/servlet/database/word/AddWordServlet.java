@@ -12,8 +12,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import static main.config.ConfigConstant.DATABASE_URL;
 import static main.config.ConfigConstant.isDeployed;
+import static main.config.SecConfig.DATABASE_URL;
 
 public class AddWordServlet extends HttpServlet {
 

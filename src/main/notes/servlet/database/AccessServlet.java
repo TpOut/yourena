@@ -16,7 +16,8 @@ import main.config.ConfigConstant;
 import main.config.SecConfig;
 import main.notes.util.ServletUtil;
 
-import static main.config.ConfigConstant.DATABASE_URL;
+import static main.config.SecConfig.DATABASE_URL;
+
 
 /**
  * Created by shengjieli on 19-1-2.<br>

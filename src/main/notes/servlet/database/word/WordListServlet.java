@@ -9,7 +9,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static main.config.ConfigConstant.DATABASE_URL;
+import static main.config.SecConfig.DATABASE_URL;
+
 
 public class WordListServlet extends HttpServlet {
 
