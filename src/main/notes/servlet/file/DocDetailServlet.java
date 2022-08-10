@@ -57,7 +57,7 @@ public class DocDetailServlet extends HttpServlet {
             return;
         }
         //请求日志
-        LogUtil.saveToFile(projectPath,suffix);
+        LogUtil.saveToFile(projectPath, suffix);
 
         if(!suffix.contains("MyDocs")){
             return; //防止任意读取系统文件
