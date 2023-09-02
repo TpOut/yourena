@@ -14,4 +14,5 @@ out/*
 .idea/workspace.xml
 .idea/misc.xml
 .idea/caches
+.idea/libraries
 **/SecConfig.java
